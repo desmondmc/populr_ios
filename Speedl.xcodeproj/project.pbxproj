@@ -1,0 +1,596 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29D78CCBC7A0BCCC574CD5F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70274CC64F4C569AB150CCD5 /* libPods.a */; };
+		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
+		7AB3D6EE1AC35A3900CA94DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* AppDelegate.m */; };
+		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
+		7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F71AC35A3900CA94DB /* LaunchScreen.xib */; };
+		7AB3D7051AC35A3900CA94DB /* SpeedlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7041AC35A3900CA94DB /* SpeedlTests.m */; };
+		7AB3D7111AC35B7600CA94DB /* SPNetworkObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7101AC35B7600CA94DB /* SPNetworkObject.m */; };
+		7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7141AC35BA600CA94DB /* SPNetworkHelper.m */; };
+		7AB3D71B1AC35BD000CA94DB /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7181AC35BD000CA94DB /* SPUser.m */; };
+		7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D71A1AC35BD000CA94DB /* SPUserBuilder.m */; };
+		7AB3D7211AC35C1600CA94DB /* SPSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D71F1AC35C1600CA94DB /* SPSignupViewController.m */; };
+		7AB3D7221AC35C1600CA94DB /* SPSignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D7201AC35C1600CA94DB /* SPSignupViewController.xib */; };
+		7AB3D7271AC35C4C00CA94DB /* SPComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7251AC35C4C00CA94DB /* SPComposeViewController.m */; };
+		7AB3D7281AC35C4C00CA94DB /* SPComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D7261AC35C4C00CA94DB /* SPComposeViewController.xib */; };
+		7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D72B1AC35C7400CA94DB /* SPMessageViewController.m */; };
+		7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D72C1AC35C7400CA94DB /* SPMessageViewController.xib */; };
+		7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7AB3D6FF1AC35A3900CA94DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AB3D6DD1AC35A3900CA94DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AB3D6E41AC35A3900CA94DB;
+			remoteInfo = Speedl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		70274CC64F4C569AB150CCD5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB3D6E51AC35A3900CA94DB /* Speedl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7AB3D6EC1AC35A3900CA94DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7AB3D6ED1AC35A3900CA94DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7AB3D6F51AC35A3900CA94DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7AB3D6F81AC35A3900CA94DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7AB3D6FE1AC35A3900CA94DB /* SpeedlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB3D7031AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AB3D7041AC35A3900CA94DB /* SpeedlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeedlTests.m; sourceTree = "<group>"; };
+		7AB3D70F1AC35B7600CA94DB /* SPNetworkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNetworkObject.h; sourceTree = "<group>"; };
+		7AB3D7101AC35B7600CA94DB /* SPNetworkObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNetworkObject.m; sourceTree = "<group>"; };
+		7AB3D7131AC35BA600CA94DB /* SPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNetworkHelper.h; sourceTree = "<group>"; };
+		7AB3D7141AC35BA600CA94DB /* SPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNetworkHelper.m; sourceTree = "<group>"; };
+		7AB3D7171AC35BD000CA94DB /* SPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUser.h; sourceTree = "<group>"; };
+		7AB3D7181AC35BD000CA94DB /* SPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUser.m; sourceTree = "<group>"; };
+		7AB3D7191AC35BD000CA94DB /* SPUserBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUserBuilder.h; sourceTree = "<group>"; };
+		7AB3D71A1AC35BD000CA94DB /* SPUserBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUserBuilder.m; sourceTree = "<group>"; };
+		7AB3D71E1AC35C1600CA94DB /* SPSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSignupViewController.h; sourceTree = "<group>"; };
+		7AB3D71F1AC35C1600CA94DB /* SPSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSignupViewController.m; sourceTree = "<group>"; };
+		7AB3D7201AC35C1600CA94DB /* SPSignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPSignupViewController.xib; sourceTree = "<group>"; };
+		7AB3D7241AC35C4C00CA94DB /* SPComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPComposeViewController.h; sourceTree = "<group>"; };
+		7AB3D7251AC35C4C00CA94DB /* SPComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPComposeViewController.m; sourceTree = "<group>"; };
+		7AB3D7261AC35C4C00CA94DB /* SPComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPComposeViewController.xib; sourceTree = "<group>"; };
+		7AB3D72A1AC35C7400CA94DB /* SPMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageViewController.h; sourceTree = "<group>"; };
+		7AB3D72B1AC35C7400CA94DB /* SPMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageViewController.m; sourceTree = "<group>"; };
+		7AB3D72C1AC35C7400CA94DB /* SPMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPMessageViewController.xib; sourceTree = "<group>"; };
+		7AB3D7301AC35C9900CA94DB /* SPMessageLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageLabel.h; sourceTree = "<group>"; };
+		7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageLabel.m; sourceTree = "<group>"; };
+		7AB3D7331AC35CC900CA94DB /* Speedl-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Speedl-Prefix.pch"; sourceTree = "<group>"; };
+		816A64983FABAE9275CD7EB1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7AB3D6E21AC35A3900CA94DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29D78CCBC7A0BCCC574CD5F3 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AB3D6FB1AC35A3900CA94DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7AB3D6DC1AC35A3900CA94DB = {
+			isa = PBXGroup;
+			children = (
+				7AB3D6E71AC35A3900CA94DB /* Speedl */,
+				7AB3D7011AC35A3900CA94DB /* SpeedlTests */,
+				7AB3D6E61AC35A3900CA94DB /* Products */,
+				9902C6391AA507BE63D7D702 /* Pods */,
+				B9562DC0C125E173ACDB9B68 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7AB3D6E61AC35A3900CA94DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D6E51AC35A3900CA94DB /* Speedl.app */,
+				7AB3D6FE1AC35A3900CA94DB /* SpeedlTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AB3D6E71AC35A3900CA94DB /* Speedl */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D70E1AC35B5B00CA94DB /* NetworkingHelper */,
+				7AB3D7121AC35B8000CA94DB /* Model */,
+				7AB3D71D1AC35BE600CA94DB /* Onboarding */,
+				7AB3D7231AC35C2F00CA94DB /* SPComposeViewController */,
+				7AB3D7291AC35C5700CA94DB /* SPMessageViewController */,
+				7AB3D72F1AC35C8300CA94DB /* SPMessageLabel */,
+				7AB3D6EC1AC35A3900CA94DB /* AppDelegate.h */,
+				7AB3D6ED1AC35A3900CA94DB /* AppDelegate.m */,
+				7AB3D6F51AC35A3900CA94DB /* Images.xcassets */,
+				7AB3D6F71AC35A3900CA94DB /* LaunchScreen.xib */,
+				7AB3D6E81AC35A3900CA94DB /* Supporting Files */,
+			);
+			path = Speedl;
+			sourceTree = "<group>";
+		};
+		7AB3D6E81AC35A3900CA94DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D7331AC35CC900CA94DB /* Speedl-Prefix.pch */,
+				7AB3D6E91AC35A3900CA94DB /* Info.plist */,
+				7AB3D6EA1AC35A3900CA94DB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7AB3D7011AC35A3900CA94DB /* SpeedlTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D7041AC35A3900CA94DB /* SpeedlTests.m */,
+				7AB3D7021AC35A3900CA94DB /* Supporting Files */,
+			);
+			path = SpeedlTests;
+			sourceTree = "<group>";
+		};
+		7AB3D7021AC35A3900CA94DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D7031AC35A3900CA94DB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7AB3D70E1AC35B5B00CA94DB /* NetworkingHelper */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D7131AC35BA600CA94DB /* SPNetworkHelper.h */,
+				7AB3D7141AC35BA600CA94DB /* SPNetworkHelper.m */,
+			);
+			name = NetworkingHelper;
+			sourceTree = "<group>";
+		};
+		7AB3D7121AC35B8000CA94DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D7161AC35BB800CA94DB /* User */,
+				7AB3D70F1AC35B7600CA94DB /* SPNetworkObject.h */,
+				7AB3D7101AC35B7600CA94DB /* SPNetworkObject.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7AB3D7161AC35BB800CA94DB /* User */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D7171AC35BD000CA94DB /* SPUser.h */,
+				7AB3D7181AC35BD000CA94DB /* SPUser.m */,
+				7AB3D7191AC35BD000CA94DB /* SPUserBuilder.h */,
+				7AB3D71A1AC35BD000CA94DB /* SPUserBuilder.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		7AB3D71D1AC35BE600CA94DB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D71E1AC35C1600CA94DB /* SPSignupViewController.h */,
+				7AB3D71F1AC35C1600CA94DB /* SPSignupViewController.m */,
+				7AB3D7201AC35C1600CA94DB /* SPSignupViewController.xib */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		7AB3D7231AC35C2F00CA94DB /* SPComposeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D7241AC35C4C00CA94DB /* SPComposeViewController.h */,
+				7AB3D7251AC35C4C00CA94DB /* SPComposeViewController.m */,
+				7AB3D7261AC35C4C00CA94DB /* SPComposeViewController.xib */,
+			);
+			name = SPComposeViewController;
+			sourceTree = "<group>";
+		};
+		7AB3D7291AC35C5700CA94DB /* SPMessageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D72A1AC35C7400CA94DB /* SPMessageViewController.h */,
+				7AB3D72B1AC35C7400CA94DB /* SPMessageViewController.m */,
+				7AB3D72C1AC35C7400CA94DB /* SPMessageViewController.xib */,
+			);
+			name = SPMessageViewController;
+			sourceTree = "<group>";
+		};
+		7AB3D72F1AC35C8300CA94DB /* SPMessageLabel */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D7301AC35C9900CA94DB /* SPMessageLabel.h */,
+				7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */,
+			);
+			name = SPMessageLabel;
+			sourceTree = "<group>";
+		};
+		9902C6391AA507BE63D7D702 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				816A64983FABAE9275CD7EB1 /* Pods.debug.xcconfig */,
+				F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9562DC0C125E173ACDB9B68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70274CC64F4C569AB150CCD5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7AB3D6E41AC35A3900CA94DB /* Speedl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AB3D7081AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "Speedl" */;
+			buildPhases = (
+				F366ADAE9EFBDC6FDC0DC809 /* Check Pods Manifest.lock */,
+				7AB3D6E11AC35A3900CA94DB /* Sources */,
+				7AB3D6E21AC35A3900CA94DB /* Frameworks */,
+				7AB3D6E31AC35A3900CA94DB /* Resources */,
+				DC793F293ABEDAAAA5E8C5FC /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Speedl;
+			productName = Speedl;
+			productReference = 7AB3D6E51AC35A3900CA94DB /* Speedl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7AB3D6FD1AC35A3900CA94DB /* SpeedlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AB3D70B1AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "SpeedlTests" */;
+			buildPhases = (
+				7AB3D6FA1AC35A3900CA94DB /* Sources */,
+				7AB3D6FB1AC35A3900CA94DB /* Frameworks */,
+				7AB3D6FC1AC35A3900CA94DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7AB3D7001AC35A3900CA94DB /* PBXTargetDependency */,
+			);
+			name = SpeedlTests;
+			productName = SpeedlTests;
+			productReference = 7AB3D6FE1AC35A3900CA94DB /* SpeedlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7AB3D6DD1AC35A3900CA94DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = Speedl;
+				TargetAttributes = {
+					7AB3D6E41AC35A3900CA94DB = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					7AB3D6FD1AC35A3900CA94DB = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 7AB3D6E41AC35A3900CA94DB;
+					};
+				};
+			};
+			buildConfigurationList = 7AB3D6E01AC35A3900CA94DB /* Build configuration list for PBXProject "Speedl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7AB3D6DC1AC35A3900CA94DB;
+			productRefGroup = 7AB3D6E61AC35A3900CA94DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7AB3D6E41AC35A3900CA94DB /* Speedl */,
+				7AB3D6FD1AC35A3900CA94DB /* SpeedlTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AB3D6E31AC35A3900CA94DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AB3D7281AC35C4C00CA94DB /* SPComposeViewController.xib in Resources */,
+				7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */,
+				7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */,
+				7AB3D7221AC35C1600CA94DB /* SPSignupViewController.xib in Resources */,
+				7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AB3D6FC1AC35A3900CA94DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DC793F293ABEDAAAA5E8C5FC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F366ADAE9EFBDC6FDC0DC809 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7AB3D6E11AC35A3900CA94DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AB3D6EE1AC35A3900CA94DB /* AppDelegate.m in Sources */,
+				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
+				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
+				7AB3D7211AC35C1600CA94DB /* SPSignupViewController.m in Sources */,
+				7AB3D7111AC35B7600CA94DB /* SPNetworkObject.m in Sources */,
+				7AB3D7271AC35C4C00CA94DB /* SPComposeViewController.m in Sources */,
+				7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */,
+				7AB3D71B1AC35BD000CA94DB /* SPUser.m in Sources */,
+				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
+				7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AB3D6FA1AC35A3900CA94DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AB3D7051AC35A3900CA94DB /* SpeedlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7AB3D7001AC35A3900CA94DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AB3D6E41AC35A3900CA94DB /* Speedl */;
+			targetProxy = 7AB3D6FF1AC35A3900CA94DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7AB3D6F71AC35A3900CA94DB /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7AB3D6F81AC35A3900CA94DB /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7AB3D7061AC35A3900CA94DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7AB3D7071AC35A3900CA94DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7AB3D7091AC35A3900CA94DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 816A64983FABAE9275CD7EB1 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "Speedl/Speedl-Prefix.pch";
+				INFOPLIST_FILE = Speedl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7AB3D70A1AC35A3900CA94DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "Speedl/Speedl-Prefix.pch";
+				INFOPLIST_FILE = Speedl/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7AB3D70C1AC35A3900CA94DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpeedlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Speedl.app/Speedl";
+			};
+			name = Debug;
+		};
+		7AB3D70D1AC35A3900CA94DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpeedlTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Speedl.app/Speedl";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7AB3D6E01AC35A3900CA94DB /* Build configuration list for PBXProject "Speedl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AB3D7061AC35A3900CA94DB /* Debug */,
+				7AB3D7071AC35A3900CA94DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AB3D7081AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "Speedl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AB3D7091AC35A3900CA94DB /* Debug */,
+				7AB3D70A1AC35A3900CA94DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AB3D70B1AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "SpeedlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AB3D70C1AC35A3900CA94DB /* Debug */,
+				7AB3D70D1AC35A3900CA94DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7AB3D6DD1AC35A3900CA94DB /* Project object */;
+}
