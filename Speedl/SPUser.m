@@ -123,7 +123,7 @@
 
 #pragma mark Private
 
-//Store the user on the disk essentially log them in on the device.
+//Store the user on the disk, essentially log them in on the device.
 + (void) saveUserToDisk:(SPUser *)user {
     [[NSUserDefaults standardUserDefaults] setObject:user.objectId forKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.username forKey:kUsernameKey];

@@ -38,6 +38,7 @@
             [self showErrorNotificationWithMessage:message];
             return;
         }
+        [self presentViewController:[SPLoginRouter getLoggedInViewController] animated:YES completion:nil];
         NSLog(@"Completed Request.");
     }];
 }

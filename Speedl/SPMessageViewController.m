@@ -72,9 +72,6 @@
     NSLog(@"Hiding Message!");
     [_messageLabel setHidden:YES];
     [_pauseButton setEnabled:NO];
-    SPComposeViewController *composeViewController = [[SPComposeViewController alloc] init];
-    
-    // initialize the navigation controller and present it
-    [self presentViewController:composeViewController animated:NO completion:nil];
+
 }
 @end

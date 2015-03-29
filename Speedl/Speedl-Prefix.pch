@@ -13,6 +13,8 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "UIKit/UIKit.h"
 #import "SPUser.h"
+#import "SPAppDelegate.h"
+#import "SPLoginRouter.h"
 
 //Third Party
 #import "CSNotificationView.h"
@@ -20,5 +22,6 @@
 #define kAPIRootUrl @"http://private-b5e95f-speedl.apiary-mock.com/"
 #define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"signup"]
 #define kAPILoginUrl [kAPIRootUrl stringByAppendingString:@"logon"]
+#define kAppDel ((SPAppDelegate *)[[UIApplication sharedApplication] delegate])
 
 #endif

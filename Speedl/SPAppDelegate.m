@@ -6,22 +6,20 @@
 //  Copyright (c) 2015 Desmond McNamee. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "SPAppDelegate.h"
 #import "SPMessageViewController.h"
 #import "SPSignupViewController.h"
 
-@interface AppDelegate ()
+@interface SPAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation SPAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[SPSignupViewController alloc] init];
-    [self.window makeKeyAndVisible];
+    [SPLoginRouter gotoLoggedOutView];
     
     return YES;
 }

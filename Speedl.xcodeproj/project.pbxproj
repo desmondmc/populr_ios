@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		29D78CCBC7A0BCCC574CD5F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70274CC64F4C569AB150CCD5 /* libPods.a */; };
+		7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263CFA1AC89B3900D69F60 /* SPLoginRouter.m */; };
+		7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D011AC89FEA00D69F60 /* SPContainerViewController.m */; };
 		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
-		7AB3D6EE1AC35A3900CA94DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* AppDelegate.m */; };
+		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
 		7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F71AC35A3900CA94DB /* LaunchScreen.xib */; };
 		7AB3D7051AC35A3900CA94DB /* SpeedlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7041AC35A3900CA94DB /* SpeedlTests.m */; };
@@ -38,11 +40,15 @@
 
 /* Begin PBXFileReference section */
 		70274CC64F4C569AB150CCD5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A263CF91AC89B3900D69F60 /* SPLoginRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLoginRouter.h; sourceTree = "<group>"; };
+		7A263CFA1AC89B3900D69F60 /* SPLoginRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLoginRouter.m; sourceTree = "<group>"; };
+		7A263D001AC89FEA00D69F60 /* SPContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPContainerViewController.h; sourceTree = "<group>"; };
+		7A263D011AC89FEA00D69F60 /* SPContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPContainerViewController.m; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Speedl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7AB3D6EC1AC35A3900CA94DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7AB3D6ED1AC35A3900CA94DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7AB3D6EC1AC35A3900CA94DB /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
+		7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
 		7AB3D6F51AC35A3900CA94DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7AB3D6F81AC35A3900CA94DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7AB3D6FE1AC35A3900CA94DB /* SpeedlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +97,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A263CFC1AC89B3E00D69F60 /* LoginRouter */ = {
+			isa = PBXGroup;
+			children = (
+				7A263CF91AC89B3900D69F60 /* SPLoginRouter.h */,
+				7A263CFA1AC89B3900D69F60 /* SPLoginRouter.m */,
+			);
+			name = LoginRouter;
+			sourceTree = "<group>";
+		};
+		7A263CFD1AC89B4C00D69F60 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7AB3D72F1AC35C8300CA94DB /* SPMessageLabel */,
+				7A263CFC1AC89B3E00D69F60 /* LoginRouter */,
+				7AB3D70E1AC35B5B00CA94DB /* NetworkingHelper */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		7A263CFE1AC89F0300D69F60 /* MainViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A263CFF1AC89F9400D69F60 /* SPContainerViewController */,
+				7AB3D7231AC35C2F00CA94DB /* SPComposeViewController */,
+				7AB3D7291AC35C5700CA94DB /* SPMessageViewController */,
+			);
+			name = MainViewControllers;
+			sourceTree = "<group>";
+		};
+		7A263CFF1AC89F9400D69F60 /* SPContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A263D001AC89FEA00D69F60 /* SPContainerViewController.h */,
+				7A263D011AC89FEA00D69F60 /* SPContainerViewController.m */,
+			);
+			name = SPContainerViewController;
+			sourceTree = "<group>";
+		};
 		7AB3D6DC1AC35A3900CA94DB = {
 			isa = PBXGroup;
 			children = (
@@ -114,14 +158,12 @@
 		7AB3D6E71AC35A3900CA94DB /* Speedl */ = {
 			isa = PBXGroup;
 			children = (
-				7AB3D70E1AC35B5B00CA94DB /* NetworkingHelper */,
+				7A263CFD1AC89B4C00D69F60 /* Helpers */,
 				7AB3D7121AC35B8000CA94DB /* Model */,
 				7AB3D71D1AC35BE600CA94DB /* Onboarding */,
-				7AB3D7231AC35C2F00CA94DB /* SPComposeViewController */,
-				7AB3D7291AC35C5700CA94DB /* SPMessageViewController */,
-				7AB3D72F1AC35C8300CA94DB /* SPMessageLabel */,
-				7AB3D6EC1AC35A3900CA94DB /* AppDelegate.h */,
-				7AB3D6ED1AC35A3900CA94DB /* AppDelegate.m */,
+				7A263CFE1AC89F0300D69F60 /* MainViewControllers */,
+				7AB3D6EC1AC35A3900CA94DB /* SPAppDelegate.h */,
+				7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */,
 				7AB3D6F51AC35A3900CA94DB /* Images.xcassets */,
 				7AB3D6F71AC35A3900CA94DB /* LaunchScreen.xib */,
 				7AB3D6E81AC35A3900CA94DB /* Supporting Files */,
@@ -379,14 +421,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AB3D6EE1AC35A3900CA94DB /* AppDelegate.m in Sources */,
+				7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */,
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
+				7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */,
 				7AB3D7211AC35C1600CA94DB /* SPSignupViewController.m in Sources */,
 				7AB3D7111AC35B7600CA94DB /* SPNetworkObject.m in Sources */,
 				7AB3D7271AC35C4C00CA94DB /* SPComposeViewController.m in Sources */,
 				7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */,
 				7AB3D71B1AC35BD000CA94DB /* SPUser.m in Sources */,
+				7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */,
 				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
 				7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */,
 			);
