@@ -33,13 +33,17 @@
         return;
     }
     
-    [SPUser signUpUserInBackgroundWithUsername:@"NewGuy" password:@"password" andBlock:^(SPUser *user, NSError *error) {
+    [SPUser signUpUserInBackgroundWithUsername:@"NewGuy" password:@"password" andBlock:^(SPUser *user, NSString* message) {
+        if (user == nil && message != nil) {
+            [self showErrorNotificationWithMessage:message];
+            return;
+        }
         NSLog(@"Completed Request.");
     }];
 }
 
 - (IBAction)onLoginPress:(id)sender {
-    [SPUser loginUserInBackgroundWithUsername:@"NewGuy" password:@"password" andBlock:^(SPUser *user, NSError *error) {
+    [SPUser loginUserInBackgroundWithUsername:@"NewGuy" password:@"password" andBlock:^(SPUser *user, NSString* message) {
         user = [SPUser currentUser];
         NSLog(@"Completed Request.");
         [SPUser logoutCurrentUser];

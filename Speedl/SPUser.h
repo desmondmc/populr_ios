@@ -13,7 +13,7 @@
 
 @interface SPUser : SPNetworkObject
 
-typedef void (^SPUserResultBlock)(SPUser *user, NSError *error);
+typedef void (^SPUserResultBlock)(SPUser *user, NSString *message);
 
 /* Gets the currently logged in user or returns nil of there isn't one logged-in/available */
 + (SPUser *) currentUser;

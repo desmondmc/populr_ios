@@ -38,11 +38,11 @@
 
 + (void) signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password andBlock:(SPUserResultBlock)block {
     
-    NSString *url = kAPILoginUrl;
+    NSString *url = kAPISignUpUrl;
     
     NSDictionary *userDictionary = @{@"username":username, @"password":password};
     
-    NSURLRequest *request = [SPNetworkHelper putRequestWithURL:url andDictionary:userDictionary];
+    NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
 
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -52,11 +52,21 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
                 NSError *error;
+                
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [self checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(nil, remoteError);
+                    return;
+                }
+                
+                
                 SPUser *newUser = [SPUserBuilder userFromJSON:data error:&error];
                 if (newUser && error == nil) {
                     [self saveUserToDisk:newUser];
                 }
-                block(newUser, error);
+                block(newUser, nil);
+                return;
             }
         });
         
@@ -78,15 +88,37 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
                 NSError *error;
+                
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [self checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(nil, remoteError);
+                    return;
+                }
+                
                 SPUser *user = [SPUserBuilder userFromJSON:data error:&error];
                 if (user && error == nil) {
                     [self saveUserToDisk:user];
                 }
-                block(user, error);
+                block(user, nil);
+                return;
             }
         });
         
     }];
+}
+
++ (NSString *) checkResponseCodeForError:(NSInteger)code data:(NSData *)data {
+    if (code != 200) {
+        NSError *error;
+        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if (parsedObject[@"message"] != nil) {
+            return parsedObject[@"message"];
+        } else {
+            return @"An error occured. Please try again.";
+        }
+    }
+    return nil;
 }
 
 #pragma mark Private

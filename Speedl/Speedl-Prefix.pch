@@ -15,10 +15,9 @@
 #import "SPUser.h"
 
 //Third Party
-#import "AFDropdownNotification.h"
 #import "CSNotificationView.h"
 
-#define kAPIRootUrl @"http://private-4f48d-speedle.apiary-mock.com/"
+#define kAPIRootUrl @"http://private-b5e95f-speedl.apiary-mock.com/"
 #define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"signup"]
 #define kAPILoginUrl [kAPIRootUrl stringByAppendingString:@"logon"]
 
