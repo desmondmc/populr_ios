@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPSignupViewController">
             <connections>
+                <outlet property="passwordField" destination="kr0-DL-mh1" id="B9I-fU-voo"/>
+                <outlet property="usernameField" destination="fd3-BV-AVl" id="ZmO-Lq-jbK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,15 +17,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8L-YI-ef8">
-                    <rect key="frame" x="272" y="260" width="57" height="30"/>
-                    <state key="normal" title="Sign-Up">
+                    <rect key="frame" x="272" y="277" width="57" height="30"/>
+                    <state key="normal" title="Register">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="onSignupPress:" destination="-1" eventType="touchUpInside" id="NsL-eg-YKR"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ty3-NN-ziW">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ty3-NN-ziW">
                     <rect key="frame" x="281" y="335" width="38" height="30"/>
                     <state key="normal" title="Login">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,14 +34,50 @@
                         <action selector="onLoginPress:" destination="-1" eventType="touchUpInside" id="y3f-eI-B1T"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-BV-AVl">
+                    <rect key="frame" x="8" y="147" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Wg0-6i-wtb"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speedl" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6C-Nt-nCq">
+                    <rect key="frame" x="273" y="78" width="54" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kr0-DL-mh1">
+                    <rect key="frame" x="8" y="186" width="584" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="F6Y-8F-KuX"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="Z8L-YI-ef8" secondAttribute="centerY" constant="25" id="DK3-X6-ba7"/>
                 <constraint firstAttribute="centerY" secondItem="ty3-NN-ziW" secondAttribute="centerY" constant="-50" id="Fh9-10-Nav"/>
+                <constraint firstAttribute="trailing" secondItem="kr0-DL-mh1" secondAttribute="trailing" constant="8" id="HBq-Em-pad"/>
+                <constraint firstItem="kr0-DL-mh1" firstAttribute="top" secondItem="fd3-BV-AVl" secondAttribute="bottom" constant="8.5" id="THM-zV-fxh"/>
+                <constraint firstItem="fd3-BV-AVl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="UNR-q8-NL1"/>
+                <constraint firstAttribute="centerX" secondItem="I6C-Nt-nCq" secondAttribute="centerX" id="UbN-JY-Aoc"/>
+                <constraint firstItem="kr0-DL-mh1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="VeB-KC-MFa"/>
                 <constraint firstAttribute="centerX" secondItem="Z8L-YI-ef8" secondAttribute="centerX" id="YFc-jx-SqV"/>
+                <constraint firstItem="I6C-Nt-nCq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="78" id="ZDz-7i-sqc"/>
+                <constraint firstItem="Z8L-YI-ef8" firstAttribute="top" secondItem="kr0-DL-mh1" secondAttribute="bottom" constant="61" id="c46-uY-m04"/>
                 <constraint firstAttribute="centerX" secondItem="ty3-NN-ziW" secondAttribute="centerX" id="hek-Av-nWG"/>
+                <constraint firstItem="fd3-BV-AVl" firstAttribute="top" secondItem="I6C-Nt-nCq" secondAttribute="bottom" constant="49" id="ppt-Eo-Oc6"/>
+                <constraint firstAttribute="trailing" secondItem="fd3-BV-AVl" secondAttribute="trailing" constant="8" id="zqx-1k-NHb"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="DK3-X6-ba7"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

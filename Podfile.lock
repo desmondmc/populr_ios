@@ -1,10 +1,13 @@
 PODS:
+  - CSNotificationView (0.5.4)
   - TransitionKit (2.0.0)
 
 DEPENDENCIES:
+  - CSNotificationView (~> 0.5.4)
   - TransitionKit (~> 2.0.0)
 
 SPEC CHECKSUMS:
+  CSNotificationView: 0792f5220163c2befaf1a9716aa3d5a7d6bd4fb1
   TransitionKit: 7877021649a734f3239ed176b7967de29321dcf3
 
 COCOAPODS: 0.35.0

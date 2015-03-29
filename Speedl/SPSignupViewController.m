@@ -9,6 +9,8 @@
 #import "SPSignupViewController.h"
 
 @interface SPSignupViewController ()
+@property (strong, nonatomic) IBOutlet UITextField *usernameField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
 
 @end
 
@@ -17,14 +19,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [_usernameField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)onSignupPress:(id)sender {
+    NSString *validationErrorMessage = [self validateLocally];
+    if (validationErrorMessage) {
+        [self showErrorNotificationWithMessage:validationErrorMessage];
+        return;
+    }
+    
     [SPUser signUpUserInBackgroundWithUsername:@"NewGuy" password:@"password" andBlock:^(SPUser *user, NSError *error) {
         NSLog(@"Completed Request.");
     }];
@@ -37,6 +45,50 @@
         [SPUser logoutCurrentUser];
         NSLog(@"Logged out.");
     }];
+}
+
+- (NSString *) validateLocally {
+    if ([_usernameField.text isEqualToString:@""] || _usernameField.text == nil) {
+        //Error please enter a username.
+        return @"Please Enter a username";
+
+    }
+    if ([_passwordField.text isEqualToString:@""] || _passwordField.text == nil) {
+        //Error please enter password
+        return @"Please Enter a password";
+    }
+    
+    return nil;
+}
+
+- (void) showErrorNotificationWithMessage:(NSString *)message{
+    [CSNotificationView showInViewController:self
+                                       style:CSNotificationViewStyleError
+                                     message:message];
+    
+}
+
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == _usernameField) {
+        [_passwordField becomeFirstResponder];
+    } else if (textField == _passwordField){
+        [self onSignupPress:nil];
+    }
+    return YES;
+}
+
+#pragma mark AFDropdownNotificationDelegate
+
+-(void)dropdownNotificationTopButtonTapped {
+    
+    NSLog(@"Top button tapped");
+}
+
+-(void)dropdownNotificationBottomButtonTapped {
+    
+    NSLog(@"Bottom button tapped");
 }
 
 @end

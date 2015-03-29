@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPSignupViewController : UIViewController
+@interface SPSignupViewController : UIViewController <UITextFieldDelegate, AFDropdownNotificationDelegate>
 
 @end
