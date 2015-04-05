@@ -31,8 +31,20 @@
     return contrainterViewController;
 }
 
++ (void) gotoLoggedInView {
+    if (kAppDel.window == nil) {
+        kAppDel.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    }
+    
+    kAppDel.window.rootViewController = [self getLoggedInViewController];
+    [kAppDel.window makeKeyAndVisible];
+}
+
 + (void) gotoLoggedOutView {
-    kAppDel.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    if (kAppDel.window == nil) {
+        kAppDel.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    }
+    
     kAppDel.window.rootViewController = [[SPSignupViewController alloc] init];
     [kAppDel.window makeKeyAndVisible];
 }

@@ -15,6 +15,14 @@
 
 typedef void (^SPUserResultBlock)(SPUser *user, NSString *message);
 
+// JSON values
+
+/* Warning! This is an objective-c representation of json objects. The way the code is currently structured,
+ variabel names of this object must match their corresponding json properties.*/
+
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *password;
+
 /* Gets the currently logged in user or returns nil of there isn't one logged-in/available */
 + (SPUser *) currentUser;
 
@@ -24,14 +32,5 @@ typedef void (^SPUserResultBlock)(SPUser *user, NSString *message);
 
 + (void) loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password andBlock:(SPUserResultBlock)block;
 
-
-
-//JSON values
-
-/* Warning! This is an objective-c representation of json objects. The way the code is currently structured,
- variabel names of this object must match their corresponding json properties.*/
-
-@property (strong, nonatomic) NSString *username;
-@property (strong, nonatomic) NSString *password;
 
 @end
