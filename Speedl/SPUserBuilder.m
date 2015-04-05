@@ -21,13 +21,13 @@
     
     SPUser *user = [[SPUser alloc] init];
     
-    if ([parsedObject objectForKey:@"id"] != nil) {
-        user.objectId = [parsedObject objectForKey:@"id"];
+    if (parsedObject[@"user"][@"id"] != nil) {
+        user.objectId = parsedObject[@"user"][@"id"];
     }
         
-    for (NSString *key in parsedObject) {
+    for (NSString *key in parsedObject[@"user"]) {
         if ([user respondsToSelector:NSSelectorFromString(key)]) {
-            [user setValue:[parsedObject valueForKey:key] forKey:key];
+            [user setValue:parsedObject[@"user"][key] forKey:key];
         }
     }
     

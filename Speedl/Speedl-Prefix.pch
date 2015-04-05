@@ -18,10 +18,14 @@
 
 //Third Party
 #import "CSNotificationView.h"
-//#define kAPIRootUrl @"http://52.17.154.158:3000/"
-#define kAPIRootUrl @"http://private-b5e95f-speedl.apiary-mock.com/"
-#define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"signup"]
-#define kAPILoginUrl [kAPIRootUrl stringByAppendingString:@"logon"]
+//#define kAPIRootUrl @"http://52.17.154.158:3000"
+#define kAPIRootUrl @"http://private-b5e95f-speedl.apiary-mock.com"
+
+#define kAPIMessagesUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]
+#define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"/signup"]
+#define kAPILoginUrl [kAPIRootUrl stringByAppendingString:@"/logon"]
 #define kAppDel ((SPAppDelegate *)[[UIApplication sharedApplication] delegate])
+
+#define kGenericErrorString @"An error occured. Please try again."
 
 #endif

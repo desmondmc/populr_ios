@@ -13,13 +13,13 @@
 
 // date is a derived from timestamp
 - (NSDate *)date {
-    if (self.timeStamp == nil || [self.timeStamp isEqualToString:@""]) {
+    if (self.timestamp == nil || [self.timestamp isEqualToString:@""]) {
         return nil;
     }
     // Convert string to date object
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyymmdd"];
-    NSDate *date = [dateFormat dateFromString:self.timeStamp];
+    NSDate *date = [dateFormat dateFromString:self.timestamp];
     
     return date;
 }

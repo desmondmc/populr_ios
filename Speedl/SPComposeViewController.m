@@ -38,6 +38,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     [_messageTextField becomeFirstResponder];
 }
+- (IBAction)onMicPress:(id)sender {
+    [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
+        for (SPMessage *message in messages) {
+            NSLog(@"%@", message.body);
+        }
+    }];
+}
 
 -(void)keyboardDidShow:(NSNotification*)notification
 {

@@ -11,6 +11,7 @@
 		7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263CFA1AC89B3900D69F60 /* SPLoginRouter.m */; };
 		7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D011AC89FEA00D69F60 /* SPContainerViewController.m */; };
 		7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D121AD1486B00D69F60 /* SPMessage.m */; };
+		7A263D161AD1EF1900D69F60 /* SPMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D151AD1EF1900D69F60 /* SPMessageBuilder.m */; };
 		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
 		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
@@ -47,6 +48,8 @@
 		7A263D011AC89FEA00D69F60 /* SPContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPContainerViewController.m; sourceTree = "<group>"; };
 		7A263D111AD1486B00D69F60 /* SPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessage.h; sourceTree = "<group>"; };
 		7A263D121AD1486B00D69F60 /* SPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessage.m; sourceTree = "<group>"; };
+		7A263D141AD1EF1900D69F60 /* SPMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageBuilder.h; sourceTree = "<group>"; };
+		7A263D151AD1EF1900D69F60 /* SPMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageBuilder.m; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Speedl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 			children = (
 				7A263D111AD1486B00D69F60 /* SPMessage.h */,
 				7A263D121AD1486B00D69F60 /* SPMessage.m */,
+				7A263D141AD1EF1900D69F60 /* SPMessageBuilder.h */,
+				7A263D151AD1EF1900D69F60 /* SPMessageBuilder.m */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 				7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */,
 				7AB3D71B1AC35BD000CA94DB /* SPUser.m in Sources */,
 				7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */,
+				7A263D161AD1EF1900D69F60 /* SPMessageBuilder.m in Sources */,
 				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
 				7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */,
 				7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */,

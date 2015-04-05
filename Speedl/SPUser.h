@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "SPNetworkObject.h"
+#import "SPMessage.h"
 
 
 
 @interface SPUser : SPNetworkObject
 
-typedef void (^SPUserResultBlock)(SPUser *user, NSString *message);
+typedef void (^SPUserResultBlock)(SPUser *user, NSString *serverMessage);
 
 // JSON values
 
@@ -28,9 +29,11 @@ typedef void (^SPUserResultBlock)(SPUser *user, NSString *message);
 
 + (void) logoutCurrentUser;
 
-+ (void) signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password andBlock:(SPUserResultBlock)block;
++ (void) signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block;
 
-+ (void) loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password andBlock:(SPUserResultBlock)block;
++ (void) loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block;
+
+- (void) getMessagesInBackground:(SPMessagesResultBlock)block;
 
 
 @end

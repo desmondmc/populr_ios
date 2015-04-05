@@ -8,6 +8,7 @@
 
 #import "SPUser.h"
 #import "SPUserBuilder.h"
+#import "SPMessageBuilder.h"
 #import "SPNetworkHelper.h"
 
 #define kObjectIdKey @"objectId"
@@ -36,7 +37,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (void) signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password andBlock:(SPUserResultBlock)block {
++ (void) signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block {
     
     NSString *url = kAPISignUpUrl;
     
@@ -54,7 +55,7 @@
                 NSError *error;
                 
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [self checkResponseCodeForError:httpResponse.statusCode data:data];
+                NSString *remoteError = [SPUser checkResponseCodeForError:httpResponse.statusCode data:data];
                 if (remoteError) {
                     block(nil, remoteError);
                     return;
@@ -62,8 +63,11 @@
                 
                 
                 SPUser *newUser = [SPUserBuilder userFromJSON:data error:&error];
-                if (newUser && error == nil) {
+                if (newUser && error == nil && newUser.objectId != nil) {
                     [self saveUserToDisk:newUser];
+                } else {
+                    block(nil, kGenericErrorString);
+                    return;
                 }
                 block(newUser, nil);
                 return;
@@ -73,7 +77,7 @@
     }];
 }
 
-+ (void) loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password andBlock:(SPUserResultBlock)block {
++ (void) loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block {
     NSString *url = kAPILoginUrl;
     
     NSDictionary *userDictionary = @{@"username":username, @"password":password};
@@ -90,17 +94,53 @@
                 NSError *error;
                 
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [self checkResponseCodeForError:httpResponse.statusCode data:data];
+                NSString *remoteError = [SPUser checkResponseCodeForError:httpResponse.statusCode data:data];
                 if (remoteError) {
                     block(nil, remoteError);
                     return;
                 }
                 
                 SPUser *user = [SPUserBuilder userFromJSON:data error:&error];
-                if (user && error == nil) {
+                if (user && error == nil && user.objectId != nil) {
                     [self saveUserToDisk:user];
+                } else {
+                    block(nil, kGenericErrorString);
+                    return;
                 }
                 block(user, nil);
+                return;
+            }
+        });
+        
+    }];
+}
+
+- (void) getMessagesInBackground:(SPMessagesResultBlock)block {
+    NSString *url = kAPIMessagesUrl;
+    
+    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                NSError *error;
+                
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [SPUser checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(nil, remoteError);
+                    return;
+                }
+                
+                NSArray *messages = [SPMessageBuilder messagesFromJSON:data error:&error];
+
+                block(messages, nil);
                 return;
             }
         });
@@ -115,7 +155,7 @@
         if (parsedObject[@"message"] != nil) {
             return parsedObject[@"message"];
         } else {
-            return @"An error occured. Please try again.";
+            return kGenericErrorString;
         }
     }
     return nil;
