@@ -33,14 +33,16 @@
         return;
     }
     
-    [SPUser signUpUserInBackgroundWithUsername:@"NewGuy" password:@"password" block:^(SPUser *user, NSString* message) {
-        if (user == nil && message != nil) {
-            [self showErrorNotificationWithMessage:message];
-            return;
-        }
-        
-        [SPLoginRouter gotoLoggedInView];
-    }];
+//    [SPUser signUpUserInBackgroundWithUsername:@"NewGuy" password:@"password" block:^(SPUser *user, NSString* message) {
+//        if (user == nil && message != nil) {
+//            [self showErrorNotificationWithMessage:message];
+//            return;
+//        }
+//        
+//        [SPLoginRouter gotoLoggedInView];
+//    }];
+    
+    [SPLoginRouter gotoLoggedInView];
 }
 
 - (IBAction)onLoginPress:(id)sender {
