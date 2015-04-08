@@ -38,8 +38,25 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pa-5W-YX8">
+                    <rect key="frame" x="16" y="28" width="51" height="30"/>
+                    <state key="normal" title="Go Left">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onGoLeftPress:" destination="-1" eventType="touchUpInside" id="Jr0-J5-TIH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO7-VE-Alw">
+                    <rect key="frame" x="523" y="28" width="61" height="30"/>
+                    <state key="normal" title="Go Right">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onGoRightPress:" destination="-1" eventType="touchUpInside" id="eNZ-Hc-SQm"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="sRg-Zl-Wjy" secondAttribute="bottom" constant="81" id="8TA-Hh-Gzk"/>
                 <constraint firstAttribute="trailing" secondItem="R0j-In-TCD" secondAttribute="trailing" constant="8" id="GKr-NY-Aoi"/>
@@ -48,8 +65,12 @@
                 <constraint firstAttribute="bottom" secondItem="ml4-86-yVC" secondAttribute="bottom" constant="81" id="f4D-Jk-TdT"/>
                 <constraint firstAttribute="centerX" secondItem="R0j-In-TCD" secondAttribute="centerX" id="fCu-1g-Eje"/>
                 <constraint firstAttribute="trailing" secondItem="sRg-Zl-Wjy" secondAttribute="trailing" constant="18" id="fb2-Re-Vuo"/>
+                <constraint firstAttribute="trailing" secondItem="vO7-VE-Alw" secondAttribute="trailing" constant="16" id="gXq-19-KKC"/>
                 <constraint firstItem="R0j-In-TCD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="gqS-le-Mu4"/>
+                <constraint firstItem="9pa-5W-YX8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="nEO-YJ-pYA"/>
+                <constraint firstItem="9pa-5W-YX8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="oOK-5k-C7u"/>
                 <constraint firstItem="ml4-86-yVC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="tRu-cD-Zxz"/>
+                <constraint firstItem="vO7-VE-Alw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="w6L-Rx-goL"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">

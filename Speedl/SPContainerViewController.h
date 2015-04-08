@@ -13,4 +13,11 @@
 @property (nonatomic, strong) NSMutableArray *viewControllerArray;
 @property (strong, nonatomic) UIPageViewController *pageController;
 
+- (void) goToMessageViewController;
+
+- (void) goToComposeViewControllerFromLeft;
+- (void) goToComposeViewControllerFromRight;
+
+- (void) goToFriendsViewController;
+
 @end

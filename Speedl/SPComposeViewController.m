@@ -66,5 +66,11 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+- (IBAction)onGoLeftPress:(id)sender {
+    [self.containerViewController goToMessageViewController];
+}
+- (IBAction)onGoRightPress:(id)sender {
+    [self.containerViewController goToFriendsViewController];
+}
 
 @end

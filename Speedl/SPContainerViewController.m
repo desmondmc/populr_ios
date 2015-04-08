@@ -9,6 +9,7 @@
 #import "SPContainerViewController.h"
 #import "SPComposeViewController.h"
 #import "SPMessageViewController.h"
+#import "SPFriendsViewController.h"
 
 @interface SPContainerViewController ()
 
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {    
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor redColor]];
+    [self.view setBackgroundColor:[UIColor blueColor]];
     
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
@@ -45,6 +46,7 @@
         }
     }
     
+    self.currentPageIndex = 1;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,6 +82,11 @@
     return [self.viewControllerArray objectAtIndex:index];
 }
 
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
+{
+    UIViewController *vc = [pageViewController.viewControllers lastObject];
+}
+
 -(NSInteger)indexOfController:(UIViewController *)viewController
 {
     for (int i = 0; i<[self.viewControllerArray count]; i++) {
@@ -92,25 +99,52 @@
     return NSNotFound;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+#pragma mark Public Functions
+- (void) goToMessageViewController {
+    SPMessageViewController *messageViewController = [self.viewControllerArray objectAtIndex:0];
     
+    NSArray *viewControllers = [NSArray arrayWithObject:messageViewController];
+    
+    [self.pageController setViewControllers:viewControllers
+                                  direction:UIPageViewControllerNavigationDirectionReverse
+                                   animated:YES
+                                 completion:nil];
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self resignFirstResponder];
+- (void) goToComposeViewControllerFromLeft {
+    SPComposeViewController *composeViewController = [self.viewControllerArray objectAtIndex:1];
+    
+    NSArray *viewControllers = [NSArray arrayWithObject:composeViewController];
+    _scrollView.bounces = NO;
+    [self.pageController setViewControllers:viewControllers
+                                  direction:UIPageViewControllerNavigationDirectionForward
+                                   animated:YES
+                                 completion:nil];
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
-{
-//    if (self.currentPageIndex == 0 && _scrollView.contentOffset.x <= _scrollView.bounds.size.width) {
-//        velocity = CGPointZero;
-//        *targetContentOffset = CGPointMake(scrollView.bounds.size.width, 0);
-//    }
-//    if (self.currentPageIndex == [self.viewControllerArray count]-1 && scrollView.contentOffset.x >= scrollView.bounds.size.width) {
-//        velocity = CGPointZero;
-//        *targetContentOffset = CGPointMake(_scrollView.bounds.size.width, 0);
-//    }
+- (void) goToComposeViewControllerFromRight {
+    SPComposeViewController *composeViewController = [self.viewControllerArray objectAtIndex:1];
+    
+    NSArray *viewControllers = [NSArray arrayWithObject:composeViewController];
+    _scrollView.bounces = NO;
+    [self.pageController setViewControllers:viewControllers
+                                  direction:UIPageViewControllerNavigationDirectionReverse
+                                   animated:YES
+                                 completion:nil];
 }
+
+- (void) goToFriendsViewController {
+    SPFriendsViewController *friendsViewController = [self.viewControllerArray objectAtIndex:2];
+    
+    NSArray *viewControllers = [NSArray arrayWithObject:friendsViewController];
+    _scrollView.bounces = NO;
+    [self.pageController setViewControllers:viewControllers
+                                  direction:UIPageViewControllerNavigationDirectionForward
+                                   animated:YES
+                                 completion:nil];
+}
+
+
 
 
 @end

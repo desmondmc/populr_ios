@@ -15,6 +15,7 @@
 #import "SPUser.h"
 #import "SPAppDelegate.h"
 #import "SPLoginRouter.h"
+#import "SPContainedViewController.h"
 
 //Third Party
 #import "CSNotificationView.h"

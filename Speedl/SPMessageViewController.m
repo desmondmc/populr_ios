@@ -74,4 +74,7 @@
     [_pauseButton setEnabled:NO];
 
 }
+- (IBAction)onGoRightPress:(id)sender {
+    [self.containerViewController goToComposeViewControllerFromLeft];
+}
 @end

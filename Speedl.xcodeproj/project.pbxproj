@@ -12,6 +12,9 @@
 		7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D011AC89FEA00D69F60 /* SPContainerViewController.m */; };
 		7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D121AD1486B00D69F60 /* SPMessage.m */; };
 		7A263D161AD1EF1900D69F60 /* SPMessageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D151AD1EF1900D69F60 /* SPMessageBuilder.m */; };
+		7A263D191AD5BEB500D69F60 /* SPContainedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D181AD5BEB500D69F60 /* SPContainedViewController.m */; };
+		7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */; };
+		7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */; };
 		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
 		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
@@ -50,6 +53,11 @@
 		7A263D121AD1486B00D69F60 /* SPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessage.m; sourceTree = "<group>"; };
 		7A263D141AD1EF1900D69F60 /* SPMessageBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageBuilder.h; sourceTree = "<group>"; };
 		7A263D151AD1EF1900D69F60 /* SPMessageBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageBuilder.m; sourceTree = "<group>"; };
+		7A263D171AD5BEB500D69F60 /* SPContainedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPContainedViewController.h; sourceTree = "<group>"; };
+		7A263D181AD5BEB500D69F60 /* SPContainedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPContainedViewController.m; sourceTree = "<group>"; };
+		7A263D1B1AD5C10300D69F60 /* SPFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendsViewController.h; sourceTree = "<group>"; };
+		7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendsViewController.m; sourceTree = "<group>"; };
+		7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendsViewController.xib; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Speedl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,9 +133,11 @@
 		7A263CFE1AC89F0300D69F60 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7A263D1A1AD5BEDE00D69F60 /* SPContainedViewController */,
 				7A263CFF1AC89F9400D69F60 /* SPContainerViewController */,
 				7AB3D7231AC35C2F00CA94DB /* SPComposeViewController */,
 				7AB3D7291AC35C5700CA94DB /* SPMessageViewController */,
+				7A263D201AD5C10A00D69F60 /* SPFriendsViewController */,
 			);
 			name = MainViewControllers;
 			sourceTree = "<group>";
@@ -150,6 +160,25 @@
 				7A263D151AD1EF1900D69F60 /* SPMessageBuilder.m */,
 			);
 			name = Message;
+			sourceTree = "<group>";
+		};
+		7A263D1A1AD5BEDE00D69F60 /* SPContainedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A263D171AD5BEB500D69F60 /* SPContainedViewController.h */,
+				7A263D181AD5BEB500D69F60 /* SPContainedViewController.m */,
+			);
+			name = SPContainedViewController;
+			sourceTree = "<group>";
+		};
+		7A263D201AD5C10A00D69F60 /* SPFriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A263D1B1AD5C10300D69F60 /* SPFriendsViewController.h */,
+				7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */,
+				7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */,
+			);
+			name = SPFriendsViewController;
 			sourceTree = "<group>";
 		};
 		7AB3D6DC1AC35A3900CA94DB = {
@@ -389,6 +418,7 @@
 				7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */,
 				7AB3D7221AC35C1600CA94DB /* SPSignupViewController.xib in Resources */,
 				7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */,
+				7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */,
+				7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */,
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
 				7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */,
@@ -453,6 +484,7 @@
 				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
 				7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */,
 				7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */,
+				7A263D191AD5BEB500D69F60 /* SPContainedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

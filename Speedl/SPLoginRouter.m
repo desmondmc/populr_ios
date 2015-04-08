@@ -11,6 +11,7 @@
 #import "SPContainerViewController.h"
 #import "SPComposeViewController.h"
 #import "SPMessageViewController.h"
+#import "SPFriendsViewController.h"
 
 @implementation SPLoginRouter
 
@@ -18,15 +19,22 @@
     
     SPComposeViewController *composeViewController = [[SPComposeViewController alloc] init];
     SPMessageViewController *leftViewController  = [[SPMessageViewController alloc] init];
+    SPFriendsViewController *rightViewController = [[SPFriendsViewController alloc] init];
 
-    NSArray *views = @[leftViewController, composeViewController];
-    
     SPContainerViewController *contrainterViewController = [[SPContainerViewController alloc] init];
+    
+    composeViewController.containerViewController = contrainterViewController;
+    leftViewController.containerViewController = contrainterViewController;
+    rightViewController.containerViewController = contrainterViewController;
+    
+    NSArray *views = @[leftViewController, composeViewController, rightViewController];
+    
     [contrainterViewController setViewControllerArray:views.mutableCopy];
     
     UIPageViewController *pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
     contrainterViewController.pageController = pageViewController;
+    contrainterViewController.pageController.delegate = contrainterViewController;
     
     return contrainterViewController;
 }
