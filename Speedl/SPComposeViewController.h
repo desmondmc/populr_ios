@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPComposeViewController : SPContainedViewController
+@interface SPComposeViewController : SPContainedViewController <SPContainerViewControllerDelegate>
 
 @end

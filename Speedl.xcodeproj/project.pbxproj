@@ -133,8 +133,7 @@
 		7A263CFE1AC89F0300D69F60 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7A263D1A1AD5BEDE00D69F60 /* SPContainedViewController */,
-				7A263CFF1AC89F9400D69F60 /* SPContainerViewController */,
+				7A263D211AD5D5E500D69F60 /* HelpersForViewControllers */,
 				7AB3D7231AC35C2F00CA94DB /* SPComposeViewController */,
 				7AB3D7291AC35C5700CA94DB /* SPMessageViewController */,
 				7A263D201AD5C10A00D69F60 /* SPFriendsViewController */,
@@ -179,6 +178,15 @@
 				7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */,
 			);
 			name = SPFriendsViewController;
+			sourceTree = "<group>";
+		};
+		7A263D211AD5D5E500D69F60 /* HelpersForViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A263D1A1AD5BEDE00D69F60 /* SPContainedViewController */,
+				7A263CFF1AC89F9400D69F60 /* SPContainerViewController */,
+			);
+			name = HelpersForViewControllers;
 			sourceTree = "<group>";
 		};
 		7AB3D6DC1AC35A3900CA94DB = {

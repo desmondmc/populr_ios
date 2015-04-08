@@ -15,6 +15,7 @@
 
 @property UIScrollView *scrollView;
 @property NSInteger currentPageIndex;
+@property NSMutableOrderedSet *delegates;
 
 @end
 
@@ -84,7 +85,7 @@
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
-    UIViewController *vc = [pageViewController.viewControllers lastObject];
+    [self notifyDelegatesOfNewVisableViewController];
 }
 
 -(NSInteger)indexOfController:(UIViewController *)viewController
@@ -105,10 +106,14 @@
     
     NSArray *viewControllers = [NSArray arrayWithObject:messageViewController];
     
+    __weak SPContainerViewController *weakSelf = self;
+    
     [self.pageController setViewControllers:viewControllers
                                   direction:UIPageViewControllerNavigationDirectionReverse
                                    animated:YES
-                                 completion:nil];
+                                 completion:^(BOOL finished) {
+                                     [weakSelf notifyDelegatesOfNewVisableViewController];
+                                 }];
 }
 
 - (void) goToComposeViewControllerFromLeft {
@@ -116,10 +121,15 @@
     
     NSArray *viewControllers = [NSArray arrayWithObject:composeViewController];
     _scrollView.bounces = NO;
+    
+    __weak SPContainerViewController *weakSelf = self;
+    
     [self.pageController setViewControllers:viewControllers
                                   direction:UIPageViewControllerNavigationDirectionForward
                                    animated:YES
-                                 completion:nil];
+                                 completion:^(BOOL finished) {
+                                     [weakSelf notifyDelegatesOfNewVisableViewController];
+                                 }];
 }
 
 - (void) goToComposeViewControllerFromRight {
@@ -127,10 +137,15 @@
     
     NSArray *viewControllers = [NSArray arrayWithObject:composeViewController];
     _scrollView.bounces = NO;
+    
+    __weak SPContainerViewController *weakSelf = self;
+    
     [self.pageController setViewControllers:viewControllers
                                   direction:UIPageViewControllerNavigationDirectionReverse
                                    animated:YES
-                                 completion:nil];
+                                 completion:^(BOOL finished) {
+                                     [weakSelf notifyDelegatesOfNewVisableViewController];
+                                 }];
 }
 
 - (void) goToFriendsViewController {
@@ -138,10 +153,39 @@
     
     NSArray *viewControllers = [NSArray arrayWithObject:friendsViewController];
     _scrollView.bounces = NO;
+    
+    __weak SPContainerViewController *weakSelf = self;
+    
     [self.pageController setViewControllers:viewControllers
                                   direction:UIPageViewControllerNavigationDirectionForward
                                    animated:YES
-                                 completion:nil];
+                                 completion:^(BOOL finished) {
+                                     [weakSelf notifyDelegatesOfNewVisableViewController];
+                                 }];
+}
+
+- (void) addDelegate:(id <SPContainerViewControllerDelegate>)delegate {
+    if (self.delegates == nil) {
+        self.delegates = [[NSMutableOrderedSet alloc] init];
+    }
+    
+    [self.delegates addObject:delegate];
+}
+- (void) removeDelegate:(id <SPContainerViewControllerDelegate>)delegate {
+    if (self.delegates == nil) {
+        return;
+    }
+    
+    [self.delegates removeObject:delegate];
+
+}
+
+- (void) notifyDelegatesOfNewVisableViewController {
+    for (id <SPContainerViewControllerDelegate> delegate in self.delegates) {
+        if ([delegate respondsToSelector:@selector(newVisableViewController:)]) {
+            [delegate newVisableViewController:self.pageController.viewControllers[0]];
+        }
+    }
 }
 
 

@@ -27,6 +27,10 @@
     leftViewController.containerViewController = contrainterViewController;
     rightViewController.containerViewController = contrainterViewController;
     
+    [contrainterViewController addDelegate:composeViewController];
+    [contrainterViewController addDelegate:leftViewController];
+    [contrainterViewController addDelegate:rightViewController];
+    
     NSArray *views = @[leftViewController, composeViewController, rightViewController];
     
     [contrainterViewController setViewControllerArray:views.mutableCopy];

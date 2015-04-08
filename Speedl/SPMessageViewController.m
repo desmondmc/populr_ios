@@ -60,21 +60,33 @@
     }];
 }
 - (IBAction)onPausePress:(id)sender {
-    [_restartButton setHidden:NO];
-    [_playButton setHidden:NO];
-    [_messageLabel pauseAnination];
+    [self runPauseActions];
 }
 - (IBAction)onRestartPress:(id)sender {
     [_messageLabel restartAnimation];
 }
 
 - (void) handleMessageComplete {
-    NSLog(@"Hiding Message!");
     [_messageLabel setHidden:YES];
     [_pauseButton setEnabled:NO];
 
 }
+
+- (void) runPauseActions {
+    [_restartButton setHidden:NO];
+    [_playButton setHidden:NO];
+    [_messageLabel pauseAnination];
+}
+
 - (IBAction)onGoRightPress:(id)sender {
     [self.containerViewController goToComposeViewControllerFromLeft];
+}
+
+#pragma mark - SPContainterViewDelegate
+
+- (void) newVisableViewController:(UIViewController *)viewController {
+    if (viewController == self) {
+        NSLog(@"MessageView is visable!!");
+    }
 }
 @end

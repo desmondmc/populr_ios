@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPMessageViewController : SPContainedViewController
+@interface SPMessageViewController : SPContainedViewController <SPContainerViewControllerDelegate>
 
 @end

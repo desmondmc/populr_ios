@@ -69,8 +69,17 @@
 - (IBAction)onGoLeftPress:(id)sender {
     [self.containerViewController goToMessageViewController];
 }
+
 - (IBAction)onGoRightPress:(id)sender {
     [self.containerViewController goToFriendsViewController];
+}
+
+#pragma mark - SPContainterViewDelegate
+
+- (void) newVisableViewController:(UIViewController *)viewController {
+    if (viewController == self) {
+        NSLog(@"ComposeView is visable!!");
+    }
 }
 
 @end
