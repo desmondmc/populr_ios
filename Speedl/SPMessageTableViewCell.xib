@@ -16,6 +16,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-fk-uJG">
                         <rect key="frame" x="155" y="5" width="80" height="80"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-W0-MFI">
+                                <rect key="frame" x="30" y="30" width="20" height="20"/>
+                            </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_circle_160x160" translatesAutoresizingMaskIntoConstraints="NO" id="xII-1v-XZw">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                             </imageView>
@@ -55,6 +58,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="activityIndicator" destination="4LM-W0-MFI" id="0oi-Vg-vg8"/>
                 <outlet property="messageNumberLabel" destination="jKQ-N4-WNX" id="y0W-2W-BkX"/>
                 <outlet property="messageTimeLabel" destination="slw-DM-uQr" id="LOy-Ak-Mdy"/>
             </connections>

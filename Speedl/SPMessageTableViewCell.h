@@ -11,5 +11,6 @@
 @interface SPMessageTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *messageNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *messageTimeLabel;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end

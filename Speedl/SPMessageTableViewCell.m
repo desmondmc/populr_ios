@@ -16,6 +16,7 @@
     self.messageNumberLabel.textColor = [UIColor whiteColor];
     self.messageTimeLabel.font = [SPAppearance mainSegmentControlFont];
     self.messageTimeLabel.textColor = [SPAppearance seeThroughColour];
+    [self.activityIndicator setHidden:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

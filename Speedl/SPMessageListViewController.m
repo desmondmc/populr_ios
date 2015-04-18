@@ -74,8 +74,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+     SPMessageTableViewCell *cell = (SPMessageTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    [cell.activityIndicator setHidden:NO];
+    [cell.messageNumberLabel setHidden:YES];
+    
+    
     SPMessageViewController *messageViewController = [[SPMessageViewController alloc] init];
-    [self presentViewController: messageViewController animated:NO completion:nil];
+    [self presentViewController: messageViewController animated:NO completion:^{
+        [cell.activityIndicator setHidden:YES];
+        [cell.messageNumberLabel setHidden:NO];
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
