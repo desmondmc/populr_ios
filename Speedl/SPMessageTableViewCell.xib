@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="160" id="KGk-i7-Jjw" customClass="SPMessageTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-fk-uJG">
+                        <rect key="frame" x="155" y="5" width="80" height="80"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_circle_160x160" translatesAutoresizingMaskIntoConstraints="NO" id="xII-1v-XZw">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKQ-N4-WNX">
+                                <rect key="frame" x="35" y="29" width="10" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="5s3-4F-mAY"/>
+                            <constraint firstItem="xII-1v-XZw" firstAttribute="leading" secondItem="gh2-fk-uJG" secondAttribute="leading" id="NKu-SO-TI8"/>
+                            <constraint firstAttribute="centerX" secondItem="jKQ-N4-WNX" secondAttribute="centerX" id="XkZ-6S-pRz"/>
+                            <constraint firstAttribute="centerY" secondItem="jKQ-N4-WNX" secondAttribute="centerY" id="e3v-4G-Hl4"/>
+                            <constraint firstAttribute="height" constant="80" id="e6t-TK-HN7"/>
+                            <constraint firstAttribute="bottom" secondItem="xII-1v-XZw" secondAttribute="bottom" id="eA0-FC-dGn"/>
+                            <constraint firstAttribute="trailing" secondItem="xII-1v-XZw" secondAttribute="trailing" id="fgr-GY-yaH"/>
+                            <constraint firstItem="xII-1v-XZw" firstAttribute="top" secondItem="gh2-fk-uJG" secondAttribute="top" id="jdl-85-ftb"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slw-DM-uQr">
+                        <rect key="frame" x="243" y="34" width="94" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="slw-DM-uQr" firstAttribute="leading" secondItem="gh2-fk-uJG" secondAttribute="trailing" constant="8" id="4pB-uh-9hq"/>
+                    <constraint firstAttribute="centerX" secondItem="gh2-fk-uJG" secondAttribute="centerX" id="MB6-ra-8Ua"/>
+                    <constraint firstAttribute="centerY" secondItem="gh2-fk-uJG" secondAttribute="centerY" id="S8z-ZO-Rfv"/>
+                    <constraint firstAttribute="centerY" secondItem="slw-DM-uQr" secondAttribute="centerY" id="g5V-40-YhT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="messageNumberLabel" destination="jKQ-N4-WNX" id="y0W-2W-BkX"/>
+                <outlet property="messageTimeLabel" destination="slw-DM-uQr" id="LOy-Ak-Mdy"/>
+            </connections>
+            <point key="canvasLocation" x="269" y="309.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="message_circle_160x160" width="80" height="80"/>
+    </resources>
+</document>

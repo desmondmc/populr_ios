@@ -11,7 +11,8 @@
 @implementation SPAppearance
 
 + (UIColor *) globalBackgroundColour {
-    return [UIColor colorWithRed:0.737 green:0.365 blue:0.475 alpha:1];
+    return [UIColor colorWithRed:0.18 green:0.18 blue:0.22 alpha:1]; // Dark Grey
+    //return [UIColor colorWithRed:0.737 green:0.365 blue:0.475 alpha:1]; // Pink
 }
 
 + (UIColor *) seeThroughColour {

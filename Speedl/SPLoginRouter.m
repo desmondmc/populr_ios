@@ -12,13 +12,14 @@
 #import "SPComposeViewController.h"
 #import "SPMessageViewController.h"
 #import "SPFriendsViewController.h"
+#import "SPMessageListViewController.h"
 
 @implementation SPLoginRouter
 
 + (UIViewController *) getLoggedInViewController {
     
     SPComposeViewController *composeViewController = [[SPComposeViewController alloc] init];
-    SPMessageViewController *leftViewController  = [[SPMessageViewController alloc] init];
+    SPMessageListViewController *leftViewController  = [[SPMessageListViewController alloc] init];
     SPFriendsViewController *rightViewController = [[SPFriendsViewController alloc] init];
 
     SPContainerViewController *contrainterViewController = [[SPContainerViewController alloc] init];

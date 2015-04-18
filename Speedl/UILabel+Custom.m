@@ -10,4 +10,8 @@
 
 @implementation UILabel (Custom)
 
+- (void) styleAsMainSpeedlLabel {
+
+}
+
 @end

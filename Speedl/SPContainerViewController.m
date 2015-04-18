@@ -10,6 +10,7 @@
 #import "SPComposeViewController.h"
 #import "SPMessageViewController.h"
 #import "SPFriendsViewController.h"
+#import "SPMessageListViewController.h"
 
 @interface SPContainerViewController ()
 
@@ -196,7 +197,7 @@
 - (void) updatePageControl {
     UIViewController *currentView = self.pageController.viewControllers[0];
     
-    if ([currentView isKindOfClass:[SPMessageViewController class]]) {
+    if ([currentView isKindOfClass:[SPMessageListViewController class]]) {
         //First View
         self.pageControl.currentPage = 0;
     }

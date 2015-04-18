@@ -37,6 +37,10 @@
 		7AE4D1F51AE2877D006F6C83 /* UITextField+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1F41AE2877D006F6C83 /* UITextField+Custom.m */; };
 		7AE4D1F81AE28BD7006F6C83 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1F71AE28BD7006F6C83 /* UIButton+Custom.m */; };
 		7AE4D1FB1AE294BE006F6C83 /* UISegmentedControl+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1FA1AE294BE006F6C83 /* UISegmentedControl+Custom.m */; };
+		7AE4D2001AE2A749006F6C83 /* SPMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1FE1AE2A749006F6C83 /* SPMessageTableViewCell.m */; };
+		7AE4D2011AE2A749006F6C83 /* SPMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D1FF1AE2A749006F6C83 /* SPMessageTableViewCell.xib */; };
+		7AE4D2081AE2AC28006F6C83 /* SPMessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D2061AE2AC28006F6C83 /* SPMessageListViewController.m */; };
+		7AE4D2091AE2AC28006F6C83 /* SPMessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D2071AE2AC28006F6C83 /* SPMessageListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +109,12 @@
 		7AE4D1F71AE28BD7006F6C83 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
 		7AE4D1F91AE294BE006F6C83 /* UISegmentedControl+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+Custom.h"; sourceTree = "<group>"; };
 		7AE4D1FA1AE294BE006F6C83 /* UISegmentedControl+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+Custom.m"; sourceTree = "<group>"; };
+		7AE4D1FD1AE2A749006F6C83 /* SPMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageTableViewCell.h; sourceTree = "<group>"; };
+		7AE4D1FE1AE2A749006F6C83 /* SPMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageTableViewCell.m; sourceTree = "<group>"; };
+		7AE4D1FF1AE2A749006F6C83 /* SPMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPMessageTableViewCell.xib; sourceTree = "<group>"; };
+		7AE4D2051AE2AC28006F6C83 /* SPMessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageListViewController.h; sourceTree = "<group>"; };
+		7AE4D2061AE2AC28006F6C83 /* SPMessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageListViewController.m; sourceTree = "<group>"; };
+		7AE4D2071AE2AC28006F6C83 /* SPMessageListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPMessageListViewController.xib; sourceTree = "<group>"; };
 		816A64983FABAE9275CD7EB1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,9 +161,9 @@
 		7A263CFE1AC89F0300D69F60 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7AE4D1FC1AE2A70D006F6C83 /* SPMessageList */,
 				7A263D211AD5D5E500D69F60 /* HelpersForViewControllers */,
 				7AB3D7231AC35C2F00CA94DB /* SPComposeViewController */,
-				7AB3D7291AC35C5700CA94DB /* SPMessageViewController */,
 				7A263D201AD5C10A00D69F60 /* SPFriendsViewController */,
 			);
 			name = MainViewControllers;
@@ -358,6 +368,36 @@
 			name = SPAppearance;
 			sourceTree = "<group>";
 		};
+		7AE4D1FC1AE2A70D006F6C83 /* SPMessageList */ = {
+			isa = PBXGroup;
+			children = (
+				7AE4D2041AE2AC04006F6C83 /* SPMessageListViewController */,
+				7AE4D2021AE2A74D006F6C83 /* SPMessageTableViewCell */,
+				7AB3D7291AC35C5700CA94DB /* SPMessageViewController */,
+			);
+			name = SPMessageList;
+			sourceTree = "<group>";
+		};
+		7AE4D2021AE2A74D006F6C83 /* SPMessageTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7AE4D1FD1AE2A749006F6C83 /* SPMessageTableViewCell.h */,
+				7AE4D1FE1AE2A749006F6C83 /* SPMessageTableViewCell.m */,
+				7AE4D1FF1AE2A749006F6C83 /* SPMessageTableViewCell.xib */,
+			);
+			name = SPMessageTableViewCell;
+			sourceTree = "<group>";
+		};
+		7AE4D2041AE2AC04006F6C83 /* SPMessageListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE4D2051AE2AC28006F6C83 /* SPMessageListViewController.h */,
+				7AE4D2061AE2AC28006F6C83 /* SPMessageListViewController.m */,
+				7AE4D2071AE2AC28006F6C83 /* SPMessageListViewController.xib */,
+			);
+			name = SPMessageListViewController;
+			sourceTree = "<group>";
+		};
 		9902C6391AA507BE63D7D702 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,7 +502,9 @@
 				7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */,
 				7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */,
 				7AB3D7221AC35C1600CA94DB /* SPSignupViewController.xib in Resources */,
+				7AE4D2091AE2AC28006F6C83 /* SPMessageListViewController.xib in Resources */,
 				7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */,
+				7AE4D2011AE2A749006F6C83 /* SPMessageTableViewCell.xib in Resources */,
 				7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +562,7 @@
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
 				7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */,
+				7AE4D2001AE2A749006F6C83 /* SPMessageTableViewCell.m in Sources */,
 				7AB3D7211AC35C1600CA94DB /* SPSignupViewController.m in Sources */,
 				7AB3D7111AC35B7600CA94DB /* SPNetworkObject.m in Sources */,
 				7AE4D1F81AE28BD7006F6C83 /* UIButton+Custom.m in Sources */,
@@ -530,6 +573,7 @@
 				7AE4D1F51AE2877D006F6C83 /* UITextField+Custom.m in Sources */,
 				7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */,
 				7A263D161AD1EF1900D69F60 /* SPMessageBuilder.m in Sources */,
+				7AE4D2081AE2AC28006F6C83 /* SPMessageListViewController.m in Sources */,
 				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
 				7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */,
 				7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */,

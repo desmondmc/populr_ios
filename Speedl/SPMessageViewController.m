@@ -25,6 +25,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [SPAppearance globalBackgroundColour];
+    
     [_restartButton setHidden:YES];
     [_playButton setHidden:YES];
     [_messageLabel setHidden:YES];
@@ -67,6 +70,7 @@
 }
 
 - (void) handleMessageComplete {
+    [self dismissViewControllerAnimated:NO completion:nil];
     [_messageLabel setHidden:YES];
     [_pauseButton setEnabled:NO];
 

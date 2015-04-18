@@ -10,4 +10,6 @@
 
 @interface UILabel (Custom)
 
+- (void) styleAsMainSpeedlLabel;
+
 @end
