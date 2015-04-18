@@ -31,6 +31,12 @@
 		7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D72B1AC35C7400CA94DB /* SPMessageViewController.m */; };
 		7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D72C1AC35C7400CA94DB /* SPMessageViewController.xib */; };
 		7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */; };
+		7AE4D1EB1AE256B9006F6C83 /* SPContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D1EA1AE256B9006F6C83 /* SPContainerViewController.xib */; };
+		7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1EE1AE25E1F006F6C83 /* SPAppearance.m */; };
+		7AE4D1F21AE2870E006F6C83 /* UILabel+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1F11AE2870E006F6C83 /* UILabel+Custom.m */; };
+		7AE4D1F51AE2877D006F6C83 /* UITextField+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1F41AE2877D006F6C83 /* UITextField+Custom.m */; };
+		7AE4D1F81AE28BD7006F6C83 /* UIButton+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1F71AE28BD7006F6C83 /* UIButton+Custom.m */; };
+		7AE4D1FB1AE294BE006F6C83 /* UISegmentedControl+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1FA1AE294BE006F6C83 /* UISegmentedControl+Custom.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +94,17 @@
 		7AB3D7301AC35C9900CA94DB /* SPMessageLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageLabel.h; sourceTree = "<group>"; };
 		7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageLabel.m; sourceTree = "<group>"; };
 		7AB3D7331AC35CC900CA94DB /* Speedl-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Speedl-Prefix.pch"; sourceTree = "<group>"; };
+		7AE4D1EA1AE256B9006F6C83 /* SPContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPContainerViewController.xib; sourceTree = "<group>"; };
+		7AE4D1ED1AE25E1F006F6C83 /* SPAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAppearance.h; sourceTree = "<group>"; };
+		7AE4D1EE1AE25E1F006F6C83 /* SPAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAppearance.m; sourceTree = "<group>"; };
+		7AE4D1F01AE2870E006F6C83 /* UILabel+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Custom.h"; sourceTree = "<group>"; };
+		7AE4D1F11AE2870E006F6C83 /* UILabel+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Custom.m"; sourceTree = "<group>"; };
+		7AE4D1F31AE2877D006F6C83 /* UITextField+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Custom.h"; sourceTree = "<group>"; };
+		7AE4D1F41AE2877D006F6C83 /* UITextField+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Custom.m"; sourceTree = "<group>"; };
+		7AE4D1F61AE28BD7006F6C83 /* UIButton+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Custom.h"; sourceTree = "<group>"; };
+		7AE4D1F71AE28BD7006F6C83 /* UIButton+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Custom.m"; sourceTree = "<group>"; };
+		7AE4D1F91AE294BE006F6C83 /* UISegmentedControl+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+Custom.h"; sourceTree = "<group>"; };
+		7AE4D1FA1AE294BE006F6C83 /* UISegmentedControl+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+Custom.m"; sourceTree = "<group>"; };
 		816A64983FABAE9275CD7EB1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +140,7 @@
 		7A263CFD1AC89B4C00D69F60 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7AE4D1EC1AE25DD8006F6C83 /* SPAppearance */,
 				7AB3D72F1AC35C8300CA94DB /* SPMessageLabel */,
 				7A263CFC1AC89B3E00D69F60 /* LoginRouter */,
 				7AB3D70E1AC35B5B00CA94DB /* NetworkingHelper */,
@@ -146,6 +164,7 @@
 			children = (
 				7A263D001AC89FEA00D69F60 /* SPContainerViewController.h */,
 				7A263D011AC89FEA00D69F60 /* SPContainerViewController.m */,
+				7AE4D1EA1AE256B9006F6C83 /* SPContainerViewController.xib */,
 			);
 			name = SPContainerViewController;
 			sourceTree = "<group>";
@@ -322,6 +341,23 @@
 			name = SPMessageLabel;
 			sourceTree = "<group>";
 		};
+		7AE4D1EC1AE25DD8006F6C83 /* SPAppearance */ = {
+			isa = PBXGroup;
+			children = (
+				7AE4D1ED1AE25E1F006F6C83 /* SPAppearance.h */,
+				7AE4D1EE1AE25E1F006F6C83 /* SPAppearance.m */,
+				7AE4D1F01AE2870E006F6C83 /* UILabel+Custom.h */,
+				7AE4D1F11AE2870E006F6C83 /* UILabel+Custom.m */,
+				7AE4D1F31AE2877D006F6C83 /* UITextField+Custom.h */,
+				7AE4D1F41AE2877D006F6C83 /* UITextField+Custom.m */,
+				7AE4D1F61AE28BD7006F6C83 /* UIButton+Custom.h */,
+				7AE4D1F71AE28BD7006F6C83 /* UIButton+Custom.m */,
+				7AE4D1F91AE294BE006F6C83 /* UISegmentedControl+Custom.h */,
+				7AE4D1FA1AE294BE006F6C83 /* UISegmentedControl+Custom.m */,
+			);
+			name = SPAppearance;
+			sourceTree = "<group>";
+		};
 		9902C6391AA507BE63D7D702 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +457,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE4D1EB1AE256B9006F6C83 /* SPContainerViewController.xib in Resources */,
 				7AB3D7281AC35C4C00CA94DB /* SPComposeViewController.xib in Resources */,
 				7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */,
 				7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */,
@@ -478,18 +515,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */,
+				7AE4D1F21AE2870E006F6C83 /* UILabel+Custom.m in Sources */,
 				7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */,
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
 				7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */,
 				7AB3D7211AC35C1600CA94DB /* SPSignupViewController.m in Sources */,
 				7AB3D7111AC35B7600CA94DB /* SPNetworkObject.m in Sources */,
+				7AE4D1F81AE28BD7006F6C83 /* UIButton+Custom.m in Sources */,
 				7AB3D7271AC35C4C00CA94DB /* SPComposeViewController.m in Sources */,
 				7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */,
+				7AE4D1FB1AE294BE006F6C83 /* UISegmentedControl+Custom.m in Sources */,
 				7AB3D71B1AC35BD000CA94DB /* SPUser.m in Sources */,
+				7AE4D1F51AE2877D006F6C83 /* UITextField+Custom.m in Sources */,
 				7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */,
 				7A263D161AD1EF1900D69F60 /* SPMessageBuilder.m in Sources */,
 				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
+				7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */,
 				7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */,
 				7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */,
 				7A263D191AD5BEB500D69F60 /* SPContainedViewController.m in Sources */,

@@ -11,6 +11,9 @@
 @interface SPSignupViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UIButton *nextButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *nextButtonBottomContraint;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
 @end
 
@@ -19,19 +22,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
     [_usernameField becomeFirstResponder];
+    [self setupAppearance];
+}
+
+- (void) setupAppearance {
+    [self.view setBackgroundColor:[SPAppearance globalBackgroundColour]];
+    [self.usernameField styleAsMainSpeedlTextField];
+    [self.passwordField styleAsMainSpeedlTextField];
+    [self.nextButton styleAsMainSpeedlButton];
+    [self.segmentControl styleAsMainSpeedlSegmentControl];
+}
+
+-(void)keyboardWasShown:(NSNotification*)notification
+{
+    CGFloat height = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    
+    self.nextButtonBottomContraint.constant = height + 20;
+    [self.view layoutIfNeeded];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)onSignupPress:(id)sender {
+- (IBAction)onNextPress:(id)sender {
     NSString *validationErrorMessage = [self validateLocally];
     if (validationErrorMessage) {
         [self showErrorNotificationWithMessage:validationErrorMessage];
         return;
     }
+    [self routeBasedOnSegmentControl];
+}
+
+- (void) routeBasedOnSegmentControl {
+    if (self.segmentControl.selectedSegmentIndex == 0) {    //Login
+        [self loginUser];
+    } else {                                                //Register
+        [self registerUser];
+    }
+}
+
+- (void)registerUser {
+    [SPLoginRouter gotoLoggedInView];
     
 //    [SPUser signUpUserInBackgroundWithUsername:@"NewGuy" password:@"password" block:^(SPUser *user, NSString* message) {
 //        if (user == nil && message != nil) {
@@ -42,16 +76,21 @@
 //        [SPLoginRouter gotoLoggedInView];
 //    }];
     
-    [SPLoginRouter gotoLoggedInView];
+    
 }
 
-- (IBAction)onLoginPress:(id)sender {
-    [SPUser loginUserInBackgroundWithUsername:@"NewGuy" password:@"password" block:^(SPUser *user, NSString* message) {
-        user = [SPUser currentUser];
-        NSLog(@"Completed Request.");
-        [SPUser logoutCurrentUser];
-        NSLog(@"Logged out.");
-    }];
+
+
+- (void) loginUser {
+    [SPLoginRouter gotoLoggedInView];
+    
+    
+//    [SPUser loginUserInBackgroundWithUsername:@"NewGuy" password:@"password" block:^(SPUser *user, NSString* message) {
+//        user = [SPUser currentUser];
+//        NSLog(@"Completed Request.");
+//        [SPUser logoutCurrentUser];
+//        NSLog(@"Logged out.");
+//    }];
 }
 
 - (NSString *) validateLocally {
@@ -81,7 +120,7 @@
     if (textField == _usernameField) {
         [_passwordField becomeFirstResponder];
     } else if (textField == _passwordField){
-        [self onSignupPress:nil];
+        [self routeBasedOnSegmentControl];
     }
     return YES;
 }

@@ -16,6 +16,13 @@
 #import "SPAppDelegate.h"
 #import "SPLoginRouter.h"
 #import "SPContainedViewController.h"
+#import "SPAppearance.h"
+
+// Catagories
+#import "UITextField+Custom.h"
+#import "UIButton+Custom.h"
+#import "UILabel+Custom.h"
+#import "UISegmentedControl+Custom.h"
 
 //Third Party
 #import "CSNotificationView.h"

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *sendButtonBottomConstraint;
 @property (strong, nonatomic) IBOutlet UITextField *messageTextField;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *textFieldTopConstraint;
+@property (strong, nonatomic) IBOutlet UIButton *sendButton;
 
 @end
 
@@ -25,9 +26,15 @@
     
     // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidShow:)
+                                             selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification
                                                object:nil];
+    
+    [self setupAppearance];
+    
+}
+- (void) setupAppearance {
+    [self.sendButton styleAsMainSpeedlButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,15 +53,15 @@
     }];
 }
 
--(void)keyboardDidShow:(NSNotification*)notification
+-(void)keyboardWasShown:(NSNotification*)notification
 {
     [self.view layoutIfNeeded];
     NSDictionary* keyboardInfo = [notification userInfo];
     NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGFloat keyboardHeight = [keyboardFrameBegin CGRectValue].size.height;
     
-    _micButtonBottomConstraint.constant = keyboardHeight + 30;
-    _sendButtonBottomConstraint.constant = keyboardHeight + 30;
+    _micButtonBottomConstraint.constant = keyboardHeight + 20;
+    _sendButtonBottomConstraint.constant = keyboardHeight + 20;
     _textFieldTopConstraint.constant = (self.view.frame.size.height - keyboardHeight
                                         - (_messageTextField.frame.size.height/2)) / 2;
     
@@ -74,10 +81,33 @@
     [self.containerViewController goToFriendsViewController];
 }
 
+#pragma mark - UITextViewDelegate
+
+#define kPlaceHolderText @"Start typing..."
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:kPlaceHolderText]) {
+        textView.text = @"";
+        textView.textColor = [SPAppearance mainTextFieldColour];
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = kPlaceHolderText;
+        textView.textColor = [SPAppearance seeThroughColour];
+    }
+    [textView resignFirstResponder];
+}
+
 #pragma mark - SPContainterViewDelegate
 
 - (void) newVisableViewController:(UIViewController *)viewController {
     if (viewController == self) {
+        BOOL worked = [_messageTextField becomeFirstResponder];
         NSLog(@"ComposeView is visable!!");
     }
 }

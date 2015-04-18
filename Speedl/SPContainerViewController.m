@@ -16,6 +16,7 @@
 @property UIScrollView *scrollView;
 @property NSInteger currentPageIndex;
 @property NSMutableOrderedSet *delegates;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -24,7 +25,7 @@
 - (void)viewDidLoad {    
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor blueColor]];
+    [self.view setBackgroundColor:[SPAppearance globalBackgroundColour]];
     
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
@@ -48,6 +49,8 @@
     }
     
     self.currentPageIndex = 1;
+    
+    [self updatePageControl];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -181,10 +184,29 @@
 }
 
 - (void) notifyDelegatesOfNewVisableViewController {
+    [self updatePageControl];
+    
     for (id <SPContainerViewControllerDelegate> delegate in self.delegates) {
         if ([delegate respondsToSelector:@selector(newVisableViewController:)]) {
             [delegate newVisableViewController:self.pageController.viewControllers[0]];
         }
+    }
+}
+
+- (void) updatePageControl {
+    UIViewController *currentView = self.pageController.viewControllers[0];
+    
+    if ([currentView isKindOfClass:[SPMessageViewController class]]) {
+        //First View
+        self.pageControl.currentPage = 0;
+    }
+    else if([currentView isKindOfClass:[SPComposeViewController class]]){
+        //Second View
+        self.pageControl.currentPage = 1;
+    }
+    else if([currentView isKindOfClass:[SPFriendsViewController class]]){
+        //Third View
+        self.pageControl.currentPage = 2;
     }
 }
 
