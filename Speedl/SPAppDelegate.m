@@ -19,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [[UITextField appearance] setTintColor:[UIColor whiteColor]];
+    [[UITextView appearance] setTintColor:[UIColor whiteColor]];
+    
     [SPLoginRouter gotoLoggedOutView];
     
     return YES;

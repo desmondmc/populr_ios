@@ -11,7 +11,8 @@
 @interface SPComposeViewController ()
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *micButtonBottomConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *sendButtonBottomConstraint;
-@property (strong, nonatomic) IBOutlet UITextField *messageTextField;
+@property (strong, nonatomic) IBOutlet UITextView *messageTextView;
+
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *textFieldTopConstraint;
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
 
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_messageTextField becomeFirstResponder];
+    [_messageTextView becomeFirstResponder];
     
     // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -43,7 +44,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [_messageTextField becomeFirstResponder];
+    [_messageTextView becomeFirstResponder];
 }
 - (IBAction)onMicPress:(id)sender {
     [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
@@ -62,8 +63,6 @@
     
     _micButtonBottomConstraint.constant = keyboardHeight + 20;
     _sendButtonBottomConstraint.constant = keyboardHeight + 20;
-    _textFieldTopConstraint.constant = (self.view.frame.size.height - keyboardHeight
-                                        - (_messageTextField.frame.size.height/2)) / 2;
     
     [UIView animateWithDuration:0.5
                      animations:^{
@@ -107,7 +106,7 @@
 
 - (void) newVisableViewController:(UIViewController *)viewController {
     if (viewController == self) {
-        BOOL worked = [_messageTextField becomeFirstResponder];
+        [_messageTextView becomeFirstResponder];
         NSLog(@"ComposeView is visable!!");
     }
 }

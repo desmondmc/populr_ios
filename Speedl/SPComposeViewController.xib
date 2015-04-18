@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPComposeViewController">
             <connections>
+                <outlet property="messageTextView" destination="A7G-to-vjl" id="t32-TU-D8f"/>
                 <outlet property="micButtonBottomConstraint" destination="f4D-Jk-TdT" id="ZbK-Wj-1Uj"/>
                 <outlet property="sendButton" destination="sRg-Zl-Wjy" id="qhg-qr-xg1"/>
                 <outlet property="sendButtonBottomConstraint" destination="8TA-Hh-Gzk" id="fwq-uN-hEB"/>
@@ -27,10 +28,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRg-Zl-Wjy">
-                    <rect key="frame" x="526" y="330" width="54" height="34"/>
-                    <state key="normal" title="SEND ">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <rect key="frame" x="526" y="331" width="54" height="33"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                    <state key="normal" title="SEND "/>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pa-5W-YX8">
                     <rect key="frame" x="16" y="28" width="51" height="30"/>
@@ -53,6 +53,7 @@
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A7G-to-vjl">
                     <rect key="frame" x="8" y="80" width="584" height="147"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <attributedString key="attributedText">
                         <fragment content="Start typing...">
                             <attributes>
