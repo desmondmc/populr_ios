@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SPFriendsViewController : SPContainedViewController <SPContainerViewControllerDelegate>
+@interface SPFriendsViewController : SPContainedViewController <SPContainerViewControllerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end

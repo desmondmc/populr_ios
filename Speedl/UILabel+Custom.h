@@ -11,5 +11,6 @@
 @interface UILabel (Custom)
 
 - (void) styleAsMainSpeedlLabel;
+- (void) styleAsFriendLabel;
 
 @end

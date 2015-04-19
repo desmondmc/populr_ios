@@ -16,6 +16,8 @@
 		7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */; };
 		7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */; };
 		7A49B9841AE406CA0085D3C6 /* UITextView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B9831AE406CA0085D3C6 /* UITextView+Custom.m */; };
+		7A49B98A1AE417830085D3C6 /* SPFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B9881AE417830085D3C6 /* SPFriendTableViewCell.m */; };
+		7A49B98B1AE417830085D3C6 /* SPFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A49B9891AE417830085D3C6 /* SPFriendTableViewCell.xib */; };
 		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
 		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
@@ -71,6 +73,9 @@
 		7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendsViewController.xib; sourceTree = "<group>"; };
 		7A49B9821AE406CA0085D3C6 /* UITextView+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Custom.h"; sourceTree = "<group>"; };
 		7A49B9831AE406CA0085D3C6 /* UITextView+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Custom.m"; sourceTree = "<group>"; };
+		7A49B9871AE417830085D3C6 /* SPFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendTableViewCell.h; sourceTree = "<group>"; };
+		7A49B9881AE417830085D3C6 /* SPFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendTableViewCell.m; sourceTree = "<group>"; };
+		7A49B9891AE417830085D3C6 /* SPFriendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendTableViewCell.xib; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Speedl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -167,7 +172,7 @@
 				7AE4D1FC1AE2A70D006F6C83 /* SPMessageList */,
 				7A263D211AD5D5E500D69F60 /* HelpersForViewControllers */,
 				7AB3D7231AC35C2F00CA94DB /* SPComposeViewController */,
-				7A263D201AD5C10A00D69F60 /* SPFriendsViewController */,
+				7A49B9851AE417400085D3C6 /* SPFriendsList */,
 			);
 			name = MainViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +224,25 @@
 				7A263CFF1AC89F9400D69F60 /* SPContainerViewController */,
 			);
 			name = HelpersForViewControllers;
+			sourceTree = "<group>";
+		};
+		7A49B9851AE417400085D3C6 /* SPFriendsList */ = {
+			isa = PBXGroup;
+			children = (
+				7A49B9861AE417540085D3C6 /* SPFriendTableViewCell */,
+				7A263D201AD5C10A00D69F60 /* SPFriendsViewController */,
+			);
+			name = SPFriendsList;
+			sourceTree = "<group>";
+		};
+		7A49B9861AE417540085D3C6 /* SPFriendTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7A49B9871AE417830085D3C6 /* SPFriendTableViewCell.h */,
+				7A49B9881AE417830085D3C6 /* SPFriendTableViewCell.m */,
+				7A49B9891AE417830085D3C6 /* SPFriendTableViewCell.xib */,
+			);
+			name = SPFriendTableViewCell;
 			sourceTree = "<group>";
 		};
 		7AB3D6DC1AC35A3900CA94DB = {
@@ -506,6 +530,7 @@
 				7AB3D7281AC35C4C00CA94DB /* SPComposeViewController.xib in Resources */,
 				7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */,
 				7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */,
+				7A49B98B1AE417830085D3C6 /* SPFriendTableViewCell.xib in Resources */,
 				7AB3D7221AC35C1600CA94DB /* SPSignupViewController.xib in Resources */,
 				7AE4D2091AE2AC28006F6C83 /* SPMessageListViewController.xib in Resources */,
 				7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */,
@@ -567,6 +592,7 @@
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
 				7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */,
+				7A49B98A1AE417830085D3C6 /* SPFriendTableViewCell.m in Sources */,
 				7AE4D2001AE2A749006F6C83 /* SPMessageTableViewCell.m in Sources */,
 				7AB3D7211AC35C1600CA94DB /* SPSignupViewController.m in Sources */,
 				7AB3D7111AC35B7600CA94DB /* SPNetworkObject.m in Sources */,

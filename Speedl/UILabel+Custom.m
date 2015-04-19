@@ -14,4 +14,10 @@
 
 }
 
+- (void) styleAsFriendLabel {
+    self.font = [SPAppearance friendsListFont];
+    self.textColor = [SPAppearance friendsListColour];
+    self.text = [self.text uppercaseString];
+}
+
 @end

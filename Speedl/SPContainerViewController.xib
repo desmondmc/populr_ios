@@ -16,11 +16,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="le6-5h-0Vs">
-                    <rect key="frame" x="281" y="28" width="39" height="37"/>
+                    <rect key="frame" x="281" y="20" width="39" height="37"/>
                 </pageControl>
             </subviews>
             <constraints>
-                <constraint firstItem="le6-5h-0Vs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="28" id="06Z-fM-aJZ"/>
+                <constraint firstItem="le6-5h-0Vs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="06Z-fM-aJZ"/>
                 <constraint firstAttribute="centerX" secondItem="le6-5h-0Vs" secondAttribute="centerX" id="4lz-2E-khT"/>
             </constraints>
         </view>

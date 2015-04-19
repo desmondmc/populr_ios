@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPFriendsViewController">
             <connections>
+                <outlet property="segmentControl" destination="dSZ-0T-i21" id="FLz-X0-IfK"/>
+                <outlet property="tableView" destination="mKb-VB-IHg" id="YR3-Js-Ezh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,29 +16,40 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNW-tt-krx">
-                    <rect key="frame" x="16" y="28" width="51" height="30"/>
-                    <state key="normal" title="Go Left">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onGoLeftPress:" destination="-1" eventType="touchUpInside" id="58Q-xh-iG0"/>
-                    </connections>
-                </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mKb-VB-IHg">
-                    <rect key="frame" x="0.0" y="80" width="600" height="520"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mKb-VB-IHg">
+                    <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="P4E-sm-JvD"/>
+                        <outlet property="delegate" destination="-1" id="OcO-mf-usB"/>
+                    </connections>
                 </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-0T-i21">
+                    <rect key="frame" x="20" y="60" width="560" height="29"/>
+                    <segments>
+                        <segment title="Following"/>
+                        <segment title="Followers"/>
+                        <segment title="Settings"/>
+                    </segments>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="DNW-tt-krx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="EyL-A9-9Q1"/>
+                <constraint firstItem="mKb-VB-IHg" firstAttribute="top" secondItem="dSZ-0T-i21" secondAttribute="bottom" constant="20" id="4Ep-P8-rk4"/>
+                <constraint firstItem="dSZ-0T-i21" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="FJs-Tw-Qks"/>
+                <constraint firstItem="dSZ-0T-i21" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Qd3-1y-fxy"/>
                 <constraint firstItem="mKb-VB-IHg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="Xj4-tY-LEo"/>
                 <constraint firstAttribute="bottom" secondItem="mKb-VB-IHg" secondAttribute="bottom" id="agh-gW-PPm"/>
-                <constraint firstItem="DNW-tt-krx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="gkE-ir-hCj"/>
                 <constraint firstItem="mKb-VB-IHg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hpO-gY-OJC"/>
                 <constraint firstAttribute="trailing" secondItem="mKb-VB-IHg" secondAttribute="trailing" id="ob1-y3-oGT"/>
+                <constraint firstAttribute="trailing" secondItem="dSZ-0T-i21" secondAttribute="trailing" constant="20" id="uow-8v-pdU"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Xj4-tY-LEo"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

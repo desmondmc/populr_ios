@@ -22,4 +22,7 @@
 + (UIFont *) mainSegmentControlColour;
 + (UIFont *) mainSegmentControlFont;
 
++ (UIFont *) friendsListFont;
++ (UIColor *) friendsListColour;
+
 @end
