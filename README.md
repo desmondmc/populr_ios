@@ -3,7 +3,7 @@
 Speedl is an iOS app for super sweet fast messaging.
 
 ## Dependencies
-- [Cocoapods](http://http://cocoapods.org/)
+- [Cocoapods](https://cocoapods.org/)
 - [Xcode](https://developer.apple.com/xcode/)
 
 
