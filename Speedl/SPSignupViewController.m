@@ -109,8 +109,14 @@
 
 - (void) showErrorNotificationWithMessage:(NSString *)message{
     [CSNotificationView showInViewController:self
-                                       style:CSNotificationViewStyleError
-                                     message:message];
+                                   tintColor:[SPAppearance seeThroughColour]
+                                       image:[CSNotificationView imageForStyle:CSNotificationViewStyleError]
+                                     message:message
+                                    duration:kCSNotificationViewDefaultShowDuration];
+    
+//    [CSNotificationView showInViewController:self
+//                                       style:CSNotificationViewStyleError
+//                                     message:message];
     
 }
 

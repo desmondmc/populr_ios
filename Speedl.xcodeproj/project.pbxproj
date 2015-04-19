@@ -15,6 +15,7 @@
 		7A263D191AD5BEB500D69F60 /* SPContainedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D181AD5BEB500D69F60 /* SPContainedViewController.m */; };
 		7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */; };
 		7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */; };
+		7A49B9841AE406CA0085D3C6 /* UITextView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B9831AE406CA0085D3C6 /* UITextView+Custom.m */; };
 		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
 		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
@@ -68,6 +69,8 @@
 		7A263D1B1AD5C10300D69F60 /* SPFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendsViewController.h; sourceTree = "<group>"; };
 		7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendsViewController.m; sourceTree = "<group>"; };
 		7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendsViewController.xib; sourceTree = "<group>"; };
+		7A49B9821AE406CA0085D3C6 /* UITextView+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Custom.h"; sourceTree = "<group>"; };
+		7A49B9831AE406CA0085D3C6 /* UITextView+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Custom.m"; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Speedl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 				7AE4D1F71AE28BD7006F6C83 /* UIButton+Custom.m */,
 				7AE4D1F91AE294BE006F6C83 /* UISegmentedControl+Custom.h */,
 				7AE4D1FA1AE294BE006F6C83 /* UISegmentedControl+Custom.m */,
+				7A49B9821AE406CA0085D3C6 /* UITextView+Custom.h */,
+				7A49B9831AE406CA0085D3C6 /* UITextView+Custom.m */,
 			);
 			name = SPAppearance;
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 				7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */,
 				7A263D161AD1EF1900D69F60 /* SPMessageBuilder.m in Sources */,
 				7AE4D2081AE2AC28006F6C83 /* SPMessageListViewController.m in Sources */,
+				7A49B9841AE406CA0085D3C6 /* UITextView+Custom.m in Sources */,
 				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
 				7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */,
 				7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */,

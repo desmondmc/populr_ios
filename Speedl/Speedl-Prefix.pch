@@ -23,6 +23,7 @@
 #import "UIButton+Custom.h"
 #import "UILabel+Custom.h"
 #import "UISegmentedControl+Custom.h"
+#import "UITextView+Custom.h"
 
 //Third Party
 #import "CSNotificationView.h"

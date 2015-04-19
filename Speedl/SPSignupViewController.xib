@@ -33,59 +33,83 @@
                         <action selector="onNextPress:" destination="-1" eventType="touchUpInside" id="v3N-If-2fe"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kr0-DL-mh1">
-                    <rect key="frame" x="8" y="236" width="584" height="17"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="F6Y-8F-KuX"/>
-                    </connections>
-                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FeR-ab-qSA" userLabel="Container">
+                    <rect key="frame" x="0.0" y="88" width="600" height="240"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4q0-09-h2P" userLabel="EntryFields">
+                            <rect key="frame" x="0.0" y="60" width="600" height="120"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-BV-AVl">
+                                    <rect key="frame" x="0.0" y="8" width="600" height="17"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="Wg0-6i-wtb"/>
+                                    </connections>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kr0-DL-mh1">
+                                    <rect key="frame" x="0.0" y="95" width="600" height="17"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="F6Y-8F-KuX"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="fd3-BV-AVl" firstAttribute="leading" secondItem="4q0-09-h2P" secondAttribute="leading" id="Rcv-g5-ar0"/>
+                                <constraint firstItem="kr0-DL-mh1" firstAttribute="leading" secondItem="4q0-09-h2P" secondAttribute="leading" id="SlV-Og-G4w"/>
+                                <constraint firstAttribute="trailing" secondItem="kr0-DL-mh1" secondAttribute="trailing" id="VcV-Hs-6PI"/>
+                                <constraint firstAttribute="trailing" secondItem="fd3-BV-AVl" secondAttribute="trailing" id="WR5-BS-Wwe"/>
+                                <constraint firstAttribute="centerX" secondItem="fd3-BV-AVl" secondAttribute="centerX" id="ef4-Gi-Bsd"/>
+                                <constraint firstAttribute="bottom" secondItem="kr0-DL-mh1" secondAttribute="bottom" constant="8" id="iww-WB-7eL"/>
+                                <constraint firstAttribute="height" constant="120" id="ltx-vl-dAY"/>
+                                <constraint firstAttribute="centerX" secondItem="kr0-DL-mh1" secondAttribute="centerX" id="rUO-hk-UJr"/>
+                                <constraint firstItem="fd3-BV-AVl" firstAttribute="top" secondItem="4q0-09-h2P" secondAttribute="top" constant="8" id="vXr-UP-jlA"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="4q0-09-h2P" secondAttribute="trailing" id="8sQ-QA-Odf"/>
+                        <constraint firstItem="4q0-09-h2P" firstAttribute="leading" secondItem="FeR-ab-qSA" secondAttribute="leading" id="eod-Iy-Gfz"/>
+                        <constraint firstAttribute="centerY" secondItem="4q0-09-h2P" secondAttribute="centerY" id="iYa-vG-z5G"/>
+                    </constraints>
+                </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fv5-bd-rO0">
-                    <rect key="frame" x="8" y="85" width="584" height="29"/>
+                    <rect key="frame" x="8" y="60" width="584" height="29"/>
                     <segments>
                         <segment title="LOG IN"/>
                         <segment title="REGISTER"/>
                     </segments>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </segmentedControl>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-BV-AVl">
-                    <rect key="frame" x="8" y="179" width="584" height="17"/>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="Wg0-6i-wtb"/>
-                    </connections>
-                </textField>
             </subviews>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="Z8L-YI-ef8" secondAttribute="centerY" constant="25" id="DK3-X6-ba7"/>
-                <constraint firstAttribute="trailing" secondItem="kr0-DL-mh1" secondAttribute="trailing" constant="8" id="HBq-Em-pad"/>
-                <constraint firstItem="fd3-BV-AVl" firstAttribute="top" secondItem="fv5-bd-rO0" secondAttribute="bottom" constant="66" id="Maw-xI-SEg"/>
+                <constraint firstItem="Z8L-YI-ef8" firstAttribute="leading" secondItem="FeR-ab-qSA" secondAttribute="trailing" id="Jnt-1U-bx1"/>
                 <constraint firstItem="fv5-bd-rO0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="PAl-ul-hKw"/>
                 <constraint firstAttribute="trailing" secondItem="Z8L-YI-ef8" secondAttribute="trailing" constant="20" id="Sxx-px-3Rq"/>
                 <constraint firstAttribute="bottom" secondItem="Z8L-YI-ef8" secondAttribute="bottom" constant="236" id="T2e-mB-Wuh"/>
-                <constraint firstItem="kr0-DL-mh1" firstAttribute="top" secondItem="fd3-BV-AVl" secondAttribute="bottom" constant="8.5" id="THM-zV-fxh"/>
-                <constraint firstItem="fd3-BV-AVl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="UNR-q8-NL1"/>
-                <constraint firstItem="kr0-DL-mh1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="VeB-KC-MFa"/>
-                <constraint firstItem="kr0-DL-mh1" firstAttribute="top" secondItem="fd3-BV-AVl" secondAttribute="bottom" constant="40" id="XJs-Tp-NAJ"/>
-                <constraint firstItem="fv5-bd-rO0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="YEc-WZ-4uj"/>
+                <constraint firstAttribute="trailing" secondItem="FeR-ab-qSA" secondAttribute="trailing" id="VyC-t7-F1G"/>
+                <constraint firstItem="fv5-bd-rO0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="YEc-WZ-4uj"/>
                 <constraint firstAttribute="centerX" secondItem="Z8L-YI-ef8" secondAttribute="centerX" id="YFc-jx-SqV"/>
-                <constraint firstItem="kr0-DL-mh1" firstAttribute="top" secondItem="fd3-BV-AVl" secondAttribute="bottom" constant="8" id="bcS-rQ-vtB"/>
-                <constraint firstItem="Z8L-YI-ef8" firstAttribute="top" secondItem="kr0-DL-mh1" secondAttribute="bottom" constant="61" id="c46-uY-m04"/>
+                <constraint firstItem="FeR-ab-qSA" firstAttribute="top" secondItem="fv5-bd-rO0" secondAttribute="bottom" id="hb8-w4-4mT"/>
+                <constraint firstItem="FeR-ab-qSA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hpL-nu-Y52"/>
                 <constraint firstAttribute="trailing" secondItem="fv5-bd-rO0" secondAttribute="trailing" constant="8" id="n72-ft-ZvL"/>
-                <constraint firstAttribute="trailing" secondItem="fd3-BV-AVl" secondAttribute="trailing" constant="8" id="zqx-1k-NHb"/>
+                <constraint firstAttribute="bottom" secondItem="FeR-ab-qSA" secondAttribute="bottom" id="u76-nU-vAh"/>
+                <constraint firstItem="FeR-ab-qSA" firstAttribute="bottom" secondItem="Z8L-YI-ef8" secondAttribute="top" id="xCz-aw-fFe"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="THM-zV-fxh"/>
-                    <exclude reference="bcS-rQ-vtB"/>
+                    <exclude reference="u76-nU-vAh"/>
                     <exclude reference="DK3-X6-ba7"/>
+                    <exclude reference="Jnt-1U-bx1"/>
                     <exclude reference="YFc-jx-SqV"/>
-                    <exclude reference="c46-uY-m04"/>
                 </mask>
             </variation>
         </view>

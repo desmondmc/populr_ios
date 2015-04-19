@@ -8,12 +8,13 @@
 
 #import "SPComposeViewController.h"
 
+#define kPlaceHolderText @"Tap here to write a message..."
+
 @interface SPComposeViewController ()
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *micButtonBottomConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *sendButtonBottomConstraint;
 @property (strong, nonatomic) IBOutlet UITextView *messageTextView;
 
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *textFieldTopConstraint;
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
 
 @end
@@ -23,12 +24,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_messageTextView becomeFirstResponder];
-    
     // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
                                                object:nil];
     
     [self setupAppearance];
@@ -36,6 +40,10 @@
 }
 - (void) setupAppearance {
     [self.sendButton styleAsMainSpeedlButton];
+    [self.messageTextView styleAsMainSpeedlTextView];
+    
+    self.messageTextView.text = kPlaceHolderText;
+    self.messageTextView.textColor = [SPAppearance seeThroughColour];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,9 +51,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [_messageTextView becomeFirstResponder];
-}
 - (IBAction)onMicPress:(id)sender {
     [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
         for (SPMessage *message in messages) {
@@ -72,6 +77,11 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+-(void)keyboardDidHide:(NSNotification*)notification {
+    
+}
+
 - (IBAction)onGoLeftPress:(id)sender {
     [self.containerViewController goToMessageViewController];
 }
@@ -81,8 +91,6 @@
 }
 
 #pragma mark - UITextViewDelegate
-
-#define kPlaceHolderText @"Start typing..."
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
@@ -106,7 +114,6 @@
 
 - (void) newVisableViewController:(UIViewController *)viewController {
     if (viewController == self) {
-        [_messageTextView becomeFirstResponder];
         NSLog(@"ComposeView is visable!!");
     }
 }
