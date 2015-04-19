@@ -20,25 +20,14 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0Y-TX-AuV" userLabel="Seperator">
-                        <rect key="frame" x="8" y="44" width="388" height="1"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="a8p-H0-dZg"/>
-                        </constraints>
-                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="r0Y-TX-AuV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="TOG-R7-dGO"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="r0Y-TX-AuV" secondAttribute="bottom" constant="-10" id="mla-Cf-yKC"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="r0Y-TX-AuV" secondAttribute="trailing" id="vKh-7Z-iud"/>
                     <constraint firstItem="uMd-f2-u3V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="vY5-KX-tYY"/>
                     <constraint firstAttribute="centerY" secondItem="uMd-f2-u3V" secondAttribute="centerY" id="xsn-wY-Sbz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="friendNameLabel" destination="uMd-f2-u3V" id="UyP-cg-iPI"/>
-                <outlet property="seporatorView" destination="r0Y-TX-AuV" id="wIQ-VZ-FVN"/>
             </connections>
             <point key="canvasLocation" x="289" y="244"/>
         </tableViewCell>

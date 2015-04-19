@@ -13,8 +13,8 @@
 + (UIColor *) globalBackgroundColour {
     //return [UIColor colorWithRed:0 green:0.894 blue:0.486 alpha:1]; //Bright green
     //return [UIColor colorWithRed:0 green:0.588 blue:1 alpha:1]; // unoffensive blue
-    //return [UIColor colorWithRed:0.18 green:0.18 blue:0.22 alpha:1]; // Dark Grey
-    return [UIColor colorWithRed:0.737 green:0.365 blue:0.475 alpha:1]; // Pinkish
+    return [UIColor colorWithRed:0.18 green:0.18 blue:0.22 alpha:1]; // Dark Grey
+    //return [UIColor colorWithRed:0.737 green:0.365 blue:0.475 alpha:1]; // Pinkish
 }
 
 + (UIColor *) seeThroughColour {
