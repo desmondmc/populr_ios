@@ -23,12 +23,8 @@
     
     if (parsedObject[@"user"][@"id"] != nil) {
         user.objectId = parsedObject[@"user"][@"id"];
-    }
-        
-    for (NSString *key in parsedObject[@"user"]) {
-        if ([user respondsToSelector:NSSelectorFromString(key)]) {
-            [user setValue:parsedObject[@"user"][key] forKey:key];
-        }
+        user.token = parsedObject[@"token"];
+        user.username = parsedObject[@"user"][@"username"];
     }
     
     return user;

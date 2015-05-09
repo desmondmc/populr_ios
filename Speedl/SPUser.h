@@ -23,6 +23,7 @@ typedef void (^SPUserResultBlock)(SPUser *user, NSString *serverMessage);
 
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *password;
+@property (strong, nonatomic) NSString *token;
 
 /* Gets the currently logged in user or returns nil of there isn't one logged-in/available */
 + (SPUser *) currentUser;

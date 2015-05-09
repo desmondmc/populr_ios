@@ -29,6 +29,7 @@
 - (void) setupAppearance {
     self.tableView.backgroundColor = [UIColor clearColor];
     
+    [self.tableView setSeparatorColor:[SPAppearance seeThroughColour]];
     [self.segmentControl styleAsMainSpeedlSegmentControl];
 }
 

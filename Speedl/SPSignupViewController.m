@@ -65,32 +65,28 @@
 }
 
 - (void)registerUser {
-    [SPLoginRouter gotoLoggedInView];
     
-//    [SPUser signUpUserInBackgroundWithUsername:@"NewGuy" password:@"password" block:^(SPUser *user, NSString* message) {
-//        if (user == nil && message != nil) {
-//            [self showErrorNotificationWithMessage:message];
-//            return;
-//        }
-//        
-//        [SPLoginRouter gotoLoggedInView];
-//    }];
-    
-    
+    [SPUser signUpUserInBackgroundWithUsername:@"mickeymouse" password:@"plainttextpassword" block:^(SPUser *user, NSString* message) {
+        if (user == nil && message != nil) {
+            [self showErrorNotificationWithMessage:message];
+            return;
+        }
+        
+        [SPLoginRouter gotoLoggedInView];
+    }];
 }
 
 
 
 - (void) loginUser {
-    [SPLoginRouter gotoLoggedInView];
-    
-    
-//    [SPUser loginUserInBackgroundWithUsername:@"NewGuy" password:@"password" block:^(SPUser *user, NSString* message) {
-//        user = [SPUser currentUser];
-//        NSLog(@"Completed Request.");
-//        [SPUser logoutCurrentUser];
-//        NSLog(@"Logged out.");
-//    }];
+    [SPUser loginUserInBackgroundWithUsername:@"mickeymouse" password:@"plainttextpassword" block:^(SPUser *user, NSString* message) {
+        if (user == nil && message != nil) {
+            [self showErrorNotificationWithMessage:message];
+            return;
+        }
+        
+        [SPLoginRouter gotoLoggedInView];
+    }];
 }
 
 - (NSString *) validateLocally {

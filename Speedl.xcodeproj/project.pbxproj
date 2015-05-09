@@ -18,6 +18,7 @@
 		7A49B9841AE406CA0085D3C6 /* UITextView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B9831AE406CA0085D3C6 /* UITextView+Custom.m */; };
 		7A49B98A1AE417830085D3C6 /* SPFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B9881AE417830085D3C6 /* SPFriendTableViewCell.m */; };
 		7A49B98B1AE417830085D3C6 /* SPFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A49B9891AE417830085D3C6 /* SPFriendTableViewCell.xib */; };
+		7A49B98F1AE836350085D3C6 /* SPCustomTwoTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B98E1AE836350085D3C6 /* SPCustomTwoTabView.m */; };
 		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
 		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
@@ -76,6 +77,8 @@
 		7A49B9871AE417830085D3C6 /* SPFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendTableViewCell.h; sourceTree = "<group>"; };
 		7A49B9881AE417830085D3C6 /* SPFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendTableViewCell.m; sourceTree = "<group>"; };
 		7A49B9891AE417830085D3C6 /* SPFriendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendTableViewCell.xib; sourceTree = "<group>"; };
+		7A49B98D1AE836350085D3C6 /* SPCustomTwoTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCustomTwoTabView.h; sourceTree = "<group>"; };
+		7A49B98E1AE836350085D3C6 /* SPCustomTwoTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomTwoTabView.m; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Speedl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -245,6 +248,15 @@
 			name = SPFriendTableViewCell;
 			sourceTree = "<group>";
 		};
+		7A49B98C1AE835F90085D3C6 /* SPCustomTwoTabView */ = {
+			isa = PBXGroup;
+			children = (
+				7A49B98D1AE836350085D3C6 /* SPCustomTwoTabView.h */,
+				7A49B98E1AE836350085D3C6 /* SPCustomTwoTabView.m */,
+			);
+			name = SPCustomTwoTabView;
+			sourceTree = "<group>";
+		};
 		7AB3D6DC1AC35A3900CA94DB = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +354,7 @@
 		7AB3D71D1AC35BE600CA94DB /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				7A49B98C1AE835F90085D3C6 /* SPCustomTwoTabView */,
 				7AB3D71E1AC35C1600CA94DB /* SPSignupViewController.h */,
 				7AB3D71F1AC35C1600CA94DB /* SPSignupViewController.m */,
 				7AB3D7201AC35C1600CA94DB /* SPSignupViewController.xib */,
@@ -609,6 +622,7 @@
 				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
 				7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */,
 				7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */,
+				7A49B98F1AE836350085D3C6 /* SPCustomTwoTabView.m in Sources */,
 				7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */,
 				7A263D191AD5BEB500D69F60 /* SPContainedViewController.m in Sources */,
 			);
@@ -730,6 +744,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "Speedl/Speedl-Prefix.pch";
 				INFOPLIST_FILE = Speedl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -743,6 +758,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "Speedl/Speedl-Prefix.pch";
 				INFOPLIST_FILE = Speedl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

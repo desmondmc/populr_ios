@@ -11,9 +11,10 @@
 #import "SPMessageBuilder.h"
 #import "SPNetworkHelper.h"
 
-#define kObjectIdKey @"objectId"
-#define kUsernameKey @"username"
-#define kPasswordKey @"password"
+#define kObjectIdKey    @"objectId"
+#define kUsernameKey    @"username"
+#define kPasswordKey    @"password"
+#define kTokenKey       @"token"
 
 @implementation SPUser
 
@@ -27,6 +28,8 @@
     
     currentUser.username = [[NSUserDefaults standardUserDefaults] stringForKey:kUsernameKey];
     currentUser.password = [[NSUserDefaults standardUserDefaults] stringForKey:kPasswordKey];
+    currentUser.token = [[NSUserDefaults standardUserDefaults] stringForKey:kTokenKey];
+    
     return currentUser;
 }
 
@@ -34,6 +37,7 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUsernameKey];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPasswordKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kTokenKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -168,6 +172,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:user.objectId forKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.username forKey:kUsernameKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:kPasswordKey];
+    [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:kTokenKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
