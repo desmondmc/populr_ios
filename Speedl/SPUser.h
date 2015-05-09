@@ -36,5 +36,7 @@ typedef void (^SPUserResultBlock)(SPUser *user, NSString *serverMessage);
 
 - (void) getMessagesInBackground:(SPMessagesResultBlock)block;
 
+- (void) postMessageInBackground:(SPNetworkResultBlock)block;
+
 
 @end

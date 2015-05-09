@@ -17,7 +17,7 @@ typedef void (^SPMessagesResultBlock)(NSArray *messages, NSString *serverMessage
 /* Warning! This is an objective-c representation of json objects. The way the code is currently structured,
  variabel names of this object must match their corresponding json properties.*/
 
-@property (strong, nonatomic) NSString *body;
+@property (strong, nonatomic) NSString *message;
 @property (strong, nonatomic) NSString *timestamp;
 
 @end

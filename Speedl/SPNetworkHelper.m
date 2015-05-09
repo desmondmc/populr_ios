@@ -24,6 +24,17 @@
     return request;
 }
 
++ (NSURLRequest *) getRequestWithURL:(NSString *)urlString {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    request.HTTPMethod = @"GET";
+    
+    [self setRequestHeaders:&request];
+    
+    return request;
+}
+
+
+
 + (NSURLRequest *) requestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary {
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
@@ -38,7 +49,30 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPBody = userJson;
     
+    [self setRequestHeaders:&request];
+    
+    SPUser *currentUser = [SPUser currentUser];
+    if (currentUser) {
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setValue:currentUser.token forHTTPHeaderField:@"x-access-token"];
+        [request setValue:currentUser.objectId forHTTPHeaderField:@"x-key"];
+    }
+    
     return request;
+}
+
++ (void) setRequestHeaders:(NSMutableURLRequest **)request {
+    if (!request) {
+        return;
+    }
+    
+    NSMutableURLRequest *httpRequest = *request;
+    SPUser *currentUser = [SPUser currentUser];
+    if (currentUser) {
+        [httpRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [httpRequest setValue:currentUser.token forHTTPHeaderField:@"x-access-token"];
+        [httpRequest setValue:currentUser.objectId forHTTPHeaderField:@"x-key"];
+    }
 }
 
 @end

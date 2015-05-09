@@ -16,7 +16,7 @@
     
     NSDictionary *parsedObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&localError];
     
-    for (NSDictionary *parsedObject in parsedObjects[@"_embedded"][@"messages"]) {
+    for (NSDictionary *parsedObject in parsedObjects[@"messages"]) {
         if (localError != nil) {
             *error = localError;
             return nil;

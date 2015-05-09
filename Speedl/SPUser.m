@@ -77,7 +77,6 @@
                 return;
             }
         });
-        
     }];
 }
 
@@ -119,12 +118,25 @@
     }];
 }
 
++ (NSString *) checkResponseCodeForError:(NSInteger)code data:(NSData *)data {
+    if (code != 200) {
+        NSError *error;
+        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if (parsedObject[@"message"] != nil) {
+            return parsedObject[@"message"];
+        } else {
+            return kGenericErrorString;
+        }
+    }
+    return nil;
+}
+
 - (void) getMessagesInBackground:(SPMessagesResultBlock)block {
     NSString *url = kAPIMessagesUrl;
     
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -143,7 +155,7 @@
                 }
                 
                 NSArray *messages = [SPMessageBuilder messagesFromJSON:data error:&error];
-
+                
                 block(messages, nil);
                 return;
             }
@@ -152,18 +164,10 @@
     }];
 }
 
-+ (NSString *) checkResponseCodeForError:(NSInteger)code data:(NSData *)data {
-    if (code != 200) {
-        NSError *error;
-        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        if (parsedObject[@"message"] != nil) {
-            return parsedObject[@"message"];
-        } else {
-            return kGenericErrorString;
-        }
-    }
-    return nil;
+- (void) postMessageInBackground:(SPNetworkResultBlock)block {
+
 }
+
 
 #pragma mark Private
 

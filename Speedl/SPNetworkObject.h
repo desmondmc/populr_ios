@@ -10,6 +10,8 @@
 
 @interface SPNetworkObject : NSObject
 
+typedef void (^SPNetworkResultBlock)(BOOL success, NSString *serverMessage);
+
 @property (strong, nonatomic) NSString *objectId;
 
 @end

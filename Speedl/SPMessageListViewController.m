@@ -11,7 +11,9 @@
 #import "SPMessageViewController.h"
 
 @interface SPMessageListViewController ()
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *messages;
 
 @end
 
@@ -22,8 +24,14 @@
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[UINib nibWithNibName:@"SPMessageTableViewCell" bundle:nil] forCellReuseIdentifier:@"spMessageTableViewCell"];
     
-    
     [self setupAppearance];
+    
+    [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
+        NSLog(@"Got messages");
+        _messages = messages;
+        
+        [self.tableView reloadData];
+    }];
 }
 
 - (void) setupAppearance {
@@ -40,12 +48,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
-}
-
-- (NSInteger)tableView:(NSInteger)numberOfSections
-{
-    return 1;
+    if (!_messages) {
+        return 0;
+    }
+    return [_messages count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,8 +85,8 @@
     [cell.activityIndicator setHidden:NO];
     [cell.messageNumberLabel setHidden:YES];
     
-    
-    SPMessageViewController *messageViewController = [[SPMessageViewController alloc] init];
+    SPMessage *messageAtIndex = _messages[indexPath.row];
+    SPMessageViewController *messageViewController = [[SPMessageViewController alloc] initWithMessage:messageAtIndex.message];
     [self presentViewController: messageViewController animated:NO completion:^{
         [cell.activityIndicator setHidden:YES];
         [cell.messageNumberLabel setHidden:NO];

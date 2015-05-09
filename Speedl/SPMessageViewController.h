@@ -10,4 +10,6 @@
 
 @interface SPMessageViewController : SPContainedViewController <SPContainerViewControllerDelegate>
 
+- (id)initWithMessage:(NSString *)message;
+
 @end

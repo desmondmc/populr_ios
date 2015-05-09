@@ -27,6 +27,10 @@
     [self setupAppearance];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [SPUser logoutCurrentUser];
+}
+
 - (void) setupAppearance {
     [self.view setBackgroundColor:[SPAppearance globalBackgroundColour]];
     [self.usernameField styleAsMainSpeedlTextField];
@@ -103,17 +107,12 @@
     return nil;
 }
 
-- (void) showErrorNotificationWithMessage:(NSString *)message{
+- (void) showErrorNotificationWithMessage:(NSString *)message {
     [CSNotificationView showInViewController:self
                                    tintColor:[SPAppearance seeThroughColour]
                                        image:[CSNotificationView imageForStyle:CSNotificationViewStyleError]
                                      message:message
                                     duration:kCSNotificationViewDefaultShowDuration];
-    
-//    [CSNotificationView showInViewController:self
-//                                       style:CSNotificationViewStyleError
-//                                     message:message];
-    
 }
 
 #pragma mark UITextFieldDelegate

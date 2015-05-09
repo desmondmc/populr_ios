@@ -59,7 +59,7 @@
 #pragma mark Setters and Getters
 
 - (NSString *) messageText {
-    return [self messageText];
+    return _messageText;
 }
 
 - (void)setMessageText:(NSString *)messageText {
@@ -72,8 +72,6 @@
             self.text = [_partsOfMessage objectAtIndex:0];
             [self setupStateMachine];
         }
-        
-        
     }
 }
 

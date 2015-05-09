@@ -10,6 +10,8 @@
 
 @interface SPNetworkHelper : NSObject
 
++ (NSURLRequest *) getRequestWithURL:(NSString *)urlString;
 + (NSURLRequest *) putRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary;
 + (NSURLRequest *) postRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary;
+
 @end

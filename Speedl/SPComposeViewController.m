@@ -51,10 +51,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onSendPress:(id)sender {
+    
+}
+
 - (IBAction)onMicPress:(id)sender {
     [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
         for (SPMessage *message in messages) {
-            NSLog(@"%@", message.body);
+            NSLog(@"%@", message.message);
         }
     }];
 }

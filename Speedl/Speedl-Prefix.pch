@@ -31,6 +31,7 @@
 #define kAPIRootUrl @"http://private-4f48d-speedl.apiary-mock.com"
 
 #define kAPIMessagesUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]
+#define kAPIPostMessageUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]
 #define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"/signup"]
 #define kAPILoginUrl [kAPIRootUrl stringByAppendingString:@"/login"]
 #define kAppDel ((SPAppDelegate *)[[UIApplication sharedApplication] delegate])

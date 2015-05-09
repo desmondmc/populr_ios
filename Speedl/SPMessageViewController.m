@@ -11,6 +11,7 @@
 #import "SPMessageLabel.h"
 
 @interface SPMessageViewController ()
+
 @property (strong, nonatomic) IBOutlet SPMessageLabel *messageLabel;
 @property (strong, nonatomic) IBOutlet SPMessageLabel *countDown;
 @property (strong, nonatomic) IBOutlet UIButton *pauseButton;
@@ -19,9 +20,19 @@
 @property (strong, nonatomic) IBOutlet UILabel *messageFromLabel;
 @property (strong, nonatomic) IBOutlet UILabel *fromLabel;
 
+@property (strong, nonatomic) NSString *messageText;
+
 @end
 
 @implementation SPMessageViewController
+
+- (id)initWithMessage:(NSString *)message {
+    self = [super init];
+    if (self) {
+        _messageText = message;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,7 +44,12 @@
     [_messageLabel setHidden:YES];
     [_pauseButton setEnabled:NO];
     
-    _messageLabel.messageText = @"TransitionKit is a small Cocoa library that provides an API for implementing a state machine.";
+    if (_messageText) {
+        _messageLabel.messageText = _messageText;
+    } else {
+        _messageLabel.messageText = @"Error loading this message. Sorry.";
+    }
+    
     _messageLabel.wordPerMin = 250;
     
     _countDown.messageText = @"3 2 1";
