@@ -54,7 +54,7 @@
 - (IBAction)onNextPress:(id)sender {
     NSString *validationErrorMessage = [self validateLocally];
     if (validationErrorMessage) {
-        [self showErrorNotificationWithMessage:validationErrorMessage];
+        [SPNotification showErrorNotificationWithMessage:validationErrorMessage inViewController:self];
         return;
     }
     [self routeBasedOnSegmentControl];
@@ -72,7 +72,7 @@
     
     [SPUser signUpUserInBackgroundWithUsername:@"mickeymouse" password:@"plainttextpassword" block:^(SPUser *user, NSString* message) {
         if (user == nil && message != nil) {
-            [self showErrorNotificationWithMessage:message];
+            [SPNotification showErrorNotificationWithMessage:message inViewController:self];
             return;
         }
         
@@ -85,7 +85,7 @@
 - (void) loginUser {
     [SPUser loginUserInBackgroundWithUsername:@"mickeymouse" password:@"plainttextpassword" block:^(SPUser *user, NSString* message) {
         if (user == nil && message != nil) {
-            [self showErrorNotificationWithMessage:message];
+            [SPNotification showErrorNotificationWithMessage:message inViewController:self];
             return;
         }
         
@@ -105,14 +105,6 @@
     }
     
     return nil;
-}
-
-- (void) showErrorNotificationWithMessage:(NSString *)message {
-    [CSNotificationView showInViewController:self
-                                   tintColor:[SPAppearance seeThroughColour]
-                                       image:[CSNotificationView imageForStyle:CSNotificationViewStyleError]
-                                     message:message
-                                    duration:kCSNotificationViewDefaultShowDuration];
 }
 
 #pragma mark UITextFieldDelegate

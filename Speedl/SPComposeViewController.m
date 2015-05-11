@@ -52,7 +52,18 @@
 }
 
 - (IBAction)onSendPress:(id)sender {
-    
+    if ([_messageTextView.text isEqualToString:kPlaceHolderText] || [_messageTextView.text isEqualToString:@""]) {
+        [SPNotification showErrorNotificationWithMessage:@"Type a message, kid." inViewController:self];
+        return;
+    }
+    [[SPUser currentUser] postMessageInBackground:_messageTextView.text block:^(BOOL success, NSString *serverMessage) {
+        if (!success) {
+            [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
+        } else {
+            [self setupAppearance];
+            [SPNotification showSuccessNotificationWithMessage:@"Message Sent" inViewController:self];
+        }
+    }];
 }
 
 - (IBAction)onMicPress:(id)sender {

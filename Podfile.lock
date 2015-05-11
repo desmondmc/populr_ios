@@ -1,13 +1,19 @@
 PODS:
   - CSNotificationView (0.5.4)
+  - HexColors (2.2.1)
   - TransitionKit (2.0.0)
+  - TSMessages (0.9.12):
+    - HexColors
 
 DEPENDENCIES:
   - CSNotificationView (~> 0.5.4)
   - TransitionKit (~> 2.0.0)
+  - TSMessages (~> 0.9)
 
 SPEC CHECKSUMS:
   CSNotificationView: 0792f5220163c2befaf1a9716aa3d5a7d6bd4fb1
-  TransitionKit: 7877021649a734f3239ed176b7967de29321dcf3
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
+  TransitionKit: c150629869b0eab9d270f914aad2d1a088a8c19d
+  TSMessages: 2a52642128d7ab15b46930c810b9c9403a2b58f3
 
 COCOAPODS: 0.35.0

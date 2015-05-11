@@ -28,15 +28,15 @@ typedef void (^SPUserResultBlock)(SPUser *user, NSString *serverMessage);
 /* Gets the currently logged in user or returns nil of there isn't one logged-in/available */
 + (SPUser *) currentUser;
 
-+ (void) logoutCurrentUser;
++ (void)logoutCurrentUser;
 
-+ (void) signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block;
++ (void)signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block;
 
-+ (void) loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block;
++ (void)loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block;
 
-- (void) getMessagesInBackground:(SPMessagesResultBlock)block;
+- (void)getMessagesInBackground:(SPMessagesResultBlock)block;
 
-- (void) postMessageInBackground:(SPNetworkResultBlock)block;
+- (void)postMessageInBackground:(NSString *)message block:(SPNetworkResultBlock)block;
 
 
 @end

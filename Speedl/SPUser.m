@@ -33,7 +33,7 @@
     return currentUser;
 }
 
-+ (void) logoutCurrentUser {
++ (void)logoutCurrentUser {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUsernameKey];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPasswordKey];
@@ -41,7 +41,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (void) signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block {
++ (void)signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block {
     
     NSString *url = kAPISignUpUrl;
     
@@ -80,7 +80,7 @@
     }];
 }
 
-+ (void) loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block {
++ (void)loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block {
     NSString *url = kAPILoginUrl;
     
     NSDictionary *userDictionary = @{@"username":username, @"password":password};
@@ -118,7 +118,7 @@
     }];
 }
 
-+ (NSString *) checkResponseCodeForError:(NSInteger)code data:(NSData *)data {
++ (NSString *)checkResponseCodeForError:(NSInteger)code data:(NSData *)data {
     if (code != 200) {
         NSError *error;
         NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
@@ -131,7 +131,7 @@
     return nil;
 }
 
-- (void) getMessagesInBackground:(SPMessagesResultBlock)block {
+- (void)getMessagesInBackground:(SPMessagesResultBlock)block {
     NSString *url = kAPIMessagesUrl;
     
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
@@ -164,15 +164,41 @@
     }];
 }
 
-- (void) postMessageInBackground:(SPNetworkResultBlock)block {
-
+- (void)postMessageInBackground:(NSString *)message block:(SPNetworkResultBlock)block {
+    NSString *url = kAPIPostMessageUrl;
+    
+    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
+    
+    NSDictionary *userDictionary = @{@"message":message};
+    
+    NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [SPUser checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(NO, remoteError);
+                    return;
+                }
+                
+                block(YES, nil);
+                return;
+            }
+        });
+        
+    }];
 }
 
 
 #pragma mark Private
 
 //Store the user on the disk, essentially log them in on the device.
-+ (void) saveUserToDisk:(SPUser *)user {
++ (void)saveUserToDisk:(SPUser *)user {
     [[NSUserDefaults standardUserDefaults] setObject:user.objectId forKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.username forKey:kUsernameKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:kPasswordKey];
