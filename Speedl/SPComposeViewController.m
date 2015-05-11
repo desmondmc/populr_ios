@@ -60,6 +60,7 @@
         if (!success) {
             [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
         } else {
+            [_messageTextView resignFirstResponder];
             [self setupAppearance];
             [SPNotification showSuccessNotificationWithMessage:@"Message Sent" inViewController:self];
         }
