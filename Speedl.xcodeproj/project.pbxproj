@@ -20,6 +20,10 @@
 		7A49B98A1AE417830085D3C6 /* SPFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B9881AE417830085D3C6 /* SPFriendTableViewCell.m */; };
 		7A49B98B1AE417830085D3C6 /* SPFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A49B9891AE417830085D3C6 /* SPFriendTableViewCell.xib */; };
 		7A49B98F1AE836350085D3C6 /* SPCustomTwoTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B98E1AE836350085D3C6 /* SPCustomTwoTabView.m */; };
+		7A625F521B053A1A0092F412 /* SPFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */; };
+		7A625F561B0545ED0092F412 /* SPAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F551B0545ED0092F412 /* SPAutoLayout.m */; };
+		7A625F5B1B05478F0092F412 /* SPFollowersTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F5A1B05478F0092F412 /* SPFollowersTableViewDataSource.m */; };
+		7A625F5E1B05479E0092F412 /* SPFollowingTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F5D1B05479E0092F412 /* SPFollowingTableViewDataSource.m */; };
 		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
 		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
@@ -82,6 +86,14 @@
 		7A49B9891AE417830085D3C6 /* SPFriendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendTableViewCell.xib; sourceTree = "<group>"; };
 		7A49B98D1AE836350085D3C6 /* SPCustomTwoTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCustomTwoTabView.h; sourceTree = "<group>"; };
 		7A49B98E1AE836350085D3C6 /* SPCustomTwoTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomTwoTabView.m; sourceTree = "<group>"; };
+		7A625F501B053A1A0092F412 /* SPFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendsTableViewController.h; sourceTree = "<group>"; };
+		7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendsTableViewController.m; sourceTree = "<group>"; };
+		7A625F541B0545EC0092F412 /* SPAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAutoLayout.h; sourceTree = "<group>"; };
+		7A625F551B0545ED0092F412 /* SPAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAutoLayout.m; sourceTree = "<group>"; };
+		7A625F591B05478F0092F412 /* SPFollowersTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFollowersTableViewDataSource.h; sourceTree = "<group>"; };
+		7A625F5A1B05478F0092F412 /* SPFollowersTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFollowersTableViewDataSource.m; sourceTree = "<group>"; };
+		7A625F5C1B05479E0092F412 /* SPFollowingTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFollowingTableViewDataSource.h; sourceTree = "<group>"; };
+		7A625F5D1B05479E0092F412 /* SPFollowingTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFollowingTableViewDataSource.m; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Speedl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -164,6 +176,7 @@
 		7A263CFD1AC89B4C00D69F60 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7A625F571B0546040092F412 /* SPAutoLayout */,
 				7A45F8A21B011D93009BDA95 /* SPNotification */,
 				7AE4D1EC1AE25DD8006F6C83 /* SPAppearance */,
 				7AB3D72F1AC35C8300CA94DB /* SPMessageLabel */,
@@ -245,6 +258,7 @@
 		7A49B9851AE417400085D3C6 /* SPFriendsList */ = {
 			isa = PBXGroup;
 			children = (
+				7A625F531B053A210092F412 /* SPFollowersTableViewController */,
 				7A49B9861AE417540085D3C6 /* SPFriendTableViewCell */,
 				7A263D201AD5C10A00D69F60 /* SPFriendsViewController */,
 			);
@@ -268,6 +282,28 @@
 				7A49B98E1AE836350085D3C6 /* SPCustomTwoTabView.m */,
 			);
 			name = SPCustomTwoTabView;
+			sourceTree = "<group>";
+		};
+		7A625F531B053A210092F412 /* SPFollowersTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A625F501B053A1A0092F412 /* SPFriendsTableViewController.h */,
+				7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */,
+				7A625F591B05478F0092F412 /* SPFollowersTableViewDataSource.h */,
+				7A625F5A1B05478F0092F412 /* SPFollowersTableViewDataSource.m */,
+				7A625F5C1B05479E0092F412 /* SPFollowingTableViewDataSource.h */,
+				7A625F5D1B05479E0092F412 /* SPFollowingTableViewDataSource.m */,
+			);
+			name = SPFollowersTableViewController;
+			sourceTree = "<group>";
+		};
+		7A625F571B0546040092F412 /* SPAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				7A625F541B0545EC0092F412 /* SPAutoLayout.h */,
+				7A625F551B0545ED0092F412 /* SPAutoLayout.m */,
+			);
+			name = SPAutoLayout;
 			sourceTree = "<group>";
 		};
 		7AB3D6DC1AC35A3900CA94DB = {
@@ -618,16 +654,20 @@
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
 				7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */,
+				7A625F5E1B05479E0092F412 /* SPFollowingTableViewDataSource.m in Sources */,
 				7A49B98A1AE417830085D3C6 /* SPFriendTableViewCell.m in Sources */,
 				7AE4D2001AE2A749006F6C83 /* SPMessageTableViewCell.m in Sources */,
+				7A625F5B1B05478F0092F412 /* SPFollowersTableViewDataSource.m in Sources */,
 				7AB3D7211AC35C1600CA94DB /* SPSignupViewController.m in Sources */,
 				7AB3D7111AC35B7600CA94DB /* SPNetworkObject.m in Sources */,
 				7AE4D1F81AE28BD7006F6C83 /* UIButton+Custom.m in Sources */,
 				7AB3D7271AC35C4C00CA94DB /* SPComposeViewController.m in Sources */,
 				7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */,
+				7A625F561B0545ED0092F412 /* SPAutoLayout.m in Sources */,
 				7AE4D1FB1AE294BE006F6C83 /* UISegmentedControl+Custom.m in Sources */,
 				7AB3D71B1AC35BD000CA94DB /* SPUser.m in Sources */,
 				7AE4D1F51AE2877D006F6C83 /* UITextField+Custom.m in Sources */,
+				7A625F521B053A1A0092F412 /* SPFriendsTableViewController.m in Sources */,
 				7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */,
 				7A263D161AD1EF1900D69F60 /* SPMessageBuilder.m in Sources */,
 				7AE4D2081AE2AC28006F6C83 /* SPMessageListViewController.m in Sources */,

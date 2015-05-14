@@ -17,6 +17,7 @@
 #import "SPLoginRouter.h"
 #import "SPContainedViewController.h"
 #import "SPAppearance.h"
+#import "SPAutoLayout.h"
 
 // Catagories
 #import "UITextField+Custom.h"
@@ -24,9 +25,12 @@
 #import "UILabel+Custom.h"
 #import "UISegmentedControl+Custom.h"
 #import "UITextView+Custom.h"
+#import "UIView+FLKAutoLayout.h"
 
 //Third Party
 #import "SPNotification.h"
+
+#define kFriendCellReuse @"SPFriendTableViewCell"
 
 //#define kAPIRootUrl @"http://52.17.154.158:3000"
 #define kAPIRootUrl @"http://private-4f48d-speedl.apiary-mock.com"

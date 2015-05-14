@@ -7,11 +7,15 @@
 //
 
 #import "SPFriendsViewController.h"
-#import "SPFriendTableViewCell.h"
+#import "SPFriendsTableViewController.h"
 
 @interface SPFriendsViewController ()
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (strong, nonatomic) IBOutlet UIView *containerView;
+
+@property (strong, nonatomic) SPFriendsTableViewController *followersTableViewController;
+@property (strong, nonatomic) SPFriendsTableViewController *followingTableViewController;
 
 @end
 
@@ -19,17 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"SPFriendTableViewCell" bundle:nil] forCellReuseIdentifier:@"spFriendTableViewCell"];
-    
     [self setupAppearance];
 }
 
 - (void) setupAppearance {
-    self.tableView.backgroundColor = [UIColor clearColor];
-    
-    [self.tableView setSeparatorColor:[SPAppearance seeThroughColour]];
     [self.segmentControl styleAsMainSpeedlSegmentControl];
 }
 
@@ -41,68 +38,72 @@
     [self.containerViewController goToComposeViewControllerFromRight];
 }
 
+- (IBAction)segmentControlDidChange:(id)sender {
+    switch (_segmentControl.selectedSegmentIndex) {
+        case 0: //Following
+            [self loadFollowingIntoContainer];
+            break;
+        case 1: //Followers
+            [self loadFollowingIntoContainer];
+            break;
+        case 2: //Settings
+            
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - Private
+
+- (void)loadFollowingIntoContainer {
+    SPFriendsTableViewController *followingTableViewController = [self followingTableViewController];
+    
+    [followingTableViewController willMoveToParentViewController:self];
+    [_containerView addSubview:followingTableViewController.view];
+    [self addChildViewController:followingTableViewController];
+    
+    [SPAutoLayout constrainSubviewToFillSuperview:followingTableViewController.view];
+    
+    [followingTableViewController didMoveToParentViewController:self];
+}
+
+- (void)loadFollowersIntoContainer {
+    SPFriendsTableViewController *followersTableViewController = [self followersTableViewController];
+    
+    [followersTableViewController willMoveToParentViewController:self];
+    [_containerView addSubview:followersTableViewController.view];
+    [self addChildViewController:followersTableViewController];
+    
+    [SPAutoLayout constrainSubviewToFillSuperview:followersTableViewController.view];
+    
+    [followersTableViewController didMoveToParentViewController:self];
+}
+
+- (void)loadSettingsIntoContainer {
+
+}
+
+-(SPFriendsTableViewController *)followersTableViewController {
+    if (!_followersTableViewController) {
+        _followersTableViewController = [[SPFriendsTableViewController alloc] init];
+    }
+    return _followersTableViewController;
+}
+
+-(SPFriendsTableViewController *)followingTableViewController {
+    if (!_followingTableViewController) {
+        _followingTableViewController = [[SPFriendsTableViewController alloc] init];
+    }
+    return _followingTableViewController;
+}
+
 #pragma mark - SPContainterViewDelegate
 
 - (void) newVisableViewController:(UIViewController *)viewController {
     if (viewController == self) {
         NSLog(@"FriendsView is visable!!");
     }
-}
-
-#pragma mark - UITableViewDelegate
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 10;
-}
-
-- (NSInteger)tableView:(NSInteger)numberOfSections
-{
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *cellIdentifier = @"spFriendTableViewCell";
-    SPFriendTableViewCell *cell = (SPFriendTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        //There was no reusablecell to dequeue
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SPFriendTableViewCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
--(void)viewDidLayoutSubviews
-{
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
 }
 
 
