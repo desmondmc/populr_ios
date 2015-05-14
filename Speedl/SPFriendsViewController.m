@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupAppearance];
+    [self segmentControlDidChange:nil];
 }
 
 - (void) setupAppearance {
@@ -44,7 +45,7 @@
             [self loadFollowingIntoContainer];
             break;
         case 1: //Followers
-            [self loadFollowingIntoContainer];
+            [self loadFollowersIntoContainer];
             break;
         case 2: //Settings
             
@@ -57,6 +58,8 @@
 #pragma mark - Private
 
 - (void)loadFollowingIntoContainer {
+    [[_containerView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     SPFriendsTableViewController *followingTableViewController = [self followingTableViewController];
     
     [followingTableViewController willMoveToParentViewController:self];
@@ -69,6 +72,8 @@
 }
 
 - (void)loadFollowersIntoContainer {
+    [[_containerView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     SPFriendsTableViewController *followersTableViewController = [self followersTableViewController];
     
     [followersTableViewController willMoveToParentViewController:self];
@@ -87,6 +92,7 @@
 -(SPFriendsTableViewController *)followersTableViewController {
     if (!_followersTableViewController) {
         _followersTableViewController = [[SPFriendsTableViewController alloc] init];
+        _followersTableViewController.numberOfCells = 10;
     }
     return _followersTableViewController;
 }
@@ -94,6 +100,7 @@
 -(SPFriendsTableViewController *)followingTableViewController {
     if (!_followingTableViewController) {
         _followingTableViewController = [[SPFriendsTableViewController alloc] init];
+        _followingTableViewController.numberOfCells = 5;
     }
     return _followingTableViewController;
 }

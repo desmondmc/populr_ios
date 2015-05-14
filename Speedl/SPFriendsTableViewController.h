@@ -10,4 +10,6 @@
 
 @interface SPFriendsTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic) NSInteger numberOfCells;
+
 @end
