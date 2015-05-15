@@ -20,16 +20,16 @@
 @property (strong, nonatomic) IBOutlet UILabel *messageFromLabel;
 @property (strong, nonatomic) IBOutlet UILabel *fromLabel;
 
-@property (strong, nonatomic) NSString *messageText;
+@property (strong, nonatomic) SPMessage *message;
 
 @end
 
 @implementation SPMessageViewController
 
-- (id)initWithMessage:(NSString *)message {
+- (id)initWithMessage:(SPMessage *)message {
     self = [super init];
     if (self) {
-        _messageText = message;
+        _message = message;
     }
     return self;
 }
@@ -44,10 +44,16 @@
     [_messageLabel setHidden:YES];
     [_pauseButton setEnabled:NO];
     
-    if (_messageText) {
-        _messageLabel.messageText = _messageText;
+    if (_message.message) {
+        _messageLabel.messageText = _message.message;
     } else {
         _messageLabel.messageText = @"Error loading this message. Sorry.";
+    }
+    
+    if (_message.fromUsername) {
+        _fromLabel.text = _message.fromUsername;
+    } else {
+        _fromLabel.text = @"Unknown User";
     }
     
     _messageLabel.wordPerMin = 250;

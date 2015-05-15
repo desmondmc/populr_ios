@@ -33,8 +33,6 @@
     return request;
 }
 
-
-
 + (NSURLRequest *) requestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary {
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSData *userJson = nil;
