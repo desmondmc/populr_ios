@@ -8,6 +8,7 @@
 
 #import "SPFriendsViewController.h"
 #import "SPFriendsTableViewController.h"
+#import "SPSearchFriendsViewController.h"
 
 @interface SPFriendsViewController ()
 
@@ -16,6 +17,8 @@
 
 @property (strong, nonatomic) SPFriendsTableViewController *followersTableViewController;
 @property (strong, nonatomic) SPFriendsTableViewController *followingTableViewController;
+@property (strong, nonatomic) SPSearchFriendsViewController *searchTableViewController;
+
 
 @end
 
@@ -41,14 +44,14 @@
 
 - (IBAction)segmentControlDidChange:(id)sender {
     switch (_segmentControl.selectedSegmentIndex) {
-        case 0: //Following
+        case 0: //Search
+            [self loadSearchIntoContainer];
+            break;
+        case 1: //Following
             [self loadFollowingIntoContainer];
             break;
-        case 1: //Followers
+        case 2: //Followers
             [self loadFollowersIntoContainer];
-            break;
-        case 2: //Settings
-            
             break;
         default:
             break;
@@ -60,33 +63,31 @@
 - (void)loadFollowingIntoContainer {
     [[_containerView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    SPFriendsTableViewController *followingTableViewController = [self followingTableViewController];
-    
-    [followingTableViewController willMoveToParentViewController:self];
-    [_containerView addSubview:followingTableViewController.view];
-    [self addChildViewController:followingTableViewController];
-    
-    [SPAutoLayout constrainSubviewToFillSuperview:followingTableViewController.view];
-    
-    [followingTableViewController didMoveToParentViewController:self];
+    [self addViewIntoContainer:[self followingTableViewController]];
 }
 
 - (void)loadFollowersIntoContainer {
     [[_containerView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    SPFriendsTableViewController *followersTableViewController = [self followersTableViewController];
-    
-    [followersTableViewController willMoveToParentViewController:self];
-    [_containerView addSubview:followersTableViewController.view];
-    [self addChildViewController:followersTableViewController];
-    
-    [SPAutoLayout constrainSubviewToFillSuperview:followersTableViewController.view];
-    
-    [followersTableViewController didMoveToParentViewController:self];
+    [self addViewIntoContainer:[self followersTableViewController]];
 }
 
-- (void)loadSettingsIntoContainer {
+- (void)loadSearchIntoContainer {
+    [[_containerView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    [self addViewIntoContainer:[self searchTableViewController]];
+}
 
+- (void)addViewIntoContainer:(UIViewController *)viewController {
+    [[_containerView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    [viewController willMoveToParentViewController:self];
+    [_containerView addSubview:viewController.view];
+    [self addChildViewController:viewController];
+    
+    [SPAutoLayout constrainSubviewToFillSuperview:viewController.view];
+    
+    [viewController didMoveToParentViewController:self];
 }
 
 -(SPFriendsTableViewController *)followersTableViewController {
@@ -105,6 +106,13 @@
         _followingTableViewController.listType = SPFriendListTypeFollowing;
     }
     return _followingTableViewController;
+}
+
+-(SPSearchFriendsViewController *)searchTableViewController {
+    if (!_searchTableViewController) {
+        _searchTableViewController = [[SPSearchFriendsViewController alloc] init];
+    }
+    return _searchTableViewController;
 }
 
 #pragma mark - SPContainterViewDelegate

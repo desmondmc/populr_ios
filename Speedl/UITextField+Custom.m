@@ -13,8 +13,10 @@
 - (void) styleAsMainSpeedlTextField {
 
     // Style Placeholder Text
-    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: [SPAppearance seeThroughColour]}];
-    
+    if (self.placeholder) {
+        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.placeholder attributes:@{NSForegroundColorAttributeName: [SPAppearance seeThroughColour]}];
+    }
+
     self.font = [SPAppearance mainTextFieldFont];
     
     self.textColor = [SPAppearance mainTextFieldColour];
