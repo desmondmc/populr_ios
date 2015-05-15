@@ -30,4 +30,25 @@
     return user;
 }
 
++ (NSArray *)followersFromJSON:(NSData *)jsonData error:(NSError **)error
+{
+    NSMutableArray *followersArray = [[NSMutableArray alloc] init];
+    NSError *localError = nil;
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&localError];
+    
+    if (localError != nil) {
+        *error = localError;
+        return nil;
+    }
+    
+    for (NSDictionary *userDictionary in parsedObject) {
+        SPUser *user = [[SPUser alloc] init];
+        user.objectId = userDictionary[@"id"];
+        user.username = userDictionary[@"username"];
+        [followersArray addObject:user];
+    }
+    
+    return followersArray;
+}
+
 @end

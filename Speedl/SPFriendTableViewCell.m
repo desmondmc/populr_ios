@@ -27,4 +27,8 @@
     // Configure the view for the selected state
 }
 
+- (void)setupWithUser:(SPUser *)user {
+    _friendNameLabel.text = user.username;
+}
+
 @end

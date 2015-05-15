@@ -15,6 +15,7 @@
 @interface SPUser : SPNetworkObject
 
 typedef void (^SPUserResultBlock)(SPUser *user, NSString *serverMessage);
+typedef void (^SPFollowersResultBlock)(NSArray *followers, NSString *serverMessage);
 
 // JSON values
 
@@ -37,6 +38,8 @@ typedef void (^SPUserResultBlock)(SPUser *user, NSString *serverMessage);
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block;
 
 - (void)postMessageInBackground:(NSString *)message block:(SPNetworkResultBlock)block;
+
+- (void)getFollowersInBackground:(SPFollowersResultBlock)block;
 
 
 @end

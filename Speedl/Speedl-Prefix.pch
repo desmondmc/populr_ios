@@ -35,6 +35,7 @@
 //#define kAPIRootUrl @"http://52.17.154.158:3000"
 #define kAPIRootUrl @"http://private-4f48d-speedl.apiary-mock.com"
 
+#define kAPIFollowersUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/followers"]
 #define kAPIMessagesUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]
 #define kAPIPostMessageUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]
 #define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"/signup"]

@@ -8,10 +8,12 @@
 
 #import "SPFriendsTableViewController.h"
 #import "SPFriendTableViewCell.h"
-#import "SPFollowersTableViewDataSource.h"
-#import "SPFollowingTableViewDataSource.h"
+#import "SVPullToRefresh.h"
+
 
 @interface SPFriendsTableViewController ()
+
+@property (strong, nonatomic) NSArray *usersArray;
 
 @end
 
@@ -25,10 +27,39 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    __weak SPFriendsTableViewController *wSelf = self;
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [wSelf refreshTable];
+        [wSelf.tableView.pullToRefreshView stopAnimating];
+    }];
+    
+    [self.tableView.pullToRefreshView setArrowColor:[UIColor whiteColor]];
+    [self.tableView.pullToRefreshView setTextColor:[UIColor whiteColor]];
+    
+    [self refreshTable];
 }
 
--(void)viewDidLayoutSubviews
-{
+- (void) refreshTable {
+    switch (_listType) {
+        case SPFriendListTypeFollowers:
+            [self loadFollowers];
+            break;
+        case SPFriendListTypeFollowing:
+            //
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)loadFollowers {
+    [[SPUser currentUser] getFollowersInBackground:^(NSArray *followers, NSString *serverMessage) {
+        _usersArray = followers;
+        [self.tableView reloadData];
+    }];
+}
+
+- (void)viewDidLayoutSubviews {
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     }
@@ -39,11 +70,6 @@
 }
 
 #pragma mark - UITableViewDelegate
-
-- (NSInteger)tableView:(NSInteger)numberOfSections
-{
-    return 1;
-}
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -88,12 +114,14 @@
         cell = [nib objectAtIndex:0];
     }
     
+    [cell setupWithUser:_usersArray[indexPath.row]];
+    
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _numberOfCells;
+    return [_usersArray count];
 }
 
 

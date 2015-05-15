@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, SPFriendListType) {
+    SPFriendListTypeFollowers,
+    SPFriendListTypeFollowing
+};
+
 @interface SPFriendsTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic) SPFriendListType listType;
 @property (nonatomic) NSInteger numberOfCells;
 
 @end

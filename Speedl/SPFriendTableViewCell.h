@@ -12,4 +12,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *friendNameLabel;
 @property (strong, nonatomic) IBOutlet UIView *seporatorView;
 
+- (void)setupWithUser:(SPUser *)user;
+
 @end
