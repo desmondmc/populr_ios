@@ -26,10 +26,13 @@
     
     [self setupAppearance];
     
+    [self reloadMessagesData];
+}
+
+- (void) reloadMessagesData {
     [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
         NSLog(@"Got messages");
         _messages = messages;
-        
         [self.tableView reloadData];
     }];
 }
@@ -90,6 +93,9 @@
     [self presentViewController: messageViewController animated:NO completion:^{
         [cell.activityIndicator setHidden:YES];
         [cell.messageNumberLabel setHidden:NO];
+        [messageAtIndex markMessageAsReadInBackground:^(BOOL success, NSString *serverMessage) {
+            [self reloadMessagesData];
+        }];
     }];
 }
 

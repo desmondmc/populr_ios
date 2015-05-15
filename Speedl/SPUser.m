@@ -59,7 +59,7 @@
                 NSError *error;
                 
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [SPUser checkResponseCodeForError:httpResponse.statusCode data:data];
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
                 if (remoteError) {
                     block(nil, remoteError);
                     return;
@@ -97,7 +97,7 @@
                 NSError *error;
                 
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [SPUser checkResponseCodeForError:httpResponse.statusCode data:data];
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
                 if (remoteError) {
                     block(nil, remoteError);
                     return;
@@ -118,19 +118,6 @@
     }];
 }
 
-+ (NSString *)checkResponseCodeForError:(NSInteger)code data:(NSData *)data {
-    if (code != 200) {
-        NSError *error;
-        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        if (parsedObject[@"message"] != nil) {
-            return parsedObject[@"message"];
-        } else {
-            return kGenericErrorString;
-        }
-    }
-    return nil;
-}
-
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block {
     NSString *url = kAPIMessagesUrl;
     
@@ -148,7 +135,7 @@
                 NSError *error;
                 
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [SPUser checkResponseCodeForError:httpResponse.statusCode data:data];
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
                 if (remoteError) {
                     block(nil, remoteError);
                     return;
@@ -179,7 +166,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [SPUser checkResponseCodeForError:httpResponse.statusCode data:data];
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
                 if (remoteError) {
                     block(NO, remoteError);
                     return;
@@ -210,7 +197,7 @@
                 NSError *error;
                 
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [SPUser checkResponseCodeForError:httpResponse.statusCode data:data];
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
                 if (remoteError) {
                     block(nil, remoteError);
                     return;

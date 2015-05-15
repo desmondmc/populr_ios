@@ -37,17 +37,22 @@
 
 + (NSURLRequest *) requestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary {
     NSURL *url = [[NSURL alloc] initWithString:urlString];
-    
+    NSData *userJson = nil;
     NSError *error;
-    NSData *userJson = [NSJSONSerialization dataWithJSONObject:dictionary
-                                                       options:0
-                                                         error:&error];
+    if (dictionary) {
+        userJson = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                           options:0
+                                                             error:&error];
+    }
     if (error != nil) {
         return nil;
     }
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPBody = userJson;
+    if (userJson) {
+        request.HTTPBody = userJson;
+    }
+    
     
     [self setRequestHeaders:&request];
     
@@ -73,6 +78,19 @@
         [httpRequest setValue:currentUser.token forHTTPHeaderField:@"x-access-token"];
         [httpRequest setValue:currentUser.objectId forHTTPHeaderField:@"x-key"];
     }
+}
+
++ (NSString *)checkResponseCodeForError:(NSInteger)code data:(NSData *)data {
+    if (code != 200) {
+        NSError *error;
+        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if (parsedObject[@"message"] != nil) {
+            return parsedObject[@"message"];
+        } else {
+            return kGenericErrorString;
+        }
+    }
+    return nil;
 }
 
 @end

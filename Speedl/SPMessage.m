@@ -7,6 +7,7 @@
 //
 
 #import "SPMessage.h"
+#import "SPNetworkHelper.h"
 
 @implementation SPMessage
 
@@ -22,6 +23,34 @@
     NSDate *date = [dateFormat dateFromString:self.timestamp];
     
     return date;
+}
+
+- (void)markMessageAsReadInBackground:(SPNetworkResultBlock)block {
+    NSString *url = kAPIReadMessageUrl;
+    
+    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
+    
+    NSURLRequest *request = [SPNetworkHelper putRequestWithURL:url andDictionary:nil];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(NO, remoteError);
+                    return;
+                } else {
+                    block(YES, nil);
+                    return;
+                }
+            }
+        });
+    }];
 }
 
 @end

@@ -20,4 +20,6 @@ typedef void (^SPMessagesResultBlock)(NSArray *messages, NSString *serverMessage
 @property (strong, nonatomic) NSString *message;
 @property (strong, nonatomic) NSString *timestamp;
 
+- (void)markMessageAsReadInBackground:(SPNetworkResultBlock)block;
+
 @end
