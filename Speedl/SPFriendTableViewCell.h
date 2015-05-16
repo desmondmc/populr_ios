@@ -10,7 +10,7 @@
 
 @interface SPFriendTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *friendNameLabel;
-@property (strong, nonatomic) IBOutlet UIView *seporatorView;
+@property (strong, nonatomic) IBOutlet UILabel *followLabel;
 
 - (void)setupWithUser:(SPUser *)user;
 

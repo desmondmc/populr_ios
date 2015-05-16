@@ -13,4 +13,7 @@
 - (void) styleAsMainSpeedlLabel;
 - (void) styleAsFriendLabel;
 
+- (void) styleAsFollowLabel;
+- (void) styleAsFollowingLabel;
+
 @end

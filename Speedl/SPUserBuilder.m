@@ -45,6 +45,7 @@
         SPUser *user = [[SPUser alloc] init];
         user.objectId = userDictionary[@"user"][@"id"];
         user.username = userDictionary[@"user"][@"username"];
+        user.following = userDictionary[@"following"];
         [followersArray addObject:user];
     }
     

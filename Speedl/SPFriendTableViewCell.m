@@ -16,7 +16,6 @@
 
 - (void) setupAppearance {
     [self.friendNameLabel styleAsFriendLabel];
-    self.seporatorView.backgroundColor = [SPAppearance seeThroughColour];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -27,6 +26,13 @@
 
 - (void)setupWithUser:(SPUser *)user {
     _friendNameLabel.text = user.username;
+    if ([user.following boolValue] == YES) {
+        [self.followLabel styleAsFollowingLabel];
+        _followLabel.text = @"Following";
+    } else {
+        [self.followLabel styleAsFollowLabel];
+        _followLabel.text = @"Follow";
+    }
 }
 
 @end

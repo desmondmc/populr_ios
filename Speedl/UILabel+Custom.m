@@ -20,4 +20,16 @@
     self.text = [self.text uppercaseString];
 }
 
+- (void) styleAsFollowLabel {
+    self.font = [SPAppearance friendsListFont];
+    self.textColor = [SPAppearance friendsListColour];
+    self.text = [self.text uppercaseString];
+}
+
+- (void) styleAsFollowingLabel {
+    self.font = [SPAppearance friendsListFont];
+    self.textColor = [SPAppearance seeThroughColour];
+    self.text = [self.text uppercaseString];
+}
+
 @end
