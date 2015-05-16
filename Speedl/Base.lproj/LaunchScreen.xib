@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,21 +11,44 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speedl" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="182" y="219" width="116" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="XIQ-K8-lhu">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="LkY-fu-1sK"/>
-                <constraint firstAttribute="centerY" secondItem="kId-c2-rCX" secondAttribute="centerY" id="dX9-L8-oYC"/>
+                <constraint firstItem="XIQ-K8-lhu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4Lx-Bn-Y5y"/>
+                <constraint firstItem="XIQ-K8-lhu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SHQ-vb-dSI"/>
+                <constraint firstAttribute="bottom" secondItem="XIQ-K8-lhu" secondAttribute="bottom" id="VcE-hF-anc"/>
+                <constraint firstAttribute="trailing" secondItem="XIQ-K8-lhu" secondAttribute="trailing" id="qsZ-oR-RnC"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="XIQ-K8-lhu"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="4Lx-Bn-Y5y"/>
+                    <exclude reference="SHQ-vb-dSI"/>
+                    <exclude reference="VcE-hF-anc"/>
+                    <exclude reference="qsZ-oR-RnC"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="XIQ-K8-lhu"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="4Lx-Bn-Y5y"/>
+                    <include reference="SHQ-vb-dSI"/>
+                    <include reference="VcE-hF-anc"/>
+                    <include reference="qsZ-oR-RnC"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="548" y="540.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="Splash" width="1242" height="2208"/>
+    </resources>
 </document>
