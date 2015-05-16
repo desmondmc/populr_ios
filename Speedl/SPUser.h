@@ -16,6 +16,7 @@
 
 typedef void (^SPUserResultBlock)(SPUser *user, NSString *serverMessage);
 typedef void (^SPFollowersResultBlock)(NSArray *followers, NSString *serverMessage);
+typedef void (^SPFollowingResultBlock)(NSArray *following, NSString *serverMessage);
 typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage);
 
 // JSON values
@@ -44,6 +45,8 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 - (void)postMessageInBackground:(NSString *)message block:(SPNetworkResultBlock)block;
 
 - (void)getFollowersInBackground:(SPFollowersResultBlock)block;
+
+- (void)getFollowingInBackground:(SPFollowingResultBlock)block;
 
 
 @end

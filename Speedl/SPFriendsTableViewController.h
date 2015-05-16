@@ -16,6 +16,5 @@ typedef NS_ENUM(NSInteger, SPFriendListType) {
 @interface SPFriendsTableViewController : UITableViewController <UITableViewDelegate>
 
 @property (nonatomic) SPFriendListType listType;
-@property (nonatomic) NSInteger numberOfCells;
 
 @end

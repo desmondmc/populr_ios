@@ -39,6 +39,7 @@
 #define kAPIUserSearchUrl [kAPIRootUrl stringByAppendingString:@"/users?username="]
 #define kAPIReadMessageUrl [kAPIRootUrl stringByAppendingString:@"/message/{id}/read"]
 #define kAPIFollowersUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/followers"]
+#define kAPIFollowingUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/following"]
 #define kAPIMessagesUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]
 #define kAPIPostMessageUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]
 #define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"/signup"]

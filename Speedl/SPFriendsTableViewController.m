@@ -60,7 +60,7 @@
             [self loadFollowers];
             break;
         case SPFriendListTypeFollowing:
-            //
+            [self loadFollowing];
             break;
         default:
             break;
@@ -70,6 +70,14 @@
 - (void)loadFollowers {
     [[SPUser currentUser] getFollowersInBackground:^(NSArray *followers, NSString *serverMessage) {
         [self dataSource].users = followers;
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+    }];
+}
+
+- (void)loadFollowing {
+    [[SPUser currentUser] getFollowingInBackground:^(NSArray *following, NSString *serverMessage) {
+        [self dataSource].users = following;
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
     }];
