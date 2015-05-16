@@ -93,14 +93,14 @@
 		7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendsTableViewController.m; sourceTree = "<group>"; };
 		7A625F541B0545EC0092F412 /* SPAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAutoLayout.h; sourceTree = "<group>"; };
 		7A625F551B0545ED0092F412 /* SPAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAutoLayout.m; sourceTree = "<group>"; };
-		7AB3D6E51AC35A3900CA94DB /* Speedl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB3D6E51AC35A3900CA94DB /* gzelle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gzelle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AB3D6EC1AC35A3900CA94DB /* SPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPAppDelegate.h; sourceTree = "<group>"; };
 		7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
 		7AB3D6F51AC35A3900CA94DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7AB3D6F81AC35A3900CA94DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7AB3D6FE1AC35A3900CA94DB /* SpeedlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB3D6FE1AC35A3900CA94DB /* gzelleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gzelleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D7031AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D7041AC35A3900CA94DB /* SpeedlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeedlTests.m; sourceTree = "<group>"; };
 		7AB3D70F1AC35B7600CA94DB /* SPNetworkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNetworkObject.h; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		7AB3D72C1AC35C7400CA94DB /* SPMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPMessageViewController.xib; sourceTree = "<group>"; };
 		7AB3D7301AC35C9900CA94DB /* SPMessageLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageLabel.h; sourceTree = "<group>"; };
 		7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageLabel.m; sourceTree = "<group>"; };
-		7AB3D7331AC35CC900CA94DB /* Speedl-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Speedl-Prefix.pch"; sourceTree = "<group>"; };
+		7AB3D7331AC35CC900CA94DB /* gzelle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gzelle-Prefix.pch"; sourceTree = "<group>"; };
 		7ADCF4391B0688E3009834D5 /* SPSearchFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSearchFriendsViewController.h; sourceTree = "<group>"; };
 		7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSearchFriendsViewController.m; sourceTree = "<group>"; };
 		7ADCF43B1B0688E3009834D5 /* SPSearchFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPSearchFriendsViewController.xib; sourceTree = "<group>"; };
@@ -326,8 +326,8 @@
 		7AB3D6E61AC35A3900CA94DB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7AB3D6E51AC35A3900CA94DB /* Speedl.app */,
-				7AB3D6FE1AC35A3900CA94DB /* SpeedlTests.xctest */,
+				7AB3D6E51AC35A3900CA94DB /* gzelle.app */,
+				7AB3D6FE1AC35A3900CA94DB /* gzelleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,7 +351,7 @@
 		7AB3D6E81AC35A3900CA94DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7AB3D7331AC35CC900CA94DB /* Speedl-Prefix.pch */,
+				7AB3D7331AC35CC900CA94DB /* gzelle-Prefix.pch */,
 				7AB3D6E91AC35A3900CA94DB /* Info.plist */,
 				7AB3D6EA1AC35A3900CA94DB /* main.m */,
 			);
@@ -538,9 +538,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7AB3D6E41AC35A3900CA94DB /* Speedl */ = {
+		7AB3D6E41AC35A3900CA94DB /* gzelle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7AB3D7081AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "Speedl" */;
+			buildConfigurationList = 7AB3D7081AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "gzelle" */;
 			buildPhases = (
 				F366ADAE9EFBDC6FDC0DC809 /* Check Pods Manifest.lock */,
 				7AB3D6E11AC35A3900CA94DB /* Sources */,
@@ -552,14 +552,14 @@
 			);
 			dependencies = (
 			);
-			name = Speedl;
+			name = gzelle;
 			productName = Speedl;
-			productReference = 7AB3D6E51AC35A3900CA94DB /* Speedl.app */;
+			productReference = 7AB3D6E51AC35A3900CA94DB /* gzelle.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7AB3D6FD1AC35A3900CA94DB /* SpeedlTests */ = {
+		7AB3D6FD1AC35A3900CA94DB /* gzelleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7AB3D70B1AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "SpeedlTests" */;
+			buildConfigurationList = 7AB3D70B1AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "gzelleTests" */;
 			buildPhases = (
 				7AB3D6FA1AC35A3900CA94DB /* Sources */,
 				7AB3D6FB1AC35A3900CA94DB /* Frameworks */,
@@ -570,9 +570,9 @@
 			dependencies = (
 				7AB3D7001AC35A3900CA94DB /* PBXTargetDependency */,
 			);
-			name = SpeedlTests;
+			name = gzelleTests;
 			productName = SpeedlTests;
-			productReference = 7AB3D6FE1AC35A3900CA94DB /* SpeedlTests.xctest */;
+			productReference = 7AB3D6FE1AC35A3900CA94DB /* gzelleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -593,7 +593,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7AB3D6E01AC35A3900CA94DB /* Build configuration list for PBXProject "Speedl" */;
+			buildConfigurationList = 7AB3D6E01AC35A3900CA94DB /* Build configuration list for PBXProject "gzelle" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -606,8 +606,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7AB3D6E41AC35A3900CA94DB /* Speedl */,
-				7AB3D6FD1AC35A3900CA94DB /* SpeedlTests */,
+				7AB3D6E41AC35A3900CA94DB /* gzelle */,
+				7AB3D6FD1AC35A3900CA94DB /* gzelleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -727,7 +727,7 @@
 /* Begin PBXTargetDependency section */
 		7AB3D7001AC35A3900CA94DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7AB3D6E41AC35A3900CA94DB /* Speedl */;
+			target = 7AB3D6E41AC35A3900CA94DB /* gzelle */;
 			targetProxy = 7AB3D6FF1AC35A3900CA94DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -828,11 +828,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "Speedl/Speedl-Prefix.pch";
+				GCC_PREFIX_HEADER = "Speedl/gzelle-Prefix.pch";
 				INFOPLIST_FILE = Speedl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = gzelle;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -843,11 +843,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "Speedl/Speedl-Prefix.pch";
+				GCC_PREFIX_HEADER = "Speedl/gzelle-Prefix.pch";
 				INFOPLIST_FILE = Speedl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = gzelle;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -866,7 +866,7 @@
 				);
 				INFOPLIST_FILE = SpeedlTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = gzelleTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Speedl.app/Speedl";
 			};
 			name = Debug;
@@ -881,7 +881,7 @@
 				);
 				INFOPLIST_FILE = SpeedlTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = gzelleTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Speedl.app/Speedl";
 			};
 			name = Release;
@@ -889,7 +889,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7AB3D6E01AC35A3900CA94DB /* Build configuration list for PBXProject "Speedl" */ = {
+		7AB3D6E01AC35A3900CA94DB /* Build configuration list for PBXProject "gzelle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7AB3D7061AC35A3900CA94DB /* Debug */,
@@ -898,7 +898,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7AB3D7081AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "Speedl" */ = {
+		7AB3D7081AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "gzelle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7AB3D7091AC35A3900CA94DB /* Debug */,
@@ -907,7 +907,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7AB3D70B1AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "SpeedlTests" */ = {
+		7AB3D70B1AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "gzelleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7AB3D70C1AC35A3900CA94DB /* Debug */,
