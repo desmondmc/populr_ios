@@ -19,45 +19,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 + (UIColor *) globalBackgroundColour {
     return [self getColourForDay];
-    
-    //return [UIColor colorWithRed:0 green:0.894 blue:0.486 alpha:1]; //Bright green
-    //return [UIColor colorWithRed:0 green:0.588 blue:1 alpha:1]; // unoffensive blue
-    //return [UIColor colorWithRed:0.18 green:0.18 blue:0.22 alpha:1]; // Dark Grey
-    //return [UIColor colorWithRed:0.737 green:0.365 blue:0.475 alpha:1]; // Pinkish
-}
-
-+ (UIColor *) getColourForDay {
-    NSString *str =@"4/20/2015 2:16 PM";
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
-    
-    NSDate *startDate = [formatter dateFromString:str];
-    NSDate *currentDate = [NSDate date];
-    
-    NSInteger numberOfDays = [self daysBetweenDate:startDate andDate:currentDate];
-    
-    NSInteger colourIndex = numberOfDays % [kColourArray count];
-    
-    NSInteger colorValue = [kColourArray[colourIndex] integerValue];
-    return UIColorFromRGB(colorValue);
-}
-
-+ (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
-{
-    NSDate *fromDate;
-    NSDate *toDate;
-    
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    
-    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&fromDate
-                 interval:NULL forDate:fromDateTime];
-    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&toDate
-                 interval:NULL forDate:toDateTime];
-    
-    NSDateComponents *difference = [calendar components:NSCalendarUnitDay
-                                               fromDate:fromDate toDate:toDate options:0];
-    
-    return [difference day];
 }
 
 + (UIColor *) seeThroughColour {
@@ -97,6 +58,42 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 + (UIColor *) friendsListColour {
     return [UIColor whiteColor];
+}
+
+#pragma mark - Helpers
+
++ (UIColor *) getColourForDay {
+    NSString *str =@"4/20/2015 2:16 PM";
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
+    
+    NSDate *startDate = [formatter dateFromString:str];
+    NSDate *currentDate = [NSDate date];
+    
+    NSInteger numberOfDays = [self daysBetweenDate:startDate andDate:currentDate];
+    
+    NSInteger colourIndex = numberOfDays % [kColourArray count];
+    
+    NSInteger colorValue = [kColourArray[colourIndex] integerValue];
+    return UIColorFromRGB(colorValue);
+}
+
++ (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
+{
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&fromDate
+                 interval:NULL forDate:fromDateTime];
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&toDate
+                 interval:NULL forDate:toDateTime];
+    
+    NSDateComponents *difference = [calendar components:NSCalendarUnitDay
+                                               fromDate:fromDate toDate:toDate options:0];
+    
+    return [difference day];
 }
 
 @end

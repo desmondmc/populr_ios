@@ -25,4 +25,6 @@
 + (UIFont *) friendsListFont;
 + (UIColor *) friendsListColour;
 
++ (UIColor *) getColourForDay;
+
 @end

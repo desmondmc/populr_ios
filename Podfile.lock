@@ -12,7 +12,7 @@ DEPENDENCIES:
   - FLKAutoLayout (~> 0.2)
   - SVPullToRefresh (~> 0.4)
   - TransitionKit (~> 2.0.0)
-  - TSMessages (~> 0.9)
+  - TSMessages
 
 SPEC CHECKSUMS:
   CSNotificationView: 0792f5220163c2befaf1a9716aa3d5a7d6bd4fb1

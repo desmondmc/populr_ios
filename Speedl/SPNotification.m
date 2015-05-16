@@ -9,21 +9,33 @@
 #import "SPNotification.h"
 #import "CSNotificationView.h"
 #import "TSMessage.h"
+#import <TSMessages/TSMessageView.h>
 
 @implementation SPNotification
 
 + (void)showErrorNotificationWithMessage:(NSString *)message inViewController:(UIViewController *)viewController {
+    [self setupAppearance];
+    
     [TSMessage showNotificationWithTitle:message
                                 subtitle:@""
                                     type:TSMessageNotificationTypeError];
 }
 
 + (void)showSuccessNotificationWithMessage:(NSString *)message inViewController:(UIViewController *)viewController {
+    [self setupAppearance];
+    
     [TSMessage showNotificationInViewController:viewController
                                           title:message
                                        subtitle:nil
                                            type:TSMessageNotificationTypeSuccess
                                        duration:0.5];
+}
+
++ (void)setupAppearance {
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+
+    });
 }
 
 @end
