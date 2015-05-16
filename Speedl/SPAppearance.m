@@ -8,13 +8,56 @@
 
 #import "SPAppearance.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define kColourArray @[@0xB37D7D, @0xB3887D, @0xB3927D, @0xB39D7D, @0xB3A97D, @0xB3B37D, @0xA7B37D, @0x9DB37D, @0x90B37D, @0x86B37D, @0x7DB37D, @0x7DB388, @0x7DB392, @0x7DB39D, @0x7DB3A7, @0x7DB3B3, @0x7DA7B3, @0x7D9DB3, @0x7D92B3, @0x7D88B3, @0x7D7DB3, @0x887DB3, @0x927DB3, @0x9D7DB3, @0xA77DB3, @0xB37DB3, @0xB37DA7, @0xB37D9D]
+
 @implementation SPAppearance
 
 + (UIColor *) globalBackgroundColour {
+    return [self getColourForDay];
+    
     //return [UIColor colorWithRed:0 green:0.894 blue:0.486 alpha:1]; //Bright green
     //return [UIColor colorWithRed:0 green:0.588 blue:1 alpha:1]; // unoffensive blue
     //return [UIColor colorWithRed:0.18 green:0.18 blue:0.22 alpha:1]; // Dark Grey
-    return [UIColor colorWithRed:0.737 green:0.365 blue:0.475 alpha:1]; // Pinkish
+    //return [UIColor colorWithRed:0.737 green:0.365 blue:0.475 alpha:1]; // Pinkish
+}
+
++ (UIColor *) getColourForDay {
+    NSString *str =@"4/20/2015 2:16 PM";
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
+    
+    NSDate *startDate = [formatter dateFromString:str];
+    NSDate *currentDate = [NSDate date];
+    
+    NSInteger numberOfDays = [self daysBetweenDate:startDate andDate:currentDate];
+    
+    NSInteger colourIndex = numberOfDays % [kColourArray count];
+    
+    NSInteger colorValue = [kColourArray[colourIndex] integerValue];
+    return UIColorFromRGB(colorValue);
+}
+
++ (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime
+{
+    NSDate *fromDate;
+    NSDate *toDate;
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&fromDate
+                 interval:NULL forDate:fromDateTime];
+    [calendar rangeOfUnit:NSCalendarUnitDay startDate:&toDate
+                 interval:NULL forDate:toDateTime];
+    
+    NSDateComponents *difference = [calendar components:NSCalendarUnitDay
+                                               fromDate:fromDate toDate:toDate options:0];
+    
+    return [difference day];
 }
 
 + (UIColor *) seeThroughColour {
