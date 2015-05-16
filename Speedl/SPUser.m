@@ -118,6 +118,38 @@
     }];
 }
 
++ (void)searchForUserInBackgroundWithString:(NSString *)searchString block:(SPUserSearchResultBlock)block {
+    NSString *url = kAPIUserSearchUrl;
+    
+    url = [url stringByAppendingString:searchString];
+    
+    NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                NSError *error;
+                
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(nil, remoteError);
+                    return;
+                }
+                
+                NSArray *users = [SPUserBuilder usersFromJSON:data error:&error];
+                
+                block(users, nil);
+                return;
+            }
+        });
+    }];
+}
+
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block {
     NSString *url = kAPIMessagesUrl;
     
@@ -203,7 +235,7 @@
                     return;
                 }
                 
-                NSArray *followers = [SPUserBuilder followersFromJSON:data error:&error];
+                NSArray *followers = [SPUserBuilder usersFromJSON:data error:&error];
                 
                 block(followers, nil);
                 return;

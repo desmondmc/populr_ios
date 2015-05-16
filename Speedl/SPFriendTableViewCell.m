@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Speedl. All rights reserved.
 //
 
-#import "SPFriendTableViewCell.h"
-
 @implementation SPFriendTableViewCell
 
 - (void)awakeFromNib {

@@ -12,6 +12,6 @@
 @interface SPUserBuilder : NSObject
 
 + (SPUser *)userFromJSON:(NSData *)jsonData error:(NSError **)error;
-+ (NSArray *)followersFromJSON:(NSData *)jsonData error:(NSError **)error;
++ (NSArray *)usersFromJSON:(NSData *)jsonData error:(NSError **)error;
 
 @end

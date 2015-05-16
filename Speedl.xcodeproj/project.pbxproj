@@ -40,6 +40,9 @@
 		7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */; };
 		7ADCF43C1B0688E3009834D5 /* SPSearchFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */; };
 		7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ADCF43B1B0688E3009834D5 /* SPSearchFriendsViewController.xib */; };
+		7ADCF4401B069BEE009834D5 /* UITableView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43F1B069BEE009834D5 /* UITableView+Custom.m */; };
+		7ADCF4441B06A265009834D5 /* SPUsersTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF4431B06A265009834D5 /* SPUsersTableDataSource.m */; };
+		7ADCF4471B06A537009834D5 /* SPUsersTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF4461B06A537009834D5 /* SPUsersTableDelegate.m */; };
 		7AE4D1EB1AE256B9006F6C83 /* SPContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D1EA1AE256B9006F6C83 /* SPContainerViewController.xib */; };
 		7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1EE1AE25E1F006F6C83 /* SPAppearance.m */; };
 		7AE4D1F21AE2870E006F6C83 /* UILabel+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1F11AE2870E006F6C83 /* UILabel+Custom.m */; };
@@ -123,6 +126,12 @@
 		7ADCF4391B0688E3009834D5 /* SPSearchFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSearchFriendsViewController.h; sourceTree = "<group>"; };
 		7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSearchFriendsViewController.m; sourceTree = "<group>"; };
 		7ADCF43B1B0688E3009834D5 /* SPSearchFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPSearchFriendsViewController.xib; sourceTree = "<group>"; };
+		7ADCF43E1B069BEE009834D5 /* UITableView+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Custom.h"; sourceTree = "<group>"; };
+		7ADCF43F1B069BEE009834D5 /* UITableView+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Custom.m"; sourceTree = "<group>"; };
+		7ADCF4421B06A265009834D5 /* SPUsersTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUsersTableDataSource.h; sourceTree = "<group>"; };
+		7ADCF4431B06A265009834D5 /* SPUsersTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUsersTableDataSource.m; sourceTree = "<group>"; };
+		7ADCF4451B06A537009834D5 /* SPUsersTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUsersTableDelegate.h; sourceTree = "<group>"; };
+		7ADCF4461B06A537009834D5 /* SPUsersTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUsersTableDelegate.m; sourceTree = "<group>"; };
 		7AE4D1EA1AE256B9006F6C83 /* SPContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPContainerViewController.xib; sourceTree = "<group>"; };
 		7AE4D1ED1AE25E1F006F6C83 /* SPAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAppearance.h; sourceTree = "<group>"; };
 		7AE4D1EE1AE25E1F006F6C83 /* SPAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAppearance.m; sourceTree = "<group>"; };
@@ -257,6 +266,7 @@
 		7A49B9851AE417400085D3C6 /* SPFriendsList */ = {
 			isa = PBXGroup;
 			children = (
+				7ADCF4411B06A236009834D5 /* DataSource+Delegate */,
 				7ADCF4381B0688AA009834D5 /* SPSearchFriendsViewController */,
 				7A625F531B053A210092F412 /* SPFollowersTableViewController */,
 				7A49B9861AE417540085D3C6 /* SPFriendTableViewCell */,
@@ -446,6 +456,17 @@
 			name = SPSearchFriendsViewController;
 			sourceTree = "<group>";
 		};
+		7ADCF4411B06A236009834D5 /* DataSource+Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				7ADCF4421B06A265009834D5 /* SPUsersTableDataSource.h */,
+				7ADCF4431B06A265009834D5 /* SPUsersTableDataSource.m */,
+				7ADCF4451B06A537009834D5 /* SPUsersTableDelegate.h */,
+				7ADCF4461B06A537009834D5 /* SPUsersTableDelegate.m */,
+			);
+			name = "DataSource+Delegate";
+			sourceTree = "<group>";
+		};
 		7AE4D1EC1AE25DD8006F6C83 /* SPAppearance */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +482,8 @@
 				7AE4D1FA1AE294BE006F6C83 /* UISegmentedControl+Custom.m */,
 				7A49B9821AE406CA0085D3C6 /* UITextView+Custom.h */,
 				7A49B9831AE406CA0085D3C6 /* UITextView+Custom.m */,
+				7ADCF43E1B069BEE009834D5 /* UITableView+Custom.h */,
+				7ADCF43F1B069BEE009834D5 /* UITableView+Custom.m */,
 			);
 			name = SPAppearance;
 			sourceTree = "<group>";
@@ -671,6 +694,8 @@
 				7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */,
 				7A625F561B0545ED0092F412 /* SPAutoLayout.m in Sources */,
 				7AE4D1FB1AE294BE006F6C83 /* UISegmentedControl+Custom.m in Sources */,
+				7ADCF4401B069BEE009834D5 /* UITableView+Custom.m in Sources */,
+				7ADCF4471B06A537009834D5 /* SPUsersTableDelegate.m in Sources */,
 				7AB3D71B1AC35BD000CA94DB /* SPUser.m in Sources */,
 				7AE4D1F51AE2877D006F6C83 /* UITextField+Custom.m in Sources */,
 				7A625F521B053A1A0092F412 /* SPFriendsTableViewController.m in Sources */,
@@ -681,6 +706,7 @@
 				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
 				7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */,
 				7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */,
+				7ADCF4441B06A265009834D5 /* SPUsersTableDataSource.m in Sources */,
 				7A45F8A51B011DC5009BDA95 /* SPNotification.m in Sources */,
 				7A49B98F1AE836350085D3C6 /* SPCustomTwoTabView.m in Sources */,
 				7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */,

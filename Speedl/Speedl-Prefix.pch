@@ -26,15 +26,17 @@
 #import "UISegmentedControl+Custom.h"
 #import "UITextView+Custom.h"
 #import "UIView+FLKAutoLayout.h"
+#import "UITableView+Custom.h"
 
 //Third Party
 #import "SPNotification.h"
 
+#import "SPFriendTableViewCell.h"
 #define kFriendCellReuse @"SPFriendTableViewCell"
 
 //#define kAPIRootUrl @"http://52.17.154.158:3000"
 #define kAPIRootUrl @"http://private-4f48d-speedl.apiary-mock.com"
-
+#define kAPIUserSearchUrl [kAPIRootUrl stringByAppendingString:@"/users?username="]
 #define kAPIReadMessageUrl [kAPIRootUrl stringByAppendingString:@"/message/{id}/read"]
 #define kAPIFollowersUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/followers"]
 #define kAPIMessagesUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]

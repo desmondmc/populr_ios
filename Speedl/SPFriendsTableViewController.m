@@ -7,13 +7,16 @@
 //
 
 #import "SPFriendsTableViewController.h"
-#import "SPFriendTableViewCell.h"
+#import "SPUsersTableDataSource.h"
+#import "SPUsersTableDelegate.h"
 #import "SVPullToRefresh.h"
 
 
 @interface SPFriendsTableViewController ()
 
 @property (strong, nonatomic) NSArray *usersArray;
+@property (strong, nonatomic) SPUsersTableDataSource *dataSource;
+@property (strong, nonatomic) SPUsersTableDelegate *delegate;
 
 @end
 
@@ -21,22 +24,34 @@
 
 
 - (void)setupTableView {
-    self.tableView.backgroundColor = [UIColor clearColor];
-    [self.tableView setSeparatorColor:[SPAppearance seeThroughColour]];
+    [self.tableView styleAsMainSpeedlTableView];
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.tableView.delegate = [self delegate];
+    self.tableView.dataSource = [self dataSource];
     
-    __weak SPFriendsTableViewController *wSelf = self;
-    [self.tableView addPullToRefreshWithActionHandler:^{
-        [wSelf refreshTable];
-        [wSelf.tableView.pullToRefreshView stopAnimating];
-    }];
-    
-    [self.tableView.pullToRefreshView setArrowColor:[UIColor whiteColor]];
-    [self.tableView.pullToRefreshView setTextColor:[UIColor whiteColor]];
+    //Add pull to refresh
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor clearColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshTable)
+                  forControlEvents:UIControlEventValueChanged];
     
     [self refreshTable];
+}
+
+-(SPUsersTableDataSource *)dataSource {
+    if (!_dataSource) {
+        _dataSource = [[SPUsersTableDataSource alloc] init];
+    }
+    return _dataSource;
+}
+
+-(SPUsersTableDelegate *)delegate {
+    if (!_delegate) {
+        _delegate = [[SPUsersTableDelegate alloc] init];
+    }
+    return _delegate;
 }
 
 - (void) refreshTable {
@@ -54,8 +69,9 @@
 
 - (void)loadFollowers {
     [[SPUser currentUser] getFollowersInBackground:^(NSArray *followers, NSString *serverMessage) {
-        _usersArray = followers;
+        [self dataSource].users = followers;
         [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
     }];
 }
 
@@ -69,27 +85,6 @@
     }
 }
 
-#pragma mark - UITableViewDelegate
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -98,32 +93,6 @@
     
     [self setupTableView];
 }
-
-#pragma mark - UITableViewDataSource
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    SPFriendTableViewCell *cell = (SPFriendTableViewCell *)
-    [tableView dequeueReusableCellWithIdentifier:kFriendCellReuse forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        //There was no reusablecell to dequeue
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SPFriendTableViewCell"
-                                                     owner:self
-                                                   options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    [cell setupWithUser:_usersArray[indexPath.row]];
-    
-    return cell;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [_usersArray count];
-}
-
 
 
 @end
