@@ -20,15 +20,15 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UGA-Vm-4Rl">
-                        <rect key="frame" x="374" y="11" width="22" height="22"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick_" translatesAutoresizingMaskIntoConstraints="NO" id="UGA-Vm-4Rl">
+                        <rect key="frame" x="376" y="12" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="22" id="4Zc-uV-pVV"/>
-                            <constraint firstAttribute="height" constant="22" id="7SB-Cs-G3m"/>
+                            <constraint firstAttribute="width" constant="20" id="4Zc-uV-pVV"/>
+                            <constraint firstAttribute="height" constant="20" id="7SB-Cs-G3m"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP6-kV-ghq">
-                        <rect key="frame" x="324" y="11" width="42" height="21"/>
+                        <rect key="frame" x="326" y="11" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -46,8 +46,12 @@
             <connections>
                 <outlet property="followLabel" destination="HP6-kV-ghq" id="09l-Uw-ebJ"/>
                 <outlet property="friendNameLabel" destination="uMd-f2-u3V" id="UyP-cg-iPI"/>
+                <outlet property="tickImage" destination="UGA-Vm-4Rl" id="4Ta-Tb-o9K"/>
             </connections>
             <point key="canvasLocation" x="289" y="244"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="tick_" width="20" height="20"/>
+    </resources>
 </document>

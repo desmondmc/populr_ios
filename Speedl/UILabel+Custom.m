@@ -14,22 +14,27 @@
 
 }
 
-- (void) styleAsFriendLabel {
+- (void)styleAsFriendLabel {
     self.font = [SPAppearance friendsListFont];
     self.textColor = [SPAppearance friendsListColour];
     self.text = [self.text uppercaseString];
 }
 
-- (void) styleAsFollowLabel {
+- (void)styleAsFollowLabel {
     self.font = [SPAppearance friendsListFont];
     self.textColor = [SPAppearance friendsListColour];
     self.text = [self.text uppercaseString];
 }
 
-- (void) styleAsFollowingLabel {
+- (void)styleAsFollowingLabel {
     self.font = [SPAppearance friendsListFont];
     self.textColor = [SPAppearance seeThroughColour];
     self.text = [self.text uppercaseString];
+}
+
+- (void)styleAsTimeLabel {
+    self.font = [SPAppearance timeLabelFont];
+    self.textColor = [SPAppearance seeThroughColour];
 }
 
 @end

@@ -11,6 +11,7 @@
 @interface SPAppearance : NSObject
 
 + (UIColor *) globalBackgroundColour;
++ (UIColor *) globalBackgroundColourWithAlpha:(CGFloat)alpha;
 + (UIColor *) seeThroughColour;
 
 + (UIColor *) mainTextFieldColour;
@@ -26,5 +27,7 @@
 + (UIColor *) friendsListColour;
 
 + (UIColor *) getColourForDay;
+
++ (UIFont *) timeLabelFont;
 
 @end

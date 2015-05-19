@@ -11,6 +11,7 @@
 @interface SPFriendTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *friendNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *followLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *tickImage;
 
 - (void)setupWithUser:(SPUser *)user;
 

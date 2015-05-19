@@ -21,6 +21,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return [self getColourForDay];
 }
 
++ (UIColor *) globalBackgroundColourWithAlpha:(CGFloat)alpha {
+    UIColor *alphaColour = [[self getColourForDay] colorWithAlphaComponent:alpha];
+    return alphaColour;
+}
+
 + (UIColor *) seeThroughColour {
     return [UIColor colorWithRed:1 green:1 blue:1 alpha:0.60];
 }
@@ -53,6 +58,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 + (UIFont *) friendsListFont {
     UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
+    return font;
+}
+
++ (UIFont *) timeLabelFont {
+    UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:15];
     return font;
 }
 

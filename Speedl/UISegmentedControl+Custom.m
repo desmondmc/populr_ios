@@ -11,7 +11,7 @@
 @implementation UISegmentedControl (Custom)
 
 - (void) styleAsMainSpeedlSegmentControl {
-    UIFont *font = [SPAppearance mainSegmentControlFont];
+    UIFont *font = [SPAppearance timeLabelFont];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
                                                            forKey:NSFontAttributeName];
     [self setTitleTextAttributes:attributes forState:UIControlStateNormal];

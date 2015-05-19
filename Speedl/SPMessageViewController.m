@@ -37,12 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [SPAppearance globalBackgroundColour];
-    
-    [_restartButton setHidden:YES];
-    [_playButton setHidden:YES];
-    [_messageLabel setHidden:YES];
-    [_pauseButton setEnabled:NO];
+    [self setupAppearence];
     
     if (_message.message) {
         _messageLabel.messageText = _message.message;
@@ -71,6 +66,21 @@
         [_messageFromLabel setHidden:YES];
         [_fromLabel setHidden:YES];
     }];
+}
+
+- (void)setupAppearence {
+    self.view.backgroundColor = [SPAppearance globalBackgroundColour];
+    
+    [_restartButton setHidden:YES];
+    [_playButton setHidden:YES];
+    [_messageLabel setTextColor:[SPAppearance globalBackgroundColour]];
+    [_countDown setTextColor:[SPAppearance globalBackgroundColour]];
+    [_messageFromLabel setTextColor:[SPAppearance globalBackgroundColourWithAlpha:0.50]];
+    _messageFromLabel.font = [SPAppearance mainSegmentControlFont];
+    [_fromLabel setTextColor:[SPAppearance globalBackgroundColour]];
+    
+    [_messageLabel setHidden:YES];
+    [_pauseButton setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {

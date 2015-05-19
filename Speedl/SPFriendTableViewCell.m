@@ -28,10 +28,14 @@
     _friendNameLabel.text = user.username;
     if ([user.following boolValue] == YES) {
         [self.followLabel styleAsFollowingLabel];
+        _followLabel.font = [SPAppearance timeLabelFont];
         _followLabel.text = @"Following";
+        _tickImage.image = [UIImage imageNamed:@"tick_"];
     } else {
         [self.followLabel styleAsFollowLabel];
+        _followLabel.font = [SPAppearance timeLabelFont];
         _followLabel.text = @"Follow";
+        _tickImage.image = [UIImage imageNamed:@"plus_"];
     }
 }
 
