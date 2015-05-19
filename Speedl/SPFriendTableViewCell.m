@@ -23,6 +23,9 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)didTapFollow:(id)sender {
+    NSLog(@"Tapped follow");
+}
 
 - (void)setupWithUser:(SPUser *)user {
     _friendNameLabel.text = user.username;
@@ -31,11 +34,13 @@
         _followLabel.font = [SPAppearance timeLabelFont];
         _followLabel.text = @"Following";
         _tickImage.image = [UIImage imageNamed:@"tick_"];
+        _followButton.enabled = NO;
     } else {
         [self.followLabel styleAsFollowLabel];
         _followLabel.font = [SPAppearance timeLabelFont];
         _followLabel.text = @"Follow";
         _tickImage.image = [UIImage imageNamed:@"plus_"];
+        _followButton.enabled = YES;
     }
 }
 

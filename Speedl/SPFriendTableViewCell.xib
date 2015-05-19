@@ -20,6 +20,12 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP6-kV-ghq">
+                        <rect key="frame" x="326" y="11" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick_" translatesAutoresizingMaskIntoConstraints="NO" id="UGA-Vm-4Rl">
                         <rect key="frame" x="376" y="12" width="20" height="20"/>
                         <constraints>
@@ -27,15 +33,24 @@
                             <constraint firstAttribute="height" constant="20" id="7SB-Cs-G3m"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP6-kV-ghq">
-                        <rect key="frame" x="326" y="11" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdB-Er-agk">
+                        <rect key="frame" x="316" y="8" width="80" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="OXl-dW-v5W"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="didTapFollow:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qoi-0b-dhy"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="UGA-Vm-4Rl" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="9s9-jr-u5x"/>
+                    <constraint firstItem="bdB-Er-agk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="ARf-1n-pGe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bdB-Er-agk" secondAttribute="bottom" id="BAP-oc-0Ay"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bdB-Er-agk" secondAttribute="trailing" id="K6q-bC-xJP"/>
                     <constraint firstAttribute="centerY" secondItem="UGA-Vm-4Rl" secondAttribute="centerY" id="Z2I-Av-q7M"/>
                     <constraint firstItem="UGA-Vm-4Rl" firstAttribute="leading" secondItem="HP6-kV-ghq" secondAttribute="trailing" constant="8" id="Z7z-8H-E37"/>
                     <constraint firstAttribute="centerY" secondItem="HP6-kV-ghq" secondAttribute="centerY" id="uzZ-NC-82j"/>
@@ -44,6 +59,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="followButton" destination="bdB-Er-agk" id="gm1-6q-Ljl"/>
                 <outlet property="followLabel" destination="HP6-kV-ghq" id="09l-Uw-ebJ"/>
                 <outlet property="friendNameLabel" destination="uMd-f2-u3V" id="UyP-cg-iPI"/>
                 <outlet property="tickImage" destination="UGA-Vm-4Rl" id="4Ta-Tb-o9K"/>

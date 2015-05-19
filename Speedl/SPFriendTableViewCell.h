@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *friendNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *followLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *tickImage;
+@property (strong, nonatomic) IBOutlet UIButton *followButton;
 
 - (void)setupWithUser:(SPUser *)user;
 
