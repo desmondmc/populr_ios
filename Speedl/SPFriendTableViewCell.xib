@@ -26,7 +26,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick_" translatesAutoresizingMaskIntoConstraints="NO" id="UGA-Vm-4Rl">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick_trans_" translatesAutoresizingMaskIntoConstraints="NO" id="UGA-Vm-4Rl">
                         <rect key="frame" x="376" y="12" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="4Zc-uV-pVV"/>
@@ -68,6 +68,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="tick_" width="20" height="20"/>
+        <image name="tick_trans_" width="20" height="20"/>
     </resources>
 </document>

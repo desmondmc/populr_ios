@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPFriendsTableViewController">
+            <connections>
+                <outlet property="activityIndicator" destination="eR1-3Q-xU7" id="obd-aw-hmR"/>
+                <outlet property="tableView" destination="97q-hp-lJy" id="3Tl-Mn-Arx"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Tv2-aB-DcV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eR1-3Q-xU7">
+                    <rect key="frame" x="282" y="282" width="37" height="37"/>
+                </activityIndicatorView>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="97q-hp-lJy">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="eR1-3Q-xU7" secondAttribute="centerX" id="Ch8-X2-POS"/>
+                <constraint firstAttribute="trailing" secondItem="97q-hp-lJy" secondAttribute="trailing" id="QSA-HN-fCV"/>
+                <constraint firstItem="97q-hp-lJy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="blb-1G-gFF"/>
+                <constraint firstAttribute="bottom" secondItem="97q-hp-lJy" secondAttribute="bottom" id="fJl-66-voL"/>
+                <constraint firstAttribute="centerY" secondItem="eR1-3Q-xU7" secondAttribute="centerY" id="uKB-Lj-wQy"/>
+                <constraint firstItem="97q-hp-lJy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="usF-NX-BIO"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

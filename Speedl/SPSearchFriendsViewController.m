@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SPUsersTableDataSource *dataSource;
 @property (strong, nonatomic) SPUsersTableDelegate *delegate;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -38,8 +39,13 @@
 }
 
 - (void) startSearch {
+    
     if ([_searchTextField.text length] > 0) {
+        [_tableView setHidden:YES];
+        [_activityIndicator setHidden:NO];
         [SPUser searchForUserInBackgroundWithString:_searchTextField.text block:^(NSArray *users, NSString *serverMessage) {
+            [_tableView setHidden:NO];
+            [_activityIndicator setHidden:YES];
             self.dataSource.users = users;
             [self.tableView reloadData];
         }];

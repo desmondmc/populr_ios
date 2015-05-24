@@ -13,7 +13,9 @@
 @interface SPMessageListViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSArray *messages;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -31,15 +33,25 @@
 
 - (void) reloadMessagesData {
     [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
+        [_tableView setHidden:NO];
+        [_activityIndicator setHidden:YES];
         NSLog(@"Got messages");
         _messages = messages;
         [self.tableView reloadData];
+        [_refreshControl endRefreshing];
     }];
 }
 
 - (void) setupAppearance {
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundColor = [UIColor clearColor];
+    
+    //Add pull to refresh
+    _refreshControl = [[UIRefreshControl alloc] init];
+    _refreshControl.backgroundColor = [UIColor clearColor];
+    _refreshControl.tintColor = [UIColor whiteColor];;
+    [_refreshControl addTarget:self action:@selector(reloadMessagesData) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:_refreshControl];
 }
 
 - (void)didReceiveMemoryWarning {

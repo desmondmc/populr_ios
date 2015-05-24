@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPSearchFriendsViewController">
             <connections>
+                <outlet property="activityIndicator" destination="AfG-q9-EAE" id="yvY-kr-6vz"/>
                 <outlet property="searchTextField" destination="gT7-du-dul" id="Ufa-wS-bjN"/>
                 <outlet property="tableView" destination="Tgj-0j-RyT" id="43M-4U-hiK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,6 +25,9 @@
                         <outlet property="delegate" destination="-1" id="g8s-ls-ueq"/>
                     </connections>
                 </textField>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-q9-EAE">
+                    <rect key="frame" x="282" y="282" width="37" height="37"/>
+                </activityIndicatorView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Tgj-0j-RyT">
                     <rect key="frame" x="0.0" y="33" width="600" height="567"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,7 +42,9 @@
                 <constraint firstAttribute="trailing" secondItem="Tgj-0j-RyT" secondAttribute="trailing" id="QJf-Wv-eun"/>
                 <constraint firstItem="Tgj-0j-RyT" firstAttribute="top" secondItem="gT7-du-dul" secondAttribute="bottom" constant="8" id="UhE-iM-OC8"/>
                 <constraint firstItem="Tgj-0j-RyT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wab-te-IA6"/>
+                <constraint firstAttribute="centerX" secondItem="AfG-q9-EAE" secondAttribute="centerX" id="h0C-cl-mA0"/>
                 <constraint firstItem="gT7-du-dul" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hH9-th-Ot0"/>
+                <constraint firstAttribute="centerY" secondItem="AfG-q9-EAE" secondAttribute="centerY" id="nr7-T2-v7f"/>
                 <constraint firstAttribute="bottom" secondItem="Tgj-0j-RyT" secondAttribute="bottom" id="zdQ-09-HhY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

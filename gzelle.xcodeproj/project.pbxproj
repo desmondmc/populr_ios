@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29D78CCBC7A0BCCC574CD5F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70274CC64F4C569AB150CCD5 /* libPods.a */; };
+		7A216C221B1267E200F67B0F /* SPFriendsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A216C211B1267E200F67B0F /* SPFriendsTableViewController.xib */; };
 		7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263CFA1AC89B3900D69F60 /* SPLoginRouter.m */; };
 		7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D011AC89FEA00D69F60 /* SPContainerViewController.m */; };
 		7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D121AD1486B00D69F60 /* SPMessage.m */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		70274CC64F4C569AB150CCD5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A216C211B1267E200F67B0F /* SPFriendsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendsTableViewController.xib; sourceTree = "<group>"; };
 		7A263CF91AC89B3900D69F60 /* SPLoginRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLoginRouter.h; sourceTree = "<group>"; };
 		7A263CFA1AC89B3900D69F60 /* SPLoginRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLoginRouter.m; sourceTree = "<group>"; };
 		7A263D001AC89FEA00D69F60 /* SPContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPContainerViewController.h; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			children = (
 				7A625F501B053A1A0092F412 /* SPFriendsTableViewController.h */,
 				7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */,
+				7A216C211B1267E200F67B0F /* SPFriendsTableViewController.xib */,
 			);
 			name = SPFollowersTableViewController;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A216C221B1267E200F67B0F /* SPFriendsTableViewController.xib in Resources */,
 				7AE4D1EB1AE256B9006F6C83 /* SPContainerViewController.xib in Resources */,
 				7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */,
 				7AB3D7281AC35C4C00CA94DB /* SPComposeViewController.xib in Resources */,

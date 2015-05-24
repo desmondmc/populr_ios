@@ -17,6 +17,9 @@
 @property (strong, nonatomic) NSArray *usersArray;
 @property (strong, nonatomic) SPUsersTableDataSource *dataSource;
 @property (strong, nonatomic) SPUsersTableDelegate *delegate;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -36,6 +39,7 @@
     [self.refreshControl addTarget:self
                             action:@selector(refreshTable)
                   forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
     
     [self refreshTable];
 }
@@ -69,6 +73,8 @@
 
 - (void)loadFollowers {
     [[SPUser currentUser] getFollowersInBackground:^(NSArray *followers, NSString *serverMessage) {
+        [self.tableView setHidden:NO];
+        [self.activityIndicator setHidden:YES];
         [self dataSource].users = followers;
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
@@ -77,6 +83,8 @@
 
 - (void)loadFollowing {
     [[SPUser currentUser] getFollowingInBackground:^(NSArray *following, NSString *serverMessage) {
+        [self.tableView setHidden:NO];
+        [self.activityIndicator setHidden:YES];
         [self dataSource].users = following;
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];

@@ -13,7 +13,7 @@ typedef NS_ENUM(NSInteger, SPFriendListType) {
     SPFriendListTypeFollowing
 };
 
-@interface SPFriendsTableViewController : UITableViewController <UITableViewDelegate>
+@interface SPFriendsTableViewController : UIViewController <UITableViewDelegate>
 
 @property (nonatomic) SPFriendListType listType;
 
