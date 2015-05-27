@@ -17,6 +17,7 @@
 @property (strong, nonatomic) SPUsersTableDataSource *dataSource;
 @property (strong, nonatomic) SPUsersTableDelegate *delegate;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UILabel *noResultsLabel;
 
 @end
 
@@ -43,12 +44,21 @@
     if ([_searchTextField.text length] > 0) {
         NSString *lowercaseSearch = [_searchTextField.text lowercaseString];
         [_tableView setHidden:YES];
+        [_noResultsLabel setHidden:YES];
         [_activityIndicator setHidden:NO];
         [SPUser searchForUserInBackgroundWithString:lowercaseSearch block:^(NSArray *users, NSString *serverMessage) {
-            [_tableView setHidden:NO];
             [_activityIndicator setHidden:YES];
-            self.dataSource.users = users;
-            [self.tableView reloadData];
+            if (users.count > 0) {
+                [_tableView setHidden:NO];
+                [_noResultsLabel setHidden:YES];
+                [self dataSource].users = users;
+                [self.tableView reloadData];
+            } else {
+                [_tableView setHidden:YES];
+                [_noResultsLabel setHidden:NO];
+                
+            }
+
         }];
     }
 }

@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPSearchFriendsViewController">
             <connections>
                 <outlet property="activityIndicator" destination="AfG-q9-EAE" id="yvY-kr-6vz"/>
+                <outlet property="noResultsLabel" destination="agi-qD-dOJ" id="SsP-ce-ACc"/>
                 <outlet property="searchTextField" destination="gT7-du-dul" id="Ufa-wS-bjN"/>
                 <outlet property="tableView" destination="Tgj-0j-RyT" id="43M-4U-hiK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,6 +29,12 @@
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-q9-EAE">
                     <rect key="frame" x="282" y="282" width="37" height="37"/>
                 </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO RESULTS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agi-qD-dOJ">
+                    <rect key="frame" x="254" y="291" width="92" height="18"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Tgj-0j-RyT">
                     <rect key="frame" x="0.0" y="33" width="600" height="567"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,9 +49,11 @@
                 <constraint firstAttribute="trailing" secondItem="Tgj-0j-RyT" secondAttribute="trailing" id="QJf-Wv-eun"/>
                 <constraint firstItem="Tgj-0j-RyT" firstAttribute="top" secondItem="gT7-du-dul" secondAttribute="bottom" constant="8" id="UhE-iM-OC8"/>
                 <constraint firstItem="Tgj-0j-RyT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wab-te-IA6"/>
+                <constraint firstAttribute="centerX" secondItem="agi-qD-dOJ" secondAttribute="centerX" id="aaG-wS-TLA"/>
                 <constraint firstAttribute="centerX" secondItem="AfG-q9-EAE" secondAttribute="centerX" id="h0C-cl-mA0"/>
                 <constraint firstItem="gT7-du-dul" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hH9-th-Ot0"/>
                 <constraint firstAttribute="centerY" secondItem="AfG-q9-EAE" secondAttribute="centerY" id="nr7-T2-v7f"/>
+                <constraint firstAttribute="centerY" secondItem="agi-qD-dOJ" secondAttribute="centerY" id="xOY-Wk-Kdd"/>
                 <constraint firstAttribute="bottom" secondItem="Tgj-0j-RyT" secondAttribute="bottom" id="zdQ-09-HhY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

@@ -20,6 +20,9 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UILabel *upperNoResultsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *lowerNoResultsLabel;
+@property (strong, nonatomic) IBOutlet UIView *noResultsView;
 
 @end
 
@@ -61,9 +64,15 @@
 - (void) refreshTable {
     switch (_listType) {
         case SPFriendListTypeFollowers:
+            _upperNoResultsLabel.text = @"YOU HAVE NO FOLLOWERS";
+            _lowerNoResultsLabel.text = @"TELL YOUR FRIENDS ABOUT GZELLE!";
+            [self setupStartSearch];
             [self loadFollowers];
             break;
         case SPFriendListTypeFollowing:
+            _upperNoResultsLabel.text = @"YOU ARE FOLLOWING NO ONE";
+            _lowerNoResultsLabel.text = @"SEARCH USERNAMES";
+            [self setupStartSearch];
             [self loadFollowing];
             break;
         default:
@@ -73,22 +82,46 @@
 
 - (void)loadFollowers {
     [[SPUser currentUser] getFollowersInBackground:^(NSArray *followers, NSString *serverMessage) {
-        [self.tableView setHidden:NO];
-        [self.activityIndicator setHidden:YES];
-        [self dataSource].users = followers;
-        [self.tableView reloadData];
         [self.refreshControl endRefreshing];
+        if (followers.count > 0) {
+            [self dataSource].users = followers;
+            [self setupViewWithResults];
+        } else {
+            [self setupWithNoResults];
+        }
     }];
 }
 
 - (void)loadFollowing {
     [[SPUser currentUser] getFollowingInBackground:^(NSArray *following, NSString *serverMessage) {
-        [self.tableView setHidden:NO];
-        [self.activityIndicator setHidden:YES];
-        [self dataSource].users = following;
-        [self.tableView reloadData];
         [self.refreshControl endRefreshing];
+        if (following.count > 0) {
+            [self dataSource].users = following;
+            [self setupViewWithResults];
+        } else {
+            [self setupWithNoResults];
+        }
+
     }];
+}
+
+- (void)setupStartSearch {
+    [self.noResultsView setHidden:YES];
+    [self.tableView setHidden:YES];
+    [self.activityIndicator setHidden:NO];
+}
+
+- (void)setupViewWithResults {
+    [self.noResultsView setHidden:YES];
+    [self.tableView setHidden:NO];
+    [self.activityIndicator setHidden:YES];
+    [self.tableView reloadData];
+}
+
+- (void)setupWithNoResults {
+    [self.activityIndicator setHidden:YES];
+    [self.noResultsView setHidden:NO];
+    [self.tableView setHidden:NO];
 }
 
 - (void)viewDidLayoutSubviews {
