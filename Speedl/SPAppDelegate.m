@@ -22,7 +22,11 @@
     [[UITextField appearance] setTintColor:[UIColor whiteColor]];
     [[UITextView appearance] setTintColor:[UIColor whiteColor]];
     
-    [SPLoginRouter gotoLoggedOutView];
+    if ([SPUser currentUser]) {
+        [SPLoginRouter gotoLoggedInView];
+    } else {
+        [SPLoginRouter gotoLoggedOutView];
+    }
     
     return YES;
 }

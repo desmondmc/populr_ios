@@ -9,6 +9,7 @@
 #import "SPFriendsViewController.h"
 #import "SPFriendsTableViewController.h"
 #import "SPSearchFriendsViewController.h"
+#import "SPSettingsViewController.h"
 
 @interface SPFriendsViewController ()
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) SPFriendsTableViewController *followersTableViewController;
 @property (strong, nonatomic) SPFriendsTableViewController *followingTableViewController;
 @property (strong, nonatomic) SPSearchFriendsViewController *searchTableViewController;
+@property (strong, nonatomic) SPSettingsViewController *settingsViewController;
 
 
 @end
@@ -113,9 +115,16 @@
     return _searchTableViewController;
 }
 
+-(SPSettingsViewController *)settingsViewController
+{
+    if (!_settingsViewController) {
+        _settingsViewController = [[SPSettingsViewController alloc] init];
+    }
+    return _settingsViewController;
+}
+
 - (IBAction)didTapSettings:(id)sender {
-    [self presentViewController:nil animated:YES completion:nil];
-    NSLog(@"Settings Pressed!");
+    [self presentViewController:[self settingsViewController] animated:YES completion:nil];
 }
 #pragma mark - SPContainterViewDelegate
 
