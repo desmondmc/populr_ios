@@ -56,10 +56,11 @@
     
     SPUser *currentUser = [SPUser currentUser];
     if (currentUser) {
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setValue:currentUser.token forHTTPHeaderField:@"x-access-token"];
         [request setValue:currentUser.objectId forHTTPHeaderField:@"x-key"];
     }
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     return request;
 }

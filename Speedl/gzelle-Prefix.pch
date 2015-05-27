@@ -34,14 +34,17 @@
 #import "SPFriendTableViewCell.h"
 #define kFriendCellReuse @"SPFriendTableViewCell"
 
-//#define kAPIRootUrl @"http://52.17.154.158:3000"
-#define kAPIRootUrl @"http://private-4f48d-speedl.apiary-mock.com"
-#define kAPIUserSearchUrl [kAPIRootUrl stringByAppendingString:@"/users?username="]
-#define kAPIReadMessageUrl [kAPIRootUrl stringByAppendingString:@"/message/{id}/read"]
-#define kAPIFollowersUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/followers"]
-#define kAPIFollowingUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/following"]
-#define kAPIMessagesUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]
-#define kAPIPostMessageUrl [kAPIRootUrl stringByAppendingString:@"/user/{id}/messages"]
+#define kAPIRootUrl @"http://52.17.154.158:3000"
+//#define kAPIRootUrl @"http://private-4f48d-speedl.apiary-mock.com"
+#define kAPIAuthenticatedUrl [kAPIRootUrl stringByAppendingString:@"/api/v1"]
+
+#define kAPIFollowUserUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{target-id}/followers/{source-id}"]
+#define kAPIUserSearchUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/users?username="]
+#define kAPIReadMessageUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/message/{id}/read"]
+#define kAPIFollowersUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/followers"]
+#define kAPIFollowingUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/following"]
+#define kAPIMessagesUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/messages"]
+#define kAPIPostMessageUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/messages"]
 #define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"/signup"]
 #define kAPILoginUrl [kAPIRootUrl stringByAppendingString:@"/login"]
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		29D78CCBC7A0BCCC574CD5F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70274CC64F4C569AB150CCD5 /* libPods.a */; };
 		7A216C221B1267E200F67B0F /* SPFriendsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A216C211B1267E200F67B0F /* SPFriendsTableViewController.xib */; };
+		7A216C291B164DA800F67B0F /* SPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A216C271B164DA800F67B0F /* SPSettingsViewController.m */; };
+		7A216C2A1B164DA800F67B0F /* SPSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A216C281B164DA800F67B0F /* SPSettingsViewController.xib */; };
 		7A263CFB1AC89B3900D69F60 /* SPLoginRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263CFA1AC89B3900D69F60 /* SPLoginRouter.m */; };
 		7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D011AC89FEA00D69F60 /* SPContainerViewController.m */; };
 		7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D121AD1486B00D69F60 /* SPMessage.m */; };
@@ -69,6 +71,9 @@
 /* Begin PBXFileReference section */
 		70274CC64F4C569AB150CCD5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A216C211B1267E200F67B0F /* SPFriendsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendsTableViewController.xib; sourceTree = "<group>"; };
+		7A216C261B164DA800F67B0F /* SPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSettingsViewController.h; sourceTree = "<group>"; };
+		7A216C271B164DA800F67B0F /* SPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSettingsViewController.m; sourceTree = "<group>"; };
+		7A216C281B164DA800F67B0F /* SPSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPSettingsViewController.xib; sourceTree = "<group>"; };
 		7A263CF91AC89B3900D69F60 /* SPLoginRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLoginRouter.h; sourceTree = "<group>"; };
 		7A263CFA1AC89B3900D69F60 /* SPLoginRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLoginRouter.m; sourceTree = "<group>"; };
 		7A263D001AC89FEA00D69F60 /* SPContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPContainerViewController.h; sourceTree = "<group>"; };
@@ -174,6 +179,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A216C231B164A4500F67B0F /* SPSettings */ = {
+			isa = PBXGroup;
+			children = (
+				7A216C261B164DA800F67B0F /* SPSettingsViewController.h */,
+				7A216C271B164DA800F67B0F /* SPSettingsViewController.m */,
+				7A216C281B164DA800F67B0F /* SPSettingsViewController.xib */,
+			);
+			name = SPSettings;
+			sourceTree = "<group>";
+		};
 		7A263CFC1AC89B3E00D69F60 /* LoginRouter */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +214,7 @@
 		7A263CFE1AC89F0300D69F60 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7A216C231B164A4500F67B0F /* SPSettings */,
 				7AE4D1FC1AE2A70D006F6C83 /* SPMessageList */,
 				7A263D211AD5D5E500D69F60 /* HelpersForViewControllers */,
 				7AB3D7231AC35C2F00CA94DB /* SPComposeViewController */,
@@ -625,6 +641,7 @@
 				7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */,
 				7AB3D7281AC35C4C00CA94DB /* SPComposeViewController.xib in Resources */,
 				7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */,
+				7A216C2A1B164DA800F67B0F /* SPSettingsViewController.xib in Resources */,
 				7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */,
 				7A49B98B1AE417830085D3C6 /* SPFriendTableViewCell.xib in Resources */,
 				7AB3D7221AC35C1600CA94DB /* SPSignupViewController.xib in Resources */,
@@ -684,6 +701,7 @@
 			files = (
 				7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */,
 				7AE4D1F21AE2870E006F6C83 /* UILabel+Custom.m in Sources */,
+				7A216C291B164DA800F67B0F /* SPSettingsViewController.m in Sources */,
 				7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */,
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,

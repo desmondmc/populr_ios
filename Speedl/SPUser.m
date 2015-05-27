@@ -276,6 +276,36 @@
     }];
 }
 
+- (void)followUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block
+{
+    NSString *url = kAPIFollowUserUrl;
+    
+    url = [url stringByReplacingOccurrencesOfString:@"{target-id}" withString:[userToFollow objectId]];
+    url = [url stringByReplacingOccurrencesOfString:@"{source-id}" withString:[self objectId]];
+    
+    NSURLRequest *request = [SPNetworkHelper putRequestWithURL:url andDictionary:nil];
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(NO, remoteError);
+                    return;
+                }
+                
+                block(YES, nil);
+                return;
+            }
+        });
+    }];
+}
+
 
 
 #pragma mark Private

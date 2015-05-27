@@ -48,5 +48,6 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 
 - (void)getFollowingInBackground:(SPFollowingResultBlock)block;
 
+- (void)followUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block;
 
 @end

@@ -113,6 +113,10 @@
     return _searchTableViewController;
 }
 
+- (IBAction)didTapSettings:(id)sender {
+    [self presentViewController:nil animated:YES completion:nil];
+    NSLog(@"Settings Pressed!");
+}
 #pragma mark - SPContainterViewDelegate
 
 - (void) newVisableViewController:(UIViewController *)viewController {

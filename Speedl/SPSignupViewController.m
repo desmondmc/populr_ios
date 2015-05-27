@@ -69,8 +69,8 @@
 }
 
 - (void)registerUser {
-    
-    [SPUser signUpUserInBackgroundWithUsername:@"mickeymouse" password:@"plainttextpassword" block:^(SPUser *user, NSString* message) {
+    NSString *uppercaseUsername = [_usernameField.text lowercaseString];
+    [SPUser signUpUserInBackgroundWithUsername:uppercaseUsername password:_passwordField.text block:^(SPUser *user, NSString* message) {
         if (user == nil && message != nil) {
             [SPNotification showErrorNotificationWithMessage:message inViewController:self];
             return;
@@ -83,7 +83,8 @@
 
 
 - (void) loginUser {
-    [SPUser loginUserInBackgroundWithUsername:@"mickeymouse" password:@"plainttextpassword" block:^(SPUser *user, NSString* message) {
+    NSString *uppercaseUsername = [_usernameField.text lowercaseString];
+    [SPUser loginUserInBackgroundWithUsername:uppercaseUsername password:_passwordField.text block:^(SPUser *user, NSString* message) {
         if (user == nil && message != nil) {
             [SPNotification showErrorNotificationWithMessage:message inViewController:self];
             return;

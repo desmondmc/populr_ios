@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *followLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *tickImage;
 @property (strong, nonatomic) IBOutlet UIButton *followButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 - (void)setupWithUser:(SPUser *)user;
 

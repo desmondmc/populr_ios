@@ -41,9 +41,9 @@
         return nil;
     }
     
-    for (NSDictionary *userDictionary in parsedObject) {
+    for (NSDictionary *userDictionary in parsedObject[@"users"]) {
         SPUser *user = [[SPUser alloc] init];
-        user.objectId = userDictionary[@"user"][@"id"];
+        user.objectId = userDictionary[@"user"][@"objectId"];
         user.username = userDictionary[@"user"][@"username"];
         user.following = userDictionary[@"following"];
         [followersArray addObject:user];
