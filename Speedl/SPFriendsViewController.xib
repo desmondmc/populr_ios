@@ -17,11 +17,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jce-lo-KeA" userLabel="ContainerView">
-                    <rect key="frame" x="0.0" y="96" width="600" height="504"/>
+                    <rect key="frame" x="0.0" y="106" width="600" height="494"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-0T-i21">
-                    <rect key="frame" x="20" y="60" width="560" height="29"/>
+                    <rect key="frame" x="20" y="70" width="560" height="29"/>
                     <segments>
                         <segment title="Search"/>
                         <segment title="Following"/>
@@ -58,7 +58,7 @@
                 <constraint firstItem="nz0-oS-r38" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="3sD-4N-fo2"/>
                 <constraint firstItem="jce-lo-KeA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="63l-rg-6xM"/>
                 <constraint firstItem="jce-lo-KeA" firstAttribute="top" secondItem="dSZ-0T-i21" secondAttribute="bottom" constant="8" id="EYD-OM-ijC"/>
-                <constraint firstItem="dSZ-0T-i21" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="FJs-Tw-Qks"/>
+                <constraint firstItem="dSZ-0T-i21" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="FJs-Tw-Qks"/>
                 <constraint firstAttribute="trailing" secondItem="nz0-oS-r38" secondAttribute="trailing" constant="8" id="Hsc-Yv-kPO"/>
                 <constraint firstItem="dSZ-0T-i21" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Qd3-1y-fxy"/>
                 <constraint firstAttribute="trailing" secondItem="jce-lo-KeA" secondAttribute="trailing" id="WQS-8Y-I58"/>

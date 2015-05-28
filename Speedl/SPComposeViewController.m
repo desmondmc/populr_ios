@@ -30,10 +30,6 @@
                                                  name:UIKeyboardDidShowNotification
                                                object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidHide:)
-                                                 name:UIKeyboardDidHideNotification
-                                               object:nil];
     
     [self setupAppearance];
     
@@ -94,10 +90,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)keyboardDidHide:(NSNotification*)notification {
-    
-}
-
 - (IBAction)onGoLeftPress:(id)sender {
     [self.containerViewController goToMessageViewController];
 }
@@ -114,6 +106,7 @@
         textView.text = @"";
         textView.textColor = [SPAppearance mainTextFieldColour];
     }
+    [_sendButton setHidden:NO];
     [textView becomeFirstResponder];
 }
 
@@ -131,6 +124,8 @@
 - (void) newVisableViewController:(UIViewController *)viewController {
     if (viewController == self) {
         NSLog(@"ComposeView is visable!!");
+    } else {
+        [_sendButton setHidden:YES];
     }
 }
 

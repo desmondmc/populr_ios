@@ -16,6 +16,9 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSArray *messages;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) IBOutlet UILabel *upperNoResultsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *lowerNoResultsLabel;
+@property (strong, nonatomic) IBOutlet UIView *noResultsView;
 
 @end
 
@@ -33,16 +36,26 @@
 
 - (void) reloadMessagesData {
     [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
-        [_tableView setHidden:NO];
         [_activityIndicator setHidden:YES];
-        NSLog(@"Got messages");
-        _messages = messages;
-        [self.tableView reloadData];
+        if (messages.count > 0) {
+            [_noResultsView setHidden:YES];
+            [_tableView setHidden:NO];
+            NSLog(@"Got messages");
+            _messages = messages;
+            [self.tableView reloadData];
+        } else {
+            [_tableView setHidden:NO];
+            [_noResultsView setHidden:NO];
+        }
+
         [_refreshControl endRefreshing];
     }];
 }
 
 - (void) setupAppearance {
+    
+    _upperNoResultsLabel.text = @"YOU HAVE NO MESSAGES";
+    _lowerNoResultsLabel.text = @"GET MORE FRIENDS";
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundColor = [UIColor clearColor];
     
@@ -113,6 +126,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 90;
+}
+
+- (void) newVisableViewController:(UIViewController *)viewController {
+    if (viewController == self) {
+        [self reloadMessagesData];
+    }
 }
 
 

@@ -7,7 +7,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPMessageListViewController">
             <connections>
                 <outlet property="activityIndicator" destination="bnV-Rb-oAP" id="wy7-9J-zZr"/>
+                <outlet property="lowerNoResultsLabel" destination="Xkv-cV-nIb" id="arO-jM-7Z9"/>
+                <outlet property="noResultsView" destination="d3h-3D-Esb" id="2vj-64-C80"/>
                 <outlet property="tableView" destination="hij-0F-dzW" id="z7l-GY-QXN"/>
+                <outlet property="upperNoResultsLabel" destination="GiN-s4-v5U" id="zXp-Ab-Kh3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,6 +19,45 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-3D-Esb" userLabel="NoResults">
+                    <rect key="frame" x="0.0" y="230" width="600" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiN-s4-v5U">
+                            <rect key="frame" x="272" y="20" width="57" height="20"/>
+                            <attributedString key="attributedText">
+                                <fragment content="UPPER">
+                                    <attributes>
+                                        <color key="NSColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkv-cV-nIb" userLabel="LOWER">
+                            <rect key="frame" x="271" y="60" width="57" height="20"/>
+                            <attributedString key="attributedText">
+                                <fragment content="UPPER">
+                                    <attributes>
+                                        <color key="NSColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="GiN-s4-v5U" secondAttribute="centerX" id="7OU-Bc-KsL"/>
+                        <constraint firstAttribute="centerX" secondItem="Xkv-cV-nIb" secondAttribute="centerX" id="LDf-EV-6yb"/>
+                        <constraint firstAttribute="centerY" secondItem="Xkv-cV-nIb" secondAttribute="centerY" constant="-20" id="Vb4-ip-0AW"/>
+                        <constraint firstAttribute="centerY" secondItem="GiN-s4-v5U" secondAttribute="centerY" constant="20" id="k1p-3K-5ig"/>
+                        <constraint firstAttribute="height" constant="100" id="vdW-0d-UQb"/>
+                    </constraints>
+                </view>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hij-0F-dzW">
                     <rect key="frame" x="0.0" y="80" width="600" height="520"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,8 +79,11 @@
                 <constraint firstAttribute="trailing" secondItem="hij-0F-dzW" secondAttribute="trailing" id="Jmb-2D-FYD"/>
                 <constraint firstAttribute="centerY" secondItem="bnV-Rb-oAP" secondAttribute="centerY" id="UaQ-5y-Y3x"/>
                 <constraint firstAttribute="centerX" secondItem="bnV-Rb-oAP" secondAttribute="centerX" id="aIv-hN-FhL"/>
+                <constraint firstItem="d3h-3D-Esb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b57-I6-lZM"/>
+                <constraint firstAttribute="centerY" secondItem="d3h-3D-Esb" secondAttribute="centerY" constant="20" id="b8x-c8-yrJ"/>
                 <constraint firstItem="hij-0F-dzW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="eKq-Fa-wRx"/>
                 <constraint firstAttribute="bottom" secondItem="hij-0F-dzW" secondAttribute="bottom" id="nbz-oC-AbR"/>
+                <constraint firstAttribute="trailing" secondItem="d3h-3D-Esb" secondAttribute="trailing" id="qTr-2n-KIQ"/>
             </constraints>
         </view>
     </objects>
