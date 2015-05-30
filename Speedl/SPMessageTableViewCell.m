@@ -21,6 +21,7 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [self.activityIndicator startAnimating];
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
