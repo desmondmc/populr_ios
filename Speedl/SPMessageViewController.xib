@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ab-6T-Y85" userLabel="Transparent View">
+                <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ab-6T-Y85" userLabel="Transparent View">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
@@ -109,7 +109,11 @@
                 <constraint firstAttribute="centerY" secondItem="Vny-54-888" secondAttribute="centerY" constant="3.5" id="M0R-vJ-vEs"/>
                 <constraint firstAttribute="centerY" secondItem="tH1-dz-Arx" secondAttribute="centerY" id="Wfm-c5-y79"/>
                 <constraint firstAttribute="trailing" secondItem="Vny-54-888" secondAttribute="trailing" id="Wzo-cs-66Q"/>
+                <constraint firstAttribute="trailing" secondItem="3Ab-6T-Y85" secondAttribute="trailing" id="YWU-Yh-BNI"/>
                 <constraint firstItem="Vny-54-888" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kHk-ok-m2K"/>
+                <constraint firstItem="3Ab-6T-Y85" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mnO-d6-Eap"/>
+                <constraint firstAttribute="bottom" secondItem="3Ab-6T-Y85" secondAttribute="bottom" id="oRf-mf-BH6"/>
+                <constraint firstItem="3Ab-6T-Y85" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zog-7y-Eko"/>
             </constraints>
         </view>
     </objects>

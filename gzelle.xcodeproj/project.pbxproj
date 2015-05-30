@@ -605,6 +605,7 @@
 				TargetAttributes = {
 					7AB3D6E41AC35A3900CA94DB = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8Y2GFS326V;
 					};
 					7AB3D6FD1AC35A3900CA94DB = {
 						CreatedOnToolsVersion = 6.2;
@@ -849,12 +850,14 @@
 			baseConfigurationReference = 816A64983FABAE9275CD7EB1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "Speedl/gzelle-Prefix.pch";
 				INFOPLIST_FILE = Speedl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = gzelle;
+				PROVISIONING_PROFILE = "ddf11a00-239f-43ca-a86c-f2c36a50fd21";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -864,12 +867,14 @@
 			baseConfigurationReference = F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "Speedl/gzelle-Prefix.pch";
 				INFOPLIST_FILE = Speedl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = gzelle;
+				PROVISIONING_PROFILE = "ddf11a00-239f-43ca-a86c-f2c36a50fd21";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
