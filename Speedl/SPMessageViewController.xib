@@ -40,38 +40,28 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUBLIC MESSAGE FROM:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-DD-QUn" userLabel="messageFromLabel">
+                    <rect key="frame" x="86" y="177" width="428" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Reeve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6H-MJ-is4" userLabel="fromLabel">
+                    <rect key="frame" x="211" y="228" width="178" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2X-lj-oas" userLabel="CountDown" customClass="SPMessageLabel">
+                    <rect key="frame" x="290" y="279" width="20" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vny-54-888" userLabel="Container">
-                    <rect key="frame" x="0.0" y="220" width="600" height="153"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUBLIC MESSAGE FROM:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-DD-QUn" userLabel="messageFromLabel">
-                            <rect key="frame" x="8" y="8" width="584" height="43"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Reeve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6H-MJ-is4" userLabel="fromLabel">
-                            <rect key="frame" x="8" y="59" width="584" height="43"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2X-lj-oas" userLabel="CountDown" customClass="SPMessageLabel">
-                            <rect key="frame" x="290" y="110" width="20" height="43"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
+                    <rect key="frame" x="0.0" y="169" width="600" height="153"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="F2X-lj-oas" firstAttribute="top" secondItem="I6H-MJ-is4" secondAttribute="bottom" constant="8" id="981-kW-Z1d"/>
-                        <constraint firstItem="I6H-MJ-is4" firstAttribute="top" secondItem="4SQ-DD-QUn" secondAttribute="bottom" constant="8" id="AC0-uw-76t"/>
-                        <constraint firstItem="4SQ-DD-QUn" firstAttribute="leading" secondItem="Vny-54-888" secondAttribute="leading" constant="8" id="Cit-NE-DAT"/>
-                        <constraint firstAttribute="trailing" secondItem="I6H-MJ-is4" secondAttribute="trailing" constant="8" id="D2F-le-6bq"/>
-                        <constraint firstAttribute="trailing" secondItem="4SQ-DD-QUn" secondAttribute="trailing" constant="8" id="D51-0x-jou"/>
-                        <constraint firstAttribute="centerX" secondItem="F2X-lj-oas" secondAttribute="centerX" id="JxB-Fn-pMK"/>
-                        <constraint firstItem="I6H-MJ-is4" firstAttribute="leading" secondItem="Vny-54-888" secondAttribute="leading" constant="8" id="Tkb-iS-syf"/>
-                        <constraint firstItem="4SQ-DD-QUn" firstAttribute="top" secondItem="Vny-54-888" secondAttribute="top" constant="8" id="W7S-y3-mXM"/>
                         <constraint firstAttribute="height" constant="153" id="ncC-jI-pLV"/>
                     </constraints>
                 </view>
@@ -106,13 +96,19 @@
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="tH1-dz-Arx" secondAttribute="centerX" id="8KN-Yq-hqY"/>
-                <constraint firstAttribute="centerY" secondItem="Vny-54-888" secondAttribute="centerY" constant="3.5" id="M0R-vJ-vEs"/>
+                <constraint firstAttribute="centerY" secondItem="Vny-54-888" secondAttribute="centerY" constant="55" id="M0R-vJ-vEs"/>
+                <constraint firstAttribute="centerY" secondItem="F2X-lj-oas" secondAttribute="centerY" id="Pt3-CX-Izf"/>
+                <constraint firstAttribute="centerX" secondItem="F2X-lj-oas" secondAttribute="centerX" id="TKi-ZQ-faZ"/>
+                <constraint firstItem="I6H-MJ-is4" firstAttribute="top" secondItem="4SQ-DD-QUn" secondAttribute="bottom" constant="8" id="UWj-oz-KJd"/>
                 <constraint firstAttribute="centerY" secondItem="tH1-dz-Arx" secondAttribute="centerY" id="Wfm-c5-y79"/>
                 <constraint firstAttribute="trailing" secondItem="Vny-54-888" secondAttribute="trailing" id="Wzo-cs-66Q"/>
                 <constraint firstAttribute="trailing" secondItem="3Ab-6T-Y85" secondAttribute="trailing" id="YWU-Yh-BNI"/>
+                <constraint firstAttribute="centerX" secondItem="I6H-MJ-is4" secondAttribute="centerX" id="eyE-Zn-0hW"/>
+                <constraint firstAttribute="centerX" secondItem="4SQ-DD-QUn" secondAttribute="centerX" id="idq-mr-q3u"/>
                 <constraint firstItem="Vny-54-888" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kHk-ok-m2K"/>
                 <constraint firstItem="3Ab-6T-Y85" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mnO-d6-Eap"/>
                 <constraint firstAttribute="bottom" secondItem="3Ab-6T-Y85" secondAttribute="bottom" id="oRf-mf-BH6"/>
+                <constraint firstItem="F2X-lj-oas" firstAttribute="top" secondItem="I6H-MJ-is4" secondAttribute="bottom" constant="8" id="qXa-UN-VVA"/>
                 <constraint firstItem="3Ab-6T-Y85" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zog-7y-Eko"/>
             </constraints>
         </view>
