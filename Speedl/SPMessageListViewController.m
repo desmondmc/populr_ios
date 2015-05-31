@@ -10,6 +10,8 @@
 #import "SPMessageTableViewCell.h"
 #import "SPMessageViewController.h"
 
+#define kMeanMessageArray @[@"GET MORE FRIENDS", @"MAYBE IT'S YOUR FACE", @"HAVE YOU TRIED CROSSFIT?", @"DO BETTER"]
+
 @interface SPMessageListViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -41,12 +43,13 @@
             [_noResultsView setHidden:YES];
             [_tableView setHidden:NO];
             NSLog(@"Got messages");
-            _messages = messages;
-            [self.tableView reloadData];
         } else {
+            _lowerNoResultsLabel.text = [self getMeanMessage];
             [_tableView setHidden:NO];
             [_noResultsView setHidden:NO];
         }
+        _messages = messages;
+        [self.tableView reloadData];
 
         [_refreshControl endRefreshing];
     }];
@@ -55,7 +58,7 @@
 - (void) setupAppearance {
     
     _upperNoResultsLabel.text = @"YOU HAVE NO MESSAGES";
-    _lowerNoResultsLabel.text = @"GET MORE FRIENDS";
+    _lowerNoResultsLabel.text = [self getMeanMessage];
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundColor = [UIColor clearColor];
     
@@ -65,6 +68,13 @@
     _refreshControl.tintColor = [UIColor whiteColor];;
     [_refreshControl addTarget:self action:@selector(reloadMessagesData) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_refreshControl];
+}
+
+- (NSString *) getMeanMessage {
+    int arrayCount = (int)kMeanMessageArray.count;
+    NSUInteger randomNumber = arc4random_uniform(arrayCount);
+    
+    return kMeanMessageArray[randomNumber];
 }
 
 - (void)didReceiveMemoryWarning {
