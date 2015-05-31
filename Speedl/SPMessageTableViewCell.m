@@ -8,6 +8,10 @@
 
 #import "SPMessageTableViewCell.h"
 
+#define kSecondsInAMin 60
+#define kSecondsInAnHour 3600
+#define kSecondsInADay 86400
+
 @implementation SPMessageTableViewCell
 
 - (void)awakeFromNib {
@@ -25,6 +29,52 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setupWithMessage:(SPMessage *)message {
+    // Set message age label
+    [NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSz"];
+    NSDate *messageDate = [dateFormatter dateFromString:message.timestamp];
+    NSDate *now = [NSDate new];
+    NSTimeInterval distanceBetweenDatesSeconds = [now timeIntervalSinceDate:messageDate];
+    [self setTimeSinceLabel:distanceBetweenDatesSeconds];
+    
+}
+
+- (void) setTimeSinceLabel:(NSTimeInterval)ageOfMessageSeconds {
+    NSString *timeLabel = nil;
+    NSInteger ageOfMessageSecondsInt = (NSInteger)ageOfMessageSeconds;
+    if (ageOfMessageSecondsInt < kSecondsInAMin) {
+        timeLabel = [NSString stringWithFormat:@"%ld seconds ago", (long)ageOfMessageSecondsInt];
+    } else if (ageOfMessageSecondsInt < kSecondsInAnHour) {
+        NSInteger ageOfMessageMinutes = ageOfMessageSecondsInt/kSecondsInAMin;
+        
+        if (ageOfMessageMinutes == 1) {
+            timeLabel = [NSString stringWithFormat:@"%ld minute ago", (long)ageOfMessageMinutes];
+        } else {
+            timeLabel = [NSString stringWithFormat:@"%ld minutes ago", (long)ageOfMessageMinutes];
+        }
+    } else if (ageOfMessageSecondsInt < kSecondsInADay) {
+        NSInteger ageOfMessageHours = ageOfMessageSecondsInt/kSecondsInAnHour;
+        
+        if (ageOfMessageHours == 1) {
+            timeLabel = [NSString stringWithFormat:@"%ld hour ago", (long)ageOfMessageHours];
+        } else {
+            timeLabel = [NSString stringWithFormat:@"%ld hours ago", (long)ageOfMessageHours];
+        }
+    } else {
+        NSInteger ageOfMessageDays = ageOfMessageSecondsInt/kSecondsInADay;
+        
+        if (ageOfMessageDays == 1) {
+            timeLabel = [NSString stringWithFormat:@"%ld day ago", (long)ageOfMessageDays];
+        } else {
+            timeLabel = [NSString stringWithFormat:@"%ld days ago", (long)ageOfMessageDays];
+        }
+    }
+    
+    _messageTimeLabel.text = timeLabel;
 }
 
 @end

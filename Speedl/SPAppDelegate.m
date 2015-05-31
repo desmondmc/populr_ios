@@ -9,6 +9,7 @@
 #import "SPAppDelegate.h"
 #import "SPMessageViewController.h"
 #import "SPSignupViewController.h"
+#import <Parse/Parse.h>
 
 @interface SPAppDelegate ()
 
@@ -16,8 +17,19 @@
 
 @implementation SPAppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"9svNV553UR7xGbqz1r2cHp3THIwAl0GHY0H9y7fK"
+                  clientKey:@"Aa7s0KIUfquWLQ7u2O4OWk0TSxdXckqH2tCkpr6d"];
+    
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
     
     [[UITextField appearance] setTintColor:[UIColor whiteColor]];
     [[UITextView appearance] setTintColor:[UIColor whiteColor]];
@@ -29,6 +41,17 @@
     }
     
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Store the deviceToken in the current Installation and save it to Parse
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -114,6 +114,8 @@
     cell.messageNumberLabel.text = numberLabel;
     cell.messageTimeLabel.text = timeLabel;
     
+    [cell setupWithMessage:_messages[indexPath.row]];
+    
     return cell;
 }
 
