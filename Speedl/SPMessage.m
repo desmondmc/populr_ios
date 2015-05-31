@@ -25,6 +25,11 @@
     return date;
 }
 
+-(void)setMessage:(NSString *)message {
+    message = [[message componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "];
+    _message = message;
+}
+
 - (void)markMessageAsReadInBackground:(SPNetworkResultBlock)block {
     NSString *url = kAPIReadMessageUrl;
     
