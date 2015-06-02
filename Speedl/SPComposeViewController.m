@@ -52,7 +52,10 @@
         [SPNotification showErrorNotificationWithMessage:@"Type a message, kid." inViewController:self];
         return;
     }
+    
+    [_sendButton setEnabled:NO];
     [[SPUser currentUser] postMessageInBackground:_messageTextView.text block:^(BOOL success, NSString *serverMessage) {
+        [_sendButton setEnabled:YES];
         if (!success) {
             [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
         } else {

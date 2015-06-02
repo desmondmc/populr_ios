@@ -11,7 +11,6 @@
 
 @implementation SPMessage
 
-
 // date is a derived from timestamp
 - (NSDate *)date {
     if (self.timestamp == nil || [self.timestamp isEqualToString:@""]) {
