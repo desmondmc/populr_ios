@@ -50,4 +50,6 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 
 - (void)followUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block;
 
+- (void)unfollowUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block;
+
 @end

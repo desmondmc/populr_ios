@@ -11,6 +11,7 @@
 @interface SPNetworkHelper : NSObject
 
 + (NSURLRequest *) getRequestWithURL:(NSString *)urlString;
++ (NSURLRequest *) deleteRequestWithURL:(NSString *)urlString;
 + (NSURLRequest *) putRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary;
 + (NSURLRequest *) postRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary;
 + (NSString *) checkResponseCodeForError:(NSInteger)code data:(NSData *)data;

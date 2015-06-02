@@ -33,6 +33,15 @@
     return request;
 }
 
++ (NSURLRequest *) deleteRequestWithURL:(NSString *)urlString {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    request.HTTPMethod = @"DELETE";
+    
+    [self setRequestHeaders:&request];
+    
+    return request;
+}
+
 + (NSURLRequest *) requestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary {
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     NSData *userJson = nil;

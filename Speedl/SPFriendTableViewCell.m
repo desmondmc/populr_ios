@@ -9,7 +9,7 @@
 @interface SPFriendTableViewCell ()
 
 @property (strong, nonatomic) SPUser *user;
-
+@property (nonatomic) BOOL isFollowing;
 @end
 
 @implementation SPFriendTableViewCell
@@ -31,13 +31,24 @@
 }
 - (IBAction)didTapFollow:(id)sender {
     [self loadingState];
-    [[SPUser currentUser] followUserInBackground:_user block:^(BOOL success, NSString *serverMessage) {
-        if (success) {
-            [self followingState];
-        } else {
-            [self followState];
-        }
-    }];
+    if (_isFollowing) {
+        [[SPUser currentUser] unfollowUserInBackground:_user block:^(BOOL success, NSString *serverMessage) {
+            if (success) {
+                [self followState];
+            } else {
+                [self followingState];
+            }
+        }];
+    } else {
+        [[SPUser currentUser] followUserInBackground:_user block:^(BOOL success, NSString *serverMessage) {
+            if (success) {
+                [self followingState];
+            } else {
+                [self followState];
+            }
+        }];
+    }
+
 }
 
 - (void)setupWithUser:(SPUser *)user {
@@ -57,7 +68,7 @@
     _followLabel.text = @"Following";
     [_tickImage setHidden:NO];
     _tickImage.image = [UIImage imageNamed:@"tick_trans_"];
-    _followButton.enabled = NO;
+    _isFollowing = YES;
 }
 
 - (void)followState {
@@ -67,10 +78,11 @@
     _followLabel.text = @"Follow";
     [_tickImage setHidden:NO];
     _tickImage.image = [UIImage imageNamed:@"plus_"];
-    _followButton.enabled = YES;
+    _isFollowing = NO;
 }
 
 - (void)loadingState {
+    [_activityIndicator startAnimating];
     [_activityIndicator setHidden:NO];
     [_tickImage setHidden:YES];
 }
