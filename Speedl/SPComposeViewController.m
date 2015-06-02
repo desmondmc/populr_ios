@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *messageTextView;
 
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
+@property (nonatomic) CGFloat currentKeyboardHeight;
 
 @end
 
@@ -24,16 +25,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupAppearance];
+}
+- (void)viewWillAppear:(BOOL)animated {
     // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
                                                object:nil];
     
-    
-    [self setupAppearance];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void) setupAppearance {
     [self.sendButton styleAsMainSpeedlButton];
     [self.messageTextView styleAsMainSpeedlTextView];
@@ -74,23 +84,28 @@
     }];
 }
 
--(void)keyboardWasShown:(NSNotification*)notification
+-(void)keyboardWillShow:(NSNotification*)notification
 {
-    [self.view layoutIfNeeded];
-    NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGFloat keyboardHeight = [keyboardFrameBegin CGRectValue].size.height;
+    // Adjust the send button based on the keyboard height.
+    NSDictionary *info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    CGFloat deltaHeight = kbSize.height - _currentKeyboardHeight;
     
-    _micButtonBottomConstraint.constant = keyboardHeight + 20;
-    _sendButtonBottomConstraint.constant = keyboardHeight + 20;
+    _micButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
+    _sendButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
+    
+    _currentKeyboardHeight = kbSize.height;
     
     [UIView animateWithDuration:0.5
                      animations:^{
                          [self.view layoutIfNeeded]; // Called on parent view
-    }];
+                     }];
     
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_sendButton setHidden:NO];
+}
+-(void)keyboardWillHide:(NSNotification*)notification {
+    [_sendButton setHidden:YES];
+    _currentKeyboardHeight = 0.0f;
 }
 
 - (IBAction)onGoLeftPress:(id)sender {
