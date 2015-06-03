@@ -1,6 +1,6 @@
 /Pods
 /Pods/*
-/Podsfile.lock
+Podfile.lock
 .DS_Store
 .svn
 build
@@ -9,4 +9,4 @@ DerivedData
 *.xcodeproj/*.pbxuser
 *.xcodeproj/project.xcworkspace/*
 *.xcodeproj/xcuserdata/*
-Speedl.xcworkspace
+*.xcworkspace
