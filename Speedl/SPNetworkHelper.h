@@ -15,4 +15,7 @@
 + (NSURLRequest *) putRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary;
 + (NSURLRequest *) postRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary;
 + (NSString *) checkResponseCodeForError:(NSInteger)code data:(NSData *)data;
++ (void)sendAsynchronousRequest:(NSURLRequest*) request
+                          queue:(NSOperationQueue*) queue
+              completionHandler:(void (^)(NSURLResponse* response, NSData* data, NSError* connectionError)) handler;
 @end

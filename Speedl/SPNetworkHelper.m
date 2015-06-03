@@ -10,6 +10,18 @@
 
 @implementation SPNetworkHelper
 
++ (void)sendAsynchronousRequest:(NSURLRequest*) request
+                          queue:(NSOperationQueue*) queue
+              completionHandler:(void (^)(NSURLResponse* response, NSData* data, NSError* connectionError)) handler {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        
+        handler(response, data, error);
+
+    }];
+}
+
 + (NSURLRequest *) putRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary {
     NSMutableURLRequest *request = [self requestWithURL:urlString andDictionary:dictionary].mutableCopy;
     request.HTTPMethod = @"PUT";
@@ -91,6 +103,9 @@
 + (NSString *)checkResponseCodeForError:(NSInteger)code data:(NSData *)data {
     if (code != 200) {
         NSError *error;
+        if (!data) {
+            return kGenericErrorString;
+        }
         NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         if (parsedObject[@"message"] != nil) {
             return parsedObject[@"message"];

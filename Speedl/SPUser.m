@@ -49,10 +49,7 @@
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
 
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
     
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
@@ -87,10 +84,7 @@
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
@@ -125,10 +119,7 @@
     
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
@@ -157,11 +148,7 @@
     
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
                 NSError *error;
@@ -190,11 +177,9 @@
     NSDictionary *userDictionary = @{@"message":message};
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
                 NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
@@ -219,10 +204,7 @@
     
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
@@ -251,10 +233,7 @@
     
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
@@ -285,10 +264,7 @@
     
     NSURLRequest *request = [SPNetworkHelper putRequestWithURL:url andDictionary:nil];
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
@@ -314,10 +290,7 @@
     
     NSURLRequest *request = [SPNetworkHelper deleteRequestWithURL:url];
     
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {

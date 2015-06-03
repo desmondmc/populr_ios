@@ -55,6 +55,7 @@
 		7AC02FB91B1B9C6C00B26A6E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FB81B1B9C6C00B26A6E /* Accounts.framework */; };
 		7AC02FBB1B1B9C7300B26A6E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FBA1B1B9C7300B26A6E /* Social.framework */; };
 		7AC02FBD1B1B9D4200B26A6E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FBC1B1B9D4200B26A6E /* Bolts.framework */; };
+		7ADC3AF11B1F7ECE004A0CD2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */; };
 		7ADCF43C1B0688E3009834D5 /* SPSearchFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */; };
 		7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ADCF43B1B0688E3009834D5 /* SPSearchFriendsViewController.xib */; };
 		7ADCF4401B069BEE009834D5 /* UITableView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43F1B069BEE009834D5 /* UITableView+Custom.m */; };
@@ -158,6 +159,7 @@
 		7AC02FB81B1B9C6C00B26A6E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		7AC02FBA1B1B9C7300B26A6E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7AC02FBC1B1B9D4200B26A6E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		7ADCF4391B0688E3009834D5 /* SPSearchFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSearchFriendsViewController.h; sourceTree = "<group>"; };
 		7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSearchFriendsViewController.m; sourceTree = "<group>"; };
 		7ADCF43B1B0688E3009834D5 /* SPSearchFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPSearchFriendsViewController.xib; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				7AC02FAB1B1B9C1600B26A6E /* MobileCoreServices.framework in Frameworks */,
 				7AC02FA91B1B9C0B00B26A6E /* CoreLocation.framework in Frameworks */,
 				7AC02FA71B1B9C0500B26A6E /* CoreGraphics.framework in Frameworks */,
+				7ADC3AF11B1F7ECE004A0CD2 /* Crashlytics.framework in Frameworks */,
 				7AC02FA51B1B9BF000B26A6E /* CFNetwork.framework in Frameworks */,
 				7AC02FA31B1B9BE600B26A6E /* AudioToolbox.framework in Frameworks */,
 				7AC02FA11B1B9A1A00B26A6E /* Parse.framework in Frameworks */,
@@ -256,6 +259,7 @@
 		7A263CFE1AC89F0300D69F60 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7ADC3AED1B1E6314004A0CD2 /* EmptyDataView */,
 				7A216C231B164A4500F67B0F /* SPSettings */,
 				7AE4D1FC1AE2A70D006F6C83 /* SPMessageList */,
 				7A263D211AD5D5E500D69F60 /* HelpersForViewControllers */,
@@ -507,6 +511,13 @@
 			name = SPMessageLabel;
 			sourceTree = "<group>";
 		};
+		7ADC3AED1B1E6314004A0CD2 /* EmptyDataView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = EmptyDataView;
+			sourceTree = "<group>";
+		};
 		7ADCF4381B0688AA009834D5 /* SPSearchFriendsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +602,7 @@
 		B9562DC0C125E173ACDB9B68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */,
 				7AC02FBC1B1B9D4200B26A6E /* Bolts.framework */,
 				7AC02FBA1B1B9C7300B26A6E /* Social.framework */,
 				7AC02FB81B1B9C6C00B26A6E /* Accounts.framework */,
@@ -622,6 +634,7 @@
 				7AB3D6E21AC35A3900CA94DB /* Frameworks */,
 				7AB3D6E31AC35A3900CA94DB /* Resources */,
 				DC793F293ABEDAAAA5E8C5FC /* Copy Pods Resources */,
+				7ADC3AEE1B1F7CC9004A0CD2 /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -724,6 +737,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7ADC3AEE1B1F7CC9004A0CD2 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run a842d2a25e2a337bce79b6737d757ad5fc3c0df0 2915a7d24c2ffaf53cf7017e5264f49891d4221afda40c7a037a11be1edd507e";
+		};
 		DC793F293ABEDAAAA5E8C5FC /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -863,7 +890,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "4ea2923c-ac26-40d3-a8ba-21e5a3e5752c";
@@ -901,7 +928,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "4ea2923c-ac26-40d3-a8ba-21e5a3e5752c";
 				SDKROOT = iphoneos;

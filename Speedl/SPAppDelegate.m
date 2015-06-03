@@ -10,6 +10,7 @@
 #import "SPMessageViewController.h"
 #import "SPSignupViewController.h"
 #import <Parse/Parse.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface SPAppDelegate ()
 
@@ -22,6 +23,9 @@
     // Initialize Parse.
     [Parse setApplicationId:@"9svNV553UR7xGbqz1r2cHp3THIwAl0GHY0H9y7fK"
                   clientKey:@"Aa7s0KIUfquWLQ7u2O4OWk0TSxdXckqH2tCkpr6d"];
+    
+    // Initialize Crashlytics
+    [Crashlytics startWithAPIKey:@"a842d2a25e2a337bce79b6737d757ad5fc3c0df0"];
     
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
                                                     UIUserNotificationTypeBadge |
