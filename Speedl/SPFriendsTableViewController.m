@@ -106,9 +106,11 @@
 }
 
 - (void)setupStartSearch {
-    [self.noResultsView setHidden:YES];
-    [self.tableView setHidden:YES];
-    [self.activityIndicator setHidden:NO];
+    if ([self dataSource].users.count == 0) {
+        [self.noResultsView setHidden:YES];
+        [self.tableView setHidden:YES];
+        [self.activityIndicator setHidden:NO];
+    }
 }
 
 - (void)setupViewWithResults {

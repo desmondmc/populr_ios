@@ -26,12 +26,16 @@
     NSMutableURLRequest *request = [self requestWithURL:urlString andDictionary:dictionary].mutableCopy;
     request.HTTPMethod = @"PUT";
     
+    [self setRequestHeaders:&request];
+    
     return request;
 }
 
 + (NSURLRequest *) postRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary {
     NSMutableURLRequest *request = [self requestWithURL:urlString andDictionary:dictionary].mutableCopy;
     request.HTTPMethod = @"POST";
+    
+    [self setRequestHeaders:&request];
     
     return request;
 }
@@ -75,14 +79,6 @@
     
     [self setRequestHeaders:&request];
     
-    SPUser *currentUser = [SPUser currentUser];
-    if (currentUser) {
-        [request setValue:currentUser.token forHTTPHeaderField:@"x-access-token"];
-        [request setValue:currentUser.objectId forHTTPHeaderField:@"x-key"];
-    }
-    
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
     return request;
 }
 
@@ -94,10 +90,10 @@
     NSMutableURLRequest *httpRequest = *request;
     SPUser *currentUser = [SPUser currentUser];
     if (currentUser) {
-        [httpRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [httpRequest setValue:currentUser.token forHTTPHeaderField:@"x-access-token"];
         [httpRequest setValue:currentUser.objectId forHTTPHeaderField:@"x-key"];
     }
+    [httpRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 }
 
 + (NSString *)checkResponseCodeForError:(NSInteger)code data:(NSData *)data {

@@ -39,4 +39,14 @@
     return [_users count];
 }
 
+-(void)setUsers:(NSArray *)users {
+    _users = [self getSortedCopy:users];
+}
+
+- (NSArray *)getSortedCopy:(NSArray *)array {
+    NSMutableArray *mutableCopy = [array mutableCopy];
+    [mutableCopy sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"username" ascending:YES]]];
+    return mutableCopy;
+}
+
 @end
