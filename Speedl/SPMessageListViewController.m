@@ -82,6 +82,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+// This message removes the message from the local array to ensure that the message is gone by the time the user returns to the message list. It'll later be actually removed.
+- (void)removeMessageFromArray:(SPMessage *)message
+{
+    NSMutableArray *mutableMessages = [_messages mutableCopy];
+    [mutableMessages removeObject:message];
+    _messages = mutableMessages;
+    [self.tableView reloadData];
+}
+
 #pragma mark - UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -128,6 +137,7 @@
     [self presentViewController: messageViewController animated:NO completion:^{
         [cell.activityIndicator setHidden:YES];
         [cell.messageNumberLabel setHidden:NO];
+        [self removeMessageFromArray:messageAtIndex];
         [messageAtIndex markMessageAsReadInBackground:^(BOOL success, NSString *serverMessage) {
             [self reloadMessagesData];
         }];
