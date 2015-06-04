@@ -9,6 +9,7 @@
                 <outlet property="activityIndicator" destination="AfG-q9-EAE" id="yvY-kr-6vz"/>
                 <outlet property="noResultsLabel" destination="agi-qD-dOJ" id="SsP-ce-ACc"/>
                 <outlet property="searchTextField" destination="gT7-du-dul" id="Ufa-wS-bjN"/>
+                <outlet property="searchTextFieldUpperConstraint" destination="LeU-Ym-Nih" id="7Xo-gq-6zo"/>
                 <outlet property="tableView" destination="Tgj-0j-RyT" id="43M-4U-hiK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

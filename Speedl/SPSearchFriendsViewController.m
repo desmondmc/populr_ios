@@ -10,6 +10,8 @@
 #import "SPUsersTableDelegate.h"
 #import "SPUsersTableDataSource.h"
 
+#define kSearchFieldDefaultYConstraintValue 8;
+
 @interface SPSearchFriendsViewController ()
 
 @property (strong, nonatomic) IBOutlet UITextField *searchTextField;
@@ -18,6 +20,7 @@
 @property (strong, nonatomic) SPUsersTableDelegate *delegate;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UILabel *noResultsLabel;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *searchTextFieldUpperConstraint;
 
 @end
 
@@ -31,36 +34,81 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SPFriendTableViewCell" bundle:nil] forCellReuseIdentifier:kFriendCellReuse];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
     [self setupAppearance];
 }
 
 - (void) setupAppearance {
     [self.tableView styleAsMainSpeedlTableView];
     [self.searchTextField styleAsMainSpeedlTextField];
+    
+    [self setupForPresearch];
 }
 
-- (void) startSearch {
+- (void)setupForPresearch {
+    [_tableView setHidden:YES];
+    [_noResultsLabel setHidden:YES];
+    //[self centerSearchTextField];
+}
+
+- (void)setupForMidSearch {
+    [_tableView setHidden:YES];
+    [_noResultsLabel setHidden:YES];
+    [_activityIndicator setHidden:NO];
+}
+
+- (void)setupForPostSearchWithResults {
+    [_tableView setHidden:NO];
+    [_noResultsLabel setHidden:YES];
+}
+
+- (void)setupForPostSearchNoResults {
+    [_tableView setHidden:YES];
+    [_noResultsLabel setHidden:NO];
+}
+
+-(void)keyboardWillShow:(NSNotification*)notification {
+    [self moveSearchTextFieldToTop];
+}
+
+- (void)startSearch {
     
     if ([_searchTextField.text length] > 0) {
         NSString *lowercaseSearch = [_searchTextField.text lowercaseString];
-        [_tableView setHidden:YES];
-        [_noResultsLabel setHidden:YES];
-        [_activityIndicator setHidden:NO];
+        [self setupForMidSearch];
         [SPUser searchForUserInBackgroundWithString:lowercaseSearch block:^(NSArray *users, NSString *serverMessage) {
             [_activityIndicator setHidden:YES];
             if (users.count > 0) {
-                [_tableView setHidden:NO];
-                [_noResultsLabel setHidden:YES];
+                [self setupForPostSearchWithResults];
                 [self dataSource].users = users;
                 [self.tableView reloadData];
             } else {
-                [_tableView setHidden:YES];
-                [_noResultsLabel setHidden:NO];
-                
+                [self setupForPostSearchNoResults];
             }
 
         }];
     }
+}
+
+- (void)centerSearchTextField {
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }];
+}
+
+- (void)moveSearchTextFieldToTop {
+    _searchTextFieldUpperConstraint.constant = kSearchFieldDefaultYConstraintValue;
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         [self.view layoutIfNeeded]; // Called on parent view
+                     }];
 }
 
 -(SPUsersTableDataSource *)dataSource {

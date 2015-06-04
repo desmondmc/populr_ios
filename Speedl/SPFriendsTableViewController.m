@@ -124,6 +124,7 @@
     [self.activityIndicator setHidden:YES];
     [self.noResultsView setHidden:NO];
     [self.tableView setHidden:NO];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLayoutSubviews {

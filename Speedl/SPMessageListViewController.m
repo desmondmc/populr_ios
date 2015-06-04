@@ -134,10 +134,10 @@
     
     SPMessage *messageAtIndex = _messages[indexPath.row];
     SPMessageViewController *messageViewController = [[SPMessageViewController alloc] initWithMessage:messageAtIndex];
+    [self removeMessageFromArray:messageAtIndex];
     [self presentViewController: messageViewController animated:NO completion:^{
         [cell.activityIndicator setHidden:YES];
         [cell.messageNumberLabel setHidden:NO];
-        [self removeMessageFromArray:messageAtIndex];
         [messageAtIndex markMessageAsReadInBackground:^(BOOL success, NSString *serverMessage) {
             [self reloadMessagesData];
         }];
