@@ -8,7 +8,7 @@
 
 #import "SPComposeViewController.h"
 
-#define kPlaceHolderText @"Tap here to write a message..."
+#define kPlaceHolderText @"Write something..."
 
 @interface SPComposeViewController ()
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *micButtonBottomConstraint;

@@ -109,10 +109,8 @@
     
     NSInteger numberInteger = indexPath.row + 1;
     NSString *numberLabel = [NSString stringWithFormat: @"%ld", (long)numberInteger];
-    NSString *timeLabel = [NSString stringWithFormat: @"%ld mins ago", (long)numberInteger*10];
     
     cell.messageNumberLabel.text = numberLabel;
-    cell.messageTimeLabel.text = timeLabel;
     
     [cell setupWithMessage:_messages[indexPath.row]];
     

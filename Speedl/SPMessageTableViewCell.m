@@ -47,30 +47,30 @@
     NSString *timeLabel = nil;
     NSInteger ageOfMessageSecondsInt = (NSInteger)ageOfMessageSeconds;
     if (ageOfMessageSecondsInt < kSecondsInAMin) {
-        timeLabel = [NSString stringWithFormat:@"%ld seconds ago", (long)ageOfMessageSecondsInt];
+        timeLabel = [NSString stringWithFormat:@"%ld seconds", (long)ageOfMessageSecondsInt];
     } else if (ageOfMessageSecondsInt < kSecondsInAnHour) {
         NSInteger ageOfMessageMinutes = ageOfMessageSecondsInt/kSecondsInAMin;
         
         if (ageOfMessageMinutes == 1) {
-            timeLabel = [NSString stringWithFormat:@"%ld minute ago", (long)ageOfMessageMinutes];
+            timeLabel = [NSString stringWithFormat:@"%ld minute", (long)ageOfMessageMinutes];
         } else {
-            timeLabel = [NSString stringWithFormat:@"%ld minutes ago", (long)ageOfMessageMinutes];
+            timeLabel = [NSString stringWithFormat:@"%ld minutes", (long)ageOfMessageMinutes];
         }
     } else if (ageOfMessageSecondsInt < kSecondsInADay) {
         NSInteger ageOfMessageHours = ageOfMessageSecondsInt/kSecondsInAnHour;
         
         if (ageOfMessageHours == 1) {
-            timeLabel = [NSString stringWithFormat:@"%ld hour ago", (long)ageOfMessageHours];
+            timeLabel = [NSString stringWithFormat:@"%ld hour", (long)ageOfMessageHours];
         } else {
-            timeLabel = [NSString stringWithFormat:@"%ld hours ago", (long)ageOfMessageHours];
+            timeLabel = [NSString stringWithFormat:@"%ld hours", (long)ageOfMessageHours];
         }
     } else {
         NSInteger ageOfMessageDays = ageOfMessageSecondsInt/kSecondsInADay;
         
         if (ageOfMessageDays == 1) {
-            timeLabel = [NSString stringWithFormat:@"%ld day ago", (long)ageOfMessageDays];
+            timeLabel = [NSString stringWithFormat:@"%ld day", (long)ageOfMessageDays];
         } else {
-            timeLabel = [NSString stringWithFormat:@"%ld days ago", (long)ageOfMessageDays];
+            timeLabel = [NSString stringWithFormat:@"%ld days", (long)ageOfMessageDays];
         }
     }
     
