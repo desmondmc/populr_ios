@@ -259,7 +259,6 @@
 		7A263CFE1AC89F0300D69F60 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7ADC3AED1B1E6314004A0CD2 /* EmptyDataView */,
 				7A216C231B164A4500F67B0F /* SPSettings */,
 				7AE4D1FC1AE2A70D006F6C83 /* SPMessageList */,
 				7A263D211AD5D5E500D69F60 /* HelpersForViewControllers */,
@@ -509,13 +508,6 @@
 				7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */,
 			);
 			name = SPMessageLabel;
-			sourceTree = "<group>";
-		};
-		7ADC3AED1B1E6314004A0CD2 /* EmptyDataView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = EmptyDataView;
 			sourceTree = "<group>";
 		};
 		7ADCF4381B0688AA009834D5 /* SPSearchFriendsViewController */ = {
