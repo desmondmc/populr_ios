@@ -55,6 +55,9 @@
 		7AC02FB91B1B9C6C00B26A6E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FB81B1B9C6C00B26A6E /* Accounts.framework */; };
 		7AC02FBB1B1B9C7300B26A6E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FBA1B1B9C7300B26A6E /* Social.framework */; };
 		7AC02FBD1B1B9D4200B26A6E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FBC1B1B9D4200B26A6E /* Bolts.framework */; };
+		7AC691651B25FA0D0018EB9D /* SPCustomNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC691631B25FA0D0018EB9D /* SPCustomNotificationViewController.m */; };
+		7AC691661B25FA0D0018EB9D /* SPCustomNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC691641B25FA0D0018EB9D /* SPCustomNotificationViewController.xib */; };
+		7AC6916A1B25FD960018EB9D /* SPCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC691691B25FD960018EB9D /* SPCircleView.m */; };
 		7ADC3AF11B1F7ECE004A0CD2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */; };
 		7ADCF43C1B0688E3009834D5 /* SPSearchFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */; };
 		7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ADCF43B1B0688E3009834D5 /* SPSearchFriendsViewController.xib */; };
@@ -159,6 +162,11 @@
 		7AC02FB81B1B9C6C00B26A6E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		7AC02FBA1B1B9C7300B26A6E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7AC02FBC1B1B9D4200B26A6E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		7AC691621B25FA0D0018EB9D /* SPCustomNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCustomNotificationViewController.h; sourceTree = "<group>"; };
+		7AC691631B25FA0D0018EB9D /* SPCustomNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomNotificationViewController.m; sourceTree = "<group>"; };
+		7AC691641B25FA0D0018EB9D /* SPCustomNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPCustomNotificationViewController.xib; sourceTree = "<group>"; };
+		7AC691681B25FD960018EB9D /* SPCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCircleView.h; sourceTree = "<group>"; };
+		7AC691691B25FD960018EB9D /* SPCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCircleView.m; sourceTree = "<group>"; };
 		7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		7ADCF4391B0688E3009834D5 /* SPSearchFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSearchFriendsViewController.h; sourceTree = "<group>"; };
 		7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSearchFriendsViewController.m; sourceTree = "<group>"; };
@@ -246,6 +254,7 @@
 		7A263CFD1AC89B4C00D69F60 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7AC691671B25FD760018EB9D /* SPGeneral */,
 				7A625F571B0546040092F412 /* SPAutoLayout */,
 				7A45F8A21B011D93009BDA95 /* SPNotification */,
 				7AE4D1EC1AE25DD8006F6C83 /* SPAppearance */,
@@ -322,6 +331,9 @@
 			children = (
 				7A45F8A31B011DC5009BDA95 /* SPNotification.h */,
 				7A45F8A41B011DC5009BDA95 /* SPNotification.m */,
+				7AC691621B25FA0D0018EB9D /* SPCustomNotificationViewController.h */,
+				7AC691631B25FA0D0018EB9D /* SPCustomNotificationViewController.m */,
+				7AC691641B25FA0D0018EB9D /* SPCustomNotificationViewController.xib */,
 			);
 			name = SPNotification;
 			sourceTree = "<group>";
@@ -508,6 +520,15 @@
 				7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */,
 			);
 			name = SPMessageLabel;
+			sourceTree = "<group>";
+		};
+		7AC691671B25FD760018EB9D /* SPGeneral */ = {
+			isa = PBXGroup;
+			children = (
+				7AC691681B25FD960018EB9D /* SPCircleView.h */,
+				7AC691691B25FD960018EB9D /* SPCircleView.m */,
+			);
+			name = SPGeneral;
 			sourceTree = "<group>";
 		};
 		7ADCF4381B0688AA009834D5 /* SPSearchFriendsViewController */ = {
@@ -706,6 +727,7 @@
 				7A216C221B1267E200F67B0F /* SPFriendsTableViewController.xib in Resources */,
 				7AE4D1EB1AE256B9006F6C83 /* SPContainerViewController.xib in Resources */,
 				7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */,
+				7AC691661B25FA0D0018EB9D /* SPCustomNotificationViewController.xib in Resources */,
 				7AB3D7281AC35C4C00CA94DB /* SPComposeViewController.xib in Resources */,
 				7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */,
 				7A216C2A1B164DA800F67B0F /* SPSettingsViewController.xib in Resources */,
@@ -783,6 +805,7 @@
 				7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */,
 				7AE4D1F21AE2870E006F6C83 /* UILabel+Custom.m in Sources */,
 				7A216C291B164DA800F67B0F /* SPSettingsViewController.m in Sources */,
+				7AC691651B25FA0D0018EB9D /* SPCustomNotificationViewController.m in Sources */,
 				7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */,
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
@@ -796,6 +819,7 @@
 				7AB3D7271AC35C4C00CA94DB /* SPComposeViewController.m in Sources */,
 				7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */,
 				7A625F561B0545ED0092F412 /* SPAutoLayout.m in Sources */,
+				7AC6916A1B25FD960018EB9D /* SPCircleView.m in Sources */,
 				7AE4D1FB1AE294BE006F6C83 /* UISegmentedControl+Custom.m in Sources */,
 				7ADCF4401B069BEE009834D5 /* UITableView+Custom.m in Sources */,
 				7ADCF4471B06A537009834D5 /* SPUsersTableDelegate.m in Sources */,
