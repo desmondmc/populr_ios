@@ -19,6 +19,9 @@
 #import "SPAppearance.h"
 #import "SPAutoLayout.h"
 
+// Notifications
+#define kSPMessageCountNotification @"SPMessageCountNotification"
+
 // Catagories
 #import "UITextField+Custom.h"
 #import "UIButton+Custom.h"
@@ -27,6 +30,7 @@
 #import "UITextView+Custom.h"
 #import "UIView+FLKAutoLayout.h"
 #import "UITableView+Custom.h"
+#import "UIView+Speedl.h"
 
 //Third Party
 #import "SPNotification.h"

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7706"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPContainerViewController">
             <connections>
-                <outlet property="pageControl" destination="le6-5h-0Vs" id="SjR-GO-8il"/>
+                <outlet property="pageControlContainer" destination="d3H-TK-nqw" id="zpx-9G-kWk"/>
                 <outlet property="view" destination="iN0-l3-epB" id="IzI-d9-5Fl"/>
             </connections>
         </placeholder>
@@ -15,13 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="le6-5h-0Vs">
-                    <rect key="frame" x="281" y="20" width="39" height="37"/>
-                </pageControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3H-TK-nqw" userLabel="Custom Page Control">
+                    <rect key="frame" x="215" y="35" width="170" height="15"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="170" id="GXM-kk-PaO"/>
+                        <constraint firstAttribute="height" constant="15" id="l0m-J1-dox"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
-                <constraint firstItem="le6-5h-0Vs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="06Z-fM-aJZ"/>
-                <constraint firstAttribute="centerX" secondItem="le6-5h-0Vs" secondAttribute="centerX" id="4lz-2E-khT"/>
+                <constraint firstItem="d3H-TK-nqw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="5rU-nM-uMg"/>
+                <constraint firstAttribute="centerX" secondItem="d3H-TK-nqw" secondAttribute="centerX" id="NtN-oo-kdl"/>
             </constraints>
         </view>
     </objects>

@@ -11,13 +11,15 @@
 #import "SPMessageViewController.h"
 #import "SPFriendsViewController.h"
 #import "SPMessageListViewController.h"
+#import "SPCustomPageControl.h"
 
 @interface SPContainerViewController ()
 
 @property UIScrollView *scrollView;
 @property NSInteger currentPageIndex;
 @property NSMutableOrderedSet *delegates;
-@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UIView *pageControlContainer;
+@property (strong, nonatomic) SPCustomPageControl *customPageControl;
 
 @end
 
@@ -51,12 +53,22 @@
     
     self.currentPageIndex = 1;
     
+    [self setupCustomPageControl];
+    
     [self updatePageControl];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupCustomPageControl {
+    [_pageControlContainer addSubview:[self customPageControl]];
+    [SPAutoLayout constrainSubviewToFillSuperview:[self customPageControl]];
+    [[self view] layoutIfNeeded];
+}
+
+-(SPCustomPageControl *)customPageControl {
+    if (!_customPageControl) {
+        _customPageControl = [SPCustomPageControl viewWithDerivedNibName];
+    }
+    return _customPageControl;
 }
 
 
@@ -199,15 +211,15 @@
     
     if ([currentView isKindOfClass:[SPMessageListViewController class]]) {
         //First View
-        self.pageControl.currentPage = 0;
+        [_customPageControl colourCircleAtIndex:0];
     }
     else if([currentView isKindOfClass:[SPComposeViewController class]]){
         //Second View
-        self.pageControl.currentPage = 1;
+        [_customPageControl colourCircleAtIndex:1];
     }
     else if([currentView isKindOfClass:[SPFriendsViewController class]]){
         //Third View
-        self.pageControl.currentPage = 2;
+        [_customPageControl colourCircleAtIndex:2];
     }
 }
 

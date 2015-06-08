@@ -150,21 +150,26 @@
     
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (block) {
-                NSError *error;
-                
-                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
-                if (remoteError) {
+            NSError *error;
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
+            if (remoteError) {
+                if (block) {
                     block(nil, remoteError);
-                    return;
                 }
-                
-                NSArray *messages = [SPMessageBuilder messagesFromJSON:data error:&error];
-                
-                block(messages, nil);
                 return;
             }
+            
+            NSArray *messages = [SPMessageBuilder messagesFromJSON:data error:&error];
+            NSLog(@"Posting Message Count.");
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSPMessageCountNotification
+                                                                object:@(messages.count)];
+            if (block) {
+                block(messages, nil);
+            }
+            
+            return;
         });
     }];
 }

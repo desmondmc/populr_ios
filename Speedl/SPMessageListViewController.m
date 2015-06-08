@@ -42,7 +42,6 @@
         if (messages.count > 0) {
             [_noResultsView setHidden:YES];
             [_tableView setHidden:NO];
-            NSLog(@"Got messages");
         } else {
             _lowerNoResultsLabel.text = [self getMeanMessage];
             [_tableView setHidden:NO];

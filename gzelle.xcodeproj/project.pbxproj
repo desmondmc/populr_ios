@@ -58,6 +58,9 @@
 		7AC691651B25FA0D0018EB9D /* SPCustomNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC691631B25FA0D0018EB9D /* SPCustomNotificationViewController.m */; };
 		7AC691661B25FA0D0018EB9D /* SPCustomNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC691641B25FA0D0018EB9D /* SPCustomNotificationViewController.xib */; };
 		7AC6916A1B25FD960018EB9D /* SPCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC691691B25FD960018EB9D /* SPCircleView.m */; };
+		7AC6916D1B25FF7F0018EB9D /* SPCustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6916C1B25FF7F0018EB9D /* SPCustomPageControl.m */; };
+		7AC6916F1B25FF960018EB9D /* SPCustomPageControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC6916E1B25FF960018EB9D /* SPCustomPageControl.xib */; };
+		7AC691721B2603240018EB9D /* UIView+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC691711B2603240018EB9D /* UIView+Speedl.m */; };
 		7ADC3AF11B1F7ECE004A0CD2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */; };
 		7ADCF43C1B0688E3009834D5 /* SPSearchFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */; };
 		7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ADCF43B1B0688E3009834D5 /* SPSearchFriendsViewController.xib */; };
@@ -167,6 +170,11 @@
 		7AC691641B25FA0D0018EB9D /* SPCustomNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPCustomNotificationViewController.xib; sourceTree = "<group>"; };
 		7AC691681B25FD960018EB9D /* SPCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCircleView.h; sourceTree = "<group>"; };
 		7AC691691B25FD960018EB9D /* SPCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCircleView.m; sourceTree = "<group>"; };
+		7AC6916B1B25FF7F0018EB9D /* SPCustomPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCustomPageControl.h; sourceTree = "<group>"; };
+		7AC6916C1B25FF7F0018EB9D /* SPCustomPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomPageControl.m; sourceTree = "<group>"; };
+		7AC6916E1B25FF960018EB9D /* SPCustomPageControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPCustomPageControl.xib; sourceTree = "<group>"; };
+		7AC691701B2603240018EB9D /* UIView+Speedl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Speedl.h"; sourceTree = "<group>"; };
+		7AC691711B2603240018EB9D /* UIView+Speedl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Speedl.m"; sourceTree = "<group>"; };
 		7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		7ADCF4391B0688E3009834D5 /* SPSearchFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSearchFriendsViewController.h; sourceTree = "<group>"; };
 		7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSearchFriendsViewController.m; sourceTree = "<group>"; };
@@ -261,6 +269,8 @@
 				7AB3D72F1AC35C8300CA94DB /* SPMessageLabel */,
 				7A263CFC1AC89B3E00D69F60 /* LoginRouter */,
 				7AB3D70E1AC35B5B00CA94DB /* NetworkingHelper */,
+				7AC691701B2603240018EB9D /* UIView+Speedl.h */,
+				7AC691711B2603240018EB9D /* UIView+Speedl.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -527,6 +537,9 @@
 			children = (
 				7AC691681B25FD960018EB9D /* SPCircleView.h */,
 				7AC691691B25FD960018EB9D /* SPCircleView.m */,
+				7AC6916B1B25FF7F0018EB9D /* SPCustomPageControl.h */,
+				7AC6916C1B25FF7F0018EB9D /* SPCustomPageControl.m */,
+				7AC6916E1B25FF960018EB9D /* SPCustomPageControl.xib */,
 			);
 			name = SPGeneral;
 			sourceTree = "<group>";
@@ -730,6 +743,7 @@
 				7AC691661B25FA0D0018EB9D /* SPCustomNotificationViewController.xib in Resources */,
 				7AB3D7281AC35C4C00CA94DB /* SPComposeViewController.xib in Resources */,
 				7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */,
+				7AC6916F1B25FF960018EB9D /* SPCustomPageControl.xib in Resources */,
 				7A216C2A1B164DA800F67B0F /* SPSettingsViewController.xib in Resources */,
 				7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */,
 				7A49B98B1AE417830085D3C6 /* SPFriendTableViewCell.xib in Resources */,
@@ -811,6 +825,7 @@
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
 				7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */,
 				7A49B98A1AE417830085D3C6 /* SPFriendTableViewCell.m in Sources */,
+				7AC691721B2603240018EB9D /* UIView+Speedl.m in Sources */,
 				7AE4D2001AE2A749006F6C83 /* SPMessageTableViewCell.m in Sources */,
 				7AB3D7211AC35C1600CA94DB /* SPSignupViewController.m in Sources */,
 				7AB3D7111AC35B7600CA94DB /* SPNetworkObject.m in Sources */,
@@ -836,6 +851,7 @@
 				7ADCF4441B06A265009834D5 /* SPUsersTableDataSource.m in Sources */,
 				7A45F8A51B011DC5009BDA95 /* SPNotification.m in Sources */,
 				7A49B98F1AE836350085D3C6 /* SPCustomTwoTabView.m in Sources */,
+				7AC6916D1B25FF7F0018EB9D /* SPCustomPageControl.m in Sources */,
 				7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */,
 				7A263D191AD5BEB500D69F60 /* SPContainedViewController.m in Sources */,
 			);

@@ -27,8 +27,6 @@
 
 - (void)presentInViewController:(UIViewController *)parentViewController
 {
-    [self willMoveToParentViewController:parentViewController];
-    [_parentViewController.view addSubview:self.view];
     
 }
 
