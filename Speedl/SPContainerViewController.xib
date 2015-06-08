@@ -16,11 +16,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3H-TK-nqw" userLabel="Custom Page Control">
-                    <rect key="frame" x="215" y="35" width="170" height="15"/>
+                    <rect key="frame" x="215" y="35" width="170" height="12"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="170" id="GXM-kk-PaO"/>
-                        <constraint firstAttribute="height" constant="15" id="l0m-J1-dox"/>
+                        <constraint firstAttribute="height" constant="12" id="l0m-J1-dox"/>
                     </constraints>
                 </view>
             </subviews>
