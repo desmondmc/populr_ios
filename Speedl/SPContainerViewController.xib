@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d3H-TK-nqw" userLabel="Custom Page Control">
-                    <rect key="frame" x="215" y="35" width="170" height="12"/>
+                    <rect key="frame" x="215" y="44" width="170" height="12"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="170" id="GXM-kk-PaO"/>
@@ -25,7 +25,7 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="d3H-TK-nqw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="5rU-nM-uMg"/>
+                <constraint firstItem="d3H-TK-nqw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="5rU-nM-uMg"/>
                 <constraint firstAttribute="centerX" secondItem="d3H-TK-nqw" secondAttribute="centerX" id="NtN-oo-kdl"/>
             </constraints>
         </view>

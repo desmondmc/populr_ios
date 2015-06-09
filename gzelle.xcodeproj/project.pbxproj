@@ -29,7 +29,6 @@
 		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
 		7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F71AC35A3900CA94DB /* LaunchScreen.xib */; };
-		7AB3D7051AC35A3900CA94DB /* SpeedlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7041AC35A3900CA94DB /* SpeedlTests.m */; };
 		7AB3D7111AC35B7600CA94DB /* SPNetworkObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7101AC35B7600CA94DB /* SPNetworkObject.m */; };
 		7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7141AC35BA600CA94DB /* SPNetworkHelper.m */; };
 		7AB3D71B1AC35BD000CA94DB /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7181AC35BD000CA94DB /* SPUser.m */; };
@@ -79,16 +78,6 @@
 		7AE4D2091AE2AC28006F6C83 /* SPMessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D2071AE2AC28006F6C83 /* SPMessageListViewController.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		7AB3D6FF1AC35A3900CA94DB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7AB3D6DD1AC35A3900CA94DB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7AB3D6E41AC35A3900CA94DB;
-			remoteInfo = Speedl;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		70274CC64F4C569AB150CCD5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A216C211B1267E200F67B0F /* SPFriendsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendsTableViewController.xib; sourceTree = "<group>"; };
@@ -128,7 +117,6 @@
 		7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPAppDelegate.m; sourceTree = "<group>"; };
 		7AB3D6F51AC35A3900CA94DB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7AB3D6F81AC35A3900CA94DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7AB3D6FE1AC35A3900CA94DB /* gzelleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gzelleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D7031AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D7041AC35A3900CA94DB /* SpeedlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeedlTests.m; sourceTree = "<group>"; };
 		7AB3D70F1AC35B7600CA94DB /* SPNetworkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNetworkObject.h; sourceTree = "<group>"; };
@@ -227,13 +215,6 @@
 				7AC02FA11B1B9A1A00B26A6E /* Parse.framework in Frameworks */,
 				29D78CCBC7A0BCCC574CD5F3 /* libPods.a in Frameworks */,
 				7AC02FBD1B1B9D4200B26A6E /* Bolts.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7AB3D6FB1AC35A3900CA94DB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +394,6 @@
 			isa = PBXGroup;
 			children = (
 				7AB3D6E51AC35A3900CA94DB /* gzelle.app */,
-				7AB3D6FE1AC35A3900CA94DB /* gzelleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -671,24 +651,6 @@
 			productReference = 7AB3D6E51AC35A3900CA94DB /* gzelle.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7AB3D6FD1AC35A3900CA94DB /* gzelleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7AB3D70B1AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "gzelleTests" */;
-			buildPhases = (
-				7AB3D6FA1AC35A3900CA94DB /* Sources */,
-				7AB3D6FB1AC35A3900CA94DB /* Frameworks */,
-				7AB3D6FC1AC35A3900CA94DB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7AB3D7001AC35A3900CA94DB /* PBXTargetDependency */,
-			);
-			name = gzelleTests;
-			productName = SpeedlTests;
-			productReference = 7AB3D6FE1AC35A3900CA94DB /* gzelleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -707,10 +669,6 @@
 							};
 						};
 					};
-					7AB3D6FD1AC35A3900CA94DB = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 7AB3D6E41AC35A3900CA94DB;
-					};
 				};
 			};
 			buildConfigurationList = 7AB3D6E01AC35A3900CA94DB /* Build configuration list for PBXProject "gzelle" */;
@@ -727,7 +685,6 @@
 			projectRoot = "";
 			targets = (
 				7AB3D6E41AC35A3900CA94DB /* gzelle */,
-				7AB3D6FD1AC35A3900CA94DB /* gzelleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -752,13 +709,6 @@
 				7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */,
 				7AE4D2011AE2A749006F6C83 /* SPMessageTableViewCell.xib in Resources */,
 				7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7AB3D6FC1AC35A3900CA94DB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,23 +807,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7AB3D6FA1AC35A3900CA94DB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7AB3D7051AC35A3900CA94DB /* SpeedlTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7AB3D7001AC35A3900CA94DB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7AB3D6E41AC35A3900CA94DB /* gzelle */;
-			targetProxy = 7AB3D6FF1AC35A3900CA94DB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7AB3D6F71AC35A3900CA94DB /* LaunchScreen.xib */ = {
@@ -1011,40 +945,6 @@
 			};
 			name = Release;
 		};
-		7AB3D70C1AC35A3900CA94DB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpeedlTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = gzelleTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Speedl.app/Speedl";
-			};
-			name = Debug;
-		};
-		7AB3D70D1AC35A3900CA94DB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpeedlTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = gzelleTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Speedl.app/Speedl";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1062,15 +962,6 @@
 			buildConfigurations = (
 				7AB3D7091AC35A3900CA94DB /* Debug */,
 				7AB3D70A1AC35A3900CA94DB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7AB3D70B1AC35A3900CA94DB /* Build configuration list for PBXNativeTarget "gzelleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7AB3D70C1AC35A3900CA94DB /* Debug */,
-				7AB3D70D1AC35A3900CA94DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
