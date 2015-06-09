@@ -13,6 +13,7 @@
 @interface SPComposeViewController ()
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *micButtonBottomConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *sendButtonBottomConstraint;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *messageTopConstraint;
 @property (strong, nonatomic) IBOutlet UITextView *messageTextView;
 
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
@@ -38,6 +39,8 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    [self keyboardWillHide:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -65,7 +68,7 @@
     
     [_sendButton setEnabled:NO];
     [[SPUser currentUser] postMessageInBackground:_messageTextView.text block:^(BOOL success, NSString *serverMessage) {
-        [_sendButton setEnabled:YES];
+//        [_sendButton setEnabled:YES];
         if (!success) {
             [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
         } else {
@@ -93,6 +96,7 @@
     
     _micButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
     _sendButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
+    _messageTopConstraint.constant = 80;
     
     _currentKeyboardHeight = kbSize.height;
     
@@ -106,6 +110,17 @@
 -(void)keyboardWillHide:(NSNotification*)notification {
     [_sendButton setHidden:YES];
     _currentKeyboardHeight = 0.0f;
+    
+    _micButtonBottomConstraint.constant = _currentKeyboardHeight;
+    _sendButtonBottomConstraint.constant = _currentKeyboardHeight;
+    _messageTopConstraint.constant = [self messageTopConstraintForCenter];
+    
+    [self.view layoutIfNeeded];
+}
+
+- (CGFloat) messageTopConstraintForCenter {
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    return (screenHeight/2) - 45;
 }
 
 - (IBAction)onGoLeftPress:(id)sender {
@@ -143,7 +158,7 @@
     if (viewController == self) {
         NSLog(@"ComposeView is visable!!");
     } else {
-        [_sendButton setHidden:YES];
+        [self keyboardWillHide:nil];
     }
 }
 
