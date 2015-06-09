@@ -39,8 +39,6 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    
-    [self keyboardWillHide:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -53,6 +51,8 @@
     
     self.messageTextView.text = kPlaceHolderText;
     self.messageTextView.textColor = [SPAppearance seeThroughColour];
+    
+    [self keyboardWillHide:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,11 +109,17 @@
 }
 -(void)keyboardWillHide:(NSNotification*)notification {
     [_sendButton setHidden:YES];
-    _currentKeyboardHeight = 0.0f;
+    //_currentKeyboardHeight = 0.0f;
     
-    _micButtonBottomConstraint.constant = _currentKeyboardHeight;
-    _sendButtonBottomConstraint.constant = _currentKeyboardHeight;
+    NSDictionary *info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    CGFloat deltaHeight = kbSize.height - _currentKeyboardHeight;
+    
+    _micButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
+    _sendButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
     _messageTopConstraint.constant = [self messageTopConstraintForCenter];
+    
+    _currentKeyboardHeight = kbSize.height;
     
     [self.view layoutIfNeeded];
 }
