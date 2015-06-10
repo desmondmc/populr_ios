@@ -68,7 +68,7 @@
     
     [_sendButton setEnabled:NO];
     [[SPUser currentUser] postMessageInBackground:_messageTextView.text block:^(BOOL success, NSString *serverMessage) {
-//        [_sendButton setEnabled:YES];
+        [_sendButton setEnabled:YES];
         if (!success) {
             [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
         } else {
@@ -109,7 +109,6 @@
 }
 -(void)keyboardWillHide:(NSNotification*)notification {
     [_sendButton setHidden:YES];
-    //_currentKeyboardHeight = 0.0f;
     
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
