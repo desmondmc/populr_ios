@@ -66,6 +66,8 @@
                 SPUser *newUser = [SPUserBuilder userFromJSON:data error:&error];
                 if (newUser && error == nil && newUser.objectId != nil) {
                     [self saveUserToDisk:newUser];
+                    [self saveUserToParse:newUser];
+                    
                 } else {
                     block(nil, kGenericErrorString);
                     return;
@@ -100,6 +102,7 @@
                 SPUser *user = [SPUserBuilder userFromJSON:data error:&error];
                 if (user && error == nil && user.objectId != nil) {
                     [self saveUserToDisk:user];
+                    [self saveUserToParse:user];
                 } else {
                     block(nil, kGenericErrorString);
                     return;
@@ -324,6 +327,15 @@
     [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:kPasswordKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:kTokenKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)saveUserToParse:(SPUser *)user {
+    // Store the deviceToken in the current Installation and save it to Parse
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    NSString *userObjectId = [user objectId];
+    
+    [currentInstallation setValue:userObjectId forKey:@"userId"];
+    [currentInstallation saveInBackground];
 }
 
 @end

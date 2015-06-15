@@ -9,7 +9,6 @@
 #import "SPAppDelegate.h"
 #import "SPMessageViewController.h"
 #import "SPSignupViewController.h"
-#import <Parse/Parse.h>
 #import <Crashlytics/Crashlytics.h>
 
 @interface SPAppDelegate ()
