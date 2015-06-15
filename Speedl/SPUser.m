@@ -15,6 +15,7 @@
 #define kUsernameKey    @"username"
 #define kPasswordKey    @"password"
 #define kTokenKey       @"token"
+#define kMessagesKey    @"messages"
 
 @implementation SPUser
 
@@ -33,7 +34,30 @@
     return currentUser;
 }
 
++ (NSArray *)getMessageList {
+    NSMutableArray *messagesArray = [NSMutableArray new];
+    NSArray *encodedMessages = [[NSUserDefaults standardUserDefaults] arrayForKey:kMessagesKey];
+    for (NSData *encodedMessage in encodedMessages) {
+        SPMessage *message = [NSKeyedUnarchiver unarchiveObjectWithData:encodedMessage];
+        [messagesArray addObject:message];
+    }
+    return messagesArray;
+}
+
++ (void)saveMessageList:(NSArray *)messageList {
+    NSMutableArray *encodedMessageList = [NSMutableArray new];
+    
+    for (SPMessage *message in messageList) {
+        NSData *encodedMessage = [NSKeyedArchiver archivedDataWithRootObject:message];
+        [encodedMessageList addObject:encodedMessage];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:encodedMessageList forKey:kMessagesKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 + (void)logoutCurrentUser {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kMessagesKey];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUsernameKey];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPasswordKey];
@@ -168,6 +192,7 @@
             NSLog(@"Posting Message Count.");
             [[NSNotificationCenter defaultCenter] postNotificationName:kSPMessageCountNotification
                                                                 object:@(messages.count)];
+            [SPUser saveMessageList:messages];
             if (block) {
                 block(messages, nil);
             }

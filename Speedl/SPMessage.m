@@ -57,4 +57,30 @@
     }];
 }
 
+#define kObjectIdKey @"SPObjectIdKey"
+#define kMessageKey @"SPMessageKey"
+#define kFromUsernameKey @"SPFromUsernameKey"
+#define kTimestampKey @"SPTimestampKey"
+
+#pragma mark - NSUserDefaults
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    //Encode properties, other class variables, etc
+    [encoder encodeObject:[self objectId] forKey:kObjectIdKey];
+    [encoder encodeObject:_message forKey:kMessageKey];
+    [encoder encodeObject:_fromUsername forKey:kFromUsernameKey];
+    [encoder encodeObject:_timestamp forKey:kTimestampKey];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        [self setObjectId:[decoder decodeObjectForKey:kObjectIdKey]];
+        _message = [decoder decodeObjectForKey:kMessageKey];
+        _fromUsername = [decoder decodeObjectForKey:kFromUsernameKey];
+        _timestamp = [decoder decodeObjectForKey:kTimestampKey];
+    }
+    return self;
+}
+
 @end

@@ -40,6 +40,10 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 
 + (void)searchForUserInBackgroundWithString:(NSString *)searchString block:(SPUserSearchResultBlock)block;
 
++ (NSArray *)getMessageList;
+
++ (void)saveMessageList:(NSArray *)messageList;
+
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block;
 
 - (void)postMessageInBackground:(NSString *)message block:(SPNetworkResultBlock)block;

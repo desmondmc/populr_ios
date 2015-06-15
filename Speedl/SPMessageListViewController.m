@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) NSArray *messages;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) IBOutlet UILabel *upperNoResultsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *lowerNoResultsLabel;
@@ -31,23 +30,24 @@
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[UINib nibWithNibName:@"SPMessageTableViewCell" bundle:nil] forCellReuseIdentifier:@"spMessageTableViewCell"];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotMessageCount:) name:kSPMessageCountNotification object:nil];
+    
     [self setupAppearance];
     
     [self reloadMessagesData];
 }
 
-- (void) reloadMessagesData {
+- (void)gotMessageCount:(NSNotification *)notification {
+    [self.tableView reloadData];
+}
+
+- (void)reloadMessagesData {
     [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
-        [_activityIndicator setHidden:YES];
         if (messages.count > 0) {
-            [_noResultsView setHidden:YES];
-            [_tableView setHidden:NO];
+            [self loadedWithMessagesState];
         } else {
-            _lowerNoResultsLabel.text = [self getMeanMessage];
-            [_tableView setHidden:NO];
-            [_noResultsView setHidden:NO];
+            [self loadedNoMessagesState];
         }
-        _messages = messages;
         [self.tableView reloadData];
 
         [_refreshControl endRefreshing];
@@ -67,6 +67,31 @@
     _refreshControl.tintColor = [UIColor whiteColor];;
     [_refreshControl addTarget:self action:@selector(reloadMessagesData) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_refreshControl];
+    
+    if ([SPUser getMessageList].count > 0) {
+        [self loadedWithMessagesState];
+    } else {
+        [self loadingState];
+    }
+}
+
+- (void)loadingState {
+    [_activityIndicator setHidden:NO];
+    [_tableView setHidden:YES];
+    [_noResultsView setHidden:YES];
+}
+
+- (void)loadedWithMessagesState {
+    [_activityIndicator setHidden:YES];
+    [_tableView setHidden:NO];
+    [_noResultsView setHidden:YES];
+}
+
+- (void)loadedNoMessagesState {
+    _lowerNoResultsLabel.text = [self getMeanMessage];
+    [_activityIndicator setHidden:YES];
+    [_noResultsView setHidden:NO];
+    [_tableView setHidden:YES];
 }
 
 - (NSString *) getMeanMessage {
@@ -84,9 +109,10 @@
 // This message removes the message from the local array to ensure that the message is gone by the time the user returns to the message list. It'll later be actually removed.
 - (void)removeMessageFromArray:(SPMessage *)message
 {
-    NSMutableArray *mutableMessages = [_messages mutableCopy];
+    NSMutableArray *mutableMessages = [[SPUser getMessageList] mutableCopy];
     [mutableMessages removeObject:message];
-    _messages = mutableMessages;
+    [SPUser saveMessageList:mutableMessages];
+    [SPUser saveMessageList:mutableMessages];
     [self.tableView reloadData];
 }
 
@@ -94,10 +120,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (!_messages) {
+    if (![SPUser getMessageList]) {
         return 0;
     }
-    return [_messages count];
+    return [[SPUser getMessageList] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,7 +146,7 @@
     
     cell.messageNumberLabel.text = numberLabel;
     
-    [cell setupWithMessage:_messages[indexPath.row]];
+    [cell setupWithMessage:[SPUser getMessageList][indexPath.row]];
     
     return cell;
 }
@@ -131,7 +157,7 @@
     [cell.activityIndicator setHidden:NO];
     [cell.messageNumberLabel setHidden:YES];
     
-    SPMessage *messageAtIndex = _messages[indexPath.row];
+    SPMessage *messageAtIndex = [SPUser getMessageList][indexPath.row];
     SPMessageViewController *messageViewController = [[SPMessageViewController alloc] initWithMessage:messageAtIndex];
     [self removeMessageFromArray:messageAtIndex];
     [self presentViewController: messageViewController animated:NO completion:^{
