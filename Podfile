@@ -1,4 +1,8 @@
-platform :ios, '7.0' 
+platform :ios, '7.0'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
 pod 'TransitionKit', '~> 2.0.0'
 pod 'CSNotificationView', '~> 0.5.4'
 pod 'TSMessages', '~> 0.9'

@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *messageTextView;
 
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *sendActivityIndicator;
 @property (nonatomic) CGFloat currentKeyboardHeight;
 
 @end
@@ -46,6 +47,7 @@
 }
 
 - (void) setupAppearance {
+    [self notSendingState];
     [self.sendButton styleAsMainSpeedlButton];
     [self.messageTextView styleAsMainSpeedlTextView];
     
@@ -66,9 +68,9 @@
         return;
     }
     
-    [_sendButton setEnabled:NO];
+    [self sendingState];
     [[SPUser currentUser] postMessageInBackground:_messageTextView.text block:^(BOOL success, NSString *serverMessage) {
-        [_sendButton setEnabled:YES];
+        [self notSendingState];
         if (!success) {
             [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
         } else {
@@ -77,6 +79,18 @@
             [SPNotification showSuccessNotificationWithMessage:@"Message Sent" inViewController:self];
         }
     }];
+}
+
+- (void)sendingState {
+    [_sendButton setEnabled:NO];
+    [_sendActivityIndicator setHidden:NO];
+    [_sendActivityIndicator startAnimating];
+}
+
+- (void)notSendingState {
+    [_sendButton setEnabled:YES];
+    [_sendActivityIndicator setHidden:YES];
+    [_sendActivityIndicator startAnimating];
 }
 
 - (IBAction)onMicPress:(id)sender {
