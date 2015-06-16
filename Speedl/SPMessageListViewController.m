@@ -91,7 +91,7 @@
     _lowerNoResultsLabel.text = [self getMeanMessage];
     [_activityIndicator setHidden:YES];
     [_noResultsView setHidden:NO];
-    [_tableView setHidden:YES];
+    [_tableView setHidden:NO];
 }
 
 - (NSString *) getMeanMessage {
