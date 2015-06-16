@@ -29,6 +29,7 @@
     
     [self setupAppearance];
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UILabel *noResultsLabel;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *searchTextFieldUpperConstraint;
+@property (nonatomic) CGFloat currentKeyboardHeight;
 
 @end
 
@@ -34,12 +35,61 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SPFriendTableViewCell" bundle:nil] forCellReuseIdentifier:kFriendCellReuse];
     
+    [self setupAppearance];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
     
-    [self setupAppearance];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+-(void)keyboardWillShow:(NSNotification*)notification
+{
+    if (/* DISABLES CODE */ (NO)) {
+        // Adjust the send button based on the keyboard height.
+        NSDictionary *info = [notification userInfo];
+        CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+        
+        _searchTextFieldUpperConstraint.constant = kSearchFieldDefaultYConstraintValue;
+        
+        _currentKeyboardHeight = kbSize.height;
+        
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             [self.view layoutIfNeeded]; // Called on parent view
+                         }];
+    }
+}
+-(void)keyboardWillHide:(NSNotification*)notification {
+    if (/* DISABLES CODE */ (NO)) {
+        if ([_tableView isHidden]) {
+            NSDictionary *info = [notification userInfo];
+            CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+            
+            _searchTextFieldUpperConstraint.constant = [self messageTopConstraintForCenter];
+            
+            _currentKeyboardHeight = kbSize.height;
+            
+            [UIView animateWithDuration:0.5
+                             animations:^{
+                                 [self.view layoutIfNeeded]; // Called on parent view
+                             }];
+        }
+    }
+}
+
+- (CGFloat) messageTopConstraintForCenter {
+    CGFloat viewHeight = [self view].frame.size.height;
+    
+    return (viewHeight/2) - _searchTextField.frame.size.height - 53;
 }
 
 - (void) setupAppearance {
@@ -71,10 +121,6 @@
     [_noResultsLabel setHidden:NO];
 }
 
--(void)keyboardWillShow:(NSNotification*)notification {
-    [self moveSearchTextFieldToTop];
-}
-
 - (void)startSearch {
     
     if ([_searchTextField.text length] > 0) {
@@ -95,15 +141,6 @@
 }
 
 - (void)centerSearchTextField {
-    
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         [self.view layoutIfNeeded]; // Called on parent view
-                     }];
-}
-
-- (void)moveSearchTextFieldToTop {
-    _searchTextFieldUpperConstraint.constant = kSearchFieldDefaultYConstraintValue;
     
     [UIView animateWithDuration:0.5
                      animations:^{
