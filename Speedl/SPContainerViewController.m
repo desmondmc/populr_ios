@@ -28,8 +28,6 @@
 - (void)viewDidLoad {    
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[SPAppearance globalBackgroundColour]];
-    
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     
@@ -56,6 +54,10 @@
     [self setupCustomPageControl];
     
     [self updatePageControl];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.view setBackgroundColor:[SPAppearance globalBackgroundColour]];
 }
 
 - (void)setupCustomPageControl {
