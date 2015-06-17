@@ -11,17 +11,19 @@
 @implementation SPMessageBuilder
 
 + (NSArray *)messagesFromJSON:(NSData *)jsonData error:(NSError **)error {
-    NSError *localError = nil;
     NSMutableArray *messagesArray = [[NSMutableArray alloc] init];
     
-    NSDictionary *parsedObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&localError];
+    NSDictionary *parsedObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:error];
+    
+    if (!parsedObjects[@"messages"]) {
+        *error = [NSError errorWithDescription:@"Response didn't include Messages"];
+        return nil;
+    }
+    if (*error) {
+        return nil;
+    }
     
     for (NSDictionary *parsedObject in parsedObjects[@"messages"]) {
-        if (localError != nil) {
-            *error = localError;
-            return nil;
-        }
-        
         SPMessage *message = [[SPMessage alloc] init];
         
         if ([parsedObject objectForKey:@"id"] != nil) {

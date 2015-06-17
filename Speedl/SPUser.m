@@ -173,11 +173,18 @@
     
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
     
+    // Attempt to prevent cacheing
+    url = [url stringByAppendingString:[SPNetworkHelper getTimeStampString]];
+    
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
     
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error;
+            if (error) {
+                if (block) {
+                    block(nil, error.description);
+                }
+            }
             
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
             NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
@@ -188,7 +195,16 @@
                 return;
             }
             
+            NSError *error = nil;
+            
             NSArray *messages = [SPMessageBuilder messagesFromJSON:data error:&error];
+            
+            if (error) {
+                if (block) {
+                    NSLog(@"Error: %@", [error localizedDescription]);
+                    block(nil, [error localizedDescription]);
+                }
+            }
             NSLog(@"Posting Message Count.");
             [[NSNotificationCenter defaultCenter] postNotificationName:kSPMessageCountNotification
                                                                 object:@(messages.count)];

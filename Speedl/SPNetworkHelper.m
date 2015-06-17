@@ -42,6 +42,8 @@
 
 + (NSURLRequest *) getRequestWithURL:(NSString *)urlString {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
+    
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     request.HTTPMethod = @"GET";
     
     [self setRequestHeaders:&request];
@@ -110,6 +112,10 @@
         }
     }
     return nil;
+}
+
++ (NSString *)getTimeStampString {
+    return [NSString stringWithFormat:@"?q=%d", (int)[[NSDate date] timeIntervalSince1970]];
 }
 
 @end
