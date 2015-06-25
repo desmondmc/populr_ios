@@ -18,11 +18,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @implementation SPAppearance
 
 + (UIColor *) globalBackgroundColour {
-    return [self getColourForDay];
+    return [self getFirstColourForToday];
 }
 
 + (UIColor *) globalBackgroundColourWithAlpha:(CGFloat)alpha {
-    UIColor *alphaColour = [[self getColourForDay] colorWithAlphaComponent:alpha];
+    UIColor *alphaColour = [[self getFirstColourForToday] colorWithAlphaComponent:alpha];
     return alphaColour;
 }
 
@@ -72,7 +72,35 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #pragma mark - Helpers
 
-+ (UIColor *) getColourForDay {
++ (UIColor *) getFirstColourForToday {
+    NSInteger numberOfDays = [self getColorIndex];
+    
+    NSInteger colourIndex = numberOfDays % [kColourArray count];
+    return [self getColourAtIndex:colourIndex];
+}
+
++ (UIColor *) getSecondColourForToday {
+    return [UIColor clearColor];
+//    NSInteger numberOfDays = [self getColorIndex] + 1;
+//    
+//    NSInteger colourIndex = numberOfDays % [kColourArray count];
+//    return [self getColourAtIndex:colourIndex];
+}
+
++ (UIColor *) getThirdColourForToday {
+    return [UIColor clearColor];
+//    NSInteger numberOfDays = [self getColorIndex] + 2;
+//    
+//    NSInteger colourIndex = numberOfDays % [kColourArray count];
+//    return [self getColourAtIndex:colourIndex];
+}
+
++ (UIColor *)getColourAtIndex:(NSInteger)index {
+    NSInteger colorValue = [kColourArray[index] integerValue];
+    return UIColorFromRGB(colorValue);
+}
+
++ (NSInteger)getColorIndex {
     NSString *str =@"4/20/2015 2:16 PM";
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
@@ -80,12 +108,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSDate *startDate = [formatter dateFromString:str];
     NSDate *currentDate = [NSDate date];
     
-    NSInteger numberOfDays = [self daysBetweenDate:startDate andDate:currentDate];
-    
-    NSInteger colourIndex = numberOfDays % [kColourArray count];
-    
-    NSInteger colorValue = [kColourArray[colourIndex] integerValue];
-    return UIColorFromRGB(colorValue);
+    return [self daysBetweenDate:startDate andDate:currentDate];
 }
 
 + (NSInteger)daysBetweenDate:(NSDate*)fromDateTime andDate:(NSDate*)toDateTime

@@ -48,6 +48,7 @@
 }
 
 - (void) setupAppearance {
+    self.view.backgroundColor = [SPAppearance getSecondColourForToday];
     [self notSendingState];
     [self.sendButton styleAsMainSpeedlButton];
     [self.messageTextView styleAsMainSpeedlTextView];

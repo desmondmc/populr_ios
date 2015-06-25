@@ -26,7 +26,9 @@
 + (UIFont *) friendsListFont;
 + (UIColor *) friendsListColour;
 
-+ (UIColor *) getColourForDay;
++ (UIColor *) getFirstColourForToday;
++ (UIColor *) getSecondColourForToday;
++ (UIColor *) getThirdColourForToday;
 
 + (UIFont *) timeLabelFont;
 

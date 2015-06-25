@@ -58,7 +58,7 @@
     
     _upperNoResultsLabel.text = @"YOU HAVE NO MESSAGES";
     _lowerNoResultsLabel.text = [self getMeanMessage];
-    self.view.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [SPAppearance getFirstColourForToday];
     self.tableView.backgroundColor = [UIColor clearColor];
     
     //Add pull to refresh
