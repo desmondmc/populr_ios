@@ -13,6 +13,7 @@
 + (UIColor *) globalBackgroundColour;
 + (UIColor *) globalBackgroundColourWithAlpha:(CGFloat)alpha;
 + (UIColor *) seeThroughColour;
++ (UIColor *) megaSeeThroughColour;
 
 + (UIColor *) mainTextFieldColour;
 + (UIFont *) mainTextFieldFont;
@@ -26,6 +27,7 @@
 + (UIFont *) friendsListFont;
 + (UIColor *) friendsListColour;
 
++ (UIColor *) getMainBackgroundColour;
 + (UIColor *) getFirstColourForToday;
 + (UIColor *) getSecondColourForToday;
 + (UIColor *) getThirdColourForToday;

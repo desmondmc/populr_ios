@@ -20,6 +20,8 @@
 @property (strong, nonatomic) SPFriendsTableViewController *followingTableViewController;
 @property (strong, nonatomic) SPSearchFriendsViewController *searchTableViewController;
 @property (strong, nonatomic) SPSettingsViewController *settingsViewController;
+@property (strong, nonatomic) SPCustomTabView *customTabView;
+@property (strong, nonatomic) IBOutlet UIView *tabContainerView;
 
 
 @end
@@ -30,6 +32,22 @@
     [super viewDidLoad];
     [self setupAppearance];
     [self segmentControlDidChange:nil];
+    [self addTabView];
+}
+
+- (void)addTabView {
+    [_tabContainerView addSubview:[self customTabView]];
+    [SPAutoLayout constrainSubviewToFillSuperview:[self customTabView]];
+}
+
+- (SPCustomTabView *)customTabView {
+    if (!_customTabView) {
+        _customTabView = [[[NSBundle mainBundle] loadNibNamed:@"SPCustomTabView"
+                                                        owner:self
+                                                      options:nil] objectAtIndex:0];
+        _customTabView.delegate = self;
+    }
+    return _customTabView;
 }
 
 - (void) setupAppearance {
@@ -43,6 +61,22 @@
 }
 - (IBAction)onGoLeftPress:(id)sender {
     [self.containerViewController goToComposeViewControllerFromRight];
+}
+
+- (void)tabSelectedAtIndex:(NSInteger)index {
+    switch (index) {
+        case 0: //Search
+            [self loadSearchIntoContainer];
+            break;
+        case 1: //Following
+            [self loadFollowingIntoContainer];
+            break;
+        case 2: //Followers
+            [self loadFollowersIntoContainer];
+            break;
+        default:
+            break;
+    }
 }
 
 - (IBAction)segmentControlDidChange:(id)sender {

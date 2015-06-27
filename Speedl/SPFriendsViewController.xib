@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="containerView" destination="jce-lo-KeA" id="SeC-dY-kag"/>
                 <outlet property="segmentControl" destination="dSZ-0T-i21" id="FLz-X0-IfK"/>
+                <outlet property="tabContainerView" destination="cny-yC-jM6" id="wcz-Rq-5pc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,10 +18,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jce-lo-KeA" userLabel="ContainerView">
-                    <rect key="frame" x="0.0" y="116" width="600" height="484"/>
+                    <rect key="frame" x="0.0" y="150" width="600" height="450"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-0T-i21">
+                <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-0T-i21">
                     <rect key="frame" x="20" y="80" width="560" height="29"/>
                     <segments>
                         <segment title="Search"/>
@@ -52,8 +53,15 @@
                         <action selector="didTapSettings:" destination="-1" eventType="touchUpInside" id="2Ry-Bz-fz5"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cny-yC-jM6" userLabel="TabContainer">
+                    <rect key="frame" x="0.0" y="80" width="600" height="62"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62" id="hNx-lp-enz"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="nz0-oS-r38" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="3sD-4N-fo2"/>
                 <constraint firstItem="jce-lo-KeA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="63l-rg-6xM"/>
@@ -61,12 +69,21 @@
                 <constraint firstItem="dSZ-0T-i21" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="FJs-Tw-Qks"/>
                 <constraint firstAttribute="trailing" secondItem="nz0-oS-r38" secondAttribute="trailing" constant="8" id="Hsc-Yv-kPO"/>
                 <constraint firstItem="dSZ-0T-i21" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Qd3-1y-fxy"/>
+                <constraint firstItem="cny-yC-jM6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SmL-kk-yPU"/>
                 <constraint firstAttribute="trailing" secondItem="jce-lo-KeA" secondAttribute="trailing" id="WQS-8Y-I58"/>
+                <constraint firstItem="cny-yC-jM6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="dLJ-GJ-Q0p"/>
                 <constraint firstItem="dOI-fz-Vdl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="h4C-kM-ELA"/>
+                <constraint firstAttribute="trailing" secondItem="cny-yC-jM6" secondAttribute="trailing" id="sbX-iG-1yN"/>
                 <constraint firstAttribute="trailing" secondItem="dSZ-0T-i21" secondAttribute="trailing" constant="20" id="uow-8v-pdU"/>
+                <constraint firstItem="jce-lo-KeA" firstAttribute="top" secondItem="cny-yC-jM6" secondAttribute="bottom" constant="8" id="vgs-Sn-GGn"/>
                 <constraint firstAttribute="bottom" secondItem="jce-lo-KeA" secondAttribute="bottom" id="yC8-WH-f9E"/>
                 <constraint firstAttribute="trailing" secondItem="dOI-fz-Vdl" secondAttribute="trailing" id="zHZ-bU-Ae4"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="EYD-OM-ijC"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="317" y="327"/>
         </view>
     </objects>

@@ -18,7 +18,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @implementation SPAppearance
 
 + (UIColor *) globalBackgroundColour {
-    return [self getFirstColourForToday];
+    return [self getMainBackgroundColour];
 }
 
 + (UIColor *) globalBackgroundColourWithAlpha:(CGFloat)alpha {
@@ -28,6 +28,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 + (UIColor *) seeThroughColour {
     return [UIColor colorWithRed:1 green:1 blue:1 alpha:0.60];
+}
+
++ (UIColor *) megaSeeThroughColour {
+    return [UIColor colorWithRed:1 green:1 blue:1 alpha:0.30];
 }
 
 + (UIFont *) mainTextFieldFont {
@@ -72,11 +76,19 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #pragma mark - Helpers
 
-+ (UIColor *) getFirstColourForToday {
++ (UIColor *) getMainBackgroundColour {
     NSInteger numberOfDays = [self getColorIndex];
-    
+
     NSInteger colourIndex = numberOfDays % [kColourArray count];
     return [self getColourAtIndex:colourIndex];
+}
+
++ (UIColor *) getFirstColourForToday {
+    return [UIColor clearColor];
+//    NSInteger numberOfDays = [self getColorIndex];
+//    
+//    NSInteger colourIndex = numberOfDays % [kColourArray count];
+//    return [self getColourAtIndex:colourIndex];
 }
 
 + (UIColor *) getSecondColourForToday {

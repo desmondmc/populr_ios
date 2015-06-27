@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPCustomTabView.h"
 
-@interface SPFriendsViewController : SPContainedViewController <SPContainerViewControllerDelegate>
+@interface SPFriendsViewController : SPContainedViewController <SPContainerViewControllerDelegate, SPCustomTabViewDelegate>
 
 @end
