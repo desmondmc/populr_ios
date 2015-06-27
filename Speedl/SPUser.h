@@ -41,8 +41,10 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 + (void)searchForUserInBackgroundWithString:(NSString *)searchString block:(SPUserSearchResultBlock)block;
 
 + (NSArray *)getMessageList;
-
 + (void)saveMessageList:(NSArray *)messageList;
++ (NSArray *)getFollowersArray;
++ (NSArray *)getFollowingArray;
+
 
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block;
 

@@ -49,6 +49,11 @@
         kAppDel.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     }
     
+    // This is to setup the notification block.
+    [[SPUser currentUser] getMessagesInBackground:nil];
+    [[SPUser currentUser] getFollowingInBackground:nil];
+    [[SPUser currentUser] getFollowersInBackground:nil];
+    
     kAppDel.window.rootViewController = [self getLoggedInViewController];
     [kAppDel.window makeKeyAndVisible];
 }

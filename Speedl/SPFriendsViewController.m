@@ -165,6 +165,7 @@
 
 - (void) newVisableViewController:(UIViewController *)viewController {
     if (viewController == self) {
+        [[self customTabView] layoutSubviews];
         NSLog(@"FriendsView is visable!!");
     }
 }

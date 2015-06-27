@@ -39,8 +39,6 @@
     
     if ([SPUser currentUser]) {
         [SPLoginRouter gotoLoggedInView];
-        // This is to setup the notification block.
-        [[SPUser currentUser] getMessagesInBackground:nil];
     } else {
         [SPLoginRouter gotoLoggedOutView];
     }

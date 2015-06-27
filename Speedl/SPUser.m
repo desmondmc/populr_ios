@@ -16,8 +16,12 @@
 #define kPasswordKey    @"password"
 #define kTokenKey       @"token"
 #define kMessagesKey    @"messages"
+#define kFollowersKey   @"followers"
+#define kFollowingsKey  @"followings"
 
 @implementation SPUser
+
+#pragma mark - Current User Persistent Store
 
 + (SPUser *) currentUser {
     SPUser *currentUser = [[SPUser alloc] init];
@@ -33,6 +37,17 @@
     
     return currentUser;
 }
+
++ (void)logoutCurrentUser {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kMessagesKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kObjectIdKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUsernameKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPasswordKey];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kTokenKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+#pragma mark - Message List Persistent Store
 
 + (NSArray *)getMessageList {
     NSMutableArray *messagesArray = [NSMutableArray new];
@@ -56,14 +71,47 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (void)logoutCurrentUser {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kMessagesKey];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kObjectIdKey];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUsernameKey];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPasswordKey];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kTokenKey];
+#pragma mark - Friends Lists Persistent Store
+
++ (NSArray *)getFollowersArray {
+    return [self getUserArrayFromPersistentStore:kFollowersKey];
+}
+
++ (NSArray *)getFollowingArray {
+    return [self getUserArrayFromPersistentStore:kFollowingsKey];
+}
+
++ (NSArray *)getUserArrayFromPersistentStore:(NSString *)key {
+    NSMutableArray *usersArray = [NSMutableArray new];
+    NSArray *encodedUsers = [[NSUserDefaults standardUserDefaults] arrayForKey:key];
+    for (NSData *encodedUser in encodedUsers) {
+        SPUser *user = [NSKeyedUnarchiver unarchiveObjectWithData:encodedUser];
+        [usersArray addObject:user];
+    }
+    return usersArray;
+}
+
++ (void)saveFollowersList:(NSArray *)followersArray {
+    [self saveUserArrayToPersistentStore:followersArray key:kFollowersKey];
+}
+
++ (void)saveFollowingList:(NSArray *)followingArray {
+    [self saveUserArrayToPersistentStore:followingArray key:kFollowingsKey];
+}
+
++ (void)saveUserArrayToPersistentStore:(NSArray *)userArray key:(NSString *)key {
+    NSMutableArray *encodedUserList = [NSMutableArray new];
+    
+    for (SPUser *user in userArray) {
+        NSData *encodedUser = [NSKeyedArchiver archivedDataWithRootObject:user];
+        [encodedUserList addObject:encodedUser];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:encodedUserList forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+#pragma mark - Network calls
 
 + (void)signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block {
     
@@ -256,21 +304,27 @@
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (block) {
-                NSError *error;
-                
-                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
-                if (remoteError) {
+            NSError *error;
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
+            if (remoteError) {
+                if (block) {
                     block(nil, remoteError);
-                    return;
                 }
-                
-                NSArray *followers = [SPUserBuilder usersFromJSON:data error:&error];
-                
-                block(followers, nil);
                 return;
             }
+            
+            NSArray *followers = [SPUserBuilder usersFromJSON:data error:&error];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSPFollowersCountNotification
+                                                                object:@(followers.count)];
+            [SPUser saveFollowersList:followers];
+            
+            if (block) {
+                block(followers, nil);
+            }
+            return;
+            
         });
     }];
 }
@@ -285,21 +339,27 @@
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (block) {
-                NSError *error;
-                
-                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
-                if (remoteError) {
+            NSError *error;
+            
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
+            if (remoteError) {
+                if (block) {
                     block(nil, remoteError);
-                    return;
                 }
-                
-                NSArray *followers = [SPUserBuilder usersFromJSON:data error:&error];
-                
-                block(followers, nil);
                 return;
             }
+            
+            NSArray *following = [SPUserBuilder usersFromJSON:data error:&error];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSPFollowingCountNotification
+                                                                object:@(following.count)];
+            [SPUser saveFollowingList:following];
+            
+            if (block) {
+                block(following, nil);
+            }
+            return;
+            
         });
     }];
 }
@@ -377,6 +437,26 @@
     
     [currentInstallation setValue:userObjectId forKey:@"userId"];
     [currentInstallation saveInBackground];
+}
+
+#define kUserObjectIdKey @"SPUserObjectIdKey"
+#define kUsernameDataKey @"SPUsernameDataKey"
+
+#pragma mark - NSUserDefaults
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    //Encode properties, other class variables, etc
+    [encoder encodeObject:[self objectId] forKey:kObjectIdKey];
+    [encoder encodeObject:_username forKey:kUsernameDataKey];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        [self setObjectId:[decoder decodeObjectForKey:kObjectIdKey]];
+        _username = [decoder decodeObjectForKey:kUsernameDataKey];
+    }
+    return self;
 }
 
 @end

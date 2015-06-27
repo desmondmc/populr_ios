@@ -43,8 +43,40 @@
     [self layoutSubviews];
 }
 
+- (void)awakeFromNib {
+    _selectedSegmentIndex = 1;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(gotFollowingCount:)
+                                                 name:kSPFollowingCountNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(gotFollowersCount:)
+                                                 name:kSPFollowersCountNotification
+                                               object:nil];
+}
+
+- (void)gotFollowersCount:(NSNotification *)notification {
+    NSNumber *numberOfFollowers = [notification object];
+    _followersCountLabel.text = [numberOfFollowers stringValue];
+}
+
+- (void)gotFollowingCount:(NSNotification *)notification {
+    NSNumber *numberOfFollowing = [notification object];
+    _followingCountLabel.text = [numberOfFollowing stringValue];
+}
+
+- (void)setCountLabels {
+    _followingCountLabel.text = [NSString stringWithFormat:@"%d", [[SPUser getFollowingArray] count]];
+    _followersCountLabel.text = [NSString stringWithFormat:@"%d", [[SPUser getFollowersArray] count]];
+}
+
 - (void)layoutSubviews {
     [self setupAppearance];
+    [self setCountLabels];
+    
+    _followersLabel.font = [SPAppearance timeLabelFont];
+    _followingLabel.font = [SPAppearance timeLabelFont];
     
     if (_delegate) {
         [_delegate tabSelectedAtIndex:_selectedSegmentIndex];

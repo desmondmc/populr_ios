@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jce-lo-KeA" userLabel="ContainerView">
-                    <rect key="frame" x="0.0" y="150" width="600" height="450"/>
+                    <rect key="frame" x="0.0" y="143" width="600" height="457"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-0T-i21">
@@ -54,10 +54,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cny-yC-jM6" userLabel="TabContainer">
-                    <rect key="frame" x="0.0" y="80" width="600" height="62"/>
+                    <rect key="frame" x="0.0" y="80" width="600" height="55"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="62" id="hNx-lp-enz"/>
+                        <constraint firstAttribute="height" constant="55" id="hNx-lp-enz"/>
                     </constraints>
                 </view>
             </subviews>
