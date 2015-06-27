@@ -68,6 +68,10 @@
     [_refreshControl addTarget:self action:@selector(reloadMessagesData) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_refreshControl];
     
+    [self displayMessagesIfThereAreAny];
+}
+
+- (void)displayMessagesIfThereAreAny {
     if ([SPUser getMessageList].count > 0) {
         [self loadedWithMessagesState];
     } else {
@@ -175,6 +179,7 @@
 
 - (void) newVisableViewController:(UIViewController *)viewController {
     if (viewController == self) {
+        [self displayMessagesIfThereAreAny];
         [self reloadMessagesData];
     }
 }
