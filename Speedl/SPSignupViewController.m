@@ -76,7 +76,7 @@
             return;
         }
         
-        [SPLoginRouter gotoLoggedInView];
+        [SPLoginRouter gotoLoggedInViewAndShowMessages:NO];
     }];
 }
 
@@ -90,7 +90,7 @@
             return;
         }
         
-        [SPLoginRouter gotoLoggedInView];
+        [SPLoginRouter gotoLoggedInViewAndShowMessages:NO];
     }];
 }
 

@@ -38,7 +38,8 @@
     [[UITextView appearance] setTintColor:[UIColor whiteColor]];
     
     if ([SPUser currentUser]) {
-        [SPLoginRouter gotoLoggedInView];
+        BOOL remoteNotificationPresent = (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]!= nil);
+        [SPLoginRouter gotoLoggedInViewAndShowMessages:remoteNotificationPresent];
     } else {
         [SPLoginRouter gotoLoggedOutView];
     }
@@ -53,14 +54,13 @@
     [currentInstallation saveInBackground];
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [PFPush handlePush:userInfo];
-}
-
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    
-    NSInteger badgeNumber = [application applicationIconBadgeNumber];
-    [application setApplicationIconBadgeNumber:++badgeNumber];
+    if ([SPUser currentUser]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kSPGotoMessageListNotification
+                                                            object:nil];
+    }
+//    NSInteger badgeNumber = [application applicationIconBadgeNumber];
+//    [application setApplicationIconBadgeNumber:++badgeNumber];
     
 }
 

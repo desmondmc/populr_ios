@@ -67,8 +67,8 @@
 }
 
 - (void)setCountLabels {
-    _followingCountLabel.text = [NSString stringWithFormat:@"%d", [[SPUser getFollowingArray] count]];
-    _followersCountLabel.text = [NSString stringWithFormat:@"%d", [[SPUser getFollowersArray] count]];
+    _followingCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[[SPUser getFollowingArray] count]];
+    _followersCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[[SPUser getFollowersArray] count]];
 }
 
 - (void)layoutSubviews {

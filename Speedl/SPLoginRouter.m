@@ -16,7 +16,7 @@
 
 @implementation SPLoginRouter
 
-+ (UIViewController *) getLoggedInViewController {
++ (SPContainerViewController *) getLoggedInViewController {
     
     SPComposeViewController *composeViewController = [[SPComposeViewController alloc] init];
     SPMessageListViewController *leftViewController  = [[SPMessageListViewController alloc] init];
@@ -44,7 +44,7 @@
     return contrainterViewController;
 }
 
-+ (void) gotoLoggedInView {
++ (void) gotoLoggedInViewAndShowMessages:(BOOL)showMessages {
     if (kAppDel.window == nil) {
         kAppDel.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     }
@@ -54,7 +54,9 @@
     [[SPUser currentUser] getFollowingInBackground:nil];
     [[SPUser currentUser] getFollowersInBackground:nil];
     
-    kAppDel.window.rootViewController = [self getLoggedInViewController];
+    SPContainerViewController *containerViewController = [self getLoggedInViewController];
+    [containerViewController goToMessageViewController];
+    kAppDel.window.rootViewController = containerViewController;
     [kAppDel.window makeKeyAndVisible];
 }
 

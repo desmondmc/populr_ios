@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPMessageListViewController">
             <connections>
-                <outlet property="activityIndicator" destination="bnV-Rb-oAP" id="wy7-9J-zZr"/>
                 <outlet property="lowerNoResultsLabel" destination="Xkv-cV-nIb" id="arO-jM-7Z9"/>
                 <outlet property="noResultsView" destination="d3h-3D-Esb" id="2vj-64-C80"/>
                 <outlet property="tableView" destination="hij-0F-dzW" id="z7l-GY-QXN"/>
@@ -69,16 +68,11 @@
                         <outlet property="delegate" destination="-1" id="8kN-5R-2nU"/>
                     </connections>
                 </tableView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bnV-Rb-oAP">
-                    <rect key="frame" x="282" y="282" width="37" height="37"/>
-                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="hij-0F-dzW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9wp-GT-qsE"/>
                 <constraint firstAttribute="trailing" secondItem="hij-0F-dzW" secondAttribute="trailing" id="Jmb-2D-FYD"/>
-                <constraint firstAttribute="centerY" secondItem="bnV-Rb-oAP" secondAttribute="centerY" id="UaQ-5y-Y3x"/>
-                <constraint firstAttribute="centerX" secondItem="bnV-Rb-oAP" secondAttribute="centerX" id="aIv-hN-FhL"/>
                 <constraint firstItem="d3h-3D-Esb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b57-I6-lZM"/>
                 <constraint firstAttribute="centerY" secondItem="d3h-3D-Esb" secondAttribute="centerY" constant="20" id="b8x-c8-yrJ"/>
                 <constraint firstItem="hij-0F-dzW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="eKq-Fa-wRx"/>

@@ -28,6 +28,11 @@
 - (void)viewDidLoad {    
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(goToMessageViewController)
+                                                 name:kSPGotoMessageListNotification
+                                               object:nil];
+    
     self.pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
     

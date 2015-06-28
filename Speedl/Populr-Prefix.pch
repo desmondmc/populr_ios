@@ -23,6 +23,7 @@
 #define kSPMessageCountNotification @"SPMessageCountNotification"
 #define kSPFollowersCountNotification @"SPFollowersCountNotification"
 #define kSPFollowingCountNotification @"SPFollowingCountNotification"
+#define kSPGotoMessageListNotification @"SPGotoMessageListNotification"
 
 // Catagories
 #import "UITextField+Custom.h"

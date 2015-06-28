@@ -15,7 +15,6 @@
 @interface SPMessageListViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) IBOutlet UILabel *upperNoResultsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *lowerNoResultsLabel;
@@ -68,11 +67,7 @@
     [_refreshControl addTarget:self action:@selector(reloadMessagesData) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_refreshControl];
     
-    if ([SPUser getMessageList].count > 0) {
-        [self loadedWithMessagesState];
-    } else {
-        [self loadingState];
-    }
+    [self displayMessagesIfThereAreAny];
 }
 
 - (void)displayMessagesIfThereAreAny {
@@ -81,21 +76,13 @@
     }
 }
 
-- (void)loadingState {
-    [_activityIndicator setHidden:NO];
-    [_tableView setHidden:YES];
-    [_noResultsView setHidden:YES];
-}
-
 - (void)loadedWithMessagesState {
-    [_activityIndicator setHidden:YES];
     [_tableView setHidden:NO];
     [_noResultsView setHidden:YES];
 }
 
 - (void)loadedNoMessagesState {
     _lowerNoResultsLabel.text = [self getMeanMessage];
-    [_activityIndicator setHidden:YES];
     [_noResultsView setHidden:NO];
     [_tableView setHidden:NO];
 }
@@ -117,7 +104,6 @@
 {
     NSMutableArray *mutableMessages = [[SPUser getMessageList] mutableCopy];
     [mutableMessages removeObject:message];
-    [SPUser saveMessageList:mutableMessages];
     [SPUser saveMessageList:mutableMessages];
     [self.tableView reloadData];
 }

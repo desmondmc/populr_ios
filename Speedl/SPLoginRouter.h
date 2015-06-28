@@ -10,9 +10,7 @@
 
 @interface SPLoginRouter : NSObject
 
-+ (UIViewController *) getLoggedInViewController;
-
-+ (void) gotoLoggedInView;
++ (void) gotoLoggedInViewAndShowMessages:(BOOL)showMessages;
 + (void) gotoLoggedOutView;
 
 @end
