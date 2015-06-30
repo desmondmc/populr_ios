@@ -36,6 +36,13 @@
                                 <action selector="didPressLeftView:" destination="iN0-l3-epB" eventType="touchUpInside" id="a1z-70-VWI"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mag_opaque" translatesAutoresizingMaskIntoConstraints="NO" id="NGm-dY-jtd">
+                            <rect key="frame" x="59" y="21.5" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="8We-Nv-WmB"/>
+                                <constraint firstAttribute="height" constant="25" id="TbD-me-Yi0"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -45,9 +52,11 @@
                         <constraint firstItem="yau-BY-LEu" firstAttribute="top" secondItem="PFz-jq-Lre" secondAttribute="bottom" id="J4g-Pf-A0P"/>
                         <constraint firstItem="mna-Nw-lsf" firstAttribute="top" secondItem="EJc-yL-IXh" secondAttribute="top" id="Uwk-6Q-jSA"/>
                         <constraint firstItem="PFz-jq-Lre" firstAttribute="top" secondItem="EJc-yL-IXh" secondAttribute="top" id="WI0-s0-U7j"/>
+                        <constraint firstAttribute="centerX" secondItem="NGm-dY-jtd" secondAttribute="centerX" id="fOx-oD-tou"/>
                         <constraint firstAttribute="trailing" secondItem="yau-BY-LEu" secondAttribute="trailing" id="hVp-mB-Ies"/>
                         <constraint firstItem="mna-Nw-lsf" firstAttribute="leading" secondItem="PFz-jq-Lre" secondAttribute="trailing" id="lrj-p3-Ufw"/>
                         <constraint firstItem="PFz-jq-Lre" firstAttribute="leading" secondItem="EJc-yL-IXh" secondAttribute="leading" id="umC-UP-oqV"/>
+                        <constraint firstAttribute="centerY" secondItem="NGm-dY-jtd" secondAttribute="centerY" id="unW-3r-HIf"/>
                         <constraint firstAttribute="bottom" secondItem="yau-BY-LEu" secondAttribute="bottom" id="x1p-EA-0kf"/>
                     </constraints>
                 </view>
@@ -131,7 +140,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vg-59-Xci">
-                            <rect key="frame" x="34" y="38.5" width="74" height="20.5"/>
+                            <rect key="frame" x="34" y="38" width="74" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -192,10 +201,14 @@
                 <outlet property="followingLabel" destination="VGF-a2-cjB" id="Sm7-Vd-DTm"/>
                 <outlet property="leftViewBottomLine" destination="yau-BY-LEu" id="qin-Wr-9va"/>
                 <outlet property="rightViewBottomLine" destination="hfx-Zt-TdG" id="8Ok-M0-gq8"/>
+                <outlet property="searchImageView" destination="NGm-dY-jtd" id="1U7-OC-SXh"/>
                 <outlet property="secondVerticalLine" destination="TA8-uj-Dyd" id="g73-y3-vZf"/>
                 <outlet property="topLine" destination="xAP-wH-mMt" id="M9d-dC-MYW"/>
             </connections>
             <point key="canvasLocation" x="193.5" y="389"/>
         </view>
     </objects>
+    <resources>
+        <image name="mag_opaque" width="25" height="25"/>
+    </resources>
 </document>

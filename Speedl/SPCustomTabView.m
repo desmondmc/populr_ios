@@ -8,6 +8,9 @@
 
 #import "SPCustomTabView.h"
 
+#define kSelectedSearchImage [UIImage imageNamed:@"mag"]
+#define kNonSelectedSearchImage [UIImage imageNamed:@"mag_opaque"]
+
 @interface SPCustomTabView ()
 
 @property (strong, nonatomic) IBOutlet UIView *leftViewBottomLine;
@@ -23,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UIView *firstVerticalLine;
 @property (strong, nonatomic) IBOutlet UIView *secondVerticalLine;
 @property (strong, nonatomic) IBOutlet UIView *topLine;
+
+@property (strong, nonatomic) IBOutlet UIImageView *searchImageView;
 
 @end
 
@@ -117,6 +122,8 @@
     [_followersLabel setTextColor:[SPAppearance seeThroughColour]];
     [_followingCountLabel setTextColor:[SPAppearance seeThroughColour]];
     [_followingLabel setTextColor:[SPAppearance seeThroughColour]];
+    
+    _searchImageView.image = kSelectedSearchImage;
 }
 
 - (void)setupForCentrePress { // Following
@@ -128,6 +135,8 @@
     [_followersLabel setTextColor:[SPAppearance seeThroughColour]];
     [_followingCountLabel setTextColor:[UIColor whiteColor]];
     [_followingLabel setTextColor:[UIColor whiteColor]];
+    
+    _searchImageView.image = kNonSelectedSearchImage;
 }
 
 - (void)setupForRightPress { // Followers
@@ -139,6 +148,8 @@
     [_followersLabel setTextColor:[UIColor whiteColor]];
     [_followingCountLabel setTextColor:[SPAppearance seeThroughColour]];
     [_followingLabel setTextColor:[SPAppearance seeThroughColour]];
+    
+    _searchImageView.image = kNonSelectedSearchImage;
 }
 
 
