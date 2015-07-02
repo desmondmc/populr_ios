@@ -62,6 +62,12 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:kSPGotoMessageListNotification
                                                                 object:nil];
         }
+    } else {
+        NSString *message = userInfo[@"aps"][@"alert"];
+        if (message) {
+            [SPNotification showSuccessNotificationWithMessage:message inViewController:nil];
+        }
+        
     }
     
     completionHandler(UIBackgroundFetchResultNewData);
