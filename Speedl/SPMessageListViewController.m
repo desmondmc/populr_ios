@@ -42,7 +42,7 @@
 
 - (void)reloadMessagesData {
     [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
-        if (messages.count > 0) {
+        if ([SPUser getMessageList].count > 0) {
             [self loadedWithMessagesState];
         } else {
             [self loadedNoMessagesState];
