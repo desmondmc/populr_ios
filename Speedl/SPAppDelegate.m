@@ -55,13 +55,16 @@
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    if ([SPUser currentUser]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSPGotoMessageListNotification
-                                                            object:nil];
-    }
-//    NSInteger badgeNumber = [application applicationIconBadgeNumber];
-//    [application setApplicationIconBadgeNumber:++badgeNumber];
+    UIApplicationState state = [application applicationState];
     
+    if ([SPUser currentUser] && state != UIApplicationStateActive) {
+        if ([userInfo[@"type"] isEqualToString:@"new_message"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSPGotoMessageListNotification
+                                                                object:nil];
+        }
+    }
+    
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -80,6 +83,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // Decriment badge number.
     application.applicationIconBadgeNumber = 0;
     [[SPUser currentUser] getMessagesInBackground:nil];
 }
