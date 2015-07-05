@@ -7,9 +7,11 @@
 //
 
 #import "SPSettingsViewController.h"
+#import "SPComposeViewController.h"
 
 @interface SPSettingsViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (strong, nonatomic) SPComposeViewController *feedbackViewController;
 
 @end
 
@@ -23,6 +25,17 @@
 - (void) setupAppearance {
     [self.view setBackgroundColor:[SPAppearance globalBackgroundColour]];
     _usernameLabel.text = [[SPUser currentUser] username];
+}
+- (IBAction)onFeedbackPress:(id)sender {
+    [[self navigationController] pushViewController:[self feedbackViewController] animated:YES];
+}
+
+- (SPComposeViewController *)feedbackViewController {
+    if (!_feedbackViewController) {
+        _feedbackViewController = [[SPComposeViewController alloc] initWithIsFeedback:YES];
+        _feedbackViewController.view.backgroundColor = [SPAppearance globalBackgroundColour];
+    }
+    return _feedbackViewController;
 }
 
 - (IBAction)onLogoutPress:(id)sender {

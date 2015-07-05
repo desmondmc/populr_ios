@@ -20,6 +20,7 @@
 @property (strong, nonatomic) SPFriendsTableViewController *followingTableViewController;
 @property (strong, nonatomic) SPSearchFriendsViewController *searchTableViewController;
 @property (strong, nonatomic) SPSettingsViewController *settingsViewController;
+@property (strong, nonatomic) UINavigationController *settingsNavController;
 @property (strong, nonatomic) SPCustomTabView *customTabView;
 @property (strong, nonatomic) IBOutlet UIView *tabContainerView;
 
@@ -150,6 +151,15 @@
     return _searchTableViewController;
 }
 
+- (UINavigationController *)settingsNavController {
+    if (!_settingsNavController) {
+        _settingsNavController = [UINavigationController new];
+        _settingsNavController.navigationBarHidden = YES;
+        [_settingsNavController addChildViewController:[self settingsViewController]];
+    }
+    return _settingsNavController;
+}
+
 -(SPSettingsViewController *)settingsViewController
 {
     if (!_settingsViewController) {
@@ -159,7 +169,7 @@
 }
 
 - (IBAction)didTapSettings:(id)sender {
-    [self presentViewController:[self settingsViewController] animated:YES completion:nil];
+    [self presentViewController:[self settingsNavController] animated:YES completion:nil];
 }
 #pragma mark - SPContainterViewDelegate
 

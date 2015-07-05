@@ -11,7 +11,7 @@
 #define kPlaceHolderText @"Write something..."
 
 @interface SPComposeViewController ()
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *micButtonBottomConstraint;
+
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *sendButtonBottomConstraint;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *messageTopConstraint;
 @property (strong, nonatomic) IBOutlet UITextView *messageTextView;
@@ -19,10 +19,22 @@
 @property (strong, nonatomic) IBOutlet UIButton *sendButton;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *sendActivityIndicator;
 @property (nonatomic) CGFloat currentKeyboardHeight;
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
+@property (strong, nonatomic) IBOutlet UIImageView *backButtonImage;
+@property (strong, nonatomic) NSString *placeHolderText;
+@property (nonatomic) BOOL isFeedBackView;
 
 @end
 
 @implementation SPComposeViewController
+
+- (id)initWithIsFeedback:(BOOL)isFeedbackView {
+    self = [super init];
+    if (self) {
+        _isFeedBackView = isFeedbackView;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,24 +65,42 @@
     [self.sendButton styleAsMainSpeedlButton];
     [self.messageTextView styleAsMainSpeedlTextView];
     
-    self.messageTextView.text = kPlaceHolderText;
     self.messageTextView.textColor = [SPAppearance seeThroughColour];
     
     [self keyboardWillHide:nil];
+    
+    if (_isFeedBackView) {
+        [self setupForFeedback];
+    } else {
+        _placeHolderText = kPlaceHolderText;
+        self.messageTextView.text = _placeHolderText;
+    }
+    
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupForFeedback {
+    _backButton.hidden = NO;
+    _backButtonImage.hidden = NO;
+    _placeHolderText = @"Give us some feeback :)";
+    self.messageTextView.text = _placeHolderText;
 }
 
 - (IBAction)onSendPress:(id)sender {
-    if ([_messageTextView.text isEqualToString:kPlaceHolderText] || [_messageTextView.text isEqualToString:@""]) {
+    if ([_messageTextView.text isEqualToString:_placeHolderText] || [_messageTextView.text isEqualToString:@""]) {
         [SPNotification showErrorNotificationWithMessage:@"Type a message, kid." inViewController:self];
         return;
     }
     
     [self sendingState];
+    if (!_isFeedBackView) {
+        [self sendMessage];
+    } else {
+        // Send feedback.
+    }
+}
+
+- (void) sendMessage {
     [[SPUser currentUser] postMessageInBackground:_messageTextView.text block:^(BOOL success, NSString *serverMessage) {
         [self notSendingState];
         if (!success) {
@@ -95,13 +125,11 @@
     [_sendActivityIndicator startAnimating];
 }
 
-- (IBAction)onMicPress:(id)sender {
-    [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
-        for (SPMessage *message in messages) {
-            NSLog(@"%@", message.message);
-        }
-    }];
+- (IBAction)onBackPress:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - Crazy Keyboard Hiding Logic
 
 -(void)keyboardWillShow:(NSNotification*)notification
 {
@@ -110,7 +138,6 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     CGFloat deltaHeight = kbSize.height - _currentKeyboardHeight;
     
-    _micButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
     _sendButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
     _messageTopConstraint.constant = 80;
     
@@ -123,6 +150,7 @@
     
     [_sendButton setHidden:NO];
 }
+
 -(void)keyboardWillHide:(NSNotification*)notification {
     [_sendButton setHidden:YES];
     
@@ -130,7 +158,6 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     CGFloat deltaHeight = kbSize.height - _currentKeyboardHeight;
     
-    _micButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
     _sendButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
     _messageTopConstraint.constant = [self messageTopConstraintForCenter];
     
@@ -144,19 +171,11 @@
     return (screenHeight/2) - 45;
 }
 
-- (IBAction)onGoLeftPress:(id)sender {
-    [self.containerViewController goToMessageViewController];
-}
-
-- (IBAction)onGoRightPress:(id)sender {
-    [self.containerViewController goToFriendsViewController];
-}
-
 #pragma mark - UITextViewDelegate
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString:kPlaceHolderText]) {
+    if ([textView.text isEqualToString:_placeHolderText]) {
         textView.text = @"";
         textView.textColor = [SPAppearance mainTextFieldColour];
     }
@@ -167,7 +186,7 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@""]) {
-        textView.text = kPlaceHolderText;
+        textView.text = _placeHolderText;
         textView.textColor = [SPAppearance seeThroughColour];
     }
     [textView resignFirstResponder];

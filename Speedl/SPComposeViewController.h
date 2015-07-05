@@ -10,4 +10,6 @@
 
 @interface SPComposeViewController : SPContainedViewController <SPContainerViewControllerDelegate, UITextViewDelegate>
 
+- (id)initWithIsFeedback:(BOOL)isFeedbackView;
+
 @end

@@ -15,25 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-TM-VKK">
-                    <rect key="frame" x="240" y="274" width="120" height="53"/>
-                    <state key="normal">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Log out">
-                                <attributes>
-                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <font key="NSFont" size="35" name="HelveticaNeue"/>
-                                    <font key="NSOriginalFont" size="35" name="HelveticaNeue"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </state>
-                    <connections>
-                        <action selector="onLogoutPress:" destination="-1" eventType="touchUpInside" id="IgU-Sf-Ocv"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAR-Bu-hsd">
-                    <rect key="frame" x="266" y="42.5" width="69" height="17.5"/>
+                    <rect key="frame" x="266" y="42" width="69" height="17.5"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,24 +41,70 @@
                         <constraint firstAttribute="width" constant="16" id="au2-q0-wQb"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cef-EY-ZeM">
+                    <rect key="frame" x="150" y="230" width="300" height="140"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-TM-VKK">
+                            <rect key="frame" x="90" y="79" width="120" height="53"/>
+                            <state key="normal">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Log out">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="35" name="HelveticaNeue"/>
+                                            <font key="NSOriginalFont" size="35" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </state>
+                            <connections>
+                                <action selector="onLogoutPress:" destination="-1" eventType="touchUpInside" id="IgU-Sf-Ocv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-gM-za9">
+                            <rect key="frame" x="72" y="8" width="155" height="53"/>
+                            <state key="normal">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Feedback">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="35" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </state>
+                            <connections>
+                                <action selector="onFeedbackPress:" destination="-1" eventType="touchUpInside" id="xbE-ND-5Hx"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="gaj-TM-VKK" secondAttribute="bottom" constant="8" id="EYh-OH-g9i"/>
+                        <constraint firstAttribute="centerX" secondItem="gaj-TM-VKK" secondAttribute="centerX" id="Liy-7J-ckn"/>
+                        <constraint firstAttribute="width" constant="300" id="ULh-kn-slo"/>
+                        <constraint firstAttribute="centerX" secondItem="YMo-gM-za9" secondAttribute="centerX" id="UrM-Fy-wjf"/>
+                        <constraint firstItem="YMo-gM-za9" firstAttribute="top" secondItem="cef-EY-ZeM" secondAttribute="top" constant="8" id="cz5-Wn-viu"/>
+                        <constraint firstAttribute="height" constant="140" id="pKa-h6-Uw0"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="gaj-TM-VKK" secondAttribute="centerX" id="1rH-6d-eHR"/>
                 <constraint firstItem="yy7-I6-IMv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Op-O3-7ze"/>
+                <constraint firstAttribute="centerX" secondItem="cef-EY-ZeM" secondAttribute="centerX" id="Qn0-il-3za"/>
                 <constraint firstItem="4AX-CP-t1K" firstAttribute="centerY" secondItem="BAR-Bu-hsd" secondAttribute="centerY" id="Y9f-Xe-8cz"/>
-                <constraint firstAttribute="centerY" secondItem="gaj-TM-VKK" secondAttribute="centerY" id="c0J-HY-iKN"/>
                 <constraint firstItem="BAR-Bu-hsd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="gid-Sw-GfE"/>
                 <constraint firstItem="4AX-CP-t1K" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="grq-eP-rX6"/>
                 <constraint firstAttribute="centerX" secondItem="BAR-Bu-hsd" secondAttribute="centerX" id="jsj-Rr-w30"/>
                 <constraint firstItem="4AX-CP-t1K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="jxp-bO-PhZ"/>
-                <constraint firstItem="gaj-TM-VKK" firstAttribute="top" secondItem="BAR-Bu-hsd" secondAttribute="bottom" constant="39" id="phx-va-gkc"/>
+                <constraint firstAttribute="centerY" secondItem="cef-EY-ZeM" secondAttribute="centerY" id="jxu-4d-dV3"/>
                 <constraint firstItem="yy7-I6-IMv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yH5-3Q-Ill"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="gid-Sw-GfE"/>
-                    <exclude reference="phx-va-gkc"/>
                 </mask>
             </variation>
         </view>

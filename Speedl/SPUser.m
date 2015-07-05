@@ -253,7 +253,7 @@
                     block(nil, [error localizedDescription]);
                 }
             }
-            NSLog(@"Posting Message Count.");
+            NSLog(@"Posting Message Count: %lu", (unsigned long)messages.count);
             [[NSNotificationCenter defaultCenter] postNotificationName:kSPMessageCountNotification
                                                                 object:@(messages.count)];
             [SPUser saveMessageList:messages];

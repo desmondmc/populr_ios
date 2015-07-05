@@ -37,7 +37,8 @@
 }
 
 - (void)gotMessageCount:(NSNotification *)notification {
-    [_tableView reloadData];
+    NSLog(@"Got message count! Reloading table.");
+    [self displayMessagesIfThereAreAny];
 }
 
 - (void)reloadMessagesData {
@@ -74,6 +75,8 @@
     if ([SPUser getMessageList].count > 0) {
         [self loadedWithMessagesState];
         [_tableView reloadData];
+    } else {
+        [self loadedNoMessagesState];
     }
 }
 
@@ -95,12 +98,7 @@
     return kMeanMessageArray[randomNumber];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-// This message removes the message from the local array to ensure that the message is gone by the time the user returns to the message list. It'll later be actually removed.
+// This method removes the message from the local array to ensure that the message is gone by the time the user returns to the message list. It'll later be actually removed.
 - (void)removeMessageFromArray:(SPMessage *)message
 {
     NSMutableArray *mutableMessages = [[SPUser getMessageList] mutableCopy];
@@ -113,6 +111,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"Cell count: %lu", (unsigned long)[[SPUser getMessageList] count]);
     if (![SPUser getMessageList]) {
         return 0;
     }
