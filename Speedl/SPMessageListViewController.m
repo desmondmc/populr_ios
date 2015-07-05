@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.tableView registerNib:[UINib nibWithNibName:@"SPMessageTableViewCell" bundle:nil] forCellReuseIdentifier:@"spMessageTableViewCell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"SPMessageTableViewCell" bundle:nil] forCellReuseIdentifier:@"spMessageTableViewCell"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotMessageCount:) name:kSPMessageCountNotification object:nil];
     
@@ -37,7 +37,7 @@
 }
 
 - (void)gotMessageCount:(NSNotification *)notification {
-    [self.tableView reloadData];
+    [_tableView reloadData];
 }
 
 - (void)reloadMessagesData {
@@ -47,7 +47,7 @@
         } else {
             [self loadedNoMessagesState];
         }
-        [self.tableView reloadData];
+        [_tableView reloadData];
 
         [_refreshControl endRefreshing];
     }];
@@ -58,14 +58,14 @@
     _upperNoResultsLabel.text = @"YOU HAVE NO MESSAGES";
     _lowerNoResultsLabel.text = [self getMeanMessage];
     self.view.backgroundColor = [SPAppearance getFirstColourForToday];
-    self.tableView.backgroundColor = [UIColor clearColor];
+    _tableView.backgroundColor = [UIColor clearColor];
     
     //Add pull to refresh
     _refreshControl = [[UIRefreshControl alloc] init];
     _refreshControl.backgroundColor = [UIColor clearColor];
     _refreshControl.tintColor = [UIColor whiteColor];;
     [_refreshControl addTarget:self action:@selector(reloadMessagesData) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:_refreshControl];
+    [_tableView addSubview:_refreshControl];
     
     [self displayMessagesIfThereAreAny];
 }
@@ -73,6 +73,7 @@
 - (void)displayMessagesIfThereAreAny {
     if ([SPUser getMessageList].count > 0) {
         [self loadedWithMessagesState];
+        [_tableView reloadData];
     }
 }
 
@@ -105,7 +106,7 @@
     NSMutableArray *mutableMessages = [[SPUser getMessageList] mutableCopy];
     [mutableMessages removeObject:message];
     [SPUser saveMessageList:mutableMessages];
-    [self.tableView reloadData];
+    [_tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
@@ -144,7 +145,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-     SPMessageTableViewCell *cell = (SPMessageTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+     SPMessageTableViewCell *cell = (SPMessageTableViewCell *)[_tableView cellForRowAtIndexPath:indexPath];
     
     [cell.activityIndicator setHidden:NO];
     [cell.messageNumberLabel setHidden:YES];
@@ -168,7 +169,6 @@
 - (void) newVisableViewController:(UIViewController *)viewController {
     if (viewController == self) {
         [self displayMessagesIfThereAreAny];
-        [self reloadMessagesData];
     }
 }
 

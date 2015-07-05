@@ -57,20 +57,24 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     UIApplicationState state = [application applicationState];
     
-    if ([SPUser currentUser] && state != UIApplicationStateActive) {
-        if ([userInfo[@"type"] isEqualToString:@"new_message"]) {
+    if ([userInfo[@"type"] isEqualToString:@"new_message"] && [SPUser currentUser]) {
+        if (state != UIApplicationStateActive) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kSPGotoMessageListNotification
                                                                 object:nil];
+            completionHandler(UIBackgroundFetchResultNewData);
+        } else {
+            NSString *message = userInfo[@"aps"][@"alert"];
+            if (message) {
+                [SPNotification showSuccessNotificationWithMessage:message inViewController:nil];
+            }
+            [[SPUser currentUser] getMessagesInBackground:^(NSArray *messages, NSString *serverMessage) {
+                completionHandler(UIBackgroundFetchResultNewData);
+            }];
         }
+
     } else {
-        NSString *message = userInfo[@"aps"][@"alert"];
-        if (message) {
-            [SPNotification showSuccessNotificationWithMessage:message inViewController:nil];
-        }
-        
+        completionHandler(UIBackgroundFetchResultNewData);
     }
-    
-    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

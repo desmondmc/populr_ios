@@ -65,7 +65,7 @@
     switch (_listType) {
         case SPFriendListTypeFollowers:
             _upperNoResultsLabel.text = @"YOU HAVE NO FOLLOWERS";
-            _lowerNoResultsLabel.text = @"TELL YOUR FRIENDS ABOUT GZELLE!";
+            _lowerNoResultsLabel.text = @"TELL YOUR FRIENDS ABOUT POPULR!";
             [self setupStartSearch];
             [self loadFollowers];
             break;
