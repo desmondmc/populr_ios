@@ -87,8 +87,10 @@
 }
 
 - (IBAction)onSendPress:(id)sender {
+    
     if ([_messageTextView.text isEqualToString:_placeHolderText] || [_messageTextView.text isEqualToString:@""]) {
-        [SPNotification showErrorNotificationWithMessage:@"Type a message, kid." inViewController:self];
+        [SPNotification showErrorNotificationWithMessage:[self getNoMessageErrorString]
+                                        inViewController:self];
         return;
     }
     
@@ -96,11 +98,19 @@
     if (!_isFeedBackView) {
         [self sendMessage];
     } else {
-        // Send feedback.
+        [self sendFeedback];
     }
 }
 
-- (void) sendMessage {
+- (NSString *)getNoMessageErrorString {
+    if (_isFeedBackView) {
+        return @"type something...";
+    } else {
+        return @"Type a message, kid.";
+    }
+}
+
+- (void)sendMessage {
     [[SPUser currentUser] postMessageInBackground:_messageTextView.text block:^(BOOL success, NSString *serverMessage) {
         [self notSendingState];
         if (!success) {
@@ -109,6 +119,19 @@
             [_messageTextView resignFirstResponder];
             [self setupAppearance];
             [SPNotification showSuccessNotificationWithMessage:@"Message Sent" inViewController:self];
+        }
+    }];
+}
+
+- (void)sendFeedback {
+    [[SPUser currentUser] postFeedbackInBackground:_messageTextView.text block:^(BOOL success, NSString *serverMessage) {
+        [self notSendingState];
+        if (!success) {
+            [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
+        } else {
+            [_messageTextView resignFirstResponder];
+            [self setupAppearance];
+            [SPNotification showSuccessNotificationWithMessage:@"Feedback Sent" inViewController:self];
         }
     }];
 }

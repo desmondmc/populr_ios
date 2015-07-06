@@ -16,9 +16,11 @@
 + (void)showErrorNotificationWithMessage:(NSString *)message inViewController:(UIViewController *)viewController {
     [self setupAppearance];
     
-    [TSMessage showNotificationWithTitle:message
-                                subtitle:@""
-                                    type:TSMessageNotificationTypeError];
+    [TSMessage showNotificationInViewController:viewController
+                                          title:message
+                                       subtitle:@""
+                                           type:TSMessageNotificationTypeError
+                                       duration:1.5];
 }
 
 + (void)showSuccessNotificationWithMessage:(NSString *)message inViewController:(UIViewController *)viewController {

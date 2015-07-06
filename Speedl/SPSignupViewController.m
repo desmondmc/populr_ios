@@ -24,6 +24,7 @@
     // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
     [_usernameField becomeFirstResponder];
+    
     [self setupAppearance];
 }
 
@@ -61,16 +62,18 @@
 }
 
 - (void) routeBasedOnSegmentControl {
-    if (self.segmentControl.selectedSegmentIndex == 0) {    //Login
-        [self loginUser];
-    } else {                                                //Register
+    if (self.segmentControl.selectedSegmentIndex == 0) {    //Register
         [self registerUser];
+    } else {                                                //Login
+        [self loginUser];
     }
 }
 
 - (void)registerUser {
     NSString *uppercaseUsername = [_usernameField.text lowercaseString];
+    _nextButton.enabled = NO;
     [SPUser signUpUserInBackgroundWithUsername:uppercaseUsername password:_passwordField.text block:^(SPUser *user, NSString* message) {
+        _nextButton.enabled = YES;
         if (user == nil && message != nil) {
             [SPNotification showErrorNotificationWithMessage:message inViewController:self];
             return;
@@ -84,7 +87,9 @@
 
 - (void) loginUser {
     NSString *uppercaseUsername = [_usernameField.text lowercaseString];
+    _nextButton.enabled = NO;
     [SPUser loginUserInBackgroundWithUsername:uppercaseUsername password:_passwordField.text block:^(SPUser *user, NSString* message) {
+        _nextButton.enabled = YES;
         if (user == nil && message != nil) {
             [SPNotification showErrorNotificationWithMessage:message inViewController:self];
             return;

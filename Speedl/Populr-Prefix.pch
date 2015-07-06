@@ -54,6 +54,7 @@
 #define kAPIFollowingUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/following"]
 #define kAPIMessagesUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/messages"]
 #define kAPIPostMessageUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/messages"]
+#define kAPIPostFeedbackUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/feedback"]
 #define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"/signup"]
 #define kAPILoginUrl [kAPIRootUrl stringByAppendingString:@"/login"]
 
