@@ -10,6 +10,7 @@
 		29D78CCBC7A0BCCC574CD5F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70274CC64F4C569AB150CCD5 /* libPods.a */; };
 		7A0FFB091B3EB26200869C3E /* SPCustomTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FFB081B3EB26200869C3E /* SPCustomTabView.m */; };
 		7A0FFB0B1B3EB28000869C3E /* SPCustomTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0FFB0A1B3EB28000869C3E /* SPCustomTabView.xib */; };
+		7A1969341B4B2CCD0006D5AF /* SPMessageHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1969331B4B2CCD0006D5AF /* SPMessageHolder.m */; };
 		7A216C221B1267E200F67B0F /* SPFriendsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A216C211B1267E200F67B0F /* SPFriendsTableViewController.xib */; };
 		7A216C291B164DA800F67B0F /* SPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A216C271B164DA800F67B0F /* SPSettingsViewController.m */; };
 		7A216C2A1B164DA800F67B0F /* SPSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A216C281B164DA800F67B0F /* SPSettingsViewController.xib */; };
@@ -86,6 +87,8 @@
 		7A0FFB071B3EB26200869C3E /* SPCustomTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCustomTabView.h; sourceTree = "<group>"; };
 		7A0FFB081B3EB26200869C3E /* SPCustomTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomTabView.m; sourceTree = "<group>"; };
 		7A0FFB0A1B3EB28000869C3E /* SPCustomTabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPCustomTabView.xib; sourceTree = "<group>"; };
+		7A1969321B4B2CCD0006D5AF /* SPMessageHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageHolder.h; sourceTree = "<group>"; };
+		7A1969331B4B2CCD0006D5AF /* SPMessageHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageHolder.m; sourceTree = "<group>"; };
 		7A216C211B1267E200F67B0F /* SPFriendsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendsTableViewController.xib; sourceTree = "<group>"; };
 		7A216C261B164DA800F67B0F /* SPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSettingsViewController.h; sourceTree = "<group>"; };
 		7A216C271B164DA800F67B0F /* SPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSettingsViewController.m; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				7A263D121AD1486B00D69F60 /* SPMessage.m */,
 				7A263D141AD1EF1900D69F60 /* SPMessageBuilder.h */,
 				7A263D151AD1EF1900D69F60 /* SPMessageBuilder.m */,
+				7A1969321B4B2CCD0006D5AF /* SPMessageHolder.h */,
+				7A1969331B4B2CCD0006D5AF /* SPMessageHolder.m */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -800,6 +805,7 @@
 				7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */,
 				7AE4D1F21AE2870E006F6C83 /* UILabel+Custom.m in Sources */,
 				7A216C291B164DA800F67B0F /* SPSettingsViewController.m in Sources */,
+				7A1969341B4B2CCD0006D5AF /* SPMessageHolder.m in Sources */,
 				7AC691651B25FA0D0018EB9D /* SPCustomNotificationViewController.m in Sources */,
 				7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */,
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,

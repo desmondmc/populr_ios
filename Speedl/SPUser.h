@@ -19,8 +19,6 @@ typedef void (^SPFollowersResultBlock)(NSArray *followers, NSString *serverMessa
 typedef void (^SPFollowingResultBlock)(NSArray *following, NSString *serverMessage);
 typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage);
 
-@property (strong, atomic) NSArray *localMessageArray;
-
 // JSON values
 
 /* Warning! This is an objective-c representation of json objects. The way the code is currently structured,

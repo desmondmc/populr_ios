@@ -76,6 +76,7 @@
         [self loadedWithMessagesState];
         [_tableView reloadData];
     } else {
+        NSLog(@"No messages :(");
         [self loadedNoMessagesState];
     }
 }
