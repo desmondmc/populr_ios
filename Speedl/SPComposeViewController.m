@@ -129,9 +129,9 @@
         if (!success) {
             [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
         } else {
-            [_messageTextView resignFirstResponder];
-            [self setupAppearance];
-            [SPNotification showSuccessNotificationWithMessage:@"Feedback Sent" inViewController:self];
+            _messageTextView.text = @"";
+            [SPNotification showSuccessNotificationWithMessage:@"Thanks!" inViewController:self.navigationController];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }];
 }
@@ -213,6 +213,10 @@
         textView.textColor = [SPAppearance seeThroughColour];
     }
     [textView resignFirstResponder];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    NSLog(@"%@", textView.text);
 }
 
 #pragma mark - SPContainterViewDelegate
