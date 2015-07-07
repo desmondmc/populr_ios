@@ -48,7 +48,9 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block;
 
-- (void)postMessageInBackground:(NSString *)message block:(SPNetworkResultBlock)block;
+- (void)postMessageInBackground:(NSString *)message
+                          users:(NSArray *)users
+                          block:(SPNetworkResultBlock)block;
 
 - (void)postFeedbackInBackground:(NSString *)feedback block:(SPNetworkResultBlock)block;
 

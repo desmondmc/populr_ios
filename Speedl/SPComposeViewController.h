@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPMessageProcessor.h"
 
-@interface SPComposeViewController : SPContainedViewController <SPContainerViewControllerDelegate, UITextViewDelegate>
+@interface SPComposeViewController : SPContainedViewController <SPContainerViewControllerDelegate, UITextViewDelegate, SPMessageProcessorDelegate>
 
 - (id)initWithIsFeedback:(BOOL)isFeedbackView;
 

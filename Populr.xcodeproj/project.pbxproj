@@ -63,6 +63,7 @@
 		7AC6916D1B25FF7F0018EB9D /* SPCustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6916C1B25FF7F0018EB9D /* SPCustomPageControl.m */; };
 		7AC6916F1B25FF960018EB9D /* SPCustomPageControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC6916E1B25FF960018EB9D /* SPCustomPageControl.xib */; };
 		7AC691721B2603240018EB9D /* UIView+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC691711B2603240018EB9D /* UIView+Speedl.m */; };
+		7ADB121A1B4C668900822094 /* SPMessageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB12191B4C668900822094 /* SPMessageProcessor.m */; };
 		7ADC27121B3208AA00B90798 /* NSError+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC27111B3208AA00B90798 /* NSError+Speedl.m */; };
 		7ADC3AF11B1F7ECE004A0CD2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */; };
 		7ADCF43C1B0688E3009834D5 /* SPSearchFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */; };
@@ -172,6 +173,8 @@
 		7AC6916E1B25FF960018EB9D /* SPCustomPageControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPCustomPageControl.xib; sourceTree = "<group>"; };
 		7AC691701B2603240018EB9D /* UIView+Speedl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Speedl.h"; sourceTree = "<group>"; };
 		7AC691711B2603240018EB9D /* UIView+Speedl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Speedl.m"; sourceTree = "<group>"; };
+		7ADB12181B4C668900822094 /* SPMessageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageProcessor.h; sourceTree = "<group>"; };
+		7ADB12191B4C668900822094 /* SPMessageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageProcessor.m; sourceTree = "<group>"; };
 		7ADC27101B3208AA00B90798 /* NSError+Speedl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Speedl.h"; sourceTree = "<group>"; };
 		7ADC27111B3208AA00B90798 /* NSError+Speedl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Speedl.m"; sourceTree = "<group>"; };
 		7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 		7A263CFD1AC89B4C00D69F60 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7ADB12171B4C664800822094 /* SPMessageProcessor */,
 				7ADC270F1B32088700B90798 /* Categories */,
 				7AC691671B25FD760018EB9D /* SPGeneral */,
 				7A625F571B0546040092F412 /* SPAutoLayout */,
@@ -547,6 +551,15 @@
 				7AC6916E1B25FF960018EB9D /* SPCustomPageControl.xib */,
 			);
 			name = SPGeneral;
+			sourceTree = "<group>";
+		};
+		7ADB12171B4C664800822094 /* SPMessageProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				7ADB12181B4C668900822094 /* SPMessageProcessor.h */,
+				7ADB12191B4C668900822094 /* SPMessageProcessor.m */,
+			);
+			name = SPMessageProcessor;
 			sourceTree = "<group>";
 		};
 		7ADC270F1B32088700B90798 /* Categories */ = {
@@ -834,6 +847,7 @@
 				7A49B9841AE406CA0085D3C6 /* UITextView+Custom.m in Sources */,
 				7AB3D71C1AC35BD000CA94DB /* SPUserBuilder.m in Sources */,
 				7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */,
+				7ADB121A1B4C668900822094 /* SPMessageProcessor.m in Sources */,
 				7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */,
 				7ADCF4441B06A265009834D5 /* SPUsersTableDataSource.m in Sources */,
 				7A45F8A51B011DC5009BDA95 /* SPNotification.m in Sources */,

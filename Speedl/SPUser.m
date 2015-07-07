@@ -266,12 +266,21 @@
     }];
 }
 
-- (void)postMessageInBackground:(NSString *)message block:(SPNetworkResultBlock)block {
+- (void)postMessageInBackground:(NSString *)message
+                          users:(NSArray *)users
+                          block:(SPNetworkResultBlock)block {
+    
     NSString *url = kAPIPostMessageUrl;
     
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
-    
-    NSDictionary *userDictionary = @{@"message":message};
+    NSDictionary *userDictionary = nil;
+    if ([users count] > 0) {
+        userDictionary = @{@"message":message,
+                           @"toUsers": users};
+    } else {
+        userDictionary = @{@"message":message};
+    }
+
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
 

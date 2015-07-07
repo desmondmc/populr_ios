@@ -8,7 +8,10 @@
 
 #import "SPComposeViewController.h"
 
+
 #define kPlaceHolderText @"Write something..."
+#define kSPPublicString @"PUBLIC"
+#define kSPDirectString @"DIRECT"
 
 @interface SPComposeViewController ()
 
@@ -23,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *backButtonImage;
 @property (strong, nonatomic) NSString *placeHolderText;
 @property (nonatomic) BOOL isFeedBackView;
+@property (strong, nonatomic) SPMessageProcessor *messageProcessor;
+@property (strong, nonatomic) IBOutlet UIButton *messageTypeButton;
 
 @end
 
@@ -111,11 +116,16 @@
 }
 
 - (void)sendMessage {
-    [[SPUser currentUser] postMessageInBackground:_messageTextView.text block:^(BOOL success, NSString *serverMessage) {
+    NSArray *usersToSendTo = [[self messageProcessor] followerIDsInMessage];
+    [[SPUser currentUser] postMessageInBackground:_messageTextView.text
+                                            users:usersToSendTo
+                                            block:^(BOOL success, NSString *serverMessage) {
         [self notSendingState];
         if (!success) {
             [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
         } else {
+            _messageProcessor = nil;
+            [_messageTypeButton setTitle:kSPPublicString forState:UIControlStateNormal];
             [_messageTextView resignFirstResponder];
             [self setupAppearance];
             [SPNotification showSuccessNotificationWithMessage:@"Message Sent" inViewController:self];
@@ -147,6 +157,9 @@
     [_sendActivityIndicator setHidden:YES];
     [_sendActivityIndicator startAnimating];
 }
+- (IBAction)messageTypePress:(id)sender {
+    
+}
 
 - (IBAction)onBackPress:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -172,10 +185,13 @@
                      }];
     
     [_sendButton setHidden:NO];
+    [_messageTypeButton setHidden:NO];
 }
 
 -(void)keyboardWillHide:(NSNotification*)notification {
     [_sendButton setHidden:YES];
+    [_messageTypeButton setHidden:YES];
+    
     
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
@@ -194,6 +210,14 @@
     return (screenHeight/2) - 45;
 }
 
+- (SPMessageProcessor *)messageProcessor {
+    if (!_messageProcessor) {
+        _messageProcessor = [SPMessageProcessor new];
+        _messageProcessor.delegate = self;
+    }
+    return _messageProcessor;
+}
+
 #pragma mark - UITextViewDelegate
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -203,6 +227,7 @@
         textView.textColor = [SPAppearance mainTextFieldColour];
     }
     [_sendButton setHidden:NO];
+    [_messageTypeButton setHidden:NO];
     [textView becomeFirstResponder];
 }
 
@@ -216,7 +241,25 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-    NSLog(@"%@", textView.text);
+    if (_isFeedBackView) {
+        return;
+    }
+    
+    [[self messageProcessor] processText:textView.text];
+}
+
+#pragma mark - SPMessageProcessorDelegate
+
+- (void)messageTypeChange:(SPMessageType)messageType {
+    switch (messageType) {
+        case SPMessageTypePublic:
+            [_messageTypeButton setTitle:kSPPublicString forState:UIControlStateNormal];
+            break;
+        case SPMessageTypeDirect:
+            [_messageTypeButton setTitle:kSPDirectString forState:UIControlStateNormal];
+        default:
+            break;
+    }
 }
 
 #pragma mark - SPContainterViewDelegate

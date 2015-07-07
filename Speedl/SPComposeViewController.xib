@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -10,6 +10,7 @@
                 <outlet property="backButtonImage" destination="Oom-v9-AHL" id="wOc-Km-v5n"/>
                 <outlet property="messageTextView" destination="A7G-to-vjl" id="t32-TU-D8f"/>
                 <outlet property="messageTopConstraint" destination="4vi-cJ-7P1" id="3jn-mg-anb"/>
+                <outlet property="messageTypeButton" destination="dlN-IV-2cS" id="gLN-pL-aEY"/>
                 <outlet property="sendActivityIndicator" destination="rQz-Pw-XfT" id="XRP-1b-cZG"/>
                 <outlet property="sendButton" destination="sRg-Zl-Wjy" id="qhg-qr-xg1"/>
                 <outlet property="sendButtonBottomConstraint" destination="8TA-Hh-Gzk" id="fwq-uN-hEB"/>
@@ -29,6 +30,17 @@
                     </state>
                     <connections>
                         <action selector="onSendPress:" destination="-1" eventType="touchUpInside" id="dAe-cV-Aak"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlN-IV-2cS">
+                    <rect key="frame" x="20" y="334" width="57" height="30"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="PUBLIC">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="messageTypePress:" destination="-1" eventType="touchUpInside" id="znU-2A-pFr"/>
                     </connections>
                 </button>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_" translatesAutoresizingMaskIntoConstraints="NO" id="Oom-v9-AHL">
@@ -71,14 +83,17 @@
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="dlN-IV-2cS" firstAttribute="bottom" secondItem="sRg-Zl-Wjy" secondAttribute="bottom" id="2Zk-oM-IS8"/>
                 <constraint firstItem="A7G-to-vjl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="4vi-cJ-7P1"/>
                 <constraint firstAttribute="bottom" secondItem="sRg-Zl-Wjy" secondAttribute="bottom" constant="236" id="8TA-Hh-Gzk"/>
                 <constraint firstItem="sRg-Zl-Wjy" firstAttribute="leading" secondItem="rQz-Pw-XfT" secondAttribute="trailing" constant="8" id="Fed-yh-egc"/>
                 <constraint firstItem="9pa-5W-YX8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GIU-GK-Sh5"/>
                 <constraint firstItem="Oom-v9-AHL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="UTf-xt-1CK"/>
                 <constraint firstItem="A7G-to-vjl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="ZpX-WT-3uz"/>
+                <constraint firstItem="dlN-IV-2cS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="duz-2M-r5F"/>
                 <constraint firstItem="rQz-Pw-XfT" firstAttribute="centerY" secondItem="sRg-Zl-Wjy" secondAttribute="centerY" constant="0.5" id="eLg-B5-Arl"/>
                 <constraint firstAttribute="trailing" secondItem="sRg-Zl-Wjy" secondAttribute="trailing" constant="20" id="fb2-Re-Vuo"/>
+                <constraint firstItem="dlN-IV-2cS" firstAttribute="centerY" secondItem="sRg-Zl-Wjy" secondAttribute="centerY" id="fgq-Oz-sph"/>
                 <constraint firstItem="sRg-Zl-Wjy" firstAttribute="top" secondItem="A7G-to-vjl" secondAttribute="bottom" constant="8" id="hBg-nC-NjQ"/>
                 <constraint firstItem="Oom-v9-AHL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="k6n-9l-hkQ"/>
                 <constraint firstItem="9pa-5W-YX8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="nEO-YJ-pYA"/>
@@ -90,6 +105,7 @@
                 <mask key="constraints">
                     <exclude reference="nEO-YJ-pYA"/>
                     <exclude reference="oOK-5k-C7u"/>
+                    <exclude reference="fgq-Oz-sph"/>
                 </mask>
             </variation>
         </view>
