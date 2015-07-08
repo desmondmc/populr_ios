@@ -29,6 +29,13 @@
 @property (strong, nonatomic) SPMessageProcessor *messageProcessor;
 @property (strong, nonatomic) IBOutlet UIButton *messageTypeButton;
 
+// Help Popup Properties
+@property (strong, nonatomic) IBOutlet UIView *helpViewContainer;
+@property (strong, nonatomic) IBOutlet UITextView *directMessageTextView;
+@property (strong, nonatomic) IBOutlet UITextView *publicMessageTextView;
+@property (strong, nonatomic) IBOutlet UILabel *gotItLabel;
+@property (strong, nonatomic) IBOutlet UIButton *dismissHelpButton;
+
 @end
 
 @implementation SPComposeViewController
@@ -158,7 +165,7 @@
     [_sendActivityIndicator startAnimating];
 }
 - (IBAction)messageTypePress:(id)sender {
-    
+    [self showHelpView];
 }
 
 - (IBAction)onBackPress:(id)sender {
@@ -184,14 +191,21 @@
                          [self.view layoutIfNeeded]; // Called on parent view
                      }];
     
-    [_sendButton setHidden:NO];
-    [_messageTypeButton setHidden:NO];
+    [self hideButtons:NO];
+}
+
+- (void)hideButtons:(BOOL)hideButtons {
+    _sendButton.hidden = hideButtons;
+    
+    if (_isFeedBackView) {
+        _messageTypeButton.hidden = YES;
+    } else {
+        _messageTypeButton.hidden = hideButtons;
+    }
 }
 
 -(void)keyboardWillHide:(NSNotification*)notification {
-    [_sendButton setHidden:YES];
-    [_messageTypeButton setHidden:YES];
-    
+    [self hideButtons:YES];
     
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
@@ -226,8 +240,8 @@
         textView.text = @"";
         textView.textColor = [SPAppearance mainTextFieldColour];
     }
-    [_sendButton setHidden:NO];
-    [_messageTypeButton setHidden:NO];
+    
+    [self hideButtons:NO];
     [textView becomeFirstResponder];
 }
 
@@ -271,5 +285,39 @@
         [self keyboardWillHide:nil];
     }
 }
+
+#pragma mark - Helper Popup Methods
+
+- (void)prepareHelpView {
+    [self showRightHelpText];
+    _directMessageTextView.textColor = [SPAppearance globalBackgroundColour];
+    _publicMessageTextView.textColor = [SPAppearance globalBackgroundColour];
+    _gotItLabel.textColor = [SPAppearance globalBackgroundColour];
+}
+
+- (void)showRightHelpText {
+    NSString *messageTypeButtonText = _messageTypeButton.titleLabel.text;
+    if ([messageTypeButtonText isEqualToString:kSPPublicString]) {
+        _publicMessageTextView.hidden = NO;
+        _directMessageTextView.hidden = YES;
+    } else {
+        _publicMessageTextView.hidden = YES;
+        _directMessageTextView.hidden = NO;
+    }
+}
+
+- (void)showHelpView {
+    [self prepareHelpView];
+    [_helpViewContainer setHidden:NO];
+}
+
+- (void)hideHelpView {
+    [_helpViewContainer setHidden:YES];
+}
+
+- (IBAction)dismissPress:(id)sender {
+    [self hideHelpView];
+}
+
 
 @end

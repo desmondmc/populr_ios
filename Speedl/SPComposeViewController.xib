@@ -8,9 +8,14 @@
             <connections>
                 <outlet property="backButton" destination="9pa-5W-YX8" id="Adc-Ua-r3n"/>
                 <outlet property="backButtonImage" destination="Oom-v9-AHL" id="wOc-Km-v5n"/>
+                <outlet property="directMessageTextView" destination="tXa-b4-N7h" id="Cc6-Xl-AOB"/>
+                <outlet property="dismissHelpButton" destination="M4A-uH-PnF" id="Efj-G2-MIE"/>
+                <outlet property="gotItLabel" destination="jRf-V2-uyf" id="byj-Y5-BmR"/>
+                <outlet property="helpViewContainer" destination="2No-7P-bcW" id="vU7-Fq-8ib"/>
                 <outlet property="messageTextView" destination="A7G-to-vjl" id="t32-TU-D8f"/>
                 <outlet property="messageTopConstraint" destination="4vi-cJ-7P1" id="3jn-mg-anb"/>
                 <outlet property="messageTypeButton" destination="dlN-IV-2cS" id="gLN-pL-aEY"/>
+                <outlet property="publicMessageTextView" destination="nbd-ln-Tlw" id="SNS-bs-Js1"/>
                 <outlet property="sendActivityIndicator" destination="rQz-Pw-XfT" id="XRP-1b-cZG"/>
                 <outlet property="sendButton" destination="sRg-Zl-Wjy" id="qhg-qr-xg1"/>
                 <outlet property="sendButtonBottomConstraint" destination="8TA-Hh-Gzk" id="fwq-uN-hEB"/>
@@ -72,7 +77,7 @@
                             </attributes>
                         </fragment>
                     </attributedString>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="42J-Z0-VIw"/>
                     </connections>
@@ -80,6 +85,69 @@
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="rQz-Pw-XfT">
                     <rect key="frame" x="498" y="338" width="20" height="20"/>
                 </activityIndicatorView>
+                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2No-7P-bcW" userLabel="HelpView" customClass="SPCircleView">
+                    <rect key="frame" x="200" y="123" width="200" height="200"/>
+                    <subviews>
+                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="THIS MESSAGE WILL BE SENT ONLY TO THE @-ED NAMES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tXa-b4-N7h" userLabel="DirectTextView">
+                            <rect key="frame" x="8" y="65" width="184" height="71"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="71" id="uUB-kr-aye"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="THIS MESSAGE WILL BE SENT TO ALL OF YOUR FOLLOWERS @ A USERNAME TO DIRECT MESSAGE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-ln-Tlw" userLabel="PublicTextView">
+                            <rect key="frame" x="8" y="49.5" width="184" height="101"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="101" id="UBR-2e-BXA"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOT IT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRf-V2-uyf">
+                            <rect key="frame" x="71" y="171" width="57" height="20.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4A-uH-PnF" userLabel="dismissButton">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="dismissPress:" destination="-1" eventType="touchUpInside" id="h3V-zI-kKw"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="3wA-17-IFv"/>
+                        <constraint firstItem="M4A-uH-PnF" firstAttribute="leading" secondItem="2No-7P-bcW" secondAttribute="leading" id="6Of-di-L8u"/>
+                        <constraint firstAttribute="trailing" secondItem="tXa-b4-N7h" secondAttribute="trailing" id="AnH-Uu-V4O"/>
+                        <constraint firstAttribute="trailing" secondItem="tXa-b4-N7h" secondAttribute="trailing" constant="8" id="Fxh-Li-qbg"/>
+                        <constraint firstAttribute="height" constant="200" id="Tzy-b1-YFa"/>
+                        <constraint firstItem="tXa-b4-N7h" firstAttribute="leading" secondItem="2No-7P-bcW" secondAttribute="leading" id="auY-9d-brL"/>
+                        <constraint firstAttribute="centerY" secondItem="nbd-ln-Tlw" secondAttribute="centerY" id="lCY-a1-URy"/>
+                        <constraint firstAttribute="bottom" secondItem="jRf-V2-uyf" secondAttribute="bottom" constant="8" id="mi4-Xp-fun"/>
+                        <constraint firstAttribute="trailing" secondItem="nbd-ln-Tlw" secondAttribute="trailing" constant="8" id="nTL-BN-Zpg"/>
+                        <constraint firstAttribute="trailing" secondItem="M4A-uH-PnF" secondAttribute="trailing" id="o7p-jV-uqS"/>
+                        <constraint firstItem="tXa-b4-N7h" firstAttribute="leading" secondItem="2No-7P-bcW" secondAttribute="leading" constant="8" id="qSW-jS-Ixf"/>
+                        <constraint firstAttribute="centerX" secondItem="jRf-V2-uyf" secondAttribute="centerX" id="s0V-ck-9AF"/>
+                        <constraint firstAttribute="bottom" secondItem="M4A-uH-PnF" secondAttribute="bottom" id="sDf-me-FD4"/>
+                        <constraint firstItem="M4A-uH-PnF" firstAttribute="top" secondItem="2No-7P-bcW" secondAttribute="top" id="sWF-wJ-s8n"/>
+                        <constraint firstAttribute="centerY" secondItem="tXa-b4-N7h" secondAttribute="centerY" id="uqc-q3-Neu"/>
+                        <constraint firstItem="nbd-ln-Tlw" firstAttribute="leading" secondItem="2No-7P-bcW" secondAttribute="leading" constant="8" id="vjO-7f-ey1"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="AnH-Uu-V4O"/>
+                            <exclude reference="auY-9d-brL"/>
+                        </mask>
+                    </variation>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -88,8 +156,10 @@
                 <constraint firstAttribute="bottom" secondItem="sRg-Zl-Wjy" secondAttribute="bottom" constant="236" id="8TA-Hh-Gzk"/>
                 <constraint firstItem="sRg-Zl-Wjy" firstAttribute="leading" secondItem="rQz-Pw-XfT" secondAttribute="trailing" constant="8" id="Fed-yh-egc"/>
                 <constraint firstItem="9pa-5W-YX8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GIU-GK-Sh5"/>
+                <constraint firstItem="sRg-Zl-Wjy" firstAttribute="top" secondItem="2No-7P-bcW" secondAttribute="bottom" constant="8" id="Ic1-eY-MtM"/>
                 <constraint firstItem="Oom-v9-AHL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="UTf-xt-1CK"/>
                 <constraint firstItem="A7G-to-vjl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="ZpX-WT-3uz"/>
+                <constraint firstAttribute="centerX" secondItem="2No-7P-bcW" secondAttribute="centerX" id="cV5-BD-vhQ"/>
                 <constraint firstItem="dlN-IV-2cS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="duz-2M-r5F"/>
                 <constraint firstItem="rQz-Pw-XfT" firstAttribute="centerY" secondItem="sRg-Zl-Wjy" secondAttribute="centerY" constant="0.5" id="eLg-B5-Arl"/>
                 <constraint firstAttribute="trailing" secondItem="sRg-Zl-Wjy" secondAttribute="trailing" constant="20" id="fb2-Re-Vuo"/>
