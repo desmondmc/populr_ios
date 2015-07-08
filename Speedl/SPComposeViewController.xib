@@ -97,7 +97,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="THIS MESSAGE WILL BE SENT TO ALL OF YOUR FOLLOWERS @ A USERNAME TO DIRECT MESSAGE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-ln-Tlw" userLabel="PublicTextView">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="THIS MESSAGE WILL BE SENT TO ALL OF YOUR FOLLOWERS. @ A USERNAME TO DIRECT MESSAGE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-ln-Tlw" userLabel="PublicTextView">
                             <rect key="frame" x="8" y="49.5" width="184" height="101"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
