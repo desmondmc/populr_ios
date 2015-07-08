@@ -50,6 +50,9 @@
 #pragma mark - Message List Persistent Store
 
 + (NSArray *)getMessageList {
+    if (kGlobalMessageArray) {
+        return kGlobalMessageArray;
+    }
     NSMutableArray *messagesArray = [NSMutableArray new];
     NSArray *encodedMessages = [[NSUserDefaults standardUserDefaults] arrayForKey:kMessagesKey];
     for (NSData *encodedMessage in encodedMessages) {
@@ -60,6 +63,7 @@
 }
 
 + (void)saveMessageList:(NSArray *)messageList {
+    [[SPMessageHolder sharedInstance] setMessageArray:messageList];
     NSMutableArray *encodedMessageList = [NSMutableArray new];
     
     for (SPMessage *message in messageList) {

@@ -17,7 +17,7 @@
 - (void)awakeFromNib {
     // Initialization code
     self.messageNumberLabel.font = [SPAppearance mainSegmentControlFont];
-    self.messageNumberLabel.textColor = [UIColor whiteColor];
+    self.messageNumberLabel.textColor = [SPAppearance globalBackgroundColour];
     self.messageTimeLabel.font = [SPAppearance timeLabelFont];
     self.messageTimeLabel.textColor = [SPAppearance seeThroughColour];
     [self.activityIndicator setHidden:YES];

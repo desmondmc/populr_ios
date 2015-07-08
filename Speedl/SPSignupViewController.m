@@ -28,6 +28,10 @@
     [self setupAppearance];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [SPUser logoutCurrentUser];
 }

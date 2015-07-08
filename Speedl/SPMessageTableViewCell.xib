@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -13,15 +13,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-fk-uJG">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-fk-uJG" customClass="SPCircleView">
                         <rect key="frame" x="155" y="5" width="80" height="80"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-W0-MFI">
                                 <rect key="frame" x="30" y="30" width="20" height="20"/>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_circle" translatesAutoresizingMaskIntoConstraints="NO" id="xII-1v-XZw">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKQ-N4-WNX">
                                 <rect key="frame" x="35" y="29" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -29,16 +26,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="5s3-4F-mAY"/>
-                            <constraint firstItem="xII-1v-XZw" firstAttribute="leading" secondItem="gh2-fk-uJG" secondAttribute="leading" id="NKu-SO-TI8"/>
                             <constraint firstAttribute="centerX" secondItem="jKQ-N4-WNX" secondAttribute="centerX" id="XkZ-6S-pRz"/>
                             <constraint firstAttribute="centerY" secondItem="jKQ-N4-WNX" secondAttribute="centerY" id="e3v-4G-Hl4"/>
                             <constraint firstAttribute="height" constant="80" id="e6t-TK-HN7"/>
-                            <constraint firstAttribute="bottom" secondItem="xII-1v-XZw" secondAttribute="bottom" id="eA0-FC-dGn"/>
-                            <constraint firstAttribute="trailing" secondItem="xII-1v-XZw" secondAttribute="trailing" id="fgr-GY-yaH"/>
-                            <constraint firstItem="xII-1v-XZw" firstAttribute="top" secondItem="gh2-fk-uJG" secondAttribute="top" id="jdl-85-ftb"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 mins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slw-DM-uQr">
@@ -65,7 +58,4 @@
             <point key="canvasLocation" x="269" y="309.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="message_circle" width="80" height="80"/>
-    </resources>
 </document>

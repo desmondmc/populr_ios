@@ -61,6 +61,10 @@
     [self updatePageControl];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [self.view setBackgroundColor:[SPAppearance globalBackgroundColour]];
 }

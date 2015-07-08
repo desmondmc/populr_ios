@@ -61,6 +61,10 @@
                                                object:nil];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)gotFollowersCount:(NSNotification *)notification {
     NSNumber *numberOfFollowers = [notification object];
     _followersCountLabel.text = [numberOfFollowers stringValue];

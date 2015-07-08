@@ -51,6 +51,10 @@
                                                object:nil];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 -(void)keyboardWillShow:(NSNotification*)notification
 {
     if (/* DISABLES CODE */ (NO)) {

@@ -36,6 +36,10 @@
     [self reloadMessagesData];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)gotMessageCount:(NSNotification *)notification {
     NSLog(@"Got message count! Reloading table.");
     [self displayMessagesIfThereAreAny];
@@ -156,6 +160,7 @@
     [self presentViewController: messageViewController animated:NO completion:^{
         [cell.activityIndicator setHidden:YES];
         [cell.messageNumberLabel setHidden:NO];
+        [self.tableView reloadData];
         [messageAtIndex markMessageAsReadInBackground:^(BOOL success, NSString *serverMessage) {
             [self reloadMessagesData];
         }];
