@@ -35,6 +35,10 @@
 @property (strong, nonatomic) IBOutlet UITextView *publicMessageTextView;
 @property (strong, nonatomic) IBOutlet UILabel *gotItLabel;
 @property (strong, nonatomic) IBOutlet UIButton *dismissHelpButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *autocompleteHeightConstraint;
+
+@property (strong, nonatomic) NSString *atWord;
+@property (nonatomic) BOOL captureText;
 
 @end
 
@@ -262,6 +266,20 @@
     [[self messageProcessor] processText:textView.text];
 }
 
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+    [[self messageProcessor] textViewDidChangeSelection:textView];
+}
+
+#pragma mark - SPContainterViewDelegate
+
+- (void) newVisableViewController:(UIViewController *)viewController {
+    if (viewController == self) {
+        NSLog(@"ComposeView is visable!!");
+    } else {
+        [self keyboardWillHide:nil];
+    }
+}
+
 #pragma mark - SPMessageProcessorDelegate
 
 - (void)messageTypeChange:(SPMessageType)messageType {
@@ -276,17 +294,31 @@
     }
 }
 
-#pragma mark - SPContainterViewDelegate
+- (void)displayTableView:(UITableView *)tableView height:(CGFloat)height {
+    [self showAutocompleteView];
+}
 
-- (void) newVisableViewController:(UIViewController *)viewController {
-    if (viewController == self) {
-        NSLog(@"ComposeView is visable!!");
-    } else {
-        [self keyboardWillHide:nil];
-    }
+- (void)hideTableView {
+    [self hideAutocompleteView];
 }
 
 #pragma mark - Helper Popup Methods
+
+- (void)showAutocompleteView {
+    _autocompleteHeightConstraint.constant = 100;
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
+}
+
+- (void)hideAutocompleteView {
+    _autocompleteHeightConstraint.constant = 0;
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }];
+}
 
 - (void)prepareHelpView {
     [self showRightHelpText];

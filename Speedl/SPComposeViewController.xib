@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPComposeViewController">
             <connections>
+                <outlet property="autocompleteHeightConstraint" destination="Q7U-yl-dTV" id="dvE-nj-VrL"/>
                 <outlet property="backButton" destination="9pa-5W-YX8" id="Adc-Ua-r3n"/>
                 <outlet property="backButtonImage" destination="Oom-v9-AHL" id="wOc-Km-v5n"/>
                 <outlet property="directMessageTextView" destination="tXa-b4-N7h" id="Cc6-Xl-AOB"/>
@@ -98,7 +99,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="THIS MESSAGE WILL BE SENT TO ALL OF YOUR FOLLOWERS. @ A USERNAME TO DIRECT MESSAGE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-ln-Tlw" userLabel="PublicTextView">
-                            <rect key="frame" x="8" y="49.5" width="184" height="101"/>
+                            <rect key="frame" x="8" y="49" width="184" height="101"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="101" id="UBR-2e-BXA"/>
@@ -148,6 +149,13 @@
                         </mask>
                     </variation>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kez-TK-ChK" userLabel="AutocompleteView">
+                    <rect key="frame" x="0.0" y="372" width="600" height="0.0"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="Q7U-yl-dTV"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -157,8 +165,11 @@
                 <constraint firstItem="sRg-Zl-Wjy" firstAttribute="leading" secondItem="rQz-Pw-XfT" secondAttribute="trailing" constant="8" id="Fed-yh-egc"/>
                 <constraint firstItem="9pa-5W-YX8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GIU-GK-Sh5"/>
                 <constraint firstItem="sRg-Zl-Wjy" firstAttribute="top" secondItem="2No-7P-bcW" secondAttribute="bottom" constant="8" id="Ic1-eY-MtM"/>
+                <constraint firstItem="sRg-Zl-Wjy" firstAttribute="bottom" secondItem="Kez-TK-ChK" secondAttribute="bottom" constant="-8" id="Nn7-uV-EZ9"/>
                 <constraint firstItem="Oom-v9-AHL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="UTf-xt-1CK"/>
+                <constraint firstItem="Kez-TK-ChK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Uqw-F8-slh"/>
                 <constraint firstItem="A7G-to-vjl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="ZpX-WT-3uz"/>
+                <constraint firstAttribute="trailing" secondItem="Kez-TK-ChK" secondAttribute="trailing" id="adB-Mr-oUO"/>
                 <constraint firstAttribute="centerX" secondItem="2No-7P-bcW" secondAttribute="centerX" id="cV5-BD-vhQ"/>
                 <constraint firstItem="dlN-IV-2cS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="duz-2M-r5F"/>
                 <constraint firstItem="rQz-Pw-XfT" firstAttribute="centerY" secondItem="sRg-Zl-Wjy" secondAttribute="centerY" constant="0.5" id="eLg-B5-Arl"/>
