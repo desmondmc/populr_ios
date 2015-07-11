@@ -10,6 +10,7 @@
 #import "SPSuggestionTableViewCell.h"
 
 #define kSuggestCellNibName @"SPSuggestionTableViewCell"
+#define kCellSuggestionCellHieght 40
 
 @interface SPMessageProcessor ()
 
@@ -36,8 +37,10 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:kSuggestCellNibName bundle:nil] forCellReuseIdentifier:kSuggestCellNibName];
-        _tableView.backgroundColor = [SPAppearance globalBackgroundColour];
-        _tableView.separatorColor = [UIColor whiteColor];
+        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.separatorColor = [SPAppearance globalBackgroundColour];
+        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+        
     }
     return _tableView;
 }
@@ -54,15 +57,25 @@
                                       if (NSLocationInRange(insertionPoint - 1, wordRange)) {
                                           NSString *firstLetter = [textViewText substringWithRange:NSMakeRange(wordRange.location-1, 1)];
                                           if ([firstLetter isEqualToString:@"@"]) {
-                                              textView.autocorrectionType = UITextAutocorrectionTypeNo;
+                                              [self turnOffSmartTextview:textView];
                                               [self buildSuggestionsTableWithWord:word textView:textView];
                                           }
                                       }
                                   }];
     if (!_haveSuggestions) {
-        textView.autocorrectionType = UITextAutocorrectionTypeDefault;
         [_delegate hideTableView];
     }
+}
+
+- (void)turnOffSmartTextview:(UITextView *)textView {
+    textView.autocorrectionType = UITextAutocorrectionTypeNo;
+    textView.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    [textView becomeFirstResponder];
+}
+
+- (void)turnOnSmartTextview:(UITextView *)textView {
+    textView.autocorrectionType = UITextAutocorrectionTypeDefault;
+    
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
@@ -83,7 +96,13 @@
     _currectSuggestions = arrayOfSuggestions;
     if (_currectSuggestions.count > 0) {
         _haveSuggestions = YES;
-        [_delegate displayTableView:[self tableView] height:[self tableView].contentSize.height];
+        NSInteger cellCount = _currectSuggestions.count;
+        if (cellCount > 4) {
+            cellCount = 4;
+        }
+        
+        CGFloat height = cellCount * kCellSuggestionCellHieght;
+        [_delegate displayTableView:[self tableView] height:height];
     }
     
 }
@@ -91,7 +110,7 @@
 #pragma mark - UITableViewDatasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 35;
+    return kCellSuggestionCellHieght;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -111,6 +130,9 @@
         //There was no reusablecell to dequeue
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SPMessageTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
+        UIImageView *bgView = [[UIImageView alloc]initWithFrame:cell.frame];
+        bgView.backgroundColor = [SPAppearance globalBackgroundColour];
+        cell.selectedBackgroundView = bgView;
     }
     
     cell.usernameLabel.text = _currectSuggestions[indexPath.row];

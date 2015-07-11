@@ -22,6 +22,7 @@
 
 - (void) setupAppearance {
     [self.usernameLabel styleAsFriendLabel];
+    self.usernameLabel.textColor = [SPAppearance globalBackgroundColour];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

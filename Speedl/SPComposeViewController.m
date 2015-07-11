@@ -299,7 +299,7 @@
     [_autocompleteView addSubview:tableView];
     [tableView reloadData];
     [SPAutoLayout constrainSubviewToFillSuperview:tableView];
-    [self showAutocompleteView];
+    [self showAutocompleteViewWithHeight:height];
 }
 
 - (void)hideTableView {
@@ -312,8 +312,8 @@
 
 #pragma mark - Helper Popup Methods
 
-- (void)showAutocompleteView {
-    _autocompleteHeightConstraint.constant = 70;
+- (void)showAutocompleteViewWithHeight:(CGFloat)height {
+    _autocompleteHeightConstraint.constant = height;
     [UIView animateWithDuration:0.2
                      animations:^{
                          [self.view layoutIfNeeded];
