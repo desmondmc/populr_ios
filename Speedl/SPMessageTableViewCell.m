@@ -41,6 +41,11 @@
     NSTimeInterval distanceBetweenDatesSeconds = [now timeIntervalSinceDate:messageDate];
     [self setTimeSinceLabel:distanceBetweenDatesSeconds];
     
+    if ([message.type isEqualToString:@"direct"]) {
+        [_mentionImage setHidden:NO];
+    } else {
+        [_mentionImage setHidden:YES];
+    }
 }
 
 - (void) setTimeSinceLabel:(NSTimeInterval)ageOfMessageSeconds {

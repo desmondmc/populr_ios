@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *messageNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *messageTimeLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UIImageView *mentionImage;
 
 - (void)setupWithMessage:(SPMessage *)message;
 

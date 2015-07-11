@@ -20,7 +20,7 @@
                                 <rect key="frame" x="30" y="30" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKQ-N4-WNX">
-                                <rect key="frame" x="35" y="29" width="10" height="21"/>
+                                <rect key="frame" x="35" y="29" width="10" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,27 +35,40 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 mins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slw-DM-uQr">
-                        <rect key="frame" x="243" y="34" width="61" height="21"/>
+                        <rect key="frame" x="245" y="34" width="60.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mention" translatesAutoresizingMaskIntoConstraints="NO" id="9qv-UO-jBZ">
+                        <rect key="frame" x="130" y="37" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="6zY-Yg-Vah"/>
+                            <constraint firstAttribute="height" constant="15" id="axW-dk-d62"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="slw-DM-uQr" firstAttribute="leading" secondItem="gh2-fk-uJG" secondAttribute="trailing" constant="8" id="4pB-uh-9hq"/>
+                    <constraint firstItem="slw-DM-uQr" firstAttribute="leading" secondItem="gh2-fk-uJG" secondAttribute="trailing" constant="10" id="4pB-uh-9hq"/>
                     <constraint firstAttribute="centerX" secondItem="gh2-fk-uJG" secondAttribute="centerX" id="MB6-ra-8Ua"/>
+                    <constraint firstItem="gh2-fk-uJG" firstAttribute="leading" secondItem="9qv-UO-jBZ" secondAttribute="trailing" constant="10" id="OWL-Ik-beu"/>
                     <constraint firstAttribute="centerY" secondItem="gh2-fk-uJG" secondAttribute="centerY" id="S8z-ZO-Rfv"/>
                     <constraint firstAttribute="centerY" secondItem="slw-DM-uQr" secondAttribute="centerY" id="g5V-40-YhT"/>
+                    <constraint firstAttribute="centerY" secondItem="9qv-UO-jBZ" secondAttribute="centerY" id="jG9-dn-Ra9"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="activityIndicator" destination="4LM-W0-MFI" id="0oi-Vg-vg8"/>
+                <outlet property="mentionImage" destination="9qv-UO-jBZ" id="wmr-2T-yHT"/>
                 <outlet property="messageNumberLabel" destination="jKQ-N4-WNX" id="y0W-2W-BkX"/>
                 <outlet property="messageTimeLabel" destination="slw-DM-uQr" id="LOy-Ak-Mdy"/>
             </connections>
-            <point key="canvasLocation" x="269" y="309.5"/>
+            <point key="canvasLocation" x="269" y="309"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="mention" width="15" height="15"/>
+    </resources>
 </document>
