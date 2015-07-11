@@ -36,6 +36,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *gotItLabel;
 @property (strong, nonatomic) IBOutlet UIButton *dismissHelpButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *autocompleteHeightConstraint;
+@property (strong, nonatomic) IBOutlet UIView *autocompleteView;
 
 @property (strong, nonatomic) NSString *atWord;
 @property (nonatomic) BOOL captureText;
@@ -263,7 +264,7 @@
         return;
     }
     
-    [[self messageProcessor] processText:textView.text];
+    [[self messageProcessor] textViewDidChange:textView];
 }
 
 - (void)textViewDidChangeSelection:(UITextView *)textView {
@@ -295,6 +296,9 @@
 }
 
 - (void)displayTableView:(UITableView *)tableView height:(CGFloat)height {
+    [_autocompleteView addSubview:tableView];
+    [tableView reloadData];
+    [SPAutoLayout constrainSubviewToFillSuperview:tableView];
     [self showAutocompleteView];
 }
 
@@ -302,10 +306,14 @@
     [self hideAutocompleteView];
 }
 
+- (void)userSelectionMade:(NSString *)selection {
+    [_messageTextView replaceRange:_messageTextView.selectedTextRange withText:selection];
+}
+
 #pragma mark - Helper Popup Methods
 
 - (void)showAutocompleteView {
-    _autocompleteHeightConstraint.constant = 100;
+    _autocompleteHeightConstraint.constant = 70;
     [UIView animateWithDuration:0.2
                      animations:^{
                          [self.view layoutIfNeeded];

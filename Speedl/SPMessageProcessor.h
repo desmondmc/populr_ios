@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, SPMessageType) {
 - (void)messageTypeChange:(SPMessageType)messageType;
 - (void)displayTableView:(UITableView *)tableView height:(CGFloat)height;
 - (void)hideTableView;
+- (void)userSelectionMade:(NSString *)selection;
 
 @end
 
@@ -26,7 +27,7 @@ typedef NS_ENUM(NSInteger, SPMessageType) {
 @property (strong, nonatomic) NSArray *followerIDsInMessage;
 @property (weak, nonatomic) id<SPMessageProcessorDelegate> delegate;
 
-- (void)processText:(NSString *)text;
 - (void)textViewDidChangeSelection:(UITextView *)textView;
+- (void)textViewDidChange:(UITextView *)textView;
 
 @end
