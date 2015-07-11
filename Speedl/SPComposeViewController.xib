@@ -79,7 +79,7 @@
                             </attributes>
                         </fragment>
                     </attributedString>
-                    <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="no" keyboardType="twitter"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="twitter"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="42J-Z0-VIw"/>
                     </connections>

@@ -14,7 +14,6 @@
 
 @property (strong, nonatomic) IBOutlet SPMessageLabel *messageLabel;
 @property (strong, nonatomic) IBOutlet SPMessageLabel *countDown;
-@property (strong, nonatomic) IBOutlet UIButton *pauseButton;
 @property (strong, nonatomic) IBOutlet UIButton *restartButton;
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UILabel *messageFromLabel;
@@ -61,7 +60,6 @@
         [_messageLabel playAnimationWithCompletionBlock:^{
             [self handleMessageComplete];
         }];
-        [_pauseButton setEnabled:YES];
         [_countDown setHidden:YES];
         [_messageFromLabel setHidden:YES];
         [_fromLabel setHidden:YES];
@@ -80,7 +78,6 @@
     [_fromLabel setTextColor:[SPAppearance globalBackgroundColour]];
     
     [_messageLabel setHidden:YES];
-    [_pauseButton setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,9 +91,11 @@
         [self handleMessageComplete];
     }];
 }
+
 - (IBAction)onPausePress:(id)sender {
     [self runPauseActions];
 }
+
 - (IBAction)onRestartPress:(id)sender {
     [_messageLabel restartAnimation];
 }
@@ -104,7 +103,6 @@
 - (void) handleMessageComplete {
     [self dismissViewControllerAnimated:NO completion:nil];
     [_messageLabel setHidden:YES];
-    [_pauseButton setEnabled:NO];
 
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPMessageViewController">
@@ -10,7 +10,6 @@
                 <outlet property="fromLabel" destination="I6H-MJ-is4" id="Lgc-sY-ill"/>
                 <outlet property="messageFromLabel" destination="4SQ-DD-QUn" id="GIQ-yq-Uqn"/>
                 <outlet property="messageLabel" destination="tH1-dz-Arx" id="NUd-Sm-r8I"/>
-                <outlet property="pauseButton" destination="dSt-Im-4nr" id="7vO-84-FUY"/>
                 <outlet property="playButton" destination="xWb-Jw-CGM" id="aFS-Dl-o16"/>
                 <outlet property="restartButton" destination="BqQ-Tf-UUy" id="77T-xh-yxX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,15 +24,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSt-Im-4nr" userLabel="PauseButton">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onPausePress:" destination="-1" eventType="touchUpInside" id="Ya5-Px-J5Q"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tH1-dz-Arx" userLabel="Message" customClass="SPMessageLabel">
                     <rect key="frame" x="257" y="279" width="86" height="43"/>
                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
