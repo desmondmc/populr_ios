@@ -8,8 +8,8 @@
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
-            <string>HelveticaNeue-Bold</string>
-            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-BoldItalic</string>
         </mutableArray>
     </customFonts>
@@ -100,22 +100,22 @@
                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2No-7P-bcW" userLabel="HelpView" customClass="SPCircleView">
                     <rect key="frame" x="200" y="123" width="200" height="200"/>
                     <subviews>
-                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="THIS MESSAGE WILL BE SENT ONLY TO THE @-ED NAMES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tXa-b4-N7h" userLabel="DirectTextView">
-                            <rect key="frame" x="8" y="65" width="184" height="71"/>
+                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This message will be sent only to the @-ed usernames." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tXa-b4-N7h" userLabel="DirectTextView">
+                            <rect key="frame" x="8" y="68" width="184" height="64"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="71" id="uUB-kr-aye"/>
+                                <constraint firstAttribute="height" constant="64" id="uUB-kr-aye"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="THIS MESSAGE WILL BE SENT TO ALL OF YOUR FOLLOWERS. @ A USERNAME TO DIRECT MESSAGE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-ln-Tlw" userLabel="PublicTextView">
-                            <rect key="frame" x="8" y="49" width="184" height="101"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This message will be sent to all your followers. @ a username to direct message." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-ln-Tlw" userLabel="PublicTextView">
+                            <rect key="frame" x="8" y="58.5" width="184" height="83"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="101" id="UBR-2e-BXA"/>
+                                <constraint firstAttribute="height" constant="83" id="UBR-2e-BXA"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOT IT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRf-V2-uyf">

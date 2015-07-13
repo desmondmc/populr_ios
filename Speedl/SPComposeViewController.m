@@ -278,6 +278,7 @@
         NSLog(@"ComposeView is visable!!");
     } else {
         [self keyboardWillHide:nil];
+        [self hideHelpView];
     }
 }
 
