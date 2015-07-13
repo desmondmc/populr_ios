@@ -113,11 +113,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 + (NSInteger)getColorIndex {
-    NSString *str =@"4/20/2015 2:16 PM";
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"MM/dd/yyyy HH:mm a"];
-    
-    NSDate *startDate = [formatter dateFromString:str];
+    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:1429563808];//4/20/2015
     NSDate *currentDate = [NSDate date];
     
     return [self daysBetweenDate:startDate andDate:currentDate];

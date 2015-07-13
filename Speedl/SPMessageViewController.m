@@ -44,6 +44,10 @@
         _messageLabel.messageText = @"Error loading this message. Sorry.";
     }
     
+    if ([_message.type isEqualToString:@"direct"]) {
+        _messageFromLabel.text = @"PRIVATE MESSAGE FROM:";
+    }
+    
     if (_message.fromUsername) {
         _fromLabel.text = _message.fromUsername;
     } else {

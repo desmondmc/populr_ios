@@ -12,5 +12,8 @@
 
 + (void)showErrorNotificationWithMessage:(NSString *)message inViewController:(UIViewController *)viewController;
 + (void)showSuccessNotificationWithMessage:(NSString *)message inViewController:(UIViewController *)viewController;
++ (void)showSuccessNotificationWithMessage:(NSString *)message
+                          inViewController:(UIViewController *)viewController
+                                  duration:(NSTimeInterval)duration;
 
 @end

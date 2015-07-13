@@ -23,7 +23,9 @@
                                        duration:1.5];
 }
 
-+ (void)showSuccessNotificationWithMessage:(NSString *)message inViewController:(UIViewController *)viewController {
++ (void)showSuccessNotificationWithMessage:(NSString *)message
+                          inViewController:(UIViewController *)viewController
+                                  duration:(NSTimeInterval)duration {
     [self setupAppearance];
     if (!viewController) {
         viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
@@ -32,7 +34,11 @@
                                           title:message
                                        subtitle:nil
                                            type:TSMessageNotificationTypeSuccess
-                                       duration:0.5];
+                                       duration:duration];
+}
+
++ (void)showSuccessNotificationWithMessage:(NSString *)message inViewController:(UIViewController *)viewController {
+    [self showSuccessNotificationWithMessage:message inViewController:viewController duration:0.5];
 }
 
 + (void)setupAppearance {

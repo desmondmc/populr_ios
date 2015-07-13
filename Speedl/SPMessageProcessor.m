@@ -55,10 +55,11 @@
                                      options:NSStringEnumerationByWords
                                   usingBlock:^(NSString *word, NSRange wordRange, NSRange enclosingRange, BOOL *stop) {
                                       if (NSLocationInRange(insertionPoint - 1, wordRange)) {
-                                          NSString *firstLetter = [textViewText substringWithRange:NSMakeRange(wordRange.location-1, 1)];
-                                          if ([firstLetter isEqualToString:@"@"]) {
-                                              [self turnOffSmartTextview:textView];
-                                              [self buildSuggestionsTableWithWord:word textView:textView];
+                                          if (wordRange.location > 0) {
+                                              NSString *firstLetter = [textViewText substringWithRange:NSMakeRange(wordRange.location-1, 1)];
+                                              if ([firstLetter isEqualToString:@"@"]) {
+                                                  [self buildSuggestionsTableWithWord:word textView:textView];
+                                              }
                                           }
                                       }
                                   }];
