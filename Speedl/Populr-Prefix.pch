@@ -38,6 +38,7 @@
 #import "UITableView+Custom.h"
 #import "UIView+Speedl.h"
 #import "NSError+Speedl.h"
+#import "NSString+RemoveEmoji.h"
 
 //Third Party
 #import "SPNotification.h"

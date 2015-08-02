@@ -74,9 +74,13 @@
 }
 
 - (void)registerUser {
-    NSString *uppercaseUsername = [_usernameField.text lowercaseString];
+    NSString *lowercaseUsername = [_usernameField.text lowercaseString];
+    BOOL validationSuccess = [self localValidationOfNewUsername:lowercaseUsername];
+    if (!validationSuccess) {
+        return;
+    }
     _nextButton.enabled = NO;
-    [SPUser signUpUserInBackgroundWithUsername:uppercaseUsername password:_passwordField.text block:^(SPUser *user, NSString* message) {
+    [SPUser signUpUserInBackgroundWithUsername:lowercaseUsername password:_passwordField.text block:^(SPUser *user, NSString* message) {
         _nextButton.enabled = YES;
         if (user == nil && message != nil) {
             [SPNotification showErrorNotificationWithMessage:message inViewController:self];
@@ -85,6 +89,17 @@
         
         [SPLoginRouter gotoLoggedInViewAndShowMessages:NO];
     }];
+}
+
+- (BOOL)localValidationOfNewUsername:(NSString *)newUsername {
+    if ([newUsername containsString:@" "]) {
+        [SPNotification showErrorNotificationWithMessage:@"No spaces, idiot." inViewController:self];
+        return NO;
+    } else if ([newUsername isIncludingEmoji]) {
+        [SPNotification showErrorNotificationWithMessage:@"Sorry no Emojis. 😢" inViewController:self];
+        return NO;
+    }
+    return YES;
 }
 
 
