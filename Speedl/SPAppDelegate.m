@@ -96,6 +96,8 @@
     // Decriment badge number.
     application.applicationIconBadgeNumber = 0;
     [[SPUser currentUser] getMessagesInBackground:nil];
+    [[SPUser currentUser] getFollowersInBackground:nil];
+    [[SPUser currentUser] getFollowingInBackground:nil];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

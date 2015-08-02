@@ -15,7 +15,7 @@
 @interface SPMessageProcessor ()
 
 @property (nonatomic) SPMessageType currentMessageType;
-@property (strong, nonatomic) NSArray *followingArray;
+@property (strong, nonatomic) NSArray *followersArray;
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NSArray *currectSuggestions;
 @property (strong, nonatomic) NSString *currentWord;
@@ -24,11 +24,12 @@
 
 @implementation SPMessageProcessor
 
-- (NSArray *)followingArray {
-    if (!_followingArray) {
-        _followingArray = [SPUser getFollowingArray];
+- (NSArray *)followersArray {
+    if (!_followersArray)
+    {
+        _followersArray = [SPUser getFollowersArray];
     }
-    return _followingArray;
+    return _followersArray;
 }
 
 - (UITableView *)tableView {
@@ -85,7 +86,7 @@
 
 - (void)buildSuggestionsTableWithWord:(NSString *)word textView:(UITextView *)textView{
     _currentWord = word;
-    NSArray *followingArray = [self followingArray];
+    NSArray *followingArray = [self followersArray];
     NSMutableArray *arrayOfSuggestions = [NSMutableArray new];
     
     for (SPUser *followingUser in followingArray) {
