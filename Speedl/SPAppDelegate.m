@@ -57,13 +57,14 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     UIApplicationState state = [application applicationState];
     
+    NSString *message = userInfo[@"aps"][@"alert"];
+    
     if ([userInfo[@"type"] isEqualToString:@"new_message"] && [SPUser currentUser]) {
         if (state != UIApplicationStateActive) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kSPGotoMessageListNotification
                                                                 object:nil];
             completionHandler(UIBackgroundFetchResultNewData);
         } else {
-            NSString *message = userInfo[@"aps"][@"alert"];
             if (message) {
                 [SPNotification showSuccessNotificationWithMessage:message inViewController:nil];
             }
@@ -71,7 +72,11 @@
                 completionHandler(UIBackgroundFetchResultNewData);
             }];
         }
-
+    } else if ([message containsString:@"following you"] && [SPUser currentUser]) {
+        [SPNotification showSuccessNotificationWithMessage:message inViewController:nil];
+        [[SPUser currentUser] getFollowersInBackground:^(NSArray *followers, NSString *serverMessage) {
+            completionHandler(UIBackgroundFetchResultNewData);
+        }];
     } else {
         completionHandler(UIBackgroundFetchResultNewData);
     }

@@ -25,10 +25,8 @@
 @implementation SPMessageProcessor
 
 - (NSArray *)followersArray {
-    if (!_followersArray)
-    {
-        _followersArray = [SPUser getFollowersArray];
-    }
+    // Don't lazy load this, needs to be fresh :)
+    _followersArray = [SPUser getFollowersArray];
     return _followersArray;
 }
 
@@ -86,12 +84,12 @@
 
 - (void)buildSuggestionsTableWithWord:(NSString *)word textView:(UITextView *)textView{
     _currentWord = word;
-    NSArray *followingArray = [self followersArray];
+    NSArray *followersArray = [self followersArray];
     NSMutableArray *arrayOfSuggestions = [NSMutableArray new];
     
-    for (SPUser *followingUser in followingArray) {
-        if ([followingUser.username hasPrefix:word]) {
-            [arrayOfSuggestions addObject:followingUser.username];
+    for (SPUser *followerUser in followersArray) {
+        if ([followerUser.username hasPrefix:word]) {
+            [arrayOfSuggestions addObject:followerUser.username];
         }
     }
     

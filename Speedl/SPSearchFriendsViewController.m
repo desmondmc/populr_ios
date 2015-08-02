@@ -139,7 +139,7 @@
             } else {
                 [self setupForPostSearchNoResults];
             }
-
+            _searchTextField.text = @"";
         }];
     }
 }
