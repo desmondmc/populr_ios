@@ -157,7 +157,7 @@
 
 - (void)findAllToUsersFromText:(NSString *)text {
     NSArray *potentialUsernames = [self getWordsThatStartWithAtSymbolFromString:text];
-    NSArray *followersArray = [SPUser getFollowingArray];
+    NSArray *followersArray = [SPUser getFollowersArray];
     _followerIDsInMessage = [self getVarifiedUserIDsWithUsernames:potentialUsernames
                                                                users:followersArray];
     [self setupMessageTypeAndNotifyDelegateOfChange];
@@ -199,17 +199,16 @@
 }
 
 - (NSArray *)getWordsThatStartWithAtSymbolFromString:(NSString *)string {
-    NSError *error = nil;
     NSMutableArray *array = [NSMutableArray new];
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"@(\\w+)" options:0 error:&error];
-    NSArray *matches = [regex matchesInString:string
-                                      options:0
-                                        range:NSMakeRange(0, string.length)];
-    for (NSTextCheckingResult *match in matches) {
-        NSRange wordRange = [match rangeAtIndex:1];
-        NSString* word = [string substringWithRange:wordRange];
-        [array addObject:word];
+    
+    NSArray *wordArray = [string componentsSeparatedByString:@" "];
+    for (NSString *word in wordArray) {
+        if ([word hasPrefix:@"@"]) {
+            NSString *noAtWord = [word substringWithRange:NSMakeRange(1, [word length]-1)];
+            [array addObject:noAtWord];
+        }
     }
+    
     return array;
 }
 
