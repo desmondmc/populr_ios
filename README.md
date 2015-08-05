@@ -10,7 +10,7 @@ Speedl is an iOS app for super sweet fast messaging.
 ## Development Setup ##
 Clone the repo.
 
-    $ git clone https://github.com/desmondmcnamee/Speedl.git
+    $ git clone git@github.com:paulreeve/speedl-app.git
 
 If you don't already have codoapods install it:
 
