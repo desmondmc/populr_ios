@@ -25,6 +25,7 @@
 @property BOOL stopTimerFlag;
 @property NSInteger wordIndex;
 @property BOOL isAnimating;
+@property NSString *wordBeingDisplayed;
 
 @property (strong, nonatomic) TKStateMachine *stateMachine;
 
@@ -145,6 +146,7 @@
             //Increment wordCount
             [self incrementWordIndex];
         }
+        _wordBeingDisplayed = self.text;
         self.text = [_partsOfMessage objectAtIndex:_wordIndex];
     }];
     
@@ -165,7 +167,20 @@
     _stopTimerFlag = NO;
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         while (_stopTimerFlag != YES) {
+
             [NSThread sleepForTimeInterval:_delay];
+            
+            if ([self.text hasSuffix:@"."]
+                || [self.text hasSuffix:@"!"]
+                || [self.text hasSuffix:@"?"]
+                || [self.text hasSuffix:@";"]
+                || [self.text hasSuffix:@":"]) {
+                
+                [NSThread sleepForTimeInterval:_delay];
+            } else if ([self.text hasSuffix:@","]) {
+                [NSThread sleepForTimeInterval:_delay*0.5];
+            }
+            
             dispatch_async(dispatch_get_main_queue(), ^(void){
                 [_stateMachine fireEvent:kEvent_Timer userInfo:nil error:nil];
             });

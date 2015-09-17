@@ -198,7 +198,15 @@
     
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
     
+    NSDate *methodStart = [NSDate date];
+    
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        /* ... Do whatever you need to do ... */
+        
+        NSDate *methodFinish = [NSDate date];
+        NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
+        NSLog(@"&&&&&&&&&&&&&&&& Search for user executionTime = %f", executionTime);
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
