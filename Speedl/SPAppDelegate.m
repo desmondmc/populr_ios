@@ -37,9 +37,16 @@
     [[UITextField appearance] setTintColor:[UIColor whiteColor]];
     [[UITextView appearance] setTintColor:[UIColor whiteColor]];
     
+
+    
     if ([SPUser currentUser]) {
-        BOOL remoteNotificationPresent = (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]!= nil);
-        [SPLoginRouter gotoLoggedInViewAndShowMessages:remoteNotificationPresent];
+        if ([SPUser currentUser].token != nil) {
+            [SPLoginRouter gotoLoggedOutView];
+        } else {
+            BOOL remoteNotificationPresent = (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]!= nil);
+            [SPLoginRouter gotoLoggedInViewAndShowMessages:remoteNotificationPresent];
+        }
+        
     } else {
         [SPLoginRouter gotoLoggedOutView];
     }
@@ -100,8 +107,11 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     // Decriment badge number.
     application.applicationIconBadgeNumber = 0;
-    [[SPUser currentUser] getMessagesInBackground:nil];
-    [[SPUser currentUser] getFriendsInBackground:nil];
+    if ([SPUser currentUser] && [SPUser currentUser].token == nil) {
+        [[SPUser currentUser] getMessagesInBackground:nil];
+        [[SPUser currentUser] getFriendsInBackground:nil];
+    }
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
