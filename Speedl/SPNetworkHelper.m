@@ -22,15 +22,6 @@
     }];
 }
 
-+ (NSURLRequest *) putRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary {
-    NSMutableURLRequest *request = [self requestWithURL:urlString andDictionary:dictionary].mutableCopy;
-    request.HTTPMethod = @"PUT";
-    
-    [self setRequestHeaders:&request];
-    
-    return request;
-}
-
 + (NSURLRequest *) postRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary {
     NSMutableURLRequest *request = [self requestWithURL:urlString andDictionary:dictionary].mutableCopy;
     request.HTTPMethod = @"POST";
@@ -65,7 +56,7 @@
     NSData *userJson = nil;
     NSError *error;
     if (dictionary) {
-        userJson = [NSJSONSerialization dataWithJSONObject:dictionary
+        userJson = [NSJSONSerialization dataWithJSONObject:@{@"data": dictionary}
                                                            options:0
                                                              error:&error];
     }
@@ -92,24 +83,28 @@
     NSMutableURLRequest *httpRequest = *request;
     SPUser *currentUser = [SPUser currentUser];
     if (currentUser) {
-        [httpRequest setValue:currentUser.token forHTTPHeaderField:@"x-access-token"];
-        [httpRequest setValue:currentUser.objectId forHTTPHeaderField:@"x-key"];
+        [httpRequest setValue:currentUser.objectId.stringValue forHTTPHeaderField:@"x-key"];
     }
-    [httpRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [httpRequest setValue:@"application/vnd.api+json" forHTTPHeaderField:@"Accept"];
+    [httpRequest setValue:@"application/vnd.api+json" forHTTPHeaderField:@"Content-Type"];
 }
 
 + (NSString *)checkResponseCodeForError:(NSInteger)code data:(NSData *)data {
-    if (code != 200) {
+    if (code < 200 || code > 299) {
         NSError *error;
         if (!data) {
             return kGenericErrorString;
         }
         NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        if (parsedObject[@"message"] != nil) {
-            return parsedObject[@"message"];
-        } else {
-            return kGenericErrorString;
+        NSArray *errorArray = parsedObject[@"errors"];
+        if ([errorArray count] > 0) {
+            NSLog(@"Error in response: %@", parsedObject[@"errors"][0][@"detail"]);
+            NSString *message = parsedObject[@"errors"][0][@"message"];
+            if (message) {
+                return message;
+            }
         }
+        return kGenericErrorString;
     }
     return nil;
 }

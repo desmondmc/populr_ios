@@ -12,6 +12,6 @@
 
 typedef void (^SPNetworkResultBlock)(BOOL success, NSString *serverMessage);
 
-@property (strong, nonatomic) NSString *objectId;
+@property (strong, nonatomic) NSNumber *objectId;
 
 @end

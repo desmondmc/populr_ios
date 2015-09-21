@@ -131,7 +131,7 @@
 -(SPFriendsTableViewController *)followersTableViewController {
     if (!_followersTableViewController) {
         _followersTableViewController = [[SPFriendsTableViewController alloc] init];
-        _followersTableViewController.listType = SPFriendListTypeFollowers;
+        _followersTableViewController.listType = SPFriendListTypeFriends;
     }
     return _followersTableViewController;
 }
@@ -139,7 +139,7 @@
 -(SPFriendsTableViewController *)followingTableViewController {
     if (!_followingTableViewController) {
         _followingTableViewController = [[SPFriendsTableViewController alloc] init];
-        _followingTableViewController.listType = SPFriendListTypeFollowing;
+        _followingTableViewController.listType = SPFriendListTypeFriends;
     }
     return _followingTableViewController;
 }

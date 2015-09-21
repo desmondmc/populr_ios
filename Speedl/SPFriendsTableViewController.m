@@ -63,17 +63,11 @@
 
 - (void) refreshTable {
     switch (_listType) {
-        case SPFriendListTypeFollowers:
-            _upperNoResultsLabel.text = @"YOU HAVE NO FOLLOWERS";
-            _lowerNoResultsLabel.text = @"TELL YOUR FRIENDS ABOUT POPULR!";
-            [self setupStartSearch];
-            [self loadFollowers];
-            break;
-        case SPFriendListTypeFollowing:
-            _upperNoResultsLabel.text = @"YOU ARE FOLLOWING NO ONE";
+        case SPFriendListTypeFriends:
+            _upperNoResultsLabel.text = @"YOU HAVE NO FRIENDS";
             _lowerNoResultsLabel.text = @"SEARCH USERNAMES";
             [self setupStartSearch];
-            [self loadFollowing];
+            [self loadFollowers];
             break;
         default:
             break;
@@ -81,27 +75,14 @@
 }
 
 - (void)loadFollowers {
-    [[SPUser currentUser] getFollowersInBackground:^(NSArray *followers, NSString *serverMessage) {
+    [[SPUser currentUser] getFriendsInBackground:^(NSArray *friends, NSString *serverMessage) {
         [self.refreshControl endRefreshing];
-        if (followers.count > 0) {
-            [self dataSource].users = followers;
+        if (friends.count > 0) {
+            [self dataSource].users = friends;
             [self setupViewWithResults];
         } else {
             [self setupWithNoResults];
         }
-    }];
-}
-
-- (void)loadFollowing {
-    [[SPUser currentUser] getFollowingInBackground:^(NSArray *following, NSString *serverMessage) {
-        [self.refreshControl endRefreshing];
-        if (following.count > 0) {
-            [self dataSource].users = following;
-            [self setupViewWithResults];
-        } else {
-            [self setupWithNoResults];
-        }
-
     }];
 }
 

@@ -32,7 +32,7 @@
 - (IBAction)didTapFollow:(id)sender {
     [self loadingState];
     if (_isFollowing) {
-        [[SPUser currentUser] unfollowUserInBackground:_user block:^(BOOL success, NSString *serverMessage) {
+        [[SPUser currentUser] unfriendUserInBackground:_user block:^(BOOL success, NSString *serverMessage) {
             if (success) {
                 [self followState];
             } else {
@@ -40,7 +40,7 @@
             }
         }];
     } else {
-        [[SPUser currentUser] followUserInBackground:_user block:^(BOOL success, NSString *serverMessage) {
+        [[SPUser currentUser] friendUserInBackground:_user block:^(BOOL success, NSString *serverMessage) {
             if (success) {
                 [self followingState];
             } else {
@@ -54,7 +54,7 @@
 - (void)setupWithUser:(SPUser *)user {
     _user = user;
     _friendNameLabel.text = user.username;
-    if ([user.following boolValue] == YES) {
+    if ([user.isFriend boolValue] == YES) {
         [self followingState];
     } else {
         [self followState];
@@ -65,7 +65,7 @@
     [_activityIndicator setHidden:YES];
     [self.followLabel styleAsFollowingLabel];
     _followLabel.font = [SPAppearance timeLabelFont];
-    _followLabel.text = @"Following";
+    _followLabel.text = @"Friends";
     [_tickImage setHidden:NO];
     _tickImage.image = [UIImage imageNamed:@"tick_trans_"];
     _isFollowing = YES;
@@ -75,7 +75,7 @@
     [_activityIndicator setHidden:YES];
     [self.followLabel styleAsFollowLabel];
     _followLabel.font = [SPAppearance timeLabelFont];
-    _followLabel.text = @"Follow";
+    _followLabel.text = @"Add Friend";
     [_tickImage setHidden:NO];
     _tickImage.image = [UIImage imageNamed:@"plus_"];
     _isFollowing = NO;

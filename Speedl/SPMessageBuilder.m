@@ -15,7 +15,7 @@
     
     NSDictionary *parsedObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:error];
     
-    if (!parsedObjects[@"messages"]) {
+    if (!parsedObjects[@"data"]) {
         *error = [NSError errorWithDescription:@"Response didn't include Messages"];
         return nil;
     }
@@ -23,18 +23,20 @@
         return nil;
     }
     
-    for (NSDictionary *parsedObject in parsedObjects[@"messages"]) {
+    if (parsedObjects[@"data"] == [NSNull null]) {
+        return messagesArray;
+    }
+    
+    for (NSDictionary *parsedObject in parsedObjects[@"data"]) {
         SPMessage *message = [[SPMessage alloc] init];
         
         if ([parsedObject objectForKey:@"id"] != nil) {
             message.objectId = [parsedObject objectForKey:@"id"];
         }
-        
-        for (NSString *key in parsedObject) {
-            if ([message respondsToSelector:NSSelectorFromString(key)]) {
-                [message setValue:[parsedObject valueForKey:key] forKey:key];
-            }
-        }
+        message.message = parsedObject[@"message"];
+        message.type = parsedObject[@"type"];
+        message.fromUsername = parsedObject[@"from_username"];
+        message.timestamp = parsedObject[@"created_at"];
         
         [messagesArray addObject:message];
     }

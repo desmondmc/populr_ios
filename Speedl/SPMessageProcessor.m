@@ -26,7 +26,7 @@
 
 - (NSArray *)followersArray {
     // Don't lazy load this, needs to be fresh :)
-    _followersArray = [SPUser getFollowersArray];
+    _followersArray = [SPUser getFriendsArray];
     return _followersArray;
 }
 
@@ -157,7 +157,7 @@
 
 - (void)findAllToUsersFromText:(NSString *)text {
     NSArray *potentialUsernames = [self getWordsThatStartWithAtSymbolFromString:text];
-    NSArray *followersArray = [SPUser getFollowersArray];
+    NSArray *followersArray = [SPUser getFriendsArray];
     _followerIDsInMessage = [self getVarifiedUserIDsWithUsernames:potentialUsernames
                                                                users:followersArray];
     [self setupMessageTypeAndNotifyDelegateOfChange];

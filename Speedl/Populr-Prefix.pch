@@ -24,8 +24,7 @@
 
 // Notifications
 #define kSPMessageCountNotification @"SPMessageCountNotification"
-#define kSPFollowersCountNotification @"SPFollowersCountNotification"
-#define kSPFollowingCountNotification @"SPFollowingCountNotification"
+#define kSPFriendsCountNotification @"SPFollowingCountNotification"
 #define kSPGotoMessageListNotification @"SPGotoMessageListNotification"
 
 // Catagories
@@ -47,18 +46,20 @@
 #import "SPFriendTableViewCell.h"
 #define kFriendCellReuse @"SPFriendTableViewCell"
 
-#define kAPIRootUrl @"http://52.17.154.158:3000"
+#define kAPIRootUrl @"http://populr_go_api.gzelle.co"
+//#define kAPIRootUrl @"http://52.17.154.158:3000"
 //#define kAPIRootUrl @"http://private-4f48d-speedl.apiary-mock.com"
 #define kAPIAuthenticatedUrl [kAPIRootUrl stringByAppendingString:@"/api/v1"]
 
-#define kAPIFollowUserUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{target-id}/followers/{source-id}"]
-#define kAPIUserSearchUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/users?username="]
-#define kAPIReadMessageUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/message/{id}/read"]
-#define kAPIFollowersUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/followers"]
-#define kAPIFollowingUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/following"]
-#define kAPIMessagesUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/messages"]
-#define kAPIPostMessageUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/messages"]
-#define kAPIPostFeedbackUrl [kAPIAuthenticatedUrl stringByAppendingString:@"/user/{id}/feedback"]
+#define kAPIFriendUserUrl [kAPIRootUrl stringByAppendingString:@"/friend/{id}"]
+#define kAPIUnfriendUserUrl [kAPIRootUrl stringByAppendingString:@"/unfriend/{id}"]
+#define kAPIUserSearchUrl [kAPIRootUrl stringByAppendingString:@"/searchusers/{term}"]
+#define kAPIReadMessageUrl [kAPIRootUrl stringByAppendingString:@"/readmessage/{id}"]
+#define kAPIFriendsUrl [kAPIRootUrl stringByAppendingString:@"/friends"]
+#define kAPIFollowingUrl [kAPIRootUrl stringByAppendingString:@"/following"]
+#define kAPIMessagesUrl [kAPIRootUrl stringByAppendingString:@"/messages"]
+#define kAPIPostMessageUrl [kAPIRootUrl stringByAppendingString:@"/message"]
+#define kAPIPostFeedbackUrl [kAPIRootUrl stringByAppendingString:@"/feedback"]
 #define kAPISignUpUrl [kAPIRootUrl stringByAppendingString:@"/signup"]
 #define kAPILoginUrl [kAPIRootUrl stringByAppendingString:@"/login"]
 

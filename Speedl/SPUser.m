@@ -16,8 +16,7 @@
 #define kPasswordKey    @"password"
 #define kTokenKey       @"token"
 #define kMessagesKey    @"messages"
-#define kFollowersKey   @"followers"
-#define kFollowingsKey  @"followings"
+#define kFriendsKey     @"friends"
 
 @implementation SPUser
 
@@ -25,7 +24,7 @@
 
 + (SPUser *) currentUser {
     SPUser *currentUser = [[SPUser alloc] init];
-    currentUser.objectId = [[NSUserDefaults standardUserDefaults] stringForKey:kObjectIdKey];
+    currentUser.objectId = [[NSUserDefaults standardUserDefaults] valueForKey:kObjectIdKey];
     
     if (currentUser.objectId == nil) {
         return nil;
@@ -59,6 +58,7 @@
         SPMessage *message = [NSKeyedUnarchiver unarchiveObjectWithData:encodedMessage];
         [messagesArray addObject:message];
     }
+    
     return messagesArray;
 }
 
@@ -77,12 +77,8 @@
 
 #pragma mark - Friends Lists Persistent Store
 
-+ (NSArray *)getFollowersArray {
-    return [self getUserArrayFromPersistentStore:kFollowersKey];
-}
-
-+ (NSArray *)getFollowingArray {
-    return [self getUserArrayFromPersistentStore:kFollowingsKey];
++ (NSArray *)getFriendsArray {
+    return [self getUserArrayFromPersistentStore:kFriendsKey];
 }
 
 + (NSArray *)getUserArrayFromPersistentStore:(NSString *)key {
@@ -95,12 +91,8 @@
     return usersArray;
 }
 
-+ (void)saveFollowersList:(NSArray *)followersArray {
-    [self saveUserArrayToPersistentStore:followersArray key:kFollowersKey];
-}
-
-+ (void)saveFollowingList:(NSArray *)followingArray {
-    [self saveUserArrayToPersistentStore:followingArray key:kFollowingsKey];
++ (void)saveFriendsList:(NSArray *)friendsArray {
+    [self saveUserArrayToPersistentStore:friendsArray key:kFriendsKey];
 }
 
 + (void)saveUserArrayToPersistentStore:(NSArray *)userArray key:(NSString *)key {
@@ -142,7 +134,6 @@
                 SPUser *newUser = [SPUserBuilder userFromJSON:data error:&error];
                 if (newUser && error == nil && newUser.objectId != nil) {
                     [self saveUserToDisk:newUser];
-                    [self saveUserToParse:newUser];
                     
                 } else {
                     block(nil, kGenericErrorString);
@@ -178,7 +169,6 @@
                 SPUser *user = [SPUserBuilder userFromJSON:data error:&error];
                 if (user && error == nil && user.objectId != nil) {
                     [self saveUserToDisk:user];
-                    [self saveUserToParse:user];
                 } else {
                     block(nil, kGenericErrorString);
                     return;
@@ -194,20 +184,11 @@
 + (void)searchForUserInBackgroundWithString:(NSString *)searchString block:(SPUserSearchResultBlock)block {
     NSString *url = kAPIUserSearchUrl;
     
-    url = [url stringByAppendingString:searchString];
+    url = [url stringByReplacingOccurrencesOfString:@"{term}" withString:searchString];
     
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
     
-    NSDate *methodStart = [NSDate date];
-    
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        /* ... Do whatever you need to do ... */
-        
-        NSDate *methodFinish = [NSDate date];
-        NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart];
-        NSLog(@"&&&&&&&&&&&&&&&& Search for user executionTime = %f", executionTime);
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
                 NSError *error;
@@ -230,8 +211,6 @@
 
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block {
     NSString *url = kAPIMessagesUrl;
-    
-    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
     
     // Attempt to prevent cacheing
     url = [url stringByAppendingString:[SPNetworkHelper getTimeStampString]];
@@ -284,13 +263,14 @@
     
     NSString *url = kAPIPostMessageUrl;
     
-    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
     NSDictionary *userDictionary = nil;
     if ([users count] > 0) {
         userDictionary = @{@"message":message,
-                           @"toUsers": users};
+                           @"to_users": users,
+                           @"type": @"direct"};
     } else {
-        userDictionary = @{@"message":message};
+        userDictionary = @{@"message":message,
+                           @"type": @"public"};
     }
 
     
@@ -318,8 +298,6 @@
 - (void)postFeedbackInBackground:(NSString *)feedback block:(SPNetworkResultBlock)block {
     NSString *url = kAPIPostFeedbackUrl;
     
-    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
-    
     NSDictionary *userDictionary = @{@"feedback": feedback};
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
@@ -343,10 +321,8 @@
     }];
 }
 
-- (void)getFollowersInBackground:(SPFollowersResultBlock)block {
-    NSString *url = kAPIFollowersUrl;
-    
-    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
+- (void)getFriendsInBackground:(SPFriendsResultBlock)block {
+    NSString *url = kAPIFriendsUrl;
     
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
     
@@ -364,13 +340,13 @@
                 return;
             }
             
-            NSArray *followers = [SPUserBuilder usersFromJSON:data error:&error];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kSPFollowersCountNotification
-                                                                object:@(followers.count)];
-            [SPUser saveFollowersList:followers];
+            NSArray *friends = [SPUserBuilder usersFromJSON:data error:&error];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSPFriendsCountNotification
+                                                                object:@(friends.count)];
+            [SPUser saveFriendsList:friends];
             
             if (block) {
-                block(followers, nil);
+                block(friends, nil);
             }
             return;
             
@@ -378,49 +354,13 @@
     }];
 }
 
-- (void)getFollowingInBackground:(SPFollowingResultBlock)block {
-    NSString *url = kAPIFollowingUrl;
-    
-    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
-    
-    NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
-    
-    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSError *error;
-            
-            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-            NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
-            if (remoteError) {
-                if (block) {
-                    block(nil, remoteError);
-                }
-                return;
-            }
-            
-            NSArray *following = [SPUserBuilder usersFromJSON:data error:&error];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kSPFollowingCountNotification
-                                                                object:@(following.count)];
-            [SPUser saveFollowingList:following];
-            
-            if (block) {
-                block(following, nil);
-            }
-            return;
-            
-        });
-    }];
-}
-
-- (void)followUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block
+- (void)friendUserInBackground:(SPUser *)userToFriend block:(SPNetworkResultBlock)block
 {
-    NSString *url = kAPIFollowUserUrl;
+    NSString *url = kAPIFriendUserUrl;
     
-    url = [url stringByReplacingOccurrencesOfString:@"{target-id}" withString:[userToFollow objectId]];
-    url = [url stringByReplacingOccurrencesOfString:@"{source-id}" withString:[self objectId]];
+    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[userToFriend objectId].stringValue];
     
-    NSURLRequest *request = [SPNetworkHelper putRequestWithURL:url andDictionary:nil];
+    NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:nil];
     
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
@@ -440,11 +380,10 @@
     }];
 }
 
-- (void)unfollowUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block {
-    NSString *url = kAPIFollowUserUrl;
+- (void)unfriendUserInBackground:(SPUser *)userToUnfriend block:(SPNetworkResultBlock)block {
+    NSString *url = kAPIUnfriendUserUrl;
     
-    url = [url stringByReplacingOccurrencesOfString:@"{target-id}" withString:[userToFollow objectId]];
-    url = [url stringByReplacingOccurrencesOfString:@"{source-id}" withString:[self objectId]];
+    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[userToUnfriend objectId].stringValue];
     
     NSURLRequest *request = [SPNetworkHelper deleteRequestWithURL:url];
     
@@ -474,18 +413,7 @@
 + (void)saveUserToDisk:(SPUser *)user {
     [[NSUserDefaults standardUserDefaults] setObject:user.objectId forKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.username forKey:kUsernameKey];
-    [[NSUserDefaults standardUserDefaults] setObject:user.password forKey:kPasswordKey];
-    [[NSUserDefaults standardUserDefaults] setObject:user.token forKey:kTokenKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-+ (void)saveUserToParse:(SPUser *)user {
-    // Store the deviceToken in the current Installation and save it to Parse
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    NSString *userObjectId = [user objectId];
-    
-    [currentInstallation setValue:userObjectId forKey:@"userId"];
-    [currentInstallation saveInBackground];
 }
 
 #define kUserObjectIdKey @"SPUserObjectIdKey"

@@ -51,8 +51,7 @@
     
     // This is to setup the notification block.
     [[SPUser currentUser] getMessagesInBackground:nil];
-    [[SPUser currentUser] getFollowingInBackground:nil];
-    [[SPUser currentUser] getFollowersInBackground:nil];
+    [[SPUser currentUser] getFriendsInBackground:nil];
     
     SPContainerViewController *containerViewController = [self getLoggedInViewController];
     [containerViewController goToMessageViewController];

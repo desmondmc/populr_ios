@@ -74,7 +74,7 @@
         }
     } else if ([message containsString:@"following you"] && [SPUser currentUser]) {
         [SPNotification showSuccessNotificationWithMessage:message inViewController:nil];
-        [[SPUser currentUser] getFollowersInBackground:^(NSArray *followers, NSString *serverMessage) {
+        [[SPUser currentUser] getFriendsInBackground:^(NSArray *friends, NSString *serverMessage) {
             completionHandler(UIBackgroundFetchResultNewData);
         }];
     } else {
@@ -101,8 +101,7 @@
     // Decriment badge number.
     application.applicationIconBadgeNumber = 0;
     [[SPUser currentUser] getMessagesInBackground:nil];
-    [[SPUser currentUser] getFollowersInBackground:nil];
-    [[SPUser currentUser] getFollowingInBackground:nil];
+    [[SPUser currentUser] getFriendsInBackground:nil];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

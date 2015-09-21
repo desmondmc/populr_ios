@@ -32,9 +32,9 @@
 - (void)markMessageAsReadInBackground:(SPNetworkResultBlock)block {
     NSString *url = kAPIReadMessageUrl;
     
-    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self objectId]];
+    url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self.objectId stringValue]];
     
-    NSURLRequest *request = [SPNetworkHelper putRequestWithURL:url andDictionary:nil];
+    NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:nil];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {

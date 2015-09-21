@@ -21,10 +21,9 @@
     
     SPUser *user = [[SPUser alloc] init];
     
-    if (parsedObject[@"user"][@"id"] != nil) {
-        user.objectId = parsedObject[@"user"][@"id"];
-        user.token = parsedObject[@"token"];
-        user.username = parsedObject[@"user"][@"username"];
+    if (parsedObject[@"data"] != nil) {
+        user.objectId = parsedObject[@"data"][@"id"];
+        user.username = parsedObject[@"data"][@"username"];
     }
     
     return user;
@@ -32,7 +31,7 @@
 
 + (NSArray *)usersFromJSON:(NSData *)jsonData error:(NSError **)error
 {
-    NSMutableArray *followersArray = [[NSMutableArray alloc] init];
+    NSMutableArray *friendsArray = [[NSMutableArray alloc] init];
     NSError *localError = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&localError];
     
@@ -41,15 +40,15 @@
         return nil;
     }
     
-    for (NSDictionary *userDictionary in parsedObject) {
+    for (NSDictionary *userDictionary in parsedObject[@"data"]) {
         SPUser *user = [[SPUser alloc] init];
-        user.objectId = userDictionary[@"user"][@"id"];
-        user.username = userDictionary[@"user"][@"username"];
-        user.following = userDictionary[@"following"];
-        [followersArray addObject:user];
+        user.objectId = userDictionary[@"id"];
+        user.username = userDictionary[@"username"];
+        user.isFriend = userDictionary[@"friends"];
+        [friendsArray addObject:user];
     }
     
-    return followersArray;
+    return friendsArray;
 }
 
 @end

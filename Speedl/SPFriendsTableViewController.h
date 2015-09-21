@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, SPFriendListType) {
-    SPFriendListTypeFollowers,
-    SPFriendListTypeFollowing
+    SPFriendListTypeFriends
 };
 
 @interface SPFriendsTableViewController : UIViewController <UITableViewDelegate>

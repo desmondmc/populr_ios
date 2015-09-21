@@ -15,7 +15,7 @@
 @interface SPUser : SPNetworkObject
 
 typedef void (^SPUserResultBlock)(SPUser *user, NSString *serverMessage);
-typedef void (^SPFollowersResultBlock)(NSArray *followers, NSString *serverMessage);
+typedef void (^SPFriendsResultBlock)(NSArray *friends, NSString *serverMessage);
 typedef void (^SPFollowingResultBlock)(NSArray *following, NSString *serverMessage);
 typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage);
 
@@ -27,7 +27,7 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *token;
-@property (strong, nonatomic) NSNumber *following;
+@property (strong, nonatomic) NSNumber *isFriend;
 
 /* Gets the currently logged in user or returns nil of there isn't one logged-in/available */
 + (SPUser *) currentUser;
@@ -42,8 +42,7 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 
 + (NSArray *)getMessageList;
 + (void)saveMessageList:(NSArray *)messageList;
-+ (NSArray *)getFollowersArray;
-+ (NSArray *)getFollowingArray;
++ (NSArray *)getFriendsArray;
 
 
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block;
@@ -54,12 +53,10 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 
 - (void)postFeedbackInBackground:(NSString *)feedback block:(SPNetworkResultBlock)block;
 
-- (void)getFollowersInBackground:(SPFollowersResultBlock)block;
+- (void)getFriendsInBackground:(SPFriendsResultBlock)block;
 
-- (void)getFollowingInBackground:(SPFollowingResultBlock)block;
+- (void)friendUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block;
 
-- (void)followUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block;
-
-- (void)unfollowUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block;
+- (void)unfriendUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block;
 
 @end
