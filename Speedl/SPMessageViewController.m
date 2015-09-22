@@ -101,16 +101,16 @@
     [_messageLabel setHidden:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)onPlayPress:(id)sender {
     [_restartButton setHidden:YES];
     [_playButton setHidden:YES];
     [_messageLabel playAnimationWithCompletionBlock:^{
         [self handleMessageComplete];
     }];
+}
+
+- (IBAction)onDismissPress:(id)sender {
+    [self handleMessageComplete];
 }
 
 - (IBAction)onPausePress:(id)sender {

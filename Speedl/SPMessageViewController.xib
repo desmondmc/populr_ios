@@ -26,29 +26,29 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tH1-dz-Arx" userLabel="Message" customClass="SPMessageLabel">
-                    <rect key="frame" x="257" y="279" width="86" height="43"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tH1-dz-Arx" userLabel="Message" customClass="SPMessageLabel">
+                    <rect key="frame" x="256" y="279" width="87" height="43"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PUBLIC MESSAGE FROM:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-DD-QUn" userLabel="messageFromLabel">
-                    <rect key="frame" x="86" y="177" width="428" height="43"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUBLIC MESSAGE FROM:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-DD-QUn" userLabel="messageFromLabel">
+                    <rect key="frame" x="94" y="177" width="411.5" height="43"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Paul Reeve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6H-MJ-is4" userLabel="fromLabel">
-                    <rect key="frame" x="211" y="228" width="178" height="43"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Reeve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6H-MJ-is4" userLabel="fromLabel">
+                    <rect key="frame" x="213" y="228" width="174.5" height="43"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2X-lj-oas" userLabel="CountDown" customClass="SPMessageLabel">
-                    <rect key="frame" x="290" y="279" width="20" height="43"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2X-lj-oas" userLabel="CountDown" customClass="SPMessageLabel">
+                    <rect key="frame" x="289" y="279" width="22" height="43"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -92,6 +92,13 @@
                         <action selector="onGoRightPress:" destination="-1" eventType="touchUpInside" id="e6W-Uc-GJQ"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tK4-QW-Y77" userLabel="TapToDismiss">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                    <connections>
+                        <action selector="onDismissPress:" destination="-1" eventType="touchUpInside" id="z72-xl-IFV"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,11 +106,15 @@
                 <constraint firstAttribute="centerX" secondItem="tH1-dz-Arx" secondAttribute="centerX" id="8KN-Yq-hqY"/>
                 <constraint firstAttribute="centerY" secondItem="Vny-54-888" secondAttribute="centerY" constant="55" id="M0R-vJ-vEs"/>
                 <constraint firstAttribute="centerY" secondItem="F2X-lj-oas" secondAttribute="centerY" id="Pt3-CX-Izf"/>
+                <constraint firstItem="tK4-QW-Y77" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qkr-32-aXM"/>
                 <constraint firstAttribute="centerX" secondItem="F2X-lj-oas" secondAttribute="centerX" id="TKi-ZQ-faZ"/>
                 <constraint firstItem="I6H-MJ-is4" firstAttribute="top" secondItem="4SQ-DD-QUn" secondAttribute="bottom" constant="8" id="UWj-oz-KJd"/>
+                <constraint firstItem="tK4-QW-Y77" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="VHJ-pa-S5e"/>
                 <constraint firstAttribute="centerY" secondItem="tH1-dz-Arx" secondAttribute="centerY" id="Wfm-c5-y79"/>
                 <constraint firstAttribute="trailing" secondItem="Vny-54-888" secondAttribute="trailing" id="Wzo-cs-66Q"/>
+                <constraint firstItem="tK4-QW-Y77" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="XVG-Nl-jTq"/>
                 <constraint firstAttribute="trailing" secondItem="3Ab-6T-Y85" secondAttribute="trailing" id="YWU-Yh-BNI"/>
+                <constraint firstItem="tK4-QW-Y77" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="c9B-M9-WiH"/>
                 <constraint firstAttribute="centerX" secondItem="I6H-MJ-is4" secondAttribute="centerX" id="eyE-Zn-0hW"/>
                 <constraint firstAttribute="centerX" secondItem="4SQ-DD-QUn" secondAttribute="centerX" id="idq-mr-q3u"/>
                 <constraint firstItem="Vny-54-888" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kHk-ok-m2K"/>
