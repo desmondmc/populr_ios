@@ -67,7 +67,7 @@
                 completionHandler(UIBackgroundFetchResultNewData);
             }];
         }
-    } else if ([message containsString:@"following you"] && [SPUser currentUser]) {
+    } else if ([userInfo[@"type"] isEqualToString:@"new_friend"] && [SPUser currentUser]) {
         [SPNotification showSuccessNotificationWithMessage:message inViewController:nil];
         [[SPUser currentUser] getFriendsInBackground:^(NSArray *friends, NSString *serverMessage) {
             completionHandler(UIBackgroundFetchResultNewData);
