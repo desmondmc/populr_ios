@@ -10,6 +10,7 @@
 #import "SPMessageViewController.h"
 #import "SPSignupViewController.h"
 #import <Crashlytics/Crashlytics.h>
+#import "SPSorryViewController.h"
 
 @interface SPAppDelegate ()
 
@@ -28,6 +29,7 @@
     if ([SPUser currentUser]) {
         if ([SPUser currentUser].token != nil) {
             [SPLoginRouter gotoLoggedOutView];
+            
         } else {
             BOOL remoteNotificationPresent = (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]!= nil);
             [SPLoginRouter gotoLoggedInViewAndShowMessages:remoteNotificationPresent];

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPSignupViewController">
@@ -21,6 +22,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8L-YI-ef8">
                     <rect key="frame" x="509" y="328" width="71" height="36"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="71" id="b8e-2X-kq5"/>
                     </constraints>
@@ -41,6 +43,7 @@
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-BV-AVl">
                                     <rect key="frame" x="0.0" y="8" width="600" height="17"/>
+                                    <animations/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
@@ -50,6 +53,7 @@
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kr0-DL-mh1">
                                     <rect key="frame" x="0.0" y="95" width="600" height="17"/>
+                                    <animations/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
@@ -58,6 +62,7 @@
                                     </connections>
                                 </textField>
                             </subviews>
+                            <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="fd3-BV-AVl" firstAttribute="leading" secondItem="4q0-09-h2P" secondAttribute="leading" id="Rcv-g5-ar0"/>
@@ -72,6 +77,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="4q0-09-h2P" secondAttribute="trailing" id="8sQ-QA-Odf"/>
@@ -81,6 +87,7 @@
                 </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fv5-bd-rO0">
                     <rect key="frame" x="8" y="60" width="584" height="29"/>
+                    <animations/>
                     <segments>
                         <segment title="REGISTER"/>
                         <segment title="LOG IN"/>
@@ -88,30 +95,19 @@
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </segmentedControl>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="Z8L-YI-ef8" secondAttribute="centerY" constant="25" id="DK3-X6-ba7"/>
-                <constraint firstItem="Z8L-YI-ef8" firstAttribute="leading" secondItem="FeR-ab-qSA" secondAttribute="trailing" id="Jnt-1U-bx1"/>
                 <constraint firstItem="fv5-bd-rO0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="PAl-ul-hKw"/>
                 <constraint firstAttribute="trailing" secondItem="Z8L-YI-ef8" secondAttribute="trailing" constant="20" id="Sxx-px-3Rq"/>
                 <constraint firstAttribute="bottom" secondItem="Z8L-YI-ef8" secondAttribute="bottom" constant="236" id="T2e-mB-Wuh"/>
                 <constraint firstAttribute="trailing" secondItem="FeR-ab-qSA" secondAttribute="trailing" id="VyC-t7-F1G"/>
                 <constraint firstItem="fv5-bd-rO0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="YEc-WZ-4uj"/>
-                <constraint firstAttribute="centerX" secondItem="Z8L-YI-ef8" secondAttribute="centerX" id="YFc-jx-SqV"/>
                 <constraint firstItem="FeR-ab-qSA" firstAttribute="top" secondItem="fv5-bd-rO0" secondAttribute="bottom" id="hb8-w4-4mT"/>
                 <constraint firstItem="FeR-ab-qSA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hpL-nu-Y52"/>
                 <constraint firstAttribute="trailing" secondItem="fv5-bd-rO0" secondAttribute="trailing" constant="8" id="n72-ft-ZvL"/>
-                <constraint firstAttribute="bottom" secondItem="FeR-ab-qSA" secondAttribute="bottom" id="u76-nU-vAh"/>
                 <constraint firstItem="FeR-ab-qSA" firstAttribute="bottom" secondItem="Z8L-YI-ef8" secondAttribute="top" id="xCz-aw-fFe"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="u76-nU-vAh"/>
-                    <exclude reference="DK3-X6-ba7"/>
-                    <exclude reference="Jnt-1U-bx1"/>
-                    <exclude reference="YFc-jx-SqV"/>
-                </mask>
-            </variation>
         </view>
         <view contentMode="scaleToFill" id="8t1-lS-wD0" userLabel="CustomTabs" customClass="SPCustomTwoTabView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -119,6 +115,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNX-E5-F6s" userLabel="TopLine">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Z56-US-nHF"/>
@@ -136,6 +133,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-82-1of" userLabel="CenterLine">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="dnX-Uc-FpU"/>
@@ -156,6 +154,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBn-ox-tHZ" userLabel="leftButtonBottomLine">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="ljG-nR-ulu"/>
@@ -173,6 +172,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJJ-nh-1FZ" userLabel="leftButton">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <animations/>
                             <state key="normal" title="Button">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -181,6 +181,7 @@
                             </connections>
                         </button>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="zBn-ox-tHZ" secondAttribute="bottom" constant="5" id="1Yy-ad-IcD">
@@ -235,6 +236,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftJ-zk-2gP" userLabel="leftButtonBottomLine">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="MnN-to-AWn"/>
@@ -252,6 +254,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baD-Jc-pdL" userLabel="rightButton">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <animations/>
                             <state key="normal" title="Button">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -260,6 +263,7 @@
                             </connections>
                         </button>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="baD-Jc-pdL" firstAttribute="leading" secondItem="KRa-21-M5l" secondAttribute="leading" id="4pR-6m-Q37"/>
@@ -302,6 +306,7 @@
                     </variation>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="8i1-zK-vYL" firstAttribute="top" secondItem="8t1-lS-wD0" secondAttribute="top" id="7Qg-Uh-2LN"/>

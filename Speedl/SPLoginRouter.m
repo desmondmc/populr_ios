@@ -13,6 +13,7 @@
 #import "SPMessageViewController.h"
 #import "SPFriendsViewController.h"
 #import "SPMessageListViewController.h"
+#import "SPSorryViewController.h"
 
 @implementation SPLoginRouter
 
@@ -77,6 +78,13 @@
     
     kAppDel.window.rootViewController = [[SPSignupViewController alloc] init];
     [kAppDel.window makeKeyAndVisible];
+    
+    // This is here for the transition from 1.x -> 2.0 when we wiped the database.
+    // If they have a token and they are logging out it means we've kicked them
+    // out of the app.
+    if ([SPUser currentUser].token != nil) {
+        [kAppDel.window.rootViewController presentViewController:[SPSorryViewController new] animated:YES completion:nil];
+    }
 }
 
 @end

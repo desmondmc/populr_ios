@@ -28,6 +28,8 @@
 		7A49B98F1AE836350085D3C6 /* SPCustomTwoTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B98E1AE836350085D3C6 /* SPCustomTwoTabView.m */; };
 		7A625F521B053A1A0092F412 /* SPFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */; };
 		7A625F561B0545ED0092F412 /* SPAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F551B0545ED0092F412 /* SPAutoLayout.m */; };
+		7A89E4661BB1F80400184756 /* SPSorryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A89E4641BB1F80400184756 /* SPSorryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		7A89E4691BB2105000184756 /* SPSorryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A89E4681BB2105000184756 /* SPSorryViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
 		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
@@ -122,6 +124,9 @@
 		7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendsTableViewController.m; sourceTree = "<group>"; };
 		7A625F541B0545EC0092F412 /* SPAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAutoLayout.h; sourceTree = "<group>"; };
 		7A625F551B0545ED0092F412 /* SPAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAutoLayout.m; sourceTree = "<group>"; };
+		7A89E4631BB1F80400184756 /* SPSorryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSorryViewController.h; sourceTree = "<group>"; };
+		7A89E4641BB1F80400184756 /* SPSorryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSorryViewController.m; sourceTree = "<group>"; };
+		7A89E4681BB2105000184756 /* SPSorryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPSorryViewController.xib; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Populr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Populr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -413,6 +418,16 @@
 			name = SPAutoLayout;
 			sourceTree = "<group>";
 		};
+		7A89E4621BB1F7D500184756 /* SpecialViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A89E4631BB1F80400184756 /* SPSorryViewController.h */,
+				7A89E4641BB1F80400184756 /* SPSorryViewController.m */,
+				7A89E4681BB2105000184756 /* SPSorryViewController.xib */,
+			);
+			name = SpecialViewControllers;
+			sourceTree = "<group>";
+		};
 		7AB3D6DC1AC35A3900CA94DB = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +450,7 @@
 		7AB3D6E71AC35A3900CA94DB /* Speedl */ = {
 			isa = PBXGroup;
 			children = (
+				7A89E4621BB1F7D500184756 /* SpecialViewControllers */,
 				7A263CFD1AC89B4C00D69F60 /* Helpers */,
 				7AB3D7121AC35B8000CA94DB /* Model */,
 				7AB3D71D1AC35BE600CA94DB /* Onboarding */,
@@ -758,6 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A216C221B1267E200F67B0F /* SPFriendsTableViewController.xib in Resources */,
+				7A89E4691BB2105000184756 /* SPSorryViewController.xib in Resources */,
 				7AE4D1EB1AE256B9006F6C83 /* SPContainerViewController.xib in Resources */,
 				7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */,
 				7AC691661B25FA0D0018EB9D /* SPCustomNotificationViewController.xib in Resources */,
@@ -850,6 +867,7 @@
 				7AE4D1F81AE28BD7006F6C83 /* UIButton+Custom.m in Sources */,
 				7ADCF43C1B0688E3009834D5 /* SPSearchFriendsViewController.m in Sources */,
 				7AB3D7271AC35C4C00CA94DB /* SPComposeViewController.m in Sources */,
+				7A89E4661BB1F80400184756 /* SPSorryViewController.m in Sources */,
 				7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */,
 				7A625F561B0545ED0092F412 /* SPAutoLayout.m in Sources */,
 				7AC6916A1B25FD960018EB9D /* SPCircleView.m in Sources */,

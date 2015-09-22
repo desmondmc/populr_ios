@@ -113,10 +113,6 @@
     [self handleMessageComplete];
 }
 
-- (IBAction)onPausePress:(id)sender {
-    [self runPauseActions];
-}
-
 - (IBAction)onRestartPress:(id)sender {
     [_messageLabel restartAnimation];
 }

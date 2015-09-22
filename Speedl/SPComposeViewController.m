@@ -117,6 +117,7 @@
         self.messageTextView.text = _placeHolderText;
     }
     [self enableButtons:NO];
+    [self checkFriendsState];
 }
 
 - (void)checkFriendsState {
@@ -124,13 +125,6 @@
     NSArray *friends = [SPUser getFriendsArray];
     if (friends.count == 0) {
         hideNoFriendsView = NO;
-    }
-    
-    if (friends.count == 1) {
-        SPUser *onlyUser = friends[0];
-        if ([onlyUser.username isEqualToString:@"populr"]) {
-            hideNoFriendsView = NO;
-        }
     }
     
     [_noFriendsView setHidden:hideNoFriendsView];
