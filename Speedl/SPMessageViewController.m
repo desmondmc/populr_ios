@@ -18,17 +18,19 @@
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UILabel *messageFromLabel;
 @property (strong, nonatomic) IBOutlet UILabel *fromLabel;
-
+@property (nonatomic) BOOL showCountDown;
 @property (strong, nonatomic) SPMessage *message;
 
 @end
 
 @implementation SPMessageViewController
 
-- (id)initWithMessage:(SPMessage *)message {
+- (id)initWithMessage:(SPMessage *)message
+        showCountDown:(BOOL)showCountDown {
     self = [super init];
     if (self) {
         _message = message;
+        _showCountDown = showCountDown;
     }
     return self;
 }
@@ -56,10 +58,25 @@
     
     _messageLabel.wordPerMin = 250;
     
-    _countDown.messageText = @"3 2 1";
+    if (_showCountDown) {
+        _countDown.messageText = @"3 2 1";
+    } else {
+        _countDown.messageText = @"";
+    }
+    
     _countDown.wordPerMin = 60;
     
-    [_countDown playAnimationWithCompletionBlock:^{
+    if (_showCountDown) {
+        [_countDown playAnimationWithCompletionBlock:^{
+            [_messageLabel setHidden:NO];
+            [_messageLabel playAnimationWithCompletionBlock:^{
+                [self handleMessageComplete];
+            }];
+            [_countDown setHidden:YES];
+            [_messageFromLabel setHidden:YES];
+            [_fromLabel setHidden:YES];
+        }];
+    } else {
         [_messageLabel setHidden:NO];
         [_messageLabel playAnimationWithCompletionBlock:^{
             [self handleMessageComplete];
@@ -67,7 +84,7 @@
         [_countDown setHidden:YES];
         [_messageFromLabel setHidden:YES];
         [_fromLabel setHidden:YES];
-    }];
+    }
 }
 
 - (void)setupAppearence {

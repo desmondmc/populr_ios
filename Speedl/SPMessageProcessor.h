@@ -15,7 +15,6 @@ typedef NS_ENUM(NSInteger, SPMessageType) {
 
 @protocol SPMessageProcessorDelegate <NSObject>
 
-- (void)messageTypeChange:(SPMessageType)messageType;
 - (void)displayTableView:(UITableView *)tableView height:(CGFloat)height;
 - (void)hideTableView;
 - (void)userSelectionMade:(NSString *)selection;

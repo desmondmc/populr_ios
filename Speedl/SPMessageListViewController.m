@@ -155,7 +155,7 @@
     [cell.messageNumberLabel setHidden:YES];
     
     SPMessage *messageAtIndex = [SPUser getMessageList][indexPath.row];
-    SPMessageViewController *messageViewController = [[SPMessageViewController alloc] initWithMessage:messageAtIndex];
+    SPMessageViewController *messageViewController = [[SPMessageViewController alloc] initWithMessage:messageAtIndex showCountDown:YES];
     [self removeMessageFromArray:messageAtIndex];
     [self presentViewController: messageViewController animated:NO completion:^{
         [cell.activityIndicator setHidden:YES];

@@ -14,6 +14,26 @@
 
 }
 
+- (void) styleNoFriendsLargeText {
+    self.font = [SPAppearance mainTextFieldFont];
+    self.textColor = [SPAppearance seeThroughColour];
+}
+
+- (void) styleNoFriendsSmallText {
+    self.font = [SPAppearance helpLabelFont];
+    self.textColor = [SPAppearance seeThroughColour];
+}
+
+- (void) styleAsSendLabel {
+    self.font = [SPAppearance friendsListFont];
+    self.textColor = [SPAppearance getMainBackgroundColour];
+}
+
+- (void) styleAsHelpLabel {
+    self.font = [SPAppearance helpLabelFont];
+    self.textColor = [SPAppearance seeThroughColour];
+}
+
 - (void)styleAsFriendLabel {
     self.font = [SPAppearance friendsListFont];
     self.textColor = [SPAppearance friendsListColour];

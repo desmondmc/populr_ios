@@ -7,11 +7,13 @@
 //
 
 #import "SPComposeViewController.h"
+#import "SPMessageViewController.h"
 
 
 #define kPlaceHolderText @"Write something..."
-#define kSPPublicString @"PUBLIC"
-#define kSPDirectString @"DIRECT"
+
+#define kPreviewImageOn [UIImage imageNamed:@"preview_button_active"]
+#define kPreviewImageOff [UIImage imageNamed:@"preview_button_off"]
 
 @interface SPComposeViewController ()
 
@@ -27,16 +29,20 @@
 @property (strong, nonatomic) NSString *placeHolderText;
 @property (nonatomic) BOOL isFeedBackView;
 @property (strong, nonatomic) SPMessageProcessor *messageProcessor;
-@property (strong, nonatomic) IBOutlet UIButton *messageTypeButton;
 
 // Help Popup Properties
-@property (strong, nonatomic) IBOutlet UIView *helpViewContainer;
-@property (strong, nonatomic) IBOutlet UITextView *directMessageTextView;
-@property (strong, nonatomic) IBOutlet UITextView *publicMessageTextView;
-@property (strong, nonatomic) IBOutlet UILabel *gotItLabel;
-@property (strong, nonatomic) IBOutlet UIButton *dismissHelpButton;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *autocompleteHeightConstraint;
 @property (strong, nonatomic) IBOutlet UIView *autocompleteView;
+@property (strong, nonatomic) IBOutlet UIView *sendCircleView;
+@property (strong, nonatomic) IBOutlet UILabel *sendLabel;
+@property (strong, nonatomic) IBOutlet UILabel *helpLabel1;
+@property (strong, nonatomic) IBOutlet UILabel *helpLabel2;
+@property (strong, nonatomic) IBOutlet UIButton *previewButton;
+@property (strong, nonatomic) IBOutlet UIView *noFriendsView;
+@property (strong, nonatomic) IBOutlet UILabel *noFriendsLabel1;
+@property (strong, nonatomic) IBOutlet UILabel *noFriendsLabel2;
+@property (strong, nonatomic) IBOutlet UILabel *noFriendsSmallLabel;
+
 
 @property (strong, nonatomic) NSString *atWord;
 @property (nonatomic) BOOL captureText;
@@ -55,6 +61,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(gotFriendsCount:)
+                                                 name:kSPFriendsCountNotification
+                                               object:nil];
     
     [self setupAppearance];
 }
@@ -76,13 +87,26 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)gotFriendsCount:(NSNotification *)notification {
+    [self checkFriendsState];
+}
+
 - (void) setupAppearance {
     self.view.backgroundColor = [SPAppearance getSecondColourForToday];
     [self notSendingState];
     [self.sendButton styleAsMainSpeedlButton];
     [self.messageTextView styleAsMainSpeedlTextView];
+    self.sendLabel.textColor = [SPAppearance getMainBackgroundColour];
+    [self.sendLabel styleAsSendLabel];
+    [self.sendActivityIndicator setColor:[SPAppearance getMainBackgroundColour]];
+    [self.helpLabel1 styleAsHelpLabel];
+    [self.helpLabel2 styleAsHelpLabel];
     
-    self.messageTextView.textColor = [SPAppearance seeThroughColour];
+    [self.noFriendsLabel1 styleNoFriendsLargeText];
+    [self.noFriendsLabel2 styleNoFriendsLargeText];
+    [self.noFriendsSmallLabel styleNoFriendsSmallText];
+    [self.noFriendsView setBackgroundColor:[SPAppearance getMainBackgroundColour]];
+    
     
     [self keyboardWillHide:nil];
     
@@ -92,8 +116,24 @@
         _placeHolderText = kPlaceHolderText;
         self.messageTextView.text = _placeHolderText;
     }
-    
+    [self enableButtons:NO];
+}
 
+- (void)checkFriendsState {
+    BOOL hideNoFriendsView = YES;
+    NSArray *friends = [SPUser getFriendsArray];
+    if (friends.count == 0) {
+        hideNoFriendsView = NO;
+    }
+    
+    if (friends.count == 1) {
+        SPUser *onlyUser = friends[0];
+        if ([onlyUser.username isEqualToString:@"populr"]) {
+            hideNoFriendsView = NO;
+        }
+    }
+    
+    [_noFriendsView setHidden:hideNoFriendsView];
 }
 
 - (void)setupForFeedback {
@@ -118,6 +158,18 @@
         [self sendFeedback];
     }
 }
+- (IBAction)onPreviewPress:(id)sender {
+    SPMessage *message = [SPMessage new];
+    message.message = _messageTextView.text;
+    
+    SPMessageViewController *messageViewController = [[SPMessageViewController alloc] initWithMessage:message showCountDown:NO];
+    
+    [self presentViewController: messageViewController animated:NO completion:^{
+        [self keyboardWillHide:nil];
+    }];
+}
+
+
 
 - (NSString *)getNoMessageErrorString {
     if (_isFeedBackView) {
@@ -137,7 +189,6 @@
             [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:self];
         } else {
             _messageProcessor = nil;
-            [_messageTypeButton setTitle:kSPPublicString forState:UIControlStateNormal];
             [_messageTextView resignFirstResponder];
             [self setupAppearance];
             [SPNotification showSuccessNotificationWithMessage:@"Message Sent" inViewController:self];
@@ -159,18 +210,17 @@
 }
 
 - (void)sendingState {
+    [_sendLabel setHidden:YES];
     [_sendButton setEnabled:NO];
     [_sendActivityIndicator setHidden:NO];
     [_sendActivityIndicator startAnimating];
 }
 
 - (void)notSendingState {
+    [_sendLabel setHidden:NO];
     [_sendButton setEnabled:YES];
     [_sendActivityIndicator setHidden:YES];
     [_sendActivityIndicator startAnimating];
-}
-- (IBAction)messageTypePress:(id)sender {
-    [self showHelpView];
 }
 
 - (IBAction)onBackPress:(id)sender {
@@ -196,21 +246,30 @@
                          [self.view layoutIfNeeded]; // Called on parent view
                      }];
     
-    [self hideButtons:NO];
+    [self hideHelpLabels:YES];
 }
 
-- (void)hideButtons:(BOOL)hideButtons {
-    _sendButton.hidden = hideButtons;
-    
-    if (_isFeedBackView) {
-        _messageTypeButton.hidden = YES;
-    } else {
-        _messageTypeButton.hidden = hideButtons;
+- (void)hideHelpLabels:(BOOL)hide {
+    if (![_messageTextView.text isEqualToString:kPlaceHolderText]) {
+        hide = YES;
     }
+    [_helpLabel1 setHidden:hide];
+    [_helpLabel2 setHidden:hide];
+}
+
+- (void)enableButtons:(BOOL)enableButtons {
+    if (enableButtons) {
+        [_sendCircleView setAlpha:1.0];
+    } else {
+        [_sendCircleView setAlpha:0.5];
+    }
+    
+    [_previewButton setEnabled:enableButtons];
+    [_sendButton setEnabled:enableButtons];
 }
 
 -(void)keyboardWillHide:(NSNotification*)notification {
-    [self hideButtons:YES];
+    [self hideHelpLabels:NO];
     
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
@@ -243,10 +302,8 @@
 {
     if ([textView.text isEqualToString:_placeHolderText]) {
         textView.text = @"";
-        textView.textColor = [SPAppearance mainTextFieldColour];
     }
     
-    [self hideButtons:NO];
     [textView becomeFirstResponder];
 }
 
@@ -254,12 +311,21 @@
 {
     if ([textView.text isEqualToString:@""]) {
         textView.text = _placeHolderText;
-        textView.textColor = [SPAppearance seeThroughColour];
     }
+    
+    [self hideHelpLabels:NO];
     [textView resignFirstResponder];
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
+    if ([textView.text isEqualToString:@""] ||
+        [textView.text isEqualToString:_placeHolderText]) {
+        
+        [self enableButtons:NO];
+    } else {
+        [self enableButtons:YES];
+    }
+    
     if (_isFeedBackView) {
         return;
     }
@@ -276,25 +342,13 @@
 - (void) newVisableViewController:(UIViewController *)viewController {
     if (viewController == self) {
         NSLog(@"ComposeView is visable!!");
+        [self checkFriendsState];
     } else {
         [self keyboardWillHide:nil];
-        [self hideHelpView];
     }
 }
 
 #pragma mark - SPMessageProcessorDelegate
-
-- (void)messageTypeChange:(SPMessageType)messageType {
-    switch (messageType) {
-        case SPMessageTypePublic:
-            [_messageTypeButton setTitle:kSPPublicString forState:UIControlStateNormal];
-            break;
-        case SPMessageTypeDirect:
-            [_messageTypeButton setTitle:kSPDirectString forState:UIControlStateNormal];
-        default:
-            break;
-    }
-}
 
 - (void)displayTableView:(UITableView *)tableView height:(CGFloat)height {
     [_autocompleteView addSubview:tableView];
@@ -328,37 +382,5 @@
                          [self.view layoutIfNeeded];
                      }];
 }
-
-- (void)prepareHelpView {
-    [self showRightHelpText];
-    _directMessageTextView.textColor = [SPAppearance globalBackgroundColour];
-    _publicMessageTextView.textColor = [SPAppearance globalBackgroundColour];
-    _gotItLabel.textColor = [SPAppearance globalBackgroundColour];
-}
-
-- (void)showRightHelpText {
-    NSString *messageTypeButtonText = _messageTypeButton.titleLabel.text;
-    if ([messageTypeButtonText isEqualToString:kSPPublicString]) {
-        _publicMessageTextView.hidden = NO;
-        _directMessageTextView.hidden = YES;
-    } else {
-        _publicMessageTextView.hidden = YES;
-        _directMessageTextView.hidden = NO;
-    }
-}
-
-- (void)showHelpView {
-    [self prepareHelpView];
-    [_helpViewContainer setHidden:NO];
-}
-
-- (void)hideHelpView {
-    [_helpViewContainer setHidden:YES];
-}
-
-- (IBAction)dismissPress:(id)sender {
-    [self hideHelpView];
-}
-
 
 @end

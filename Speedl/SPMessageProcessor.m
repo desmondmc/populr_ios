@@ -163,20 +163,11 @@
     [self setupMessageTypeAndNotifyDelegateOfChange];
 }
 
+// Doesn't notify delegate anymore.
 - (void)setupMessageTypeAndNotifyDelegateOfChange {
     if (_followerIDsInMessage.count > 0) {
-        if (_currentMessageType != SPMessageTypePublic) {
-            if (_delegate) {
-                [_delegate messageTypeChange:SPMessageTypeDirect];
-            }
-        }
         _currentMessageType = SPMessageTypePublic;
     } else {
-        if (_currentMessageType != SPMessageTypeDirect) {
-            if (_delegate) {
-                [_delegate messageTypeChange:SPMessageTypePublic];
-            }
-        }
         _currentMessageType = SPMessageTypeDirect;
     }
 }

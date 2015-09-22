@@ -104,8 +104,8 @@
     [_leftViewBottomLine setHidden:NO];
     [_centreViewBottomLine setHidden:YES];
     
-    [_friendsCountLabel setTextColor:[SPAppearance seeThroughColour]];
-    [_friendsLabel setTextColor:[SPAppearance seeThroughColour]];
+    [_friendsCountLabel setTextColor:[UIColor whiteColor]];
+    [_friendsLabel setTextColor:[UIColor whiteColor]];
     
     _searchImageView.image = kNonSelectedSearchImage;
 }

@@ -38,6 +38,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return [UIFont fontWithName:@"Helvetica Neue" size:35];
 }
 
++ (UIFont *) sendButtonFont {
+    return [UIFont fontWithName:@"HelveticaNeue-Bold" size:32];
+}
+
 + (UIColor *) mainTextFieldColour {
     return [UIColor whiteColor];
 }
@@ -62,6 +66,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 + (UIFont *) friendsListFont {
     UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
+    return font;
+}
+
++ (UIFont *) helpLabelFont {
+    UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:16];
     return font;
 }
 

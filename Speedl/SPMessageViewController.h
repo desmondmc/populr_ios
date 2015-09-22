@@ -10,6 +10,7 @@
 
 @interface SPMessageViewController : SPContainedViewController <SPContainerViewControllerDelegate>
 
-- (id)initWithMessage:(SPMessage *)message;
+- (id)initWithMessage:(SPMessage *)message
+        showCountDown:(BOOL)showCountDown;
 
 @end

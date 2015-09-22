@@ -16,4 +16,10 @@
 - (void) styleAsFollowLabel;
 - (void) styleAsFollowingLabel;
 
+- (void) styleAsSendLabel;
+- (void) styleAsHelpLabel;
+
+- (void) styleNoFriendsLargeText;
+- (void) styleNoFriendsSmallText;
+
 @end

@@ -15,6 +15,9 @@
 + (UIColor *) seeThroughColour;
 + (UIColor *) megaSeeThroughColour;
 
++ (UIFont *) sendButtonFont;
++ (UIFont *) helpLabelFont;
+
 + (UIColor *) mainTextFieldColour;
 + (UIFont *) mainTextFieldFont;
 
