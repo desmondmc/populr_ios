@@ -55,6 +55,7 @@
 #define kAPIUnfriendUserUrl [kAPIRootUrl stringByAppendingString:@"/unfriend/{id}"]
 #define kAPIUserSearchUrl [kAPIRootUrl stringByAppendingString:@"/searchusers/{term}"]
 #define kAPIReadMessageUrl [kAPIRootUrl stringByAppendingString:@"/readmessage/{id}"]
+#define kAPIDeviceTokenUrl [kAPIRootUrl stringByAppendingString:@"/token/{token}"]
 #define kAPIFriendsUrl [kAPIRootUrl stringByAppendingString:@"/friends"]
 #define kAPIFollowingUrl [kAPIRootUrl stringByAppendingString:@"/following"]
 #define kAPIMessagesUrl [kAPIRootUrl stringByAppendingString:@"/messages"]

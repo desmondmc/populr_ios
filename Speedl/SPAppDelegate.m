@@ -19,25 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // Initialize Parse.
-    [Parse setApplicationId:@"9svNV553UR7xGbqz1r2cHp3THIwAl0GHY0H9y7fK"
-                  clientKey:@"Aa7s0KIUfquWLQ7u2O4OWk0TSxdXckqH2tCkpr6d"];
-    
     // Initialize Crashlytics
     [Crashlytics startWithAPIKey:@"a842d2a25e2a337bce79b6737d757ad5fc3c0df0"];
     
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                    UIUserNotificationTypeBadge |
-                                                    UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                             categories:nil];
-    [application registerUserNotificationSettings:settings];
-    [application registerForRemoteNotifications];
-    
     [[UITextField appearance] setTintColor:[UIColor whiteColor]];
     [[UITextView appearance] setTintColor:[UIColor whiteColor]];
-    
-
     
     if ([SPUser currentUser]) {
         if ([SPUser currentUser].token != nil) {
@@ -54,11 +40,13 @@
     return YES;
 }
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // Store the deviceToken in the current Installation and save it to Parse
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {    
+    NSString *deviceTokenString = [deviceToken description];
+    deviceTokenString = [deviceTokenString stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    deviceTokenString = [deviceTokenString stringByReplacingOccurrencesOfString:@">" withString:@""];
+    deviceTokenString = [deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    [[SPUser currentUser] postDeviceTokenInBackground:deviceTokenString block:nil];
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {

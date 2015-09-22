@@ -53,6 +53,8 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 
 - (void)postFeedbackInBackground:(NSString *)feedback block:(SPNetworkResultBlock)block;
 
+- (void)postDeviceTokenInBackground:(NSString *)token block:(SPNetworkResultBlock)block;
+
 - (void)getFriendsInBackground:(SPFriendsResultBlock)block;
 
 - (void)friendUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block;

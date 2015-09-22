@@ -75,7 +75,7 @@
     [_activityIndicator setHidden:YES];
     [self.followLabel styleAsFollowLabel];
     _followLabel.font = [SPAppearance timeLabelFont];
-    _followLabel.text = @"Add Friend";
+    _followLabel.text = @"Add friend";
     [_tickImage setHidden:NO];
     _tickImage.image = [UIImage imageNamed:@"plus_"];
     _isFollowing = NO;
