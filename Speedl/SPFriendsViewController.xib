@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPFriendsViewController">
@@ -20,10 +20,12 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jce-lo-KeA" userLabel="ContainerView">
                     <rect key="frame" x="0.0" y="143" width="600" height="457"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dSZ-0T-i21">
                     <rect key="frame" x="20" y="80" width="560" height="29"/>
+                    <animations/>
                     <segments>
                         <segment title="Search"/>
                         <segment title="Following"/>
@@ -36,6 +38,7 @@
                 </segmentedControl>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gear_" translatesAutoresizingMaskIntoConstraints="NO" id="nz0-oS-r38">
                     <rect key="frame" x="562" y="36" width="30" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="774-fS-Mjw"/>
                         <constraint firstAttribute="width" constant="30" id="i9O-3d-2Fm"/>
@@ -43,6 +46,7 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOI-fz-Vdl">
                     <rect key="frame" x="543" y="30" width="57" height="52"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="57" id="h2X-ix-mJJ"/>
                         <constraint firstAttribute="height" constant="52" id="ssj-Pd-2Fe"/>
@@ -56,12 +60,14 @@
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cny-yC-jM6" userLabel="TabContainer">
                     <rect key="frame" x="0.0" y="80" width="600" height="55"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="hNx-lp-enz"/>
                     </constraints>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="nz0-oS-r38" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="3sD-4N-fo2"/>

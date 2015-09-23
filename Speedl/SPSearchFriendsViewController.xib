@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
@@ -26,7 +26,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search people..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gT7-du-dul">
-                    <rect key="frame" x="8" y="8" width="584" height="40"/>
+                    <rect key="frame" x="8" y="14" width="584" height="40"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="RZK-bn-vlE"/>
                     </constraints>
@@ -38,25 +39,29 @@
                 </textField>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="AfG-q9-EAE">
                     <rect key="frame" x="282" y="282" width="37" height="37"/>
+                    <animations/>
                 </activityIndicatorView>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO RESULTS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agi-qD-dOJ">
-                    <rect key="frame" x="254" y="291" width="92" height="17.5"/>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agi-qD-dOJ">
+                    <rect key="frame" x="266" y="291" width="68" height="17.5"/>
+                    <animations/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Tgj-0j-RyT">
-                    <rect key="frame" x="0.0" y="55" width="600" height="545"/>
+                    <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="gT7-du-dul" secondAttribute="trailing" constant="8" id="8dc-wR-dol"/>
-                <constraint firstItem="Tgj-0j-RyT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="L4Y-pY-0Ii"/>
-                <constraint firstItem="gT7-du-dul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="LeU-Ym-Nih"/>
+                <constraint firstItem="Tgj-0j-RyT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="L4Y-pY-0Ii"/>
+                <constraint firstItem="gT7-du-dul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="14" id="LeU-Ym-Nih"/>
                 <constraint firstAttribute="trailing" secondItem="Tgj-0j-RyT" secondAttribute="trailing" id="QJf-Wv-eun"/>
                 <constraint firstItem="Tgj-0j-RyT" firstAttribute="top" secondItem="gT7-du-dul" secondAttribute="bottom" constant="8" id="UhE-iM-OC8"/>
                 <constraint firstItem="Tgj-0j-RyT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wab-te-IA6"/>

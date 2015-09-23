@@ -135,6 +135,9 @@
     _backButtonImage.hidden = NO;
     _placeHolderText = @"Give us some feeback :)";
     self.messageTextView.text = _placeHolderText;
+    _helpLabel1.hidden = YES;
+    _helpLabel2.hidden = YES;
+    _previewButton.hidden = YES;
 }
 
 - (IBAction)onSendPress:(id)sender {

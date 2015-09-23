@@ -5,12 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-            <string>HelveticaNeue</string>
-        </mutableArray>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -47,13 +41,19 @@
                                 <action selector="didPressLeftView:" destination="iN0-l3-epB" eventType="touchUpInside" id="a1z-70-VWI"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mag_opaque" translatesAutoresizingMaskIntoConstraints="NO" id="NGm-dY-jtd">
-                            <rect key="frame" x="95" y="21" width="25" height="25"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mag_glass_active" translatesAutoresizingMaskIntoConstraints="NO" id="NGm-dY-jtd">
+                            <rect key="frame" x="89.5" y="15.5" width="36" height="36"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="8We-Nv-WmB"/>
                                 <constraint firstAttribute="height" constant="25" id="TbD-me-Yi0"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="8We-Nv-WmB"/>
+                                    <exclude reference="TbD-me-Yi0"/>
+                                </mask>
+                            </variation>
                         </imageView>
                     </subviews>
                     <animations/>
@@ -76,6 +76,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ki8-22-L4z" userLabel="View2">
                     <rect key="frame" x="214" y="0.0" width="214.5" height="68"/>
                     <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friends_icon_active" translatesAutoresizingMaskIntoConstraints="NO" id="P8T-hq-Asr">
+                            <rect key="frame" x="71" y="18" width="72" height="32"/>
+                            <animations/>
+                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIS-Fw-6QY" userLabel="BottomLine">
                             <rect key="frame" x="0.0" y="67" width="214.5" height="1"/>
                             <animations/>
@@ -94,34 +98,18 @@
                                 <action selector="didPressCentreView:" destination="iN0-l3-epB" eventType="touchUpInside" id="aSD-dG-Xi8"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="48" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqi-UP-SVb" userLabel="Friends Count Label">
-                            <rect key="frame" x="98" y="8" width="19" height="20.5"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGF-a2-cjB" userLabel="Friends Label">
-                            <rect key="frame" x="79" y="39" width="56.5" height="20"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="P8T-hq-Asr" firstAttribute="centerX" secondItem="Ki8-22-L4z" secondAttribute="centerX" id="Cbj-Kn-aaf"/>
                         <constraint firstItem="Bc1-e7-lzI" firstAttribute="top" secondItem="Ki8-22-L4z" secondAttribute="top" id="H07-su-8Ee"/>
-                        <constraint firstItem="Wqi-UP-SVb" firstAttribute="top" secondItem="Ki8-22-L4z" secondAttribute="top" constant="8" id="Ms3-DT-LFr"/>
-                        <constraint firstItem="NIS-Fw-6QY" firstAttribute="top" secondItem="VGF-a2-cjB" secondAttribute="bottom" constant="8" id="O9V-h1-4p9"/>
                         <constraint firstAttribute="bottom" secondItem="Bc1-e7-lzI" secondAttribute="bottom" id="OsF-jc-luK"/>
                         <constraint firstItem="NIS-Fw-6QY" firstAttribute="leading" secondItem="Ki8-22-L4z" secondAttribute="leading" id="QcE-4K-Xhv"/>
                         <constraint firstAttribute="bottom" secondItem="NIS-Fw-6QY" secondAttribute="bottom" id="SVm-oK-X7A"/>
                         <constraint firstItem="Bc1-e7-lzI" firstAttribute="leading" secondItem="Ki8-22-L4z" secondAttribute="leading" id="Sg7-91-LUI"/>
                         <constraint firstAttribute="trailing" secondItem="Bc1-e7-lzI" secondAttribute="trailing" id="Tni-jv-WGG"/>
-                        <constraint firstAttribute="centerX" secondItem="VGF-a2-cjB" secondAttribute="centerX" id="aI3-mm-AnI"/>
-                        <constraint firstAttribute="centerX" secondItem="Wqi-UP-SVb" secondAttribute="centerX" id="bk9-R3-oEM"/>
+                        <constraint firstItem="P8T-hq-Asr" firstAttribute="centerY" secondItem="Ki8-22-L4z" secondAttribute="centerY" id="k5H-7w-atd"/>
                         <constraint firstAttribute="trailing" secondItem="NIS-Fw-6QY" secondAttribute="trailing" id="oY7-PU-BTN"/>
                     </constraints>
                 </view>
@@ -162,8 +150,7 @@
             <connections>
                 <outlet property="centreViewBottomLine" destination="NIS-Fw-6QY" id="s91-TC-PR8"/>
                 <outlet property="firstVerticalLine" destination="mna-Nw-lsf" id="2e4-PV-2xj"/>
-                <outlet property="friendsCountLabel" destination="Wqi-UP-SVb" id="4bB-3S-0zC"/>
-                <outlet property="friendsLabel" destination="VGF-a2-cjB" id="lJz-zf-D1W"/>
+                <outlet property="friendsImageView" destination="P8T-hq-Asr" id="7DT-HY-AIe"/>
                 <outlet property="leftViewBottomLine" destination="yau-BY-LEu" id="qin-Wr-9va"/>
                 <outlet property="searchImageView" destination="NGm-dY-jtd" id="1U7-OC-SXh"/>
                 <outlet property="topLine" destination="xAP-wH-mMt" id="M9d-dC-MYW"/>
@@ -172,6 +159,7 @@
         </view>
     </objects>
     <resources>
-        <image name="mag_opaque" width="25" height="25"/>
+        <image name="friends_icon_active" width="72" height="32"/>
+        <image name="mag_glass_active" width="36" height="36"/>
     </resources>
 </document>

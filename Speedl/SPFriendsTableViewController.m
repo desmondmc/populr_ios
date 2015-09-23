@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *upperNoResultsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *lowerNoResultsLabel;
 @property (strong, nonatomic) IBOutlet UIView *noResultsView;
+@property (strong, nonatomic) IBOutlet UILabel *friendsCountLabel;
 
 @end
 
@@ -30,6 +31,12 @@
 
 
 - (void)setupTableView {
+    NSInteger count = [SPUser getFriendsArray].count;
+    
+    [self setFriendsLabelWithCount:count];
+    
+    [self.friendsCountLabel styleAsFriendCount];
+    
     [self.tableView styleAsMainSpeedlTableView];
     
     self.tableView.delegate = [self delegate];
@@ -45,6 +52,16 @@
     [self.tableView addSubview:self.refreshControl];
     
     [self refreshTable];
+}
+
+- (void)setFriendsLabelWithCount:(NSInteger)count {
+    NSString *friendString = @"friends";
+    
+    if (count == 1) {
+        friendString = @"friend";
+    }
+    
+    self.friendsCountLabel.text = [NSString stringWithFormat:@"%ld %@", (long)count, friendString];
 }
 
 -(SPUsersTableDataSource *)dataSource {
@@ -64,17 +81,17 @@
 - (void) refreshTable {
     switch (_listType) {
         case SPFriendListTypeFriends:
-            _upperNoResultsLabel.text = @"YOU HAVE NO FRIENDS";
-            _lowerNoResultsLabel.text = @"SEARCH USERNAMES";
+            _upperNoResultsLabel.text = @"You have no friends";
+            _lowerNoResultsLabel.text = @"Search usernames";
             [self setupStartSearch];
-            [self loadFollowers];
+            [self loadFriends];
             break;
         default:
             break;
     }
 }
 
-- (void)loadFollowers {
+- (void)loadFriends {
     [[SPUser currentUser] getFriendsInBackground:^(NSArray *friends, NSString *serverMessage) {
         [self.refreshControl endRefreshing];
         if (friends.count > 0) {
@@ -118,6 +135,20 @@
     }
 }
 
+- (void)gotFriendsCount:(NSNotification *)notification {
+    NSNumber *numberOfFollowing = [notification object];
+    _friendsCountLabel.text = [numberOfFollowing stringValue];
+    
+    NSString *friendsString = @"friends";
+    
+    if ([_friendsCountLabel.text isEqualToString:@"1"]) {
+        friendsString = @"friend";
+    }
+    
+    self.friendsCountLabel.text = [NSString stringWithFormat:@"%@ %@", [numberOfFollowing stringValue], friendsString];
+    self.dataSource.users = [SPUser getFriendsArray];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -125,6 +156,11 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SPFriendTableViewCell" bundle:nil] forCellReuseIdentifier:kFriendCellReuse];
     
     [self setupTableView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(gotFriendsCount:)
+                                                 name:kSPFriendsCountNotification
+                                               object:nil];
 }
 
 

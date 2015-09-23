@@ -10,8 +10,9 @@
 
 @interface UILabel (Custom)
 
-- (void) styleAsMainSpeedlLabel;
 - (void) styleAsFriendLabel;
+
+- (void) styleAsFriendCount;
 
 - (void) styleAsFollowLabel;
 - (void) styleAsFollowingLabel;

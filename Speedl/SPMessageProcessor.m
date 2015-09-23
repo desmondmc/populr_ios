@@ -10,7 +10,6 @@
 #import "SPSuggestionTableViewCell.h"
 
 #define kSuggestCellNibName @"SPSuggestionTableViewCell"
-#define kCellSuggestionCellHieght 40
 
 @interface SPMessageProcessor ()
 
@@ -39,7 +38,6 @@
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.separatorColor = [SPAppearance globalBackgroundColour];
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-        
     }
     return _tableView;
 }
@@ -101,16 +99,15 @@
             cellCount = 4;
         }
         
-        CGFloat height = cellCount * kCellSuggestionCellHieght;
+        CGFloat height = cellCount * kCellFriendsCellHeight;
         [_delegate displayTableView:[self tableView] height:height];
     }
-    
 }
 
 #pragma mark - UITableViewDatasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kCellSuggestionCellHieght;
+    return kCellFriendsCellHeight;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -151,6 +148,21 @@
     }
     
     [_delegate userSelectionMade:selectedUsername];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 #pragma mark - Get @-ed users

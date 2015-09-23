@@ -36,5 +36,6 @@
 + (UIColor *) getThirdColourForToday;
 
 + (UIFont *) timeLabelFont;
++ (UIFont *) friendsCountLabelFont;
 
 @end

@@ -44,6 +44,9 @@
 #import <Parse/Parse.h>
 
 #import "SPFriendTableViewCell.h"
+
+#define kCellFriendsCellHeight 50
+
 #define kFriendCellReuse @"SPFriendTableViewCell"
 
 #define kAPIRootUrl @"http://populr_go_api.gzelle.co"

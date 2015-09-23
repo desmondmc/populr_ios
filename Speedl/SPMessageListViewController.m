@@ -10,7 +10,7 @@
 #import "SPMessageTableViewCell.h"
 #import "SPMessageViewController.h"
 
-#define kMeanMessageArray @[@"GET MORE FRIENDS", @"MAYBE IT'S YOUR FACE", @"HAVE YOU TRIED CROSSFIT?", @"DO BETTER"]
+#define kMeanMessageArray @[@"Get more friends", @"Maybe it's your face", @"Have you tried CrossFit?", @"Do better", @"That sucks", @"Ouch", @"That's embarassing", @"Add your mom", @"You smell like dandelions"]
 
 @interface SPMessageListViewController ()
 
@@ -59,8 +59,8 @@
 }
 
 - (void) setupAppearance {
-    
-    _upperNoResultsLabel.text = @"YOU HAVE NO MESSAGES";
+    [_upperNoResultsLabel styleAsFriendCount];
+    _upperNoResultsLabel.text = @"No new messages";
     _lowerNoResultsLabel.text = [self getMeanMessage];
     self.view.backgroundColor = [SPAppearance getFirstColourForToday];
     _tableView.backgroundColor = [UIColor clearColor];

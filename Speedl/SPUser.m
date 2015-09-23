@@ -447,6 +447,7 @@
 
 #define kUserObjectIdKey @"SPUserObjectIdKey"
 #define kUsernameDataKey @"SPUsernameDataKey"
+#define kIsFriendsDataKey @"SPIsFriendsDataKey"
 
 #pragma mark - NSUserDefaults
 
@@ -454,6 +455,7 @@
     //Encode properties, other class variables, etc
     [encoder encodeObject:[self objectId] forKey:kObjectIdKey];
     [encoder encodeObject:_username forKey:kUsernameDataKey];
+    [encoder encodeObject:_isFriend forKey:kIsFriendsDataKey];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -461,6 +463,7 @@
         //decode properties, other class vars
         [self setObjectId:[decoder decodeObjectForKey:kObjectIdKey]];
         _username = [decoder decodeObjectForKey:kUsernameDataKey];
+        _isFriend = [decoder decodeObjectForKey:kIsFriendsDataKey];
     }
     return self;
 }

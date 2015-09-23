@@ -79,9 +79,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return font;
 }
 
++ (UIFont *) friendsCountLabelFont {
+    UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:34];
+    return font;
+}
+
 + (UIColor *) friendsListColour {
     return [UIColor whiteColor];
 }
+
+
 
 #pragma mark - Helpers
 

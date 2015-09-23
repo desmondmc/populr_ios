@@ -10,10 +10,6 @@
 
 @implementation UILabel (Custom)
 
-- (void) styleAsMainSpeedlLabel {
-
-}
-
 - (void) styleNoFriendsLargeText {
     self.font = [SPAppearance mainTextFieldFont];
     self.textColor = [SPAppearance seeThroughColour];
@@ -54,6 +50,11 @@
 
 - (void)styleAsTimeLabel {
     self.font = [SPAppearance timeLabelFont];
+    self.textColor = [SPAppearance seeThroughColour];
+}
+
+- (void) styleAsFriendCount {
+    self.font = [SPAppearance friendsCountLabelFont];
     self.textColor = [SPAppearance seeThroughColour];
 }
 

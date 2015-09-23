@@ -8,21 +8,23 @@
 
 #import "SPCustomTabView.h"
 
-#define kSelectedSearchImage [UIImage imageNamed:@"mag"]
-#define kNonSelectedSearchImage [UIImage imageNamed:@"mag_opaque"]
+#define kSelectedSearchImage [UIImage imageNamed:@"mag_glass_active"]
+#define kNonSelectedSearchImage [UIImage imageNamed:@"mag_glass_inactive"]
+#define kSelectedFriendsImage [UIImage imageNamed:@"friends_icon_active"]
+#define kNonSelectedFriendsImage [UIImage imageNamed:@"friends_icon_inactive"]
 
 @interface SPCustomTabView ()
 
 @property (strong, nonatomic) IBOutlet UIView *leftViewBottomLine;
 @property (strong, nonatomic) IBOutlet UIView *centreViewBottomLine;
 
-@property (strong, nonatomic) IBOutlet UILabel *friendsLabel;
-@property (strong, nonatomic) IBOutlet UILabel *friendsCountLabel;
+
 
 @property (strong, nonatomic) IBOutlet UIView *firstVerticalLine;
 @property (strong, nonatomic) IBOutlet UIView *topLine;
 
 @property (strong, nonatomic) IBOutlet UIImageView *searchImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *friendsImageView;
 
 @end
 
@@ -40,30 +42,14 @@
 
 - (void)awakeFromNib {
     _selectedSegmentIndex = 1;
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(gotFriendsCount:)
-                                                 name:kSPFriendsCountNotification
-                                               object:nil];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)gotFriendsCount:(NSNotification *)notification {
-    NSNumber *numberOfFollowing = [notification object];
-    _friendsCountLabel.text = [numberOfFollowing stringValue];
-}
-
-- (void)setCountLabels {
-    _friendsCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[[SPUser getFriendsArray] count]];
-}
-
 - (void)layoutSubviews {
     [self setupAppearance];
-    [self setCountLabels];
-    
-    _friendsLabel.font = [SPAppearance timeLabelFont];
     
     if (_delegate) {
         [_delegate tabSelectedAtIndex:_selectedSegmentIndex];
@@ -94,9 +80,7 @@
     [_leftViewBottomLine setHidden:YES];
     [_centreViewBottomLine setHidden:NO];
     
-    [_friendsCountLabel setTextColor:[SPAppearance seeThroughColour]];
-    [_friendsLabel setTextColor:[SPAppearance seeThroughColour]];
-    
+    _friendsImageView.image = kNonSelectedFriendsImage;
     _searchImageView.image = kSelectedSearchImage;
 }
 
@@ -104,9 +88,7 @@
     [_leftViewBottomLine setHidden:NO];
     [_centreViewBottomLine setHidden:YES];
     
-    [_friendsCountLabel setTextColor:[UIColor whiteColor]];
-    [_friendsLabel setTextColor:[UIColor whiteColor]];
-    
+    _friendsImageView.image = kSelectedFriendsImage;
     _searchImageView.image = kNonSelectedSearchImage;
 }
 
