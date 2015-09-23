@@ -347,6 +347,30 @@
     }];
 }
 
+- (void)logoutUserInBackgroundWithBlock:(SPNetworkResultBlock)block {
+    NSString *url = kAPILogoutUrl;
+    
+    NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:nil];
+    
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(NO, remoteError);
+                    return;
+                }
+                
+                block(YES, nil);
+                return;
+            }
+        });
+        
+    }];
+}
+
 - (void)getFriendsInBackground:(SPFriendsResultBlock)block {
     NSString *url = kAPIFriendsUrl;
     

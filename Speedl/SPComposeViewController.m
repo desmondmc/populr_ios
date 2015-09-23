@@ -107,7 +107,7 @@
     [self.noFriendsSmallLabel styleNoFriendsSmallText];
     [self.noFriendsView setBackgroundColor:[SPAppearance getMainBackgroundColour]];
     
-    
+    // Called to setup view for keyboard down state at the begining.
     [self keyboardWillHide:nil];
     
     if (_isFeedBackView) {
@@ -233,6 +233,9 @@
 
 -(void)keyboardWillShow:(NSNotification*)notification
 {
+    if (![self.messageTextView isFirstResponder]) {
+        return;
+    }
     // Adjust the send button based on the keyboard height.
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
@@ -249,6 +252,32 @@
                      }];
     
     [self hideHelpLabels:YES];
+}
+
+-(void)keyboardWillHide:(NSNotification*)notification {
+    CGFloat height = 0;
+    
+    if (notification) {
+        NSDictionary *info = [notification userInfo];
+        CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+        height = kbSize.height;
+    }
+    
+    if (![self.messageTextView isFirstResponder]) {
+        _currentKeyboardHeight = 0;
+        height = 0;
+    }
+    
+    [self hideHelpLabels:NO];
+    
+    CGFloat deltaHeight = height - _currentKeyboardHeight;
+    
+    _sendButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
+    _messageTopConstraint.constant = [self messageTopConstraintForCenter];
+    
+    _currentKeyboardHeight = height;
+    
+    [self.view layoutIfNeeded];
 }
 
 - (void)hideHelpLabels:(BOOL)hide {
@@ -268,21 +297,6 @@
     
     [_previewButton setEnabled:enableButtons];
     [_sendButton setEnabled:enableButtons];
-}
-
--(void)keyboardWillHide:(NSNotification*)notification {
-    [self hideHelpLabels:NO];
-    
-    NSDictionary *info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-    CGFloat deltaHeight = kbSize.height - _currentKeyboardHeight;
-    
-    _sendButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
-    _messageTopConstraint.constant = [self messageTopConstraintForCenter];
-    
-    _currentKeyboardHeight = kbSize.height;
-    
-    [self.view layoutIfNeeded];
 }
 
 - (CGFloat) messageTopConstraintForCenter {
@@ -346,6 +360,7 @@
         NSLog(@"ComposeView is visable!!");
         [self checkFriendsState];
     } else {
+        // Fixes bug where view goes out of wack when the keyboard is up and the user changes screens
         [self keyboardWillHide:nil];
     }
 }

@@ -11,6 +11,10 @@
 #import "SPSignupViewController.h"
 #import <Crashlytics/Crashlytics.h>
 #import "SPSorryViewController.h"
+#import "SPDeviceToken.h"
+#import "SPFriendFindingViewController.h"
+
+@import CoreTelephony;
 
 @interface SPAppDelegate ()
 
@@ -19,7 +23,6 @@
 @implementation SPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     // Initialize Crashlytics
     [Crashlytics startWithAPIKey:@"a842d2a25e2a337bce79b6737d757ad5fc3c0df0"];
     
@@ -39,6 +42,11 @@
         [SPLoginRouter gotoLoggedOutView];
     }
     
+    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
+    NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
+    
+    NSLog(@"Country Code %@", countryCode);
+    
     return YES;
 }
 
@@ -49,6 +57,8 @@
     deviceTokenString = [deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     [[SPUser currentUser] postDeviceTokenInBackground:deviceTokenString block:nil];
+    
+    [SPDeviceToken saveDeviceToken:deviceTokenString];
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {

@@ -60,12 +60,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 + (UIFont *) mainSegmentControlFont {
-    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:15];
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-BoldItalic" size:16];
     return font;
 }
 
 + (UIFont *) friendsListFont {
-    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:15];
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
     return font;
 }
 
@@ -75,7 +75,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 + (UIFont *) timeLabelFont {
-    UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:15];
+    UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:16];
     return font;
 }
 

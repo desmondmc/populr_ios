@@ -16,7 +16,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.messageNumberLabel.font = [SPAppearance mainSegmentControlFont];
+    self.messageNumberLabel.font = [SPAppearance friendsListFont];
     self.messageNumberLabel.textColor = [SPAppearance globalBackgroundColour];
     self.messageTimeLabel.font = [SPAppearance timeLabelFont];
     self.messageTimeLabel.textColor = [SPAppearance seeThroughColour];

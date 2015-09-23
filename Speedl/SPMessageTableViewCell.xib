@@ -15,14 +15,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-fk-uJG" customClass="SPCircleView">
-                        <rect key="frame" x="155" y="5" width="80" height="80"/>
+                        <rect key="frame" x="160" y="10" width="70" height="70"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-W0-MFI">
                                 <rect key="frame" x="30" y="30" width="20" height="20"/>
                                 <animations/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKQ-N4-WNX">
-                                <rect key="frame" x="35" y="29" width="10" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKQ-N4-WNX">
+                                <rect key="frame" x="31" y="25" width="8" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -32,26 +32,32 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="5s3-4F-mAY"/>
+                            <constraint firstAttribute="width" constant="70" id="5s3-4F-mAY"/>
                             <constraint firstAttribute="centerX" secondItem="jKQ-N4-WNX" secondAttribute="centerX" id="XkZ-6S-pRz"/>
                             <constraint firstAttribute="centerY" secondItem="jKQ-N4-WNX" secondAttribute="centerY" id="e3v-4G-Hl4"/>
-                            <constraint firstAttribute="height" constant="80" id="e6t-TK-HN7"/>
+                            <constraint firstAttribute="height" constant="70" id="e6t-TK-HN7"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10 mins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slw-DM-uQr">
-                        <rect key="frame" x="245" y="34" width="60.5" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 mins" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slw-DM-uQr">
+                        <rect key="frame" x="240" y="34" width="58.5" height="20.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mention" translatesAutoresizingMaskIntoConstraints="NO" id="9qv-UO-jBZ">
-                        <rect key="frame" x="130" y="37" width="15" height="15"/>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dm" translatesAutoresizingMaskIntoConstraints="NO" id="9qv-UO-jBZ">
+                        <rect key="frame" x="128" y="33.5" width="22" height="22"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="6zY-Yg-Vah"/>
                             <constraint firstAttribute="height" constant="15" id="axW-dk-d62"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6zY-Yg-Vah"/>
+                                <exclude reference="axW-dk-d62"/>
+                            </mask>
+                        </variation>
                     </imageView>
                 </subviews>
                 <animations/>
@@ -77,6 +83,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="mention" width="15" height="15"/>
+        <image name="dm" width="22" height="22"/>
     </resources>
 </document>

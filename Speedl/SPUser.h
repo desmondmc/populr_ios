@@ -61,4 +61,6 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 
 - (void)unfriendUserInBackground:(SPUser *)userToFollow block:(SPNetworkResultBlock)block;
 
+- (void)logoutUserInBackgroundWithBlock:(SPNetworkResultBlock)block;
+
 @end

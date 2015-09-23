@@ -7,6 +7,7 @@
 //
 
 #import "SPSignupViewController.h"
+#import "SPDeviceToken.h"
 
 @interface SPSignupViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
@@ -87,8 +88,18 @@
             return;
         }
         
+        // If the user has logged out and then signed up for a new account we need to send up the device token again.
+        [self sendExistingDeviceTokenIfNeeded];
+        
         [SPLoginRouter gotoLoggedInViewAndShowMessages:NO];
     }];
+}
+
+- (void)sendExistingDeviceTokenIfNeeded {
+    NSString *existingDeviceToken = [SPDeviceToken getStoredDeviceToken];
+    if (existingDeviceToken && ![existingDeviceToken isEqualToString:@""]) {
+        [[SPUser currentUser] postDeviceTokenInBackground:existingDeviceToken block:nil];
+    }
 }
 
 - (BOOL)localValidationOfNewUsername:(NSString *)newUsername {
@@ -113,6 +124,9 @@
             [SPNotification showErrorNotificationWithMessage:message inViewController:self];
             return;
         }
+        
+        // If the user has logged out and then logged into a new account we need to send up the device token again.
+        [self sendExistingDeviceTokenIfNeeded];
         
         [SPLoginRouter gotoLoggedInViewAndShowMessages:NO];
     }];
