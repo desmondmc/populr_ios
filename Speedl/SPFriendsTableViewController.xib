@@ -9,10 +9,7 @@
             <connections>
                 <outlet property="activityIndicator" destination="eR1-3Q-xU7" id="obd-aw-hmR"/>
                 <outlet property="friendsCountLabel" destination="UAi-bi-V9R" id="Emy-zS-Vfr"/>
-                <outlet property="lowerNoResultsLabel" destination="3Bp-sq-a9b" id="a02-ep-1zh"/>
-                <outlet property="noResultsView" destination="NcO-uo-8Oa" id="G7R-Bd-Lse"/>
                 <outlet property="tableView" destination="97q-hp-lJy" id="3Tl-Mn-Arx"/>
-                <outlet property="upperNoResultsLabel" destination="FZj-yp-AgC" id="zES-dh-LY1"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Tv2-aB-DcV"/>
             </connections>
         </placeholder>
@@ -21,48 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcO-uo-8Oa" userLabel="NoResults">
-                    <rect key="frame" x="0.0" y="230" width="600" height="100"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZj-yp-AgC">
-                            <rect key="frame" x="272" y="20" width="56.5" height="20"/>
-                            <animations/>
-                            <attributedString key="attributedText">
-                                <fragment content="UPPER">
-                                    <attributes>
-                                        <color key="NSColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Bp-sq-a9b" userLabel="LOWER">
-                            <rect key="frame" x="271" y="60" width="56.5" height="20"/>
-                            <animations/>
-                            <attributedString key="attributedText">
-                                <fragment content="UPPER">
-                                    <attributes>
-                                        <color key="NSColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="centerX" secondItem="3Bp-sq-a9b" secondAttribute="centerX" id="3Mm-9R-RxF"/>
-                        <constraint firstAttribute="centerY" secondItem="FZj-yp-AgC" secondAttribute="centerY" constant="20" id="8wY-eg-FQP"/>
-                        <constraint firstAttribute="centerX" secondItem="FZj-yp-AgC" secondAttribute="centerX" id="Oz0-km-CYq"/>
-                        <constraint firstAttribute="centerY" secondItem="3Bp-sq-a9b" secondAttribute="centerY" constant="-20" id="ihv-D4-vPU"/>
-                        <constraint firstAttribute="height" constant="100" id="k1L-b5-Ryz"/>
-                    </constraints>
-                </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eR1-3Q-xU7">
                     <rect key="frame" x="282" y="282" width="37" height="37"/>
                     <animations/>
@@ -84,15 +39,12 @@
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="NcO-uo-8Oa" secondAttribute="centerY" constant="20" id="9EX-Px-rB4"/>
                 <constraint firstAttribute="centerX" secondItem="eR1-3Q-xU7" secondAttribute="centerX" id="Ch8-X2-POS"/>
                 <constraint firstItem="UAi-bi-V9R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="FPO-uF-i0Y"/>
-                <constraint firstItem="NcO-uo-8Oa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GYy-xn-EmB"/>
                 <constraint firstItem="UAi-bi-V9R" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Hsk-Wd-i0h"/>
                 <constraint firstAttribute="trailing" secondItem="97q-hp-lJy" secondAttribute="trailing" id="QSA-HN-fCV"/>
                 <constraint firstItem="97q-hp-lJy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="blb-1G-gFF"/>
                 <constraint firstAttribute="bottom" secondItem="97q-hp-lJy" secondAttribute="bottom" id="fJl-66-voL"/>
-                <constraint firstAttribute="trailing" secondItem="NcO-uo-8Oa" secondAttribute="trailing" id="hFS-03-sZZ"/>
                 <constraint firstAttribute="centerY" secondItem="eR1-3Q-xU7" secondAttribute="centerY" id="uKB-Lj-wQy"/>
                 <constraint firstItem="97q-hp-lJy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="usF-NX-BIO"/>
             </constraints>

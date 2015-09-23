@@ -20,9 +20,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) IBOutlet UILabel *upperNoResultsLabel;
-@property (strong, nonatomic) IBOutlet UILabel *lowerNoResultsLabel;
-@property (strong, nonatomic) IBOutlet UIView *noResultsView;
 @property (strong, nonatomic) IBOutlet UILabel *friendsCountLabel;
 
 @end
@@ -55,6 +52,10 @@
 }
 
 - (void)setFriendsLabelWithCount:(NSInteger)count {
+    if (count == 0) {
+        self.friendsCountLabel.text = @"No friends";
+        return;
+    }
     NSString *friendString = @"friends";
     
     if (count == 1) {
@@ -81,8 +82,6 @@
 - (void) refreshTable {
     switch (_listType) {
         case SPFriendListTypeFriends:
-            _upperNoResultsLabel.text = @"You have no friends";
-            _lowerNoResultsLabel.text = @"Search usernames";
             [self setupStartSearch];
             [self loadFriends];
             break;
@@ -105,14 +104,12 @@
 
 - (void)setupStartSearch {
     if ([self dataSource].users.count == 0) {
-        [self.noResultsView setHidden:YES];
         [self.tableView setHidden:YES];
         [self.activityIndicator setHidden:NO];
     }
 }
 
 - (void)setupViewWithResults {
-    [self.noResultsView setHidden:YES];
     [self.tableView setHidden:NO];
     [self.activityIndicator setHidden:YES];
     [self.tableView reloadData];
@@ -120,7 +117,6 @@
 
 - (void)setupWithNoResults {
     [self.activityIndicator setHidden:YES];
-    [self.noResultsView setHidden:NO];
     [self.tableView setHidden:NO];
     [self.tableView reloadData];
 }
@@ -146,6 +142,11 @@
     }
     
     self.friendsCountLabel.text = [NSString stringWithFormat:@"%@ %@", [numberOfFollowing stringValue], friendsString];
+    
+    if ([[numberOfFollowing stringValue] isEqualToString:@"0"]) {
+        self.friendsCountLabel.text = @"No friends";
+    }
+    
     self.dataSource.users = [SPUser getFriendsArray];
 }
 
@@ -161,6 +162,10 @@
                                              selector:@selector(gotFriendsCount:)
                                                  name:kSPFriendsCountNotification
                                                object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self refreshTable];
 }
 
 

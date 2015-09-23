@@ -127,6 +127,10 @@
         hideNoFriendsView = NO;
     }
     
+    if (_isFeedBackView) {
+        hideNoFriendsView = YES;
+    }
+    
     [_noFriendsView setHidden:hideNoFriendsView];
 }
 
@@ -138,6 +142,7 @@
     _helpLabel1.hidden = YES;
     _helpLabel2.hidden = YES;
     _previewButton.hidden = YES;
+    _noFriendsView.hidden = YES;
 }
 
 - (IBAction)onSendPress:(id)sender {
