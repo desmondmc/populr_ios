@@ -65,7 +65,7 @@
 
 - (void)setMessageText:(NSString *)messageText {
     if (messageText) {
-        _messageText = messageText;
+        _messageText = [self removeDoubleSpacesFromString:messageText];
         
         _partsOfMessage = [_messageText componentsSeparatedByString: @" "];
         
@@ -74,6 +74,17 @@
             [self setupStateMachine];
         }
     }
+}
+
+- (NSString *)removeDoubleSpacesFromString:(NSString *)string {
+    NSError *error = nil;
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"  +" options:NSRegularExpressionCaseInsensitive error:&error];
+    
+    return [regex stringByReplacingMatchesInString:string
+                                           options:0
+                                             range:NSMakeRange(0, [string length])
+                                      withTemplate:@" "];
 }
 
 - (NSInteger) wordPerMin {
