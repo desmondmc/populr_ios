@@ -8,8 +8,9 @@
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
         </mutableArray>
     </customFonts>
@@ -30,7 +31,7 @@
                     <rect key="frame" x="150" y="155" width="300" height="290"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMo-gM-za9">
-                            <rect key="frame" x="112" y="125.5" width="75" height="40"/>
+                            <rect key="frame" x="112" y="165" width="75" height="40"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="qx9-gO-BFu"/>
@@ -51,7 +52,7 @@
                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-TM-VKK">
-                            <rect key="frame" x="120" y="185.5" width="59" height="40"/>
+                            <rect key="frame" x="120" y="215" width="59" height="40"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="dW5-Bk-CHC"/>
@@ -65,7 +66,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQR-ty-cNa">
-                            <rect key="frame" x="45" y="65.5" width="209" height="40"/>
+                            <rect key="frame" x="45" y="65" width="209" height="40"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="rII-dJ-9s4"/>
@@ -78,10 +79,27 @@
                                 <action selector="onPhonePress:" destination="-1" eventType="touchUpInside" id="bEp-kp-DIJ"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXW-1U-1Ua">
+                            <rect key="frame" x="102" y="115" width="95" height="40"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="khY-zn-8X6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                            <state key="normal" title="Find Friends">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onFindFriendsPress:" destination="-1" eventType="touchUpInside" id="1MR-G7-Mzh"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="LXW-1U-1Ua" firstAttribute="top" secondItem="jQR-ty-cNa" secondAttribute="bottom" constant="10" id="4y9-tc-luH"/>
+                        <constraint firstItem="YMo-gM-za9" firstAttribute="top" secondItem="LXW-1U-1Ua" secondAttribute="bottom" constant="10" id="5BR-3N-PS0"/>
+                        <constraint firstItem="LXW-1U-1Ua" firstAttribute="centerX" secondItem="cef-EY-ZeM" secondAttribute="centerX" id="8ZX-2x-9Sx"/>
                         <constraint firstItem="BAR-Bu-hsd" firstAttribute="top" secondItem="cef-EY-ZeM" secondAttribute="top" constant="8" id="9Gb-cr-8GB"/>
                         <constraint firstItem="YMo-gM-za9" firstAttribute="centerX" secondItem="cef-EY-ZeM" secondAttribute="centerX" id="Nsp-dk-D9n"/>
                         <constraint firstItem="gaj-TM-VKK" firstAttribute="centerX" secondItem="cef-EY-ZeM" secondAttribute="centerX" id="RDX-B2-hgp"/>
@@ -90,9 +108,14 @@
                         <constraint firstItem="BAR-Bu-hsd" firstAttribute="centerX" secondItem="cef-EY-ZeM" secondAttribute="centerX" id="eGC-P8-MDK"/>
                         <constraint firstItem="jQR-ty-cNa" firstAttribute="centerX" secondItem="cef-EY-ZeM" secondAttribute="centerX" id="kCs-NM-AWv"/>
                         <constraint firstAttribute="height" constant="290" id="pKa-h6-Uw0"/>
-                        <constraint firstItem="gaj-TM-VKK" firstAttribute="top" secondItem="YMo-gM-za9" secondAttribute="bottom" constant="20" id="vby-y9-jlk"/>
+                        <constraint firstItem="gaj-TM-VKK" firstAttribute="top" secondItem="YMo-gM-za9" secondAttribute="bottom" constant="10" id="vby-y9-jlk"/>
                         <constraint firstItem="YMo-gM-za9" firstAttribute="top" secondItem="jQR-ty-cNa" secondAttribute="bottom" constant="20" id="yXL-bh-r39"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="yXL-bh-r39"/>
+                        </mask>
+                    </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9b-ib-LdP" userLabel="DoneButtonView" customClass="SPCircleView">
                     <rect key="frame" x="265" y="510" width="70" height="70"/>

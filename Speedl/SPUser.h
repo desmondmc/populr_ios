@@ -28,6 +28,7 @@ typedef void (^SPContactsResultBlock)(NSArray *contacts, NSString *serverMessage
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *token;
+@property (strong, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) NSNumber *isFriend;
 
 /* Gets the currently logged in user or returns nil of there isn't one logged-in/available */
@@ -44,7 +45,7 @@ typedef void (^SPContactsResultBlock)(NSArray *contacts, NSString *serverMessage
 + (NSArray *)getMessageList;
 + (void)saveMessageList:(NSArray *)messageList;
 + (NSArray *)getFriendsArray;
-
++ (void)savePhoneNumber:(NSString *)phoneNumber;
 
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block;
 

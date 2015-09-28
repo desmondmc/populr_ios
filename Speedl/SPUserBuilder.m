@@ -24,6 +24,7 @@
     if (parsedObject[@"data"] != nil) {
         user.objectId = parsedObject[@"data"][@"id"];
         user.username = parsedObject[@"data"][@"username"];
+        user.phoneNumber = parsedObject[@"data"][@"phone_number"];
     }
     
     return user;
@@ -40,11 +41,16 @@
         return nil;
     }
     
+    if (parsedObject[@"data"] == [NSNull null]) {
+        return friendsArray;
+    }
+    
     for (NSDictionary *userDictionary in parsedObject[@"data"]) {
         SPUser *user = [[SPUser alloc] init];
         user.objectId = userDictionary[@"id"];
         user.username = userDictionary[@"username"];
         user.isFriend = userDictionary[@"friends"];
+        user.phoneNumber = userDictionary[@"phone_number"];
         [friendsArray addObject:user];
     }
     

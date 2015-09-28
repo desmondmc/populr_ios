@@ -9,7 +9,6 @@
 #import "SPPhoneNumberViewController.h"
 #import "CountryPicker.h"
 #import "SPPhoneValidation.h"
-#import "SPFriendFindingViewController.h"
 
 @interface SPPhoneNumberViewController ()
 
@@ -162,6 +161,9 @@
     [[SPUser currentUser] postPhoneNumberInBackground:internationalNumber countryCode:countryCode block:^(BOOL success, NSString *serverMessage) {
         if (success) {
             [SPNotification showSuccessNotificationWithMessage:@"Phone number saved!" inViewController:self];
+            
+            // Saves phone number to current user.
+            [SPUser savePhoneNumber:_phoneNumberField.text];
             switch (_type) {
                 case SPPhoneNumberViewTypeModel:
                     [self dismissViewControllerAnimated:YES completion:nil];
@@ -191,7 +193,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.phoneNumberField becomeFirstResponder];
+    NSString *savedPhoneNumber = [[SPUser currentUser] phoneNumber];
+    if (savedPhoneNumber) {
+        self.phoneNumberField.text = savedPhoneNumber;
+    } else {
+        [self.phoneNumberField becomeFirstResponder];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated {

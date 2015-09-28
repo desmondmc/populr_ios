@@ -21,6 +21,7 @@
 		7A263D191AD5BEB500D69F60 /* SPContainedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D181AD5BEB500D69F60 /* SPContainedViewController.m */; };
 		7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */; };
 		7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */; };
+		7A3C4F5C1BB9EFFC00274A36 /* SPFriendFindingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3C4F5B1BB9EFFC00274A36 /* SPFriendFindingDataSource.m */; settings = {ASSET_TAGS = (); }; };
 		7A45F8A51B011DC5009BDA95 /* SPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45F8A41B011DC5009BDA95 /* SPNotification.m */; };
 		7A49B9841AE406CA0085D3C6 /* UITextView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B9831AE406CA0085D3C6 /* UITextView+Custom.m */; };
 		7A49B98A1AE417830085D3C6 /* SPFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B9881AE417830085D3C6 /* SPFriendTableViewCell.m */; };
@@ -117,6 +118,8 @@
 		7A263D1B1AD5C10300D69F60 /* SPFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendsViewController.h; sourceTree = "<group>"; };
 		7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendsViewController.m; sourceTree = "<group>"; };
 		7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendsViewController.xib; sourceTree = "<group>"; };
+		7A3C4F5A1BB9EFFC00274A36 /* SPFriendFindingDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendFindingDataSource.h; sourceTree = "<group>"; };
+		7A3C4F5B1BB9EFFC00274A36 /* SPFriendFindingDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendFindingDataSource.m; sourceTree = "<group>"; };
 		7A45F8A31B011DC5009BDA95 /* SPNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNotification.h; sourceTree = "<group>"; };
 		7A45F8A41B011DC5009BDA95 /* SPNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNotification.m; sourceTree = "<group>"; };
 		7A49B9821AE406CA0085D3C6 /* UITextView+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Custom.h"; sourceTree = "<group>"; };
@@ -374,6 +377,15 @@
 			name = HelpersForViewControllers;
 			sourceTree = "<group>";
 		};
+		7A3C4F591BB9EFA900274A36 /* Datasourse */ = {
+			isa = PBXGroup;
+			children = (
+				7A3C4F5A1BB9EFFC00274A36 /* SPFriendFindingDataSource.h */,
+				7A3C4F5B1BB9EFFC00274A36 /* SPFriendFindingDataSource.m */,
+			);
+			name = Datasourse;
+			sourceTree = "<group>";
+		};
 		7A45F8A21B011D93009BDA95 /* SPNotification */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +471,7 @@
 		7A89E46E1BB333D000184756 /* SPFriendFinding */ = {
 			isa = PBXGroup;
 			children = (
+				7A3C4F591BB9EFA900274A36 /* Datasourse */,
 				7A89E46F1BB333F400184756 /* SPFriendFindingViewController.h */,
 				7A89E4701BB333F400184756 /* SPFriendFindingViewController.m */,
 				7A89E4711BB333F400184756 /* SPFriendFindingViewController.xib */,
@@ -933,6 +946,7 @@
 				7A625F561B0545ED0092F412 /* SPAutoLayout.m in Sources */,
 				7AC6916A1B25FD960018EB9D /* SPCircleView.m in Sources */,
 				7AE4D1FB1AE294BE006F6C83 /* UISegmentedControl+Custom.m in Sources */,
+				7A3C4F5C1BB9EFFC00274A36 /* SPFriendFindingDataSource.m in Sources */,
 				7ADCF4401B069BEE009834D5 /* UITableView+Custom.m in Sources */,
 				7ADCF4471B06A537009834D5 /* SPUsersTableDelegate.m in Sources */,
 				7AB3D71B1AC35BD000CA94DB /* SPUser.m in Sources */,

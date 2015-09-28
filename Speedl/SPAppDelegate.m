@@ -12,7 +12,6 @@
 #import <Crashlytics/Crashlytics.h>
 #import "SPSorryViewController.h"
 #import "SPDeviceToken.h"
-#import "SPFriendFindingViewController.h"
 
 @import CoreTelephony;
 

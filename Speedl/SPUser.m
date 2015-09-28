@@ -17,6 +17,7 @@
 #define kTokenKey       @"token"
 #define kMessagesKey    @"messages"
 #define kFriendsKey     @"friends"
+#define kPhoneKey       @"phone"
 
 @implementation SPUser
 
@@ -33,6 +34,7 @@
     currentUser.username = [[NSUserDefaults standardUserDefaults] stringForKey:kUsernameKey];
     currentUser.password = [[NSUserDefaults standardUserDefaults] stringForKey:kPasswordKey];
     currentUser.token = [[NSUserDefaults standardUserDefaults] stringForKey:kTokenKey];
+    currentUser.phoneNumber = [[NSUserDefaults standardUserDefaults] stringForKey:kPhoneKey];
     
     return currentUser;
 }
@@ -85,6 +87,11 @@
         [usersArray addObject:user];
     }
     return usersArray;
+}
+
++ (void)savePhoneNumber:(NSString *)phoneNumber {
+    [[NSUserDefaults standardUserDefaults] setObject:phoneNumber forKey:kPhoneKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void)saveFriendsList:(NSArray *)friendsArray {
@@ -343,11 +350,17 @@
                     return;
                 }
                 
-                NSDictionary *contactsInData = [NSJSONSerialization JSONObjectWithData:data
-                                                                    options:0
-                                                                      error:&error];
+                NSArray *users = [SPUserBuilder usersFromJSON:data error:&error];
                 
-                block(contactsInData[@"data"], nil);
+                // Sort data by isFriend.
+                NSSortDescriptor *sortDescriptor;
+                sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"isFriend"
+                                                             ascending:YES];
+                NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+                NSArray *sortedArray;
+                sortedArray = [users sortedArrayUsingDescriptors:sortDescriptors];
+                
+                block(sortedArray, nil);
                 return;
             }
         });
@@ -526,6 +539,7 @@
 + (void)saveUserToDisk:(SPUser *)user {
     [[NSUserDefaults standardUserDefaults] setObject:user.objectId forKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.username forKey:kUsernameKey];
+    [[NSUserDefaults standardUserDefaults] setObject:user.phoneNumber forKey:kPhoneKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

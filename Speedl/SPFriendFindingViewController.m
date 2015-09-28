@@ -10,10 +10,17 @@
 #import "SPPhoneValidation.h"
 #import "APAddressBook.h"
 #import "APContact.h"
+#import "SPFriendFindingDataSource.h"
+#import "RateLimit.h"
 
 @interface SPFriendFindingViewController ()
 
 @property (strong, nonatomic) APAddressBook *addressBook;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) SPFriendFindingDataSource *friendFindingDataSource;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UILabel *noResultsLabel;
+
 
 @end
 
@@ -71,9 +78,14 @@
                 if (serverMessage != nil) {
                     [SPNotification showErrorNotificationWithMessage:@"Error loading contacts" inViewController:self];
                 } else {
-                    NSLog(@"$$$$$$$$$$$$$$$$$$Contacts Array: \n%@", contacts);
+                    [self friendFindingDataSource].users = contacts;
+                    [self.tableView reloadData];
                 }
-                
+                if (contacts.count) {
+                    [self resultsState];
+                } else {
+                    [self noResultsState];
+                }
             }];
         }
         else
@@ -83,6 +95,20 @@
     }];
 }
 
+- (void)setupTableView {
+    [self.tableView registerNib:[UINib nibWithNibName:@"SPFriendTableViewCell" bundle:nil] forCellReuseIdentifier:kFriendCellReuse];
+    self.tableView.dataSource = [self friendFindingDataSource];
+    self.tableView.delegate = [self friendFindingDataSource];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.backgroundColor = [UIColor clearColor];
+}
+
+- (SPFriendFindingDataSource *)friendFindingDataSource {
+    if (!_friendFindingDataSource) {
+        _friendFindingDataSource = [SPFriendFindingDataSource new];
+    }
+    return _friendFindingDataSource;
+}
 
 #pragma mark Buttons
 
@@ -90,16 +116,35 @@
     [[self navigationController] popViewControllerAnimated:YES];
 }
 
-- (IBAction)onButtonPress:(id)sender {
-    [self getContacts];
-}
-
-
 #pragma mark Life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupAppearance];
+    [self setupTableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [RateLimit executeBlock:^{
+        [self loadingState];
+        [self getContacts];
+    } name:@"GetContacts" limit:30.0];
+}
+
+- (void)loadingState {
+    [self.activityIndicator setHidden:NO];
+    [self.activityIndicator startAnimating];
+    [self.noResultsLabel setHidden:YES];
+}
+
+- (void)noResultsState {
+    [self.activityIndicator setHidden:YES];
+    [self.noResultsLabel setHidden:NO];
+}
+
+- (void)resultsState {
+    [self.activityIndicator setHidden:YES];
+    [self.noResultsLabel setHidden:YES];
+}
 
 @end

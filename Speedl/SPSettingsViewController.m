@@ -9,11 +9,13 @@
 #import "SPSettingsViewController.h"
 #import "SPComposeViewController.h"
 #import "SPPhoneNumberViewController.h"
+#import "SPFriendFindingViewController.h"
 
 @interface SPSettingsViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) SPComposeViewController *feedbackViewController;
 @property (strong, nonatomic) SPPhoneNumberViewController *phoneViewController;
+@property (strong, nonatomic) SPFriendFindingViewController *friendsFindingViewController;
 @property (strong, nonatomic) IBOutlet UILabel *doneLabel;
 
 @end
@@ -49,6 +51,13 @@
     return _phoneViewController;
 }
 
+- (SPFriendFindingViewController *)friendsFindingViewController {
+    if (!_friendsFindingViewController) {
+        _friendsFindingViewController = [SPFriendFindingViewController new];
+    }
+    return _friendsFindingViewController;
+}
+
 - (IBAction)onLogoutPress:(id)sender {
     [[SPUser currentUser] logoutUserInBackgroundWithBlock:^(BOOL success, NSString *serverMessage) {
         if (success) {
@@ -67,4 +76,9 @@
 - (IBAction)onPhonePress:(id)sender {
     [[self navigationController] pushViewController:[self phoneViewController] animated:YES];
 }
+
+- (IBAction)onFindFriendsPress:(id)sender {
+    [[self navigationController] pushViewController:[self friendsFindingViewController] animated:YES];
+}
+
 @end

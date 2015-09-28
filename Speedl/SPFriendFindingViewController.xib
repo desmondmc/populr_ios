@@ -7,11 +7,15 @@
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue</string>
         </mutableArray>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPFriendFindingViewController">
             <connections>
+                <outlet property="activityIndicator" destination="mXX-d2-3bt" id="z0V-Bp-vh0"/>
+                <outlet property="noResultsLabel" destination="zQO-Oo-iWD" id="a6A-G5-Xd3"/>
+                <outlet property="tableView" destination="S2o-Ka-XCs" id="pVi-jA-Dph"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,6 +24,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="mXX-d2-3bt">
+                    <rect key="frame" x="290" y="330" width="20" height="20"/>
+                    <animations/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couldn't find any contacts :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQO-Oo-iWD">
+                    <rect key="frame" x="199" y="330.5" width="202" height="19"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_" translatesAutoresizingMaskIntoConstraints="NO" id="YVO-kj-Q37">
                     <rect key="frame" x="15" y="35" width="16" height="30"/>
                     <animations/>
@@ -39,28 +54,44 @@
                         <action selector="onBackPress:" destination="-1" eventType="touchUpInside" id="W6d-YU-pyq"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKX-Gj-ZIp">
-                    <rect key="frame" x="274" y="82" width="52" height="32"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts On Populr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMT-p1-szG">
+                    <rect key="frame" x="225" y="40" width="150.5" height="19.5"/>
                     <animations/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                    <state key="normal" title="Button">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onButtonPress:" destination="-1" eventType="touchUpInside" id="eSQ-vk-eqG"/>
-                    </connections>
-                </button>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S2o-Ka-XCs">
+                    <rect key="frame" x="0.0" y="81" width="600" height="519"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="nMT-p1-szG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2Wo-PY-2vL"/>
                 <constraint firstItem="YVO-kj-Q37" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="35" id="FLR-vk-gQc"/>
                 <constraint firstItem="YVO-kj-Q37" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Inl-dg-Kun"/>
                 <constraint firstItem="ljc-4J-mKn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KYC-Wm-sRX"/>
-                <constraint firstItem="YKX-Gj-ZIp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="hXW-cq-Y5F"/>
+                <constraint firstAttribute="bottom" secondItem="S2o-Ka-XCs" secondAttribute="bottom" id="Rbp-qe-GRK"/>
+                <constraint firstAttribute="trailing" secondItem="S2o-Ka-XCs" secondAttribute="trailing" id="XsB-B6-0oD"/>
+                <constraint firstItem="mXX-d2-3bt" firstAttribute="centerX" secondItem="S2o-Ka-XCs" secondAttribute="centerX" id="bFU-py-quA"/>
+                <constraint firstItem="mXX-d2-3bt" firstAttribute="centerY" secondItem="S2o-Ka-XCs" secondAttribute="centerY" id="bjn-34-3IN"/>
+                <constraint firstItem="S2o-Ka-XCs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iIM-Vz-5Rh"/>
+                <constraint firstItem="S2o-Ka-XCs" firstAttribute="top" secondItem="nMT-p1-szG" secondAttribute="bottom" constant="22" id="j8T-kb-ieu"/>
+                <constraint firstItem="zQO-Oo-iWD" firstAttribute="centerY" secondItem="mXX-d2-3bt" secondAttribute="centerY" id="qaZ-Nk-z2S"/>
                 <constraint firstItem="ljc-4J-mKn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qke-Mi-ibH"/>
-                <constraint firstItem="YKX-Gj-ZIp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xEd-Ta-9P3"/>
+                <constraint firstItem="zQO-Oo-iWD" firstAttribute="centerX" secondItem="mXX-d2-3bt" secondAttribute="centerX" id="xaL-pF-w2p"/>
+                <constraint firstItem="S2o-Ka-XCs" firstAttribute="leading" secondItem="ljc-4J-mKn" secondAttribute="trailing" id="yGK-MK-nHw"/>
+                <constraint firstItem="nMT-p1-szG" firstAttribute="centerY" secondItem="YVO-kj-Q37" secondAttribute="centerY" id="zM5-ua-csi"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="yGK-MK-nHw"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>
