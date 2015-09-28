@@ -38,12 +38,8 @@
 }
 
 + (void)logoutCurrentUser {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kMessagesKey];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kObjectIdKey];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUsernameKey];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPasswordKey];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kTokenKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 }
 
 #pragma mark - Message List Persistent Store
@@ -288,6 +284,70 @@
                 }
                 
                 block(YES, nil);
+                return;
+            }
+        });
+        
+    }];
+}
+
+- (void)postPhoneNumberInBackground:(NSString *)phoneNumber
+                              countryCode:(NSString *)countryCode
+                              block:(SPNetworkResultBlock)block {
+    
+    NSString *url = kAPIPostPhoneUrl;
+    
+    NSDictionary *userDictionary = @{@"phone_number":phoneNumber,
+                                     @"country_code": countryCode,
+                                     @"type": @"direct"};
+    
+    
+    NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
+    
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(NO, remoteError);
+                    return;
+                }
+                
+                block(YES, nil);
+                return;
+            }
+        });
+        
+    }];
+}
+
+- (void)postContactDataInBackground:(NSArray *)contactData
+                              block:(SPContactsResultBlock)block {
+    
+    NSString *url = kAPIPostContactDataUrl;
+    
+    NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url array:contactData];
+    
+    [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                NSError *error;
+                
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                NSString *remoteError = [SPNetworkHelper checkResponseCodeForError:httpResponse.statusCode data:data];
+                if (remoteError) {
+                    block(nil, remoteError);
+                    return;
+                }
+                
+                NSDictionary *contactsInData = [NSJSONSerialization JSONObjectWithData:data
+                                                                    options:0
+                                                                      error:&error];
+                
+                block(contactsInData[@"data"], nil);
                 return;
             }
         });

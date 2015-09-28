@@ -14,6 +14,7 @@
 #import "SPFriendsViewController.h"
 #import "SPMessageListViewController.h"
 #import "SPSorryViewController.h"
+#import "SPPhoneNumberViewController.h"
 
 @implementation SPLoginRouter
 
@@ -45,7 +46,7 @@
     return contrainterViewController;
 }
 
-+ (void) gotoLoggedInViewAndShowMessages:(BOOL)showMessages {
++ (void) gotoLoggedInViewAndNewUser:(BOOL)newUser {
     UIApplication *application = [UIApplication sharedApplication];
     
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
@@ -69,7 +70,16 @@
     [containerViewController goToMessageViewController];
     kAppDel.window.rootViewController = containerViewController;
     [kAppDel.window makeKeyAndVisible];
+    
+    if (newUser) {
+        SPPhoneNumberViewController *phoneViewController = [[SPPhoneNumberViewController alloc] initWithType:SPPhoneNumberViewTypeModel];
+        
+        
+        [kAppDel.window.rootViewController presentViewController:phoneViewController animated:YES completion:nil];
+    }
 }
+
+
 
 + (void) gotoLoggedOutView {
     if (kAppDel.window == nil) {

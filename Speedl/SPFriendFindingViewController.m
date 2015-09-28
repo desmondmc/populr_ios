@@ -7,51 +7,99 @@
 //
 
 #import "SPFriendFindingViewController.h"
-
+#import "SPPhoneValidation.h"
 #import "APAddressBook.h"
 #import "APContact.h"
 
 @interface SPFriendFindingViewController ()
 
+@property (strong, nonatomic) APAddressBook *addressBook;
+
 @end
 
 @implementation SPFriendFindingViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    [self getContacts];
+- (APAddressBook *)addressBook {
+    if (!_addressBook) {
+        _addressBook = [[APAddressBook alloc] init];
+    }
+    return _addressBook;
+}
+
+- (void)setupAppearance {
+    [[self view] setBackgroundColor:[SPAppearance getMainBackgroundColour]];
 }
 
 - (void)getContacts {
-    
-    APAddressBook *addressBook = [[APAddressBook alloc] init];
+    NSString *countryCode = [SPPhoneValidation getUserCountryCodeNeverNil];
     
     // Loading contacts
+    NSMutableArray *contactsArray = [NSMutableArray new];
     
-    [addressBook loadContacts:^(NSArray *contacts, NSError *error)
+    [[self addressBook] loadContacts:^(NSArray *contacts, NSError *error)
     {
-        // hide activity
-        
         if (!error)
         {
             for (APContact *contact in contacts) {
-                NSLog(@"Full name: %@ %@", contact.firstName, contact.lastName);
-                for (NSString *phoneNumber in contact.phones) {
-                    NSLog(@" - Phone: %@", phoneNumber);
+                if (!contact.phones || contact.phones.count == 0) {
+                    continue;
                 }
+                
+                NSMutableDictionary *newContact = [NSMutableDictionary new];
+                
+                if (contact.firstName) {
+                    [newContact setObject:contact.firstName forKey:@"first_name"];
+                }
+                
+                if (contact.lastName) {
+                    [newContact setObject:contact.lastName forKey:@"last_name"];
+                }
+                
+                NSMutableArray *newPhones = [NSMutableArray new];
+                for (NSString *phone in contact.phones) {
+                    NSString *interNumber = [SPPhoneValidation getInternationalNumberFromPhoneNumber:phone
+                                                                 countryCode:countryCode];
+                    [newPhones addObject:interNumber];
+                    
+                }
+                [newContact setObject:newPhones forKey:@"phones"];
+                
+                [contactsArray addObject:newContact];
             }
+            
+            [[SPUser currentUser] postContactDataInBackground:contactsArray block:^(NSArray *contacts, NSString *serverMessage) {
+                if (serverMessage != nil) {
+                    [SPNotification showErrorNotificationWithMessage:@"Error loading contacts" inViewController:self];
+                } else {
+                    NSLog(@"$$$$$$$$$$$$$$$$$$Contacts Array: \n%@", contacts);
+                }
+                
+            }];
         }
         else
         {
-            NSLog(@"Error getting contects: %@", error);
+            [SPNotification showErrorNotificationWithMessage:@"Error loading contacts" inViewController:self];
         }
     }];
 }
 
 
+#pragma mark Buttons
 
+- (IBAction)onBackPress:(id)sender {
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+- (IBAction)onButtonPress:(id)sender {
+    [self getContacts];
+}
+
+
+#pragma mark Life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setupAppearance];
+}
 
 
 @end

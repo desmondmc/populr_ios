@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPFriendFindingViewController">
             <connections>
@@ -14,8 +19,51 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_" translatesAutoresizingMaskIntoConstraints="NO" id="YVO-kj-Q37">
+                    <rect key="frame" x="15" y="35" width="16" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="DZQ-4e-rxC"/>
+                        <constraint firstAttribute="width" constant="16" id="QAk-1Q-CPq"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljc-4J-mKn" userLabel="BackButton">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="100"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="1s7-vR-4R1"/>
+                        <constraint firstAttribute="width" constant="46" id="It5-Av-J2L"/>
+                    </constraints>
+                    <connections>
+                        <action selector="onBackPress:" destination="-1" eventType="touchUpInside" id="W6d-YU-pyq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKX-Gj-ZIp">
+                    <rect key="frame" x="274" y="82" width="52" height="32"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onButtonPress:" destination="-1" eventType="touchUpInside" id="eSQ-vk-eqG"/>
+                    </connections>
+                </button>
+            </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="YVO-kj-Q37" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="35" id="FLR-vk-gQc"/>
+                <constraint firstItem="YVO-kj-Q37" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Inl-dg-Kun"/>
+                <constraint firstItem="ljc-4J-mKn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KYC-Wm-sRX"/>
+                <constraint firstItem="YKX-Gj-ZIp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="hXW-cq-Y5F"/>
+                <constraint firstItem="ljc-4J-mKn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qke-Mi-ibH"/>
+                <constraint firstItem="YKX-Gj-ZIp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xEd-Ta-9P3"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="back_" width="16" height="30"/>
+    </resources>
 </document>

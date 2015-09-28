@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SPCustomTabView.h"
 
 @interface SPSignupViewController : UIViewController <UITextFieldDelegate>
 

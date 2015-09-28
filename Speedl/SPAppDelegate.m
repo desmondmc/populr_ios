@@ -34,18 +34,12 @@
             [SPLoginRouter gotoLoggedOutView];
             
         } else {
-            BOOL remoteNotificationPresent = (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]!= nil);
-            [SPLoginRouter gotoLoggedInViewAndShowMessages:remoteNotificationPresent];
+            [SPLoginRouter gotoLoggedInViewAndNewUser:NO];
         }
         
     } else {
         [SPLoginRouter gotoLoggedOutView];
     }
-    
-    NSLocale *currentLocale = [NSLocale currentLocale];  // get the current locale.
-    NSString *countryCode = [currentLocale objectForKey:NSLocaleCountryCode];
-    
-    NSLog(@"Country Code %@", countryCode);
     
     return YES;
 }

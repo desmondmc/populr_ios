@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, SPTabViewType) {
+    SPTabViewTypeFriends,
+    SPTabViewTypeLogin
+};
+
 @protocol SPCustomTabViewDelegate <NSObject>
 
 - (void)tabSelectedAtIndex:(NSInteger)index;
@@ -15,6 +20,8 @@
 @end
 
 @interface SPCustomTabView : UIView
+
+- (id)initWithTabViewType:(SPTabViewType)type;
 
 @property (nonatomic) NSInteger selectedSegmentIndex;
 @property (weak, nonatomic) id<SPCustomTabViewDelegate> delegate;

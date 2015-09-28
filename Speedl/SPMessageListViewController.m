@@ -10,7 +10,7 @@
 #import "SPMessageTableViewCell.h"
 #import "SPMessageViewController.h"
 
-#define kMeanMessageArray @[@"Get more friends", @"Maybe it's your face", @"Have you tried CrossFit?", @"Do better", @"That sucks", @"Ouch", @"That's embarassing", @"Add your mom", @"You smell like dandelions", @"You must suck at dinner parties", @"You probably drive a Prius"]
+#define kMeanMessageArray @[@"Get more friends", @"Maybe it's your face", @"Have you tried CrossFit?", @"Do better", @"That sucks", @"Ouch", @"That's embarassing", @"Add your mom", @"You smell like dandelions", @"You must suck at dinner parties", @"You probably drive a Prius", @"Were you picked last for dodgeball?", @"I bet you enjoy egg salad", @"Your name is Karen, isn't it?", @"Damn", @"Just wait longer!", @"💩", @"Maybe try Ashely Madison", @"Join a book club", @"Not surprising..."]
 
 @interface SPMessageListViewController ()
 

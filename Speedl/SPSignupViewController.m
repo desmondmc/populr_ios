@@ -13,8 +13,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 @property (strong, nonatomic) IBOutlet UIButton *nextButton;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *nextButtonBottomContraint;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (strong, nonatomic) IBOutlet UIView *tabContainerView;
+@property (strong, nonatomic) SPCustomTabView *customTabView;
+@property (strong, nonatomic) IBOutlet UILabel *nextButtonLabel;
 
 @end
 
@@ -22,8 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
     [_usernameField becomeFirstResponder];
     
     [self setupAppearance];
@@ -41,16 +40,18 @@
     [self.view setBackgroundColor:[SPAppearance globalBackgroundColour]];
     [self.usernameField styleAsMainSpeedlTextField];
     [self.passwordField styleAsMainSpeedlTextField];
-    [self.nextButton styleAsMainSpeedlButton];
-    [self.segmentControl styleAsMainSpeedlSegmentControl];
+    [self.nextButtonLabel styleAsSendLabel];
+    
+    [_tabContainerView addSubview:[self customTabView]];
+    [SPAutoLayout constrainSubviewToFillSuperview:[self customTabView]];
 }
 
--(void)keyboardWasShown:(NSNotification*)notification
-{
-    CGFloat height = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-    
-    self.nextButtonBottomContraint.constant = height + 20;
-    [self.view layoutIfNeeded];
+- (SPCustomTabView *)customTabView {
+    if (!_customTabView) {
+        _customTabView = [[SPCustomTabView alloc] initWithTabViewType:SPTabViewTypeLogin];
+        [_customTabView setSelectedSegmentIndex:0];
+    }
+    return _customTabView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,9 +68,9 @@
 }
 
 - (void) routeBasedOnSegmentControl {
-    if (self.segmentControl.selectedSegmentIndex == 0) {    //Register
+    if ([self customTabView].selectedSegmentIndex == 0) {    //Register
         [self registerUser];
-    } else {                                                //Login
+    } else {                                                 //Login
         [self loginUser];
     }
 }
@@ -91,7 +92,7 @@
         // If the user has logged out and then signed up for a new account we need to send up the device token again.
         [self sendExistingDeviceTokenIfNeeded];
         
-        [SPLoginRouter gotoLoggedInViewAndShowMessages:NO];
+        [SPLoginRouter gotoLoggedInViewAndNewUser:YES];
     }];
 }
 
@@ -128,7 +129,7 @@
         // If the user has logged out and then logged into a new account we need to send up the device token again.
         [self sendExistingDeviceTokenIfNeeded];
         
-        [SPLoginRouter gotoLoggedInViewAndShowMessages:NO];
+        [SPLoginRouter gotoLoggedInViewAndNewUser:NO];
     }];
 }
 

@@ -13,6 +13,7 @@
 + (NSURLRequest *) getRequestWithURL:(NSString *)urlString;
 + (NSURLRequest *) deleteRequestWithURL:(NSString *)urlString;
 + (NSURLRequest *) postRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary;
++ (NSURLRequest *) postRequestWithURL:(NSString *)urlString array:(NSArray *)array;
 + (NSString *) checkResponseCodeForError:(NSInteger)code data:(NSData *)data;
 + (void)sendAsynchronousRequest:(NSURLRequest*) request
                           queue:(NSOperationQueue*) queue

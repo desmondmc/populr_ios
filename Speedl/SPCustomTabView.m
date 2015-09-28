@@ -18,17 +18,29 @@
 @property (strong, nonatomic) IBOutlet UIView *leftViewBottomLine;
 @property (strong, nonatomic) IBOutlet UIView *centreViewBottomLine;
 
-
-
 @property (strong, nonatomic) IBOutlet UIView *firstVerticalLine;
 @property (strong, nonatomic) IBOutlet UIView *topLine;
 
 @property (strong, nonatomic) IBOutlet UIImageView *searchImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *friendsImageView;
+@property (strong, nonatomic) IBOutlet UILabel *leftLabel;
+@property (strong, nonatomic) IBOutlet UILabel *rightLabel;
+
+@property (nonatomic) SPTabViewType tabViewType;
 
 @end
 
 @implementation SPCustomTabView
+
+- (id)initWithTabViewType:(SPTabViewType)type {
+    self = [[[NSBundle mainBundle] loadNibNamed:@"SPCustomTabView"
+                                          owner:self
+                                        options:nil] objectAtIndex:0];
+    if (self) {
+        _tabViewType = type;
+    }
+    return self;
+}
 
 - (IBAction)didPressLeftView:(id)sender {
     _selectedSegmentIndex = 0;
@@ -60,7 +72,7 @@
             [self setupForLeftPress];
             break;
         case 1:
-            [self setupForCentrePress];
+            [self setupForRightPress];
             break;
         default:
             break;
@@ -74,22 +86,61 @@
     _firstVerticalLine.backgroundColor = [SPAppearance megaSeeThroughColour];
     _leftViewBottomLine.backgroundColor = [SPAppearance megaSeeThroughColour];
     _centreViewBottomLine.backgroundColor = [SPAppearance megaSeeThroughColour];
+    
+    switch (_tabViewType) {
+        case SPTabViewTypeFriends:
+            [_leftLabel setHidden:YES];
+            [_rightLabel setHidden:YES];
+            [_friendsImageView setHidden:NO];
+            [_searchImageView setHidden:NO];
+            break;
+        case SPTabViewTypeLogin:
+            [_leftLabel setHidden:NO];
+            [_rightLabel setHidden:NO];
+            [_friendsImageView setHidden:YES];
+            [_searchImageView setHidden:YES];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)setupForLeftPress {
+    switch (_tabViewType) {
+        case SPTabViewTypeFriends:
+            _friendsImageView.image = kNonSelectedFriendsImage;
+            _searchImageView.image = kSelectedSearchImage;
+            break;
+          
+        case SPTabViewTypeLogin:
+            _leftLabel.textColor = [UIColor whiteColor];
+            _rightLabel.textColor = [SPAppearance seeThroughColour];
+            break;
+        default:
+            break;
+    }
+
     [_leftViewBottomLine setHidden:YES];
     [_centreViewBottomLine setHidden:NO];
-    
-    _friendsImageView.image = kNonSelectedFriendsImage;
-    _searchImageView.image = kSelectedSearchImage;
 }
 
-- (void)setupForCentrePress { // Following
+- (void)setupForRightPress { // Friends
+    switch (_tabViewType) {
+        case SPTabViewTypeFriends:
+            _friendsImageView.image = kSelectedFriendsImage;
+            _searchImageView.image = kNonSelectedSearchImage;
+            break;
+            
+        case SPTabViewTypeLogin:
+            _leftLabel.textColor = [SPAppearance seeThroughColour];
+            _rightLabel.textColor = [UIColor whiteColor];
+            break;
+        default:
+            break;
+    }
+    
     [_leftViewBottomLine setHidden:NO];
     [_centreViewBottomLine setHidden:YES];
-    
-    _friendsImageView.image = kSelectedFriendsImage;
-    _searchImageView.image = kNonSelectedSearchImage;
 }
 
 

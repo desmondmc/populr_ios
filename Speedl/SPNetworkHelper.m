@@ -22,6 +22,7 @@
     }];
 }
 
+// Data has to be an array or a dictionary
 + (NSURLRequest *) postRequestWithURL:(NSString *)urlString andDictionary:(NSDictionary *)dictionary {
     NSMutableURLRequest *request = [self requestWithURL:urlString andDictionary:dictionary].mutableCopy;
     request.HTTPMethod = @"POST";
@@ -30,6 +31,16 @@
     
     return request;
 }
+
++ (NSURLRequest *) postRequestWithURL:(NSString *)urlString array:(NSArray *)array {
+    NSMutableURLRequest *request = [self requestWithURL:urlString andArray:array].mutableCopy;
+    request.HTTPMethod = @"POST";
+    
+    [self setRequestHeaders:&request];
+    
+    return request;
+}
+
 
 + (NSURLRequest *) getRequestWithURL:(NSString *)urlString {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
@@ -59,6 +70,30 @@
         userJson = [NSJSONSerialization dataWithJSONObject:@{@"data": dictionary}
                                                            options:0
                                                              error:&error];
+    }
+    if (error != nil) {
+        return nil;
+    }
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    if (userJson) {
+        request.HTTPBody = userJson;
+    }
+    
+    
+    [self setRequestHeaders:&request];
+    
+    return request;
+}
+
++ (NSURLRequest *) requestWithURL:(NSString *)urlString andArray:(NSArray *)array {
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    NSData *userJson = nil;
+    NSError *error;
+    if (array) {
+        userJson = [NSJSONSerialization dataWithJSONObject:@{@"data": array}
+                                                   options:0
+                                                     error:&error];
     }
     if (error != nil) {
         return nil;

@@ -18,6 +18,7 @@ typedef void (^SPUserResultBlock)(SPUser *user, NSString *serverMessage);
 typedef void (^SPFriendsResultBlock)(NSArray *friends, NSString *serverMessage);
 typedef void (^SPFollowingResultBlock)(NSArray *following, NSString *serverMessage);
 typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage);
+typedef void (^SPContactsResultBlock)(NSArray *contacts, NSString *serverMessage);
 
 // JSON values
 
@@ -50,6 +51,13 @@ typedef void (^SPUserSearchResultBlock)(NSArray *users, NSString *serverMessage)
 - (void)postMessageInBackground:(NSString *)message
                           users:(NSArray *)users
                           block:(SPNetworkResultBlock)block;
+
+- (void)postPhoneNumberInBackground:(NSString *)phoneNumber
+                        countryCode:(NSString *)countryCode
+                              block:(SPNetworkResultBlock)block;
+
+- (void)postContactDataInBackground:(NSArray *)contactData
+                              block:(SPContactsResultBlock)block;
 
 - (void)postFeedbackInBackground:(NSString *)feedback block:(SPNetworkResultBlock)block;
 

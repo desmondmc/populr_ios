@@ -106,7 +106,6 @@
 - (void)setupForPresearch {
     [_tableView setHidden:YES];
     [_noResultsLabel setHidden:YES];
-    //[self centerSearchTextField];
 }
 
 - (void)setupForMidSearch {

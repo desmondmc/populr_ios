@@ -33,6 +33,9 @@
 		7A89E46D1BB3213200184756 /* SPDeviceToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A89E46C1BB3213200184756 /* SPDeviceToken.m */; settings = {ASSET_TAGS = (); }; };
 		7A89E4721BB333F400184756 /* SPFriendFindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A89E4701BB333F400184756 /* SPFriendFindingViewController.m */; settings = {ASSET_TAGS = (); }; };
 		7A89E4731BB333F400184756 /* SPFriendFindingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A89E4711BB333F400184756 /* SPFriendFindingViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		7A89E4781BB4506300184756 /* SPPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A89E4761BB4506300184756 /* SPPhoneNumberViewController.m */; settings = {ASSET_TAGS = (); }; };
+		7A89E4791BB4506300184756 /* SPPhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A89E4771BB4506300184756 /* SPPhoneNumberViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		7A89E47D1BB4674F00184756 /* SPPhoneValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A89E47C1BB4674F00184756 /* SPPhoneValidation.m */; settings = {ASSET_TAGS = (); }; };
 		7AB3D6EB1AC35A3900CA94DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6EA1AC35A3900CA94DB /* main.m */; };
 		7AB3D6EE1AC35A3900CA94DB /* SPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D6ED1AC35A3900CA94DB /* SPAppDelegate.m */; };
 		7AB3D6F61AC35A3900CA94DB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D6F51AC35A3900CA94DB /* Images.xcassets */; };
@@ -135,6 +138,11 @@
 		7A89E46F1BB333F400184756 /* SPFriendFindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendFindingViewController.h; sourceTree = "<group>"; };
 		7A89E4701BB333F400184756 /* SPFriendFindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendFindingViewController.m; sourceTree = "<group>"; };
 		7A89E4711BB333F400184756 /* SPFriendFindingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendFindingViewController.xib; sourceTree = "<group>"; };
+		7A89E4751BB4506300184756 /* SPPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPhoneNumberViewController.h; sourceTree = "<group>"; };
+		7A89E4761BB4506300184756 /* SPPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPhoneNumberViewController.m; sourceTree = "<group>"; };
+		7A89E4771BB4506300184756 /* SPPhoneNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPPhoneNumberViewController.xib; sourceTree = "<group>"; };
+		7A89E47B1BB4674F00184756 /* SPPhoneValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPhoneValidation.h; sourceTree = "<group>"; };
+		7A89E47C1BB4674F00184756 /* SPPhoneValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPhoneValidation.m; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Populr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Populr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -285,6 +293,7 @@
 		7A263CFD1AC89B4C00D69F60 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7A89E47A1BB4673300184756 /* PhoneValidation */,
 				7A89E46A1BB3210500184756 /* DeviceTokenManager */,
 				7ADB12171B4C664800822094 /* SPMessageProcessor */,
 				7ADC270F1B32088700B90798 /* Categories */,
@@ -457,6 +466,25 @@
 			name = SPFriendFinding;
 			sourceTree = "<group>";
 		};
+		7A89E4741BB4502900184756 /* SPPhoneNumberViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A89E4751BB4506300184756 /* SPPhoneNumberViewController.h */,
+				7A89E4761BB4506300184756 /* SPPhoneNumberViewController.m */,
+				7A89E4771BB4506300184756 /* SPPhoneNumberViewController.xib */,
+			);
+			name = SPPhoneNumberViewController;
+			sourceTree = "<group>";
+		};
+		7A89E47A1BB4673300184756 /* PhoneValidation */ = {
+			isa = PBXGroup;
+			children = (
+				7A89E47B1BB4674F00184756 /* SPPhoneValidation.h */,
+				7A89E47C1BB4674F00184756 /* SPPhoneValidation.m */,
+			);
+			name = PhoneValidation;
+			sourceTree = "<group>";
+		};
 		7AB3D6DC1AC35A3900CA94DB = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +582,7 @@
 		7AB3D71D1AC35BE600CA94DB /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				7A89E4741BB4502900184756 /* SPPhoneNumberViewController */,
 				7A49B98C1AE835F90085D3C6 /* SPCustomTwoTabView */,
 				7AB3D71E1AC35C1600CA94DB /* SPSignupViewController.h */,
 				7AB3D71F1AC35C1600CA94DB /* SPSignupViewController.m */,
@@ -811,6 +840,7 @@
 				7AB3D7281AC35C4C00CA94DB /* SPComposeViewController.xib in Resources */,
 				7AC4175E1B51413C00E9EBD5 /* SPSuggestionTableViewCell.xib in Resources */,
 				7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */,
+				7A89E4791BB4506300184756 /* SPPhoneNumberViewController.xib in Resources */,
 				7AC6916F1B25FF960018EB9D /* SPCustomPageControl.xib in Resources */,
 				7A216C2A1B164DA800F67B0F /* SPSettingsViewController.xib in Resources */,
 				7AB3D6F91AC35A3900CA94DB /* LaunchScreen.xib in Resources */,
@@ -884,6 +914,7 @@
 				7A216C291B164DA800F67B0F /* SPSettingsViewController.m in Sources */,
 				7A1969341B4B2CCD0006D5AF /* SPMessageHolder.m in Sources */,
 				7AC691651B25FA0D0018EB9D /* SPCustomNotificationViewController.m in Sources */,
+				7A89E47D1BB4674F00184756 /* SPPhoneValidation.m in Sources */,
 				7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */,
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
@@ -918,6 +949,7 @@
 				7ADB121A1B4C668900822094 /* SPMessageProcessor.m in Sources */,
 				7A263D131AD1486B00D69F60 /* SPMessage.m in Sources */,
 				7ADCF4441B06A265009834D5 /* SPUsersTableDataSource.m in Sources */,
+				7A89E4781BB4506300184756 /* SPPhoneNumberViewController.m in Sources */,
 				7A45F8A51B011DC5009BDA95 /* SPNotification.m in Sources */,
 				7A49B98F1AE836350085D3C6 /* SPCustomTwoTabView.m in Sources */,
 				7A0FFB091B3EB26200869C3E /* SPCustomTabView.m in Sources */,

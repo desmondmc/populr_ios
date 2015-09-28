@@ -11,8 +11,8 @@
 @implementation UIButton (Custom)
 
 - (void) styleAsMainSpeedlButton {
-    self.titleLabel.font = [SPAppearance mainButtonFont];
-    self.titleLabel.textColor = [SPAppearance mainButtonColour];
+    self.titleLabel.font = [SPAppearance sendButtonFont];
+    self.titleLabel.textColor = [SPAppearance globalBackgroundColour];
 }
 
 @end
