@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *fromLabel;
 @property (nonatomic) BOOL showCountDown;
 @property (strong, nonatomic) SPMessage *message;
+@property (nonatomic) BOOL countDownFinished;
 
 @end
 
@@ -47,7 +48,7 @@
     }
     
     if ([_message.type isEqualToString:@"direct"]) {
-        _messageFromLabel.text = @"PRIVATE MESSAGE FROM:";
+        _messageFromLabel.text = @"Private message from";
     }
     
     if (_message.fromUsername) {
@@ -68,6 +69,7 @@
     
     if (_showCountDown) {
         [_countDown playAnimationWithCompletionBlock:^{
+            _countDownFinished = YES;
             [_messageLabel setHidden:NO];
             [_messageLabel playAnimationWithCompletionBlock:^{
                 [self handleMessageComplete];
@@ -77,6 +79,7 @@
             [_fromLabel setHidden:YES];
         }];
     } else {
+        _countDownFinished = YES;
         [_messageLabel setHidden:NO];
         [_messageLabel playAnimationWithCompletionBlock:^{
             [self handleMessageComplete];
@@ -94,8 +97,8 @@
     [_playButton setHidden:YES];
     [_messageLabel setTextColor:[SPAppearance globalBackgroundColour]];
     [_countDown setTextColor:[SPAppearance globalBackgroundColour]];
-    [_messageFromLabel setTextColor:[SPAppearance globalBackgroundColourWithAlpha:0.50]];
-    _messageFromLabel.font = [SPAppearance mainSegmentControlFont];
+    [_messageFromLabel setTextColor:[SPAppearance globalBackgroundColour]];
+    _messageFromLabel.font = [SPAppearance helpLabelFont];
     [_fromLabel setTextColor:[SPAppearance globalBackgroundColour]];
     
     [_messageLabel setHidden:YES];
@@ -110,7 +113,11 @@
 }
 
 - (IBAction)onDismissPress:(id)sender {
-    [self handleMessageComplete];
+    if (_countDownFinished) {
+        [self handleMessageComplete];
+    } else {
+        [_countDown finishAnimation];
+    }
 }
 
 - (IBAction)onRestartPress:(id)sender {

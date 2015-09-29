@@ -57,6 +57,10 @@
     [_stateMachine fireEvent:kEvent_ResetPress userInfo:nil error:nil];
 }
 
+- (void)finishAnimation {
+    [_stateMachine fireEvent:kEvent_MessageFinished userInfo:nil error:nil];
+}
+
 #pragma mark Setters and Getters
 
 - (NSString *) messageText {

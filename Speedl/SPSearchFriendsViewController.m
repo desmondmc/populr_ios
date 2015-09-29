@@ -9,6 +9,8 @@
 #import "SPSearchFriendsViewController.h"
 #import "SPUsersTableDelegate.h"
 #import "SPUsersTableDataSource.h"
+#import "SPFriendFindingDataSource.h"
+#import "RateLimit.h"
 
 #define kSearchFieldDefaultYConstraintValue 8;
 
@@ -18,10 +20,13 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SPUsersTableDataSource *dataSource;
 @property (strong, nonatomic) SPUsersTableDelegate *delegate;
+@property (strong, nonatomic) SPFriendFindingDataSource *friendFindingDataSource;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UILabel *noResultsLabel;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *searchTextFieldUpperConstraint;
 @property (nonatomic) CGFloat currentKeyboardHeight;
+@property (strong, nonatomic) IBOutlet UITableView *suggestionsTableView;
+@property (strong, nonatomic) IBOutlet UIView *suggestionsView;
 
 @end
 
@@ -32,6 +37,10 @@
     
     self.tableView.delegate = [self delegate];
     self.tableView.dataSource = [self dataSource];
+    self.suggestionsTableView.delegate = [self friendFindingDataSource];
+    self.suggestionsTableView.dataSource = [self friendFindingDataSource];
+    
+    [self.suggestionsTableView registerNib:[UINib nibWithNibName:@"SPFriendTableViewCell" bundle:nil] forCellReuseIdentifier:kFriendCellReuse];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SPFriendTableViewCell" bundle:nil] forCellReuseIdentifier:kFriendCellReuse];
     
@@ -39,6 +48,14 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [RateLimit executeBlock:^{
+        [[self friendFindingDataSource] getContacts:^(NSInteger contactCount) {
+            if (contactCount > 0) {
+                [self setupForPostSuggestions];
+            }
+        } predicate:@"isFriend == NO"];
+    } name:@"SearchFriends" limit:30.0];
+    
     // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -98,28 +115,39 @@
 
 - (void) setupAppearance {
     [self.tableView styleAsMainSpeedlTableView];
+    [self.suggestionsTableView styleAsMainSpeedlTableView];
     [self.searchTextField styleAsMainSpeedlTextField];
     
     [self setupForPresearch];
 }
 
+- (void)setupForPostSuggestions {
+    [_suggestionsView setHidden:NO];
+    [_tableView setHidden:YES];
+    [_noResultsLabel setHidden:YES];
+}
+
 - (void)setupForPresearch {
+    [_suggestionsView setHidden:YES];
     [_tableView setHidden:YES];
     [_noResultsLabel setHidden:YES];
 }
 
 - (void)setupForMidSearch {
+    [_suggestionsView setHidden:YES];
     [_tableView setHidden:YES];
     [_noResultsLabel setHidden:YES];
     [_activityIndicator setHidden:NO];
 }
 
 - (void)setupForPostSearchWithResults {
+    [_suggestionsView setHidden:YES];
     [_tableView setHidden:NO];
     [_noResultsLabel setHidden:YES];
 }
 
 - (void)setupForPostSearchNoResults {
+    [_suggestionsView setHidden:NO];
     [_tableView setHidden:YES];
     [_noResultsLabel setHidden:NO];
 }
@@ -163,6 +191,13 @@
         _delegate = [[SPUsersTableDelegate alloc] init];
     }
     return _delegate;
+}
+
+- (SPFriendFindingDataSource *)friendFindingDataSource {
+    if (!_friendFindingDataSource) {
+        _friendFindingDataSource = [[SPFriendFindingDataSource alloc] initWithTableView:_suggestionsTableView];
+    }
+    return _friendFindingDataSource;
 }
 
 #pragma mark UITextFieldDelegate

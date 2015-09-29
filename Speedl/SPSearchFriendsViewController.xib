@@ -7,6 +7,7 @@
     <customFonts key="customFonts">
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -16,6 +17,8 @@
                 <outlet property="noResultsLabel" destination="agi-qD-dOJ" id="SsP-ce-ACc"/>
                 <outlet property="searchTextField" destination="gT7-du-dul" id="Ufa-wS-bjN"/>
                 <outlet property="searchTextFieldUpperConstraint" destination="LeU-Ym-Nih" id="7Xo-gq-6zo"/>
+                <outlet property="suggestionsTableView" destination="BeJ-Hv-c4v" id="vtA-4w-0KX"/>
+                <outlet property="suggestionsView" destination="Axx-fu-pr2" id="Z5R-gd-LFN"/>
                 <outlet property="tableView" destination="Tgj-0j-RyT" id="43M-4U-hiK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -48,6 +51,47 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axx-fu-pr2" userLabel="SuggestionsView">
+                    <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggestions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58z-W8-Za6" userLabel="Suggestions">
+                            <rect key="frame" x="256" y="16" width="89" height="19"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-Hv-c4v" userLabel="SuggestionsTable">
+                            <rect key="frame" x="0.0" y="45.5" width="600" height="494.5"/>
+                            <animations/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="58z-W8-Za6" firstAttribute="top" secondItem="Axx-fu-pr2" secondAttribute="top" constant="16" id="0Z3-UU-mZe"/>
+                        <constraint firstItem="58z-W8-Za6" firstAttribute="centerX" secondItem="Axx-fu-pr2" secondAttribute="centerX" id="4OP-F3-33R"/>
+                        <constraint firstItem="BeJ-Hv-c4v" firstAttribute="leading" secondItem="Axx-fu-pr2" secondAttribute="leading" id="9uR-Ao-CJA"/>
+                        <constraint firstAttribute="trailing" secondItem="BeJ-Hv-c4v" secondAttribute="trailing" id="IMw-i5-AxF"/>
+                        <constraint firstAttribute="bottom" secondItem="BeJ-Hv-c4v" secondAttribute="bottom" id="U1C-Oc-kp6"/>
+                        <constraint firstItem="BeJ-Hv-c4v" firstAttribute="centerY" secondItem="Axx-fu-pr2" secondAttribute="centerY" id="WkD-sw-Nfd"/>
+                        <constraint firstItem="BeJ-Hv-c4v" firstAttribute="top" secondItem="58z-W8-Za6" secondAttribute="bottom" constant="10.5" id="Wpl-EC-z3M"/>
+                        <constraint firstItem="BeJ-Hv-c4v" firstAttribute="height" secondItem="Axx-fu-pr2" secondAttribute="height" id="mis-Gv-riG"/>
+                        <constraint firstItem="BeJ-Hv-c4v" firstAttribute="width" secondItem="Axx-fu-pr2" secondAttribute="width" id="qou-NM-Ket"/>
+                        <constraint firstItem="BeJ-Hv-c4v" firstAttribute="centerX" secondItem="Axx-fu-pr2" secondAttribute="centerX" id="s3I-VF-mKB"/>
+                        <constraint firstItem="BeJ-Hv-c4v" firstAttribute="top" secondItem="Axx-fu-pr2" secondAttribute="top" constant="40" id="yFQ-v6-JQn"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="WkD-sw-Nfd"/>
+                            <exclude reference="mis-Gv-riG"/>
+                            <exclude reference="qou-NM-Ket"/>
+                            <exclude reference="s3I-VF-mKB"/>
+                            <exclude reference="yFQ-v6-JQn"/>
+                        </mask>
+                    </variation>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Tgj-0j-RyT">
                     <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                     <animations/>
@@ -59,17 +103,21 @@
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Axx-fu-pr2" firstAttribute="height" secondItem="Tgj-0j-RyT" secondAttribute="height" id="2GZ-Ko-vi4"/>
                 <constraint firstAttribute="trailing" secondItem="gT7-du-dul" secondAttribute="trailing" constant="8" id="8dc-wR-dol"/>
+                <constraint firstItem="Axx-fu-pr2" firstAttribute="width" secondItem="Tgj-0j-RyT" secondAttribute="width" id="DWt-IH-gg6"/>
                 <constraint firstItem="Tgj-0j-RyT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="L4Y-pY-0Ii"/>
                 <constraint firstItem="gT7-du-dul" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="14" id="LeU-Ym-Nih"/>
                 <constraint firstAttribute="trailing" secondItem="Tgj-0j-RyT" secondAttribute="trailing" id="QJf-Wv-eun"/>
                 <constraint firstItem="Tgj-0j-RyT" firstAttribute="top" secondItem="gT7-du-dul" secondAttribute="bottom" constant="8" id="UhE-iM-OC8"/>
                 <constraint firstItem="Tgj-0j-RyT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wab-te-IA6"/>
                 <constraint firstAttribute="centerX" secondItem="agi-qD-dOJ" secondAttribute="centerX" id="aaG-wS-TLA"/>
+                <constraint firstItem="Axx-fu-pr2" firstAttribute="centerY" secondItem="Tgj-0j-RyT" secondAttribute="centerY" id="dc5-CK-6kV"/>
                 <constraint firstAttribute="centerX" secondItem="AfG-q9-EAE" secondAttribute="centerX" id="h0C-cl-mA0"/>
                 <constraint firstItem="gT7-du-dul" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="hH9-th-Ot0"/>
                 <constraint firstAttribute="centerY" secondItem="AfG-q9-EAE" secondAttribute="centerY" id="nr7-T2-v7f"/>
                 <constraint firstAttribute="centerY" secondItem="agi-qD-dOJ" secondAttribute="centerY" id="xOY-Wk-Kdd"/>
+                <constraint firstItem="Axx-fu-pr2" firstAttribute="centerX" secondItem="Tgj-0j-RyT" secondAttribute="centerX" id="xeg-r5-Y8e"/>
                 <constraint firstAttribute="bottom" secondItem="Tgj-0j-RyT" secondAttribute="bottom" id="zdQ-09-HhY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

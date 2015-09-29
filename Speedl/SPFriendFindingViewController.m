@@ -21,7 +21,6 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UILabel *noResultsLabel;
 
-
 @end
 
 @implementation SPFriendFindingViewController
@@ -37,64 +36,6 @@
     [[self view] setBackgroundColor:[SPAppearance getMainBackgroundColour]];
 }
 
-- (void)getContacts {
-    NSString *countryCode = [SPPhoneValidation getUserCountryCodeNeverNil];
-    
-    // Loading contacts
-    NSMutableArray *contactsArray = [NSMutableArray new];
-    
-    [[self addressBook] loadContacts:^(NSArray *contacts, NSError *error)
-    {
-        if (!error)
-        {
-            for (APContact *contact in contacts) {
-                if (!contact.phones || contact.phones.count == 0) {
-                    continue;
-                }
-                
-                NSMutableDictionary *newContact = [NSMutableDictionary new];
-                
-                if (contact.firstName) {
-                    [newContact setObject:contact.firstName forKey:@"first_name"];
-                }
-                
-                if (contact.lastName) {
-                    [newContact setObject:contact.lastName forKey:@"last_name"];
-                }
-                
-                NSMutableArray *newPhones = [NSMutableArray new];
-                for (NSString *phone in contact.phones) {
-                    NSString *interNumber = [SPPhoneValidation getInternationalNumberFromPhoneNumber:phone
-                                                                 countryCode:countryCode];
-                    [newPhones addObject:interNumber];
-                    
-                }
-                [newContact setObject:newPhones forKey:@"phones"];
-                
-                [contactsArray addObject:newContact];
-            }
-            
-            [[SPUser currentUser] postContactDataInBackground:contactsArray block:^(NSArray *contacts, NSString *serverMessage) {
-                if (serverMessage != nil) {
-                    [SPNotification showErrorNotificationWithMessage:@"Error loading contacts" inViewController:self];
-                } else {
-                    [self friendFindingDataSource].users = contacts;
-                    [self.tableView reloadData];
-                }
-                if (contacts.count) {
-                    [self resultsState];
-                } else {
-                    [self noResultsState];
-                }
-            }];
-        }
-        else
-        {
-            [SPNotification showErrorNotificationWithMessage:@"Error loading contacts" inViewController:self];
-        }
-    }];
-}
-
 - (void)setupTableView {
     [self.tableView registerNib:[UINib nibWithNibName:@"SPFriendTableViewCell" bundle:nil] forCellReuseIdentifier:kFriendCellReuse];
     self.tableView.dataSource = [self friendFindingDataSource];
@@ -105,7 +46,7 @@
 
 - (SPFriendFindingDataSource *)friendFindingDataSource {
     if (!_friendFindingDataSource) {
-        _friendFindingDataSource = [SPFriendFindingDataSource new];
+        _friendFindingDataSource = [[SPFriendFindingDataSource alloc] initWithTableView:_tableView];
     }
     return _friendFindingDataSource;
 }
@@ -125,10 +66,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self loadingState];
     [RateLimit executeBlock:^{
-        [self loadingState];
-        [self getContacts];
-    } name:@"GetContacts" limit:30.0];
+        [[self friendFindingDataSource] getContacts:^(NSInteger contactCount) {
+            if (contactCount == 0) {
+                [self noResultsState];
+            } else {
+                [self resultsState];
+            }
+        } predicate:nil];
+    } name:@"FriendFinding" limit:30.0];
 }
 
 - (void)loadingState {

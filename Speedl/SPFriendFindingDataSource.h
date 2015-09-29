@@ -10,6 +10,9 @@
 
 @interface SPFriendFindingDataSource : NSObject <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) NSArray *users;
+- (void)getContacts:(void (^)(NSInteger contactCount))block
+          predicate:(NSString *)predicate;
+
+- (id)initWithTableView:(UITableView *)tableView;
 
 @end

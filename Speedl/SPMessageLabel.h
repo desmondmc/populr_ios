@@ -20,6 +20,7 @@ typedef void (^SPMessageLabelCompletionBlock)();
 
 - (void)pauseAnination;
 - (void)restartAnimation;
+- (void)finishAnimation;
 
 
 @end
