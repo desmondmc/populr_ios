@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIView *tabContainerView;
 @property (strong, nonatomic) SPCustomTabView *customTabView;
 @property (strong, nonatomic) IBOutlet UILabel *nextButtonLabel;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -41,7 +42,9 @@
     [self.usernameField styleAsMainSpeedlTextField];
     [self.passwordField styleAsMainSpeedlTextField];
     [self.nextButtonLabel styleAsSendLabel];
+    [self.activityIndicator setColor:[SPAppearance globalBackgroundColour]];
     
+    [self notLoadingState];
     [_tabContainerView addSubview:[self customTabView]];
     [SPAutoLayout constrainSubviewToFillSuperview:[self customTabView]];
 }
@@ -82,7 +85,9 @@
         return;
     }
     _nextButton.enabled = NO;
+    [self loadingState];
     [SPUser signUpUserInBackgroundWithUsername:lowercaseUsername password:_passwordField.text block:^(SPUser *user, NSString* message) {
+        [self notLoadingState];
         _nextButton.enabled = YES;
         if (user == nil && message != nil) {
             [SPNotification showErrorNotificationWithMessage:message inViewController:self];
@@ -117,9 +122,11 @@
 
 
 - (void) loginUser {
+    [self loadingState];
     NSString *uppercaseUsername = [_usernameField.text lowercaseString];
     _nextButton.enabled = NO;
     [SPUser loginUserInBackgroundWithUsername:uppercaseUsername password:_passwordField.text block:^(SPUser *user, NSString* message) {
+        [self notLoadingState];
         _nextButton.enabled = YES;
         if (user == nil && message != nil) {
             [SPNotification showErrorNotificationWithMessage:message inViewController:self];
@@ -145,6 +152,17 @@
     }
     
     return nil;
+}
+
+- (void)loadingState {
+    [_nextButtonLabel setHidden:YES];
+    [_activityIndicator startAnimating];
+    [_activityIndicator setHidden:NO];
+}
+
+- (void)notLoadingState {
+    [_nextButtonLabel setHidden:NO];
+    [_activityIndicator setHidden:YES];
 }
 
 #pragma mark UITextFieldDelegate

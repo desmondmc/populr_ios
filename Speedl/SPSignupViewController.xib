@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPSignupViewController">
             <connections>
+                <outlet property="activityIndicator" destination="tpU-1K-3rk" id="zEg-Cg-CxG"/>
                 <outlet property="nextButton" destination="Z8L-YI-ef8" id="HS3-hH-tEI"/>
                 <outlet property="nextButtonLabel" destination="bFG-Iu-xYq" id="bmh-8a-fdZ"/>
                 <outlet property="passwordField" destination="kr0-DL-mh1" id="B9I-fU-voo"/>
@@ -87,6 +88,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzB-qj-Y3T" userLabel="CircleView" customClass="SPCircleView">
                     <rect key="frame" x="522" y="300" width="70" height="70"/>
                     <subviews>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-1K-3rk">
+                            <rect key="frame" x="25" y="25" width="20" height="20"/>
+                            <animations/>
+                        </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8L-YI-ef8">
                             <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                             <animations/>
@@ -113,9 +118,11 @@
                         <constraint firstItem="Z8L-YI-ef8" firstAttribute="centerX" secondItem="IzB-qj-Y3T" secondAttribute="centerX" id="2Xc-nm-T2i"/>
                         <constraint firstItem="bFG-Iu-xYq" firstAttribute="centerX" secondItem="IzB-qj-Y3T" secondAttribute="centerX" id="7Ls-8A-bSH"/>
                         <constraint firstAttribute="width" constant="70" id="9wQ-OJ-RjO"/>
+                        <constraint firstItem="tpU-1K-3rk" firstAttribute="centerX" secondItem="IzB-qj-Y3T" secondAttribute="centerX" id="F2D-oZ-fVM"/>
                         <constraint firstItem="Z8L-YI-ef8" firstAttribute="height" secondItem="IzB-qj-Y3T" secondAttribute="height" id="IA9-Xd-HXx"/>
                         <constraint firstItem="Z8L-YI-ef8" firstAttribute="width" secondItem="IzB-qj-Y3T" secondAttribute="width" id="Xv1-cu-BEv"/>
                         <constraint firstItem="Z8L-YI-ef8" firstAttribute="centerY" secondItem="IzB-qj-Y3T" secondAttribute="centerY" id="Zbk-NP-umf"/>
+                        <constraint firstItem="tpU-1K-3rk" firstAttribute="centerY" secondItem="IzB-qj-Y3T" secondAttribute="centerY" id="fT3-Xg-kVb"/>
                         <constraint firstItem="bFG-Iu-xYq" firstAttribute="centerY" secondItem="IzB-qj-Y3T" secondAttribute="centerY" id="iaX-Uo-Kwt"/>
                         <constraint firstAttribute="height" constant="70" id="wRI-ka-4Iz"/>
                     </constraints>
