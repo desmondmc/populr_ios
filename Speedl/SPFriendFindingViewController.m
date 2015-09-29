@@ -60,14 +60,15 @@
 #pragma mark Life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController.interactivePopGestureRecognizer setDelegate:nil];
     [self setupAppearance];
     [self setupTableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self loadingState];
     [RateLimit executeBlock:^{
+        [self loadingState];
         [[self friendFindingDataSource] getContacts:^(NSInteger contactCount) {
             if (contactCount == 0) {
                 [self noResultsState];

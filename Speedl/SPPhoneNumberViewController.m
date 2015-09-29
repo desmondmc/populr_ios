@@ -188,6 +188,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController.interactivePopGestureRecognizer setDelegate:nil];
     [self setupAppearance];
 }
 

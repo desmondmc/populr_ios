@@ -137,12 +137,13 @@
 - (void)setupForFeedback {
     _backButton.hidden = NO;
     _backButtonImage.hidden = NO;
-    _placeHolderText = @"Give us some feeback :)";
+    _placeHolderText = @"What's your problem?";
     self.messageTextView.text = _placeHolderText;
     _helpLabel1.hidden = YES;
     _helpLabel2.hidden = YES;
     _previewButton.hidden = YES;
     _noFriendsView.hidden = YES;
+    [self.navigationController.interactivePopGestureRecognizer setDelegate:nil];
 }
 
 - (IBAction)onSendPress:(id)sender {

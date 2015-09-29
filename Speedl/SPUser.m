@@ -539,7 +539,9 @@
 + (void)saveUserToDisk:(SPUser *)user {
     [[NSUserDefaults standardUserDefaults] setObject:user.objectId forKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.username forKey:kUsernameKey];
-    [[NSUserDefaults standardUserDefaults] setObject:user.phoneNumber forKey:kPhoneKey];
+    if (![user.phoneNumber isEqual:[NSNull null]]) {
+        [[NSUserDefaults standardUserDefaults] setObject:user.phoneNumber forKey:kPhoneKey];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
