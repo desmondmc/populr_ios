@@ -13,6 +13,7 @@
 
 #define kObjectIdKey    @"objectId"
 #define kUsernameKey    @"username"
+#define kGoTokenKey     @"goToken"
 #define kPasswordKey    @"password"
 #define kTokenKey       @"token"
 #define kMessagesKey    @"messages"
@@ -34,6 +35,7 @@
     currentUser.username = [[NSUserDefaults standardUserDefaults] stringForKey:kUsernameKey];
     currentUser.password = [[NSUserDefaults standardUserDefaults] stringForKey:kPasswordKey];
     currentUser.token = [[NSUserDefaults standardUserDefaults] stringForKey:kTokenKey];
+    currentUser.goToken = [[NSUserDefaults standardUserDefaults] stringForKey:kGoTokenKey];
     currentUser.phoneNumber = [[NSUserDefaults standardUserDefaults] stringForKey:kPhoneKey];
     
     return currentUser;
@@ -539,6 +541,7 @@
 + (void)saveUserToDisk:(SPUser *)user {
     [[NSUserDefaults standardUserDefaults] setObject:user.objectId forKey:kObjectIdKey];
     [[NSUserDefaults standardUserDefaults] setObject:user.username forKey:kUsernameKey];
+    [[NSUserDefaults standardUserDefaults] setObject:user.goToken forKey:kGoTokenKey];
     if (![user.phoneNumber isEqual:[NSNull null]]) {
         [[NSUserDefaults standardUserDefaults] setObject:user.phoneNumber forKey:kPhoneKey];
     }

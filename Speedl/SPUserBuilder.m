@@ -25,6 +25,7 @@
         user.objectId = parsedObject[@"data"][@"id"];
         user.username = parsedObject[@"data"][@"username"];
         user.phoneNumber = parsedObject[@"data"][@"phone_number"];
+        user.goToken = parsedObject[@"data"][@"new_token"];
     }
     
     return user;

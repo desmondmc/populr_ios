@@ -119,6 +119,7 @@
     SPUser *currentUser = [SPUser currentUser];
     if (currentUser) {
         [httpRequest setValue:currentUser.objectId.stringValue forHTTPHeaderField:@"x-key"];
+        [httpRequest setValue:currentUser.goToken forHTTPHeaderField:@"new-token"];
     }
     [httpRequest setValue:@"application/vnd.api+json" forHTTPHeaderField:@"Accept"];
     [httpRequest setValue:@"application/vnd.api+json" forHTTPHeaderField:@"Content-Type"];

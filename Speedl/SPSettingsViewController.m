@@ -60,12 +60,8 @@
 
 - (IBAction)onLogoutPress:(id)sender {
     [[SPUser currentUser] logoutUserInBackgroundWithBlock:^(BOOL success, NSString *serverMessage) {
-        if (success) {
-            [SPLoginRouter gotoLoggedOutView];
-        } else {
-            [SPNotification showErrorNotificationWithMessage:@"Error on logout."
-                                            inViewController:self];
-        }
+        // Don't check for success here. Should still logout even on failure.
+        [SPLoginRouter gotoLoggedOutView];
     }];
     
 }

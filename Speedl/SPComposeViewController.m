@@ -354,6 +354,18 @@
     [[self messageProcessor] textViewDidChangeSelection:textView];
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    BOOL allowInput = textView.text.length + (text.length - range.length) <= 500;
+    
+    if (!allowInput) {
+        [SPNotification showErrorNotificationWithMessage:@"Too many characters"
+                                        inViewController:self];
+    }
+    
+    return allowInput;
+}
+
 #pragma mark - SPContainterViewDelegate
 
 - (void) newVisableViewController:(UIViewController *)viewController {

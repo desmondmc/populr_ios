@@ -22,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FeR-ab-qSA" userLabel="Container">
-                    <rect key="frame" x="0.0" y="130" width="600" height="150"/>
+                    <rect key="frame" x="0.0" y="115" width="600" height="165"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4q0-09-h2P" userLabel="EntryFields">
-                            <rect key="frame" x="0.0" y="15" width="600" height="120"/>
+                            <rect key="frame" x="0.0" y="22.5" width="600" height="120"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-BV-AVl">
                                     <rect key="frame" x="0.0" y="8" width="600" height="17"/>
@@ -78,7 +78,7 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edW-A7-U2j" userLabel="TabContainer">
-                    <rect key="frame" x="0.0" y="55" width="600" height="55"/>
+                    <rect key="frame" x="0.0" y="40" width="600" height="55"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -134,7 +134,7 @@
                 <constraint firstItem="FeR-ab-qSA" firstAttribute="top" secondItem="edW-A7-U2j" secondAttribute="bottom" constant="20" id="AXn-IU-gqY"/>
                 <constraint firstItem="IzB-qj-Y3T" firstAttribute="top" secondItem="FeR-ab-qSA" secondAttribute="bottom" constant="20" id="NsF-rK-Ei5"/>
                 <constraint firstAttribute="trailing" secondItem="FeR-ab-qSA" secondAttribute="trailing" id="VyC-t7-F1G"/>
-                <constraint firstItem="edW-A7-U2j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="cxZ-Td-3zX"/>
+                <constraint firstItem="edW-A7-U2j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="cxZ-Td-3zX"/>
                 <constraint firstAttribute="bottom" secondItem="IzB-qj-Y3T" secondAttribute="bottom" constant="230" id="d5l-a5-9zQ"/>
                 <constraint firstAttribute="trailing" secondItem="IzB-qj-Y3T" secondAttribute="trailing" constant="8" id="fhh-7j-qgq"/>
                 <constraint firstItem="FeR-ab-qSA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hpL-nu-Y52"/>

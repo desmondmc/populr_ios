@@ -27,7 +27,8 @@ typedef void (^SPContactsResultBlock)(NSArray *contacts, NSString *serverMessage
 
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *password;
-@property (strong, nonatomic) NSString *token;
+@property (strong, nonatomic) NSString *token;      // This token was used for the Parse API
+@property (strong, nonatomic) NSString *goToken;   // This token was used for go API
 @property (strong, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) NSNumber *isFriend;
 
