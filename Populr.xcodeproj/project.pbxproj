@@ -82,6 +82,15 @@
 		7ADCF4401B069BEE009834D5 /* UITableView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43F1B069BEE009834D5 /* UITableView+Custom.m */; };
 		7ADCF4441B06A265009834D5 /* SPUsersTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF4431B06A265009834D5 /* SPUsersTableDataSource.m */; };
 		7ADCF4471B06A537009834D5 /* SPUsersTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF4461B06A537009834D5 /* SPUsersTableDelegate.m */; };
+		7ADDEE271BBC10DD00E008E7 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ADDEE251BBC10DD00E008E7 /* Interface.storyboard */; };
+		7ADDEE291BBC10DD00E008E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADDEE281BBC10DD00E008E7 /* Assets.xcassets */; };
+		7ADDEE301BBC10DD00E008E7 /* PopulrWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7ADDEE2F1BBC10DD00E008E7 /* PopulrWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7ADDEE361BBC10DD00E008E7 /* TableInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADDEE351BBC10DD00E008E7 /* TableInterfaceController.m */; };
+		7ADDEE391BBC10DD00E008E7 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADDEE381BBC10DD00E008E7 /* ExtensionDelegate.m */; };
+		7ADDEE3B1BBC10DD00E008E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADDEE3A1BBC10DD00E008E7 /* Assets.xcassets */; };
+		7ADDEE3F1BBC10DD00E008E7 /* PopulrWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7ADDEE231BBC10DD00E008E7 /* PopulrWatch.app */; };
+		7ADDEE4A1BBC13ED00E008E7 /* MessagesTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADDEE491BBC13ED00E008E7 /* MessagesTableRowController.m */; settings = {ASSET_TAGS = (); }; };
+		7ADDEE4D1BBC196000E008E7 /* MessageInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADDEE4C1BBC196000E008E7 /* MessageInterfaceController.m */; settings = {ASSET_TAGS = (); }; };
 		7AE4D1EB1AE256B9006F6C83 /* SPContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D1EA1AE256B9006F6C83 /* SPContainerViewController.xib */; };
 		7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1EE1AE25E1F006F6C83 /* SPAppearance.m */; };
 		7AE4D1F21AE2870E006F6C83 /* UILabel+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1F11AE2870E006F6C83 /* UILabel+Custom.m */; };
@@ -93,6 +102,48 @@
 		7AE4D2081AE2AC28006F6C83 /* SPMessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D2061AE2AC28006F6C83 /* SPMessageListViewController.m */; };
 		7AE4D2091AE2AC28006F6C83 /* SPMessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D2071AE2AC28006F6C83 /* SPMessageListViewController.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7ADDEE311BBC10DD00E008E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AB3D6DD1AC35A3900CA94DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7ADDEE2E1BBC10DD00E008E7;
+			remoteInfo = "PopulrWatch Extension";
+		};
+		7ADDEE3D1BBC10DD00E008E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AB3D6DD1AC35A3900CA94DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7ADDEE221BBC10DD00E008E7;
+			remoteInfo = PopulrWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7ADDEE431BBC10DD00E008E7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7ADDEE301BBC10DD00E008E7 /* PopulrWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ADDEE471BBC10DD00E008E7 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				7ADDEE3F1BBC10DD00E008E7 /* PopulrWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		70274CC64F4C569AB150CCD5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +267,21 @@
 		7ADCF4431B06A265009834D5 /* SPUsersTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUsersTableDataSource.m; sourceTree = "<group>"; };
 		7ADCF4451B06A537009834D5 /* SPUsersTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUsersTableDelegate.h; sourceTree = "<group>"; };
 		7ADCF4461B06A537009834D5 /* SPUsersTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUsersTableDelegate.m; sourceTree = "<group>"; };
+		7ADDEE231BBC10DD00E008E7 /* PopulrWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopulrWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ADDEE261BBC10DD00E008E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		7ADDEE281BBC10DD00E008E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7ADDEE2A1BBC10DD00E008E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ADDEE2F1BBC10DD00E008E7 /* PopulrWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PopulrWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ADDEE341BBC10DD00E008E7 /* TableInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableInterfaceController.h; sourceTree = "<group>"; };
+		7ADDEE351BBC10DD00E008E7 /* TableInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableInterfaceController.m; sourceTree = "<group>"; };
+		7ADDEE371BBC10DD00E008E7 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
+		7ADDEE381BBC10DD00E008E7 /* ExtensionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		7ADDEE3A1BBC10DD00E008E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7ADDEE3C1BBC10DD00E008E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ADDEE481BBC13ED00E008E7 /* MessagesTableRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesTableRowController.h; sourceTree = "<group>"; };
+		7ADDEE491BBC13ED00E008E7 /* MessagesTableRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesTableRowController.m; sourceTree = "<group>"; };
+		7ADDEE4B1BBC196000E008E7 /* MessageInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageInterfaceController.h; sourceTree = "<group>"; };
+		7ADDEE4C1BBC196000E008E7 /* MessageInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageInterfaceController.m; sourceTree = "<group>"; };
 		7AE4D1EA1AE256B9006F6C83 /* SPContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPContainerViewController.xib; sourceTree = "<group>"; };
 		7AE4D1ED1AE25E1F006F6C83 /* SPAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAppearance.h; sourceTree = "<group>"; };
 		7AE4D1EE1AE25E1F006F6C83 /* SPAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAppearance.m; sourceTree = "<group>"; };
@@ -258,6 +324,13 @@
 				7AC02FA11B1B9A1A00B26A6E /* Parse.framework in Frameworks */,
 				29D78CCBC7A0BCCC574CD5F3 /* libPods.a in Frameworks */,
 				7AC02FBD1B1B9D4200B26A6E /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ADDEE2C1BBC10DD00E008E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +576,8 @@
 			children = (
 				7AB3D6E71AC35A3900CA94DB /* Speedl */,
 				7AB3D7011AC35A3900CA94DB /* SpeedlTests */,
+				7ADDEE241BBC10DD00E008E7 /* PopulrWatch */,
+				7ADDEE331BBC10DD00E008E7 /* PopulrWatch Extension */,
 				7AB3D6E61AC35A3900CA94DB /* Products */,
 				9902C6391AA507BE63D7D702 /* Pods */,
 				B9562DC0C125E173ACDB9B68 /* Frameworks */,
@@ -513,6 +588,8 @@
 			isa = PBXGroup;
 			children = (
 				7AB3D6E51AC35A3900CA94DB /* Populr.app */,
+				7ADDEE231BBC10DD00E008E7 /* PopulrWatch.app */,
+				7ADDEE2F1BBC10DD00E008E7 /* PopulrWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -695,6 +772,33 @@
 			name = "DataSource+Delegate";
 			sourceTree = "<group>";
 		};
+		7ADDEE241BBC10DD00E008E7 /* PopulrWatch */ = {
+			isa = PBXGroup;
+			children = (
+				7ADDEE251BBC10DD00E008E7 /* Interface.storyboard */,
+				7ADDEE281BBC10DD00E008E7 /* Assets.xcassets */,
+				7ADDEE2A1BBC10DD00E008E7 /* Info.plist */,
+			);
+			path = PopulrWatch;
+			sourceTree = "<group>";
+		};
+		7ADDEE331BBC10DD00E008E7 /* PopulrWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7ADDEE341BBC10DD00E008E7 /* TableInterfaceController.h */,
+				7ADDEE351BBC10DD00E008E7 /* TableInterfaceController.m */,
+				7ADDEE481BBC13ED00E008E7 /* MessagesTableRowController.h */,
+				7ADDEE491BBC13ED00E008E7 /* MessagesTableRowController.m */,
+				7ADDEE4B1BBC196000E008E7 /* MessageInterfaceController.h */,
+				7ADDEE4C1BBC196000E008E7 /* MessageInterfaceController.m */,
+				7ADDEE371BBC10DD00E008E7 /* ExtensionDelegate.h */,
+				7ADDEE381BBC10DD00E008E7 /* ExtensionDelegate.m */,
+				7ADDEE3A1BBC10DD00E008E7 /* Assets.xcassets */,
+				7ADDEE3C1BBC10DD00E008E7 /* Info.plist */,
+			);
+			path = "PopulrWatch Extension";
+			sourceTree = "<group>";
+		};
 		7AE4D1EC1AE25DD8006F6C83 /* SPAppearance */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,15 +895,51 @@
 				7AB3D6E31AC35A3900CA94DB /* Resources */,
 				DC793F293ABEDAAAA5E8C5FC /* Copy Pods Resources */,
 				7ADC3AEE1B1F7CC9004A0CD2 /* Crashlytics */,
+				7ADDEE471BBC10DD00E008E7 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7ADDEE3E1BBC10DD00E008E7 /* PBXTargetDependency */,
 			);
 			name = Populr;
 			productName = Speedl;
 			productReference = 7AB3D6E51AC35A3900CA94DB /* Populr.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7ADDEE221BBC10DD00E008E7 /* PopulrWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7ADDEE441BBC10DD00E008E7 /* Build configuration list for PBXNativeTarget "PopulrWatch" */;
+			buildPhases = (
+				7ADDEE211BBC10DD00E008E7 /* Resources */,
+				7ADDEE431BBC10DD00E008E7 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7ADDEE321BBC10DD00E008E7 /* PBXTargetDependency */,
+			);
+			name = PopulrWatch;
+			productName = PopulrWatch;
+			productReference = 7ADDEE231BBC10DD00E008E7 /* PopulrWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		7ADDEE2E1BBC10DD00E008E7 /* PopulrWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7ADDEE401BBC10DD00E008E7 /* Build configuration list for PBXNativeTarget "PopulrWatch Extension" */;
+			buildPhases = (
+				7ADDEE2B1BBC10DD00E008E7 /* Sources */,
+				7ADDEE2C1BBC10DD00E008E7 /* Frameworks */,
+				7ADDEE2D1BBC10DD00E008E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PopulrWatch Extension";
+			productName = "PopulrWatch Extension";
+			productReference = 7ADDEE2F1BBC10DD00E008E7 /* PopulrWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -819,6 +959,13 @@
 							};
 						};
 					};
+					7ADDEE221BBC10DD00E008E7 = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 8Y2GFS326V;
+					};
+					7ADDEE2E1BBC10DD00E008E7 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 7AB3D6E01AC35A3900CA94DB /* Build configuration list for PBXProject "Populr" */;
@@ -835,6 +982,8 @@
 			projectRoot = "";
 			targets = (
 				7AB3D6E41AC35A3900CA94DB /* Populr */,
+				7ADDEE221BBC10DD00E008E7 /* PopulrWatch */,
+				7ADDEE2E1BBC10DD00E008E7 /* PopulrWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -864,6 +1013,23 @@
 				7A89E4731BB333F400184756 /* SPFriendFindingViewController.xib in Resources */,
 				7AE4D2011AE2A749006F6C83 /* SPMessageTableViewCell.xib in Resources */,
 				7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ADDEE211BBC10DD00E008E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ADDEE291BBC10DD00E008E7 /* Assets.xcassets in Resources */,
+				7ADDEE271BBC10DD00E008E7 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ADDEE2D1BBC10DD00E008E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ADDEE3B1BBC10DD00E008E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,7 +1139,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7ADDEE2B1BBC10DD00E008E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7ADDEE391BBC10DD00E008E7 /* ExtensionDelegate.m in Sources */,
+				7ADDEE4D1BBC196000E008E7 /* MessageInterfaceController.m in Sources */,
+				7ADDEE361BBC10DD00E008E7 /* TableInterfaceController.m in Sources */,
+				7ADDEE4A1BBC13ED00E008E7 /* MessagesTableRowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7ADDEE321BBC10DD00E008E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7ADDEE2E1BBC10DD00E008E7 /* PopulrWatch Extension */;
+			targetProxy = 7ADDEE311BBC10DD00E008E7 /* PBXContainerItemProxy */;
+		};
+		7ADDEE3E1BBC10DD00E008E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7ADDEE221BBC10DD00E008E7 /* PopulrWatch */;
+			targetProxy = 7ADDEE3D1BBC10DD00E008E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7AB3D6F71AC35A3900CA94DB /* LaunchScreen.xib */ = {
@@ -982,6 +1172,14 @@
 				7AB3D6F81AC35A3900CA94DB /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		7ADDEE251BBC10DD00E008E7 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7ADDEE261BBC10DD00E008E7 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1118,6 +1316,76 @@
 			};
 			name = Release;
 		};
+		7ADDEE411BBC10DD00E008E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "PopulrWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		7ADDEE421BBC10DD00E008E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "PopulrWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		7ADDEE451BBC10DD00E008E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = PopulrWatch_Extension;
+				INFOPLIST_FILE = PopulrWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		7ADDEE461BBC10DD00E008E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = PopulrWatch_Extension;
+				INFOPLIST_FILE = PopulrWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1138,6 +1406,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		7ADDEE401BBC10DD00E008E7 /* Build configuration list for PBXNativeTarget "PopulrWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7ADDEE411BBC10DD00E008E7 /* Debug */,
+				7ADDEE421BBC10DD00E008E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7ADDEE441BBC10DD00E008E7 /* Build configuration list for PBXNativeTarget "PopulrWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7ADDEE451BBC10DD00E008E7 /* Debug */,
+				7ADDEE461BBC10DD00E008E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
