@@ -37,7 +37,7 @@
     NSString *authKey = [self userAuthKey];
     
     if (userId == nil || authKey == nil) {
-        block(nil, NO);
+        block(nil, NO, @"Please login");
         return;
     }
     [SPWatchNetworkHelper urlRequestWithURL:@"http://populr_go_api.gzelle.co/messages"
@@ -47,15 +47,20 @@
                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                               if (error) {
                                   NSLog(@"Error with request: %@", error);
-                                  block(nil, NO);
+                                  block(nil, NO, @"Error");
                               } else {
                                   NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
                                   if (error) {
-                                      block(nil, NO);
+                                      block(nil, NO, @"Error");
                                   } else {
                                       NSArray *messages = [self messageArrayFromDictionary:dataDic];
+                                      NSString *error = @"";
+                                      if ([messages count] == 0) {
+                                          error = @"No messages";
+                                      }
                                       
-                                      block(messages, YES);
+                                      
+                                      block(messages, YES, error);
                                   }
                               }
     }];

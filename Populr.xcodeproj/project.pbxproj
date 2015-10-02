@@ -1327,7 +1327,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr;
 				PRODUCT_NAME = Populr;
-				PROVISIONING_PROFILE = "f33c41cf-be90-40f3-95b4-624dd2ef8788";
+				PROVISIONING_PROFILE = "d5078258-5909-4798-af64-c66b09fee354";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1352,7 +1352,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr;
 				PRODUCT_NAME = Populr;
-				PROVISIONING_PROFILE = "f33c41cf-be90-40f3-95b4-624dd2ef8788";
+				PROVISIONING_PROFILE = "d5078258-5909-4798-af64-c66b09fee354";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1368,7 +1368,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d8b08ff2-0aaa-4662-b7f0-8dfe14f4f80c";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1387,7 +1387,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d8b08ff2-0aaa-4662-b7f0-8dfe14f4f80c";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1409,7 +1409,7 @@
 				INFOPLIST_FILE = PopulrWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f33c41cf-be90-40f3-95b4-624dd2ef8788";
+				PROVISIONING_PROFILE = "3403a2c3-27b7-4cc5-9db1-dc0eb02b8ee6";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1431,7 +1431,7 @@
 				INFOPLIST_FILE = PopulrWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f33c41cf-be90-40f3-95b4-624dd2ef8788";
+				PROVISIONING_PROFILE = "3403a2c3-27b7-4cc5-9db1-dc0eb02b8ee6";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;

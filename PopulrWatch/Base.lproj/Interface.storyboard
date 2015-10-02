@@ -42,13 +42,25 @@
             <objects>
                 <controller identifier="MessageInterfaceController" hidesWhenLoading="NO" id="PsU-8G-3pA" customClass="MessageInterfaceController">
                     <items>
-                        <label alignment="center" verticalAlignment="center" text="Something" id="bZ3-Wb-hS0">
+                        <label alignment="center" text="Label" id="nxJ-LB-odb">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="center" text="message from:" id="Ubf-Er-W20">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="center" text="FromUsername" id="Dd1-e8-HJs">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="center" text="3" id="bZ3-Wb-hS0">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                     </items>
                     <color key="backgroundColor" red="0.17799136509999999" green="0.66868116690000001" blue="0.79916221220000005" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
+                        <outlet property="messageFromLabel" destination="Ubf-Er-W20" id="6ht-QW-7J5"/>
                         <outlet property="messageLabel" destination="bZ3-Wb-hS0" id="PjC-KV-41J"/>
+                        <outlet property="typeLabel" destination="nxJ-LB-odb" id="ruF-gE-smR"/>
+                        <outlet property="usernameLabel" destination="Dd1-e8-HJs" id="Jgb-lZ-gaD"/>
                     </connections>
                 </controller>
             </objects>

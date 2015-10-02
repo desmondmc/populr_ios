@@ -40,16 +40,6 @@
         [SPLoginRouter gotoLoggedOutView];
     }
     
-    if ([WCSession isSupported]) {
-        _session = [WCSession defaultSession];
-        _session.delegate = self;
-        [_session activateSession];
-        SPUser *currentUser = [SPUser currentUser];
-        if (currentUser) {
-            [SPUser sendUserDataToWatch:currentUser];
-        }
-    }
-    
     return YES;
 }
 
@@ -120,6 +110,15 @@
         [[SPUser currentUser] getFriendsInBackground:nil];
     }
     
+    if ([WCSession isSupported]) {
+        _session = [WCSession defaultSession];
+        _session.delegate = self;
+        [_session activateSession];
+        SPUser *currentUser = [SPUser currentUser];
+        if (currentUser) {
+            [SPUser sendUserDataToWatch:currentUser];
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SPWatchMessage.h"
 
-typedef void (^SPWatchMessagesResultBlock)(NSArray *messages, BOOL success);
+typedef void (^SPWatchMessagesResultBlock)(NSArray *messages, BOOL success, NSString *errorMessage);
 typedef void (^SPWatchNetworkResultBlock)(BOOL success);
 
 @interface SPWatchUser : NSObject

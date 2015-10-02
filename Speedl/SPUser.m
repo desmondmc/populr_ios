@@ -192,8 +192,7 @@
     if ([WCSession isSupported]) {
         NSDictionary *applicationDict = @{@"user_id": [user.objectId stringValue],
                                           @"auth_key": user.goToken};// Create a dict of application data
-        WCSessionUserInfoTransfer *userInfoTransfer = [[kAppDel session] transferUserInfo:applicationDict];
-        [userInfoTransfer isTransferring];
+        [[kAppDel session] transferUserInfo:applicationDict];
     }
 }
 

@@ -25,10 +25,53 @@
 
 @implementation TableInterfaceController
 
+- (void)loadTableData {
+    [self loadingState];
+    [SPWatchUser getUserMessagesInBackground:^(NSArray *messages, BOOL success, NSString *errorMessage) {
+        [self notLoadingStateMessage:errorMessage];
+        [self reloadTableWithMessages:messages];
+    }];
+}
+
+- (void)reloadTableWithMessages:(NSArray *)messages {
+    _messages = messages;
+    [_messagesTable setNumberOfRows:[_messages count] withRowType:@"MessagesTableRowController"];
+    for (SPWatchMessage *message in _messages) {
+        NSInteger index = [_messages indexOfObject:message];
+        MessagesTableRowController *row = (MessagesTableRowController *)[_messagesTable rowControllerAtIndex:index];
+        [row.numberLabel setText:[NSString stringWithFormat:@"%d", index+1]];
+    }
+}
+
+- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
+    SPWatchMessage *watchMessage = _messages[rowIndex];
+    NSLog(@"Selected row: %@", watchMessage);
+    
+    [SPWatchUser markMessageAsReadInBackground:watchMessage block:^(BOOL success) {
+        [self loadTableData];
+    }];
+    
+    // Remove message from local list.
+    NSMutableArray *mutableMessages = _messages.mutableCopy;
+    [mutableMessages removeObject:watchMessage];
+    [self reloadTableWithMessages:mutableMessages];
+    
+    // Push table view.
+    [self pushControllerWithName:@"MessageInterfaceController"
+                         context:@{@"message": watchMessage.message,
+                                   @"fromUsername": watchMessage.fromUsername,
+                                   @"type": watchMessage.type}];
+}
+
+#pragma mark Life Cyclie
+
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-
-    // Configure interface objects here.
+    if ([WCSession isSupported]) {
+        WCSession* session = [WCSession defaultSession];
+        session.delegate = self;
+        [session activateSession];
+    }
 }
 
 - (void)willActivate {
@@ -42,50 +85,26 @@
     [super didDeactivate];
 }
 
-- (void)loadTableData {
-    [SPWatchUser getUserMessagesInBackground:^(NSArray *messages, BOOL success) {
-        if (!success) {
-            [_loadingLabel setText:@"Error"];
-        }
-        [self reloadTableWithMessages:messages];
-    }];
+- (void)haveMessagesState {
+    [_loadingLabel setHidden:YES];
 }
 
-- (void)reloadTableWithMessages:(NSArray *)messages {
-    _messages = messages;
-    [_messagesTable setNumberOfRows:[_messages count] withRowType:@"MessagesTableRowController"];
-    if ([_messages count] > 0) {
-        [_loadingLabel setHidden:YES];
-    }
-    for (SPWatchMessage *message in _messages) {
-        NSInteger index = [_messages indexOfObject:message];
-        MessagesTableRowController *row = (MessagesTableRowController *)[_messagesTable rowControllerAtIndex:index];
-        [row.numberLabel setText:[NSString stringWithFormat:@"%d", index+1]];
-    }
+- (void)loadingState {
+    [_loadingLabel setText:@"Loading..."];
+    [_loadingLabel setHidden:NO];
 }
 
-- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
-    SPWatchMessage *watchMessage = _messages[rowIndex];
-    NSLog(@"Selected row: %@", watchMessage);
-    
-    NSString *messageString = watchMessage.message;
-    NSArray *array = [messageString componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    array = [array filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
-    
-    [SPWatchUser markMessageAsReadInBackground:watchMessage block:^(BOOL success) {
-        [self loadTableData];
-    }];
-    
-    // Remove message from local list.
-    NSMutableArray *mutableMessages = _messages.mutableCopy;
-    [mutableMessages removeObject:watchMessage];
-    [self reloadTableWithMessages:mutableMessages];
-    
-    // Push table view.
-    [self pushControllerWithName:@"MessageInterfaceController" context:array];
+- (void)notLoadingStateMessage:(NSString *)message {
+    [_loadingLabel setText:message];
+    [_loadingLabel setHidden:NO];
 }
+#pragma mark WCSession
 
-
+-(void)session:(WCSession *)session didReceiveUserInfo:(NSDictionary<NSString *,id> *)userInfo {
+    [SPWatchUser setUserAuthKey:userInfo[@"auth_key"]];
+    [SPWatchUser setUserId:userInfo[@"user_id"]];
+    [self loadTableData];
+}
 
 @end
 

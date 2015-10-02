@@ -12,6 +12,10 @@
 @interface MessageInterfaceController ()
 
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *messageLabel;
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *messageFromLabel;
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *usernameLabel;
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *typeLabel;
+
 @property (strong, nonatomic) NSArray *messageWords;
 
 @end
@@ -21,10 +25,18 @@
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
     
-    if ([context isKindOfClass:[NSArray class]]) {
-        _messageWords = [context arrayByAddingObject:@""];;
+    if ([context isKindOfClass:[NSDictionary class]]) {
+        [_usernameLabel setText:context[@"fromUsername"]];
+        _messageWords = [self messageArrayWithMessage:context[@"message"]];
+        [_typeLabel setText:context[@"type"]];
         [self animateCountDown];
     }
+}
+
+- (NSArray *)messageArrayWithMessage:(NSString *)message {
+    NSArray *array = [message componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    array = [array filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
+    return [array arrayByAddingObject:@""];
 }
 
 - (void)willActivate {
@@ -59,6 +71,8 @@
             [_messageLabel setText:countDown[index]];
             
             if ([[countDown lastObject] isEqualToString:word]) {
+                [_messageFromLabel setHidden:YES];
+                [_usernameLabel setHidden:YES];
                 [self animateMessage];
             }
         });
