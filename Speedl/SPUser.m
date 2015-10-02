@@ -10,6 +10,7 @@
 #import "SPUserBuilder.h"
 #import "SPMessageBuilder.h"
 #import "SPNetworkHelper.h"
+#import <WatchConnectivity/WCSession.h>
 
 #define kObjectIdKey    @"objectId"
 #define kUsernameKey    @"username"
@@ -139,7 +140,7 @@
                 SPUser *newUser = [SPUserBuilder userFromJSON:data error:&error];
                 if (newUser && error == nil && newUser.objectId != nil) {
                     [self saveUserToDisk:newUser];
-                    
+                    [self sendUserDataToWatch:newUser];
                 } else {
                     block(nil, kGenericErrorString);
                     return;
@@ -174,6 +175,7 @@
                 SPUser *user = [SPUserBuilder userFromJSON:data error:&error];
                 if (user && error == nil && user.objectId != nil) {
                     [self saveUserToDisk:user];
+                    [self sendUserDataToWatch:user];
                 } else {
                     block(nil, kGenericErrorString);
                     return;
@@ -184,6 +186,15 @@
         });
         
     }];
+}
+
++ (void)sendUserDataToWatch:(SPUser *)user {
+    if ([WCSession isSupported]) {
+        NSDictionary *applicationDict = @{@"user_id": [user.objectId stringValue],
+                                          @"auth_key": user.goToken};// Create a dict of application data
+        WCSessionUserInfoTransfer *userInfoTransfer = [[kAppDel session] transferUserInfo:applicationDict];
+        [userInfoTransfer isTransferring];
+    }
 }
 
 + (void)searchForUserInBackgroundWithString:(NSString *)searchString block:(SPUserSearchResultBlock)block {

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@import WatchConnectivity;
 
-@interface SPAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SPAppDelegate : UIResponder <UIApplicationDelegate, WCSessionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) WCSession *session;
 
 
 @end

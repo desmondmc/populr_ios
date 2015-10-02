@@ -22,12 +22,9 @@
     [super awakeWithContext:context];
     
     if ([context isKindOfClass:[NSArray class]]) {
-        
         _messageWords = [context arrayByAddingObject:@""];;
         [self animateCountDown];
     }
-    
-    // Configure interface objects here.
 }
 
 - (void)willActivate {

@@ -40,7 +40,22 @@
         [SPLoginRouter gotoLoggedOutView];
     }
     
+    if ([WCSession isSupported]) {
+        _session = [WCSession defaultSession];
+        _session.delegate = self;
+        [_session activateSession];
+        SPUser *currentUser = [SPUser currentUser];
+        if (currentUser) {
+            [SPUser sendUserDataToWatch:currentUser];
+        }
+    }
+    
     return YES;
+}
+
+// Called on sending side when a data transfer operation finished successfully or because of an error.
+- (void)session:(WCSession * __nonnull)session didFinishUserInfoTransfer:(WCSessionUserInfoTransfer *)userInfoTransfer error:(nullable NSError *)error {
+    NSLog(@"Finished transfer");
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {    

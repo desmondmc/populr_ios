@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		29D78CCBC7A0BCCC574CD5F3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70274CC64F4C569AB150CCD5 /* libPods.a */; };
+		7A0CC55D1BBDDA4E00786A33 /* SPWatchUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CC55C1BBDDA4E00786A33 /* SPWatchUser.m */; settings = {ASSET_TAGS = (); }; };
+		7A0CC5601BBDDC2100786A33 /* SPWatchMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CC55F1BBDDC2100786A33 /* SPWatchMessage.m */; settings = {ASSET_TAGS = (); }; };
+		7A0CC5631BBE995300786A33 /* SPWatchNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CC5621BBE995300786A33 /* SPWatchNetworkHelper.m */; settings = {ASSET_TAGS = (); }; };
 		7A0FFB091B3EB26200869C3E /* SPCustomTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FFB081B3EB26200869C3E /* SPCustomTabView.m */; };
 		7A0FFB0B1B3EB28000869C3E /* SPCustomTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0FFB0A1B3EB28000869C3E /* SPCustomTabView.xib */; };
 		7A1969341B4B2CCD0006D5AF /* SPMessageHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1969331B4B2CCD0006D5AF /* SPMessageHolder.m */; };
@@ -147,6 +150,12 @@
 
 /* Begin PBXFileReference section */
 		70274CC64F4C569AB150CCD5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0CC55B1BBDDA4E00786A33 /* SPWatchUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPWatchUser.h; sourceTree = "<group>"; };
+		7A0CC55C1BBDDA4E00786A33 /* SPWatchUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPWatchUser.m; sourceTree = "<group>"; };
+		7A0CC55E1BBDDC2100786A33 /* SPWatchMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPWatchMessage.h; sourceTree = "<group>"; };
+		7A0CC55F1BBDDC2100786A33 /* SPWatchMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPWatchMessage.m; sourceTree = "<group>"; };
+		7A0CC5611BBE995300786A33 /* SPWatchNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPWatchNetworkHelper.h; sourceTree = "<group>"; };
+		7A0CC5621BBE995300786A33 /* SPWatchNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPWatchNetworkHelper.m; sourceTree = "<group>"; };
 		7A0FFB071B3EB26200869C3E /* SPCustomTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCustomTabView.h; sourceTree = "<group>"; };
 		7A0FFB081B3EB26200869C3E /* SPCustomTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCustomTabView.m; sourceTree = "<group>"; };
 		7A0FFB0A1B3EB28000869C3E /* SPCustomTabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPCustomTabView.xib; sourceTree = "<group>"; };
@@ -197,6 +206,8 @@
 		7A89E4771BB4506300184756 /* SPPhoneNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPPhoneNumberViewController.xib; sourceTree = "<group>"; };
 		7A89E47B1BB4674F00184756 /* SPPhoneValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPhoneValidation.h; sourceTree = "<group>"; };
 		7A89E47C1BB4674F00184756 /* SPPhoneValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPhoneValidation.m; sourceTree = "<group>"; };
+		7AA09F2F1BBDA4EE00FAB1FB /* PopulrWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PopulrWatch.entitlements; sourceTree = "<group>"; };
+		7AA09F301BBDA50600FAB1FB /* Populr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Populr.entitlements; sourceTree = "<group>"; };
 		7AB3D6E51AC35A3900CA94DB /* Populr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Populr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB3D6E91AC35A3900CA94DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AB3D6EA1AC35A3900CA94DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -337,6 +348,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A0CC55A1BBDDA2B00786A33 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CC55B1BBDDA4E00786A33 /* SPWatchUser.h */,
+				7A0CC55C1BBDDA4E00786A33 /* SPWatchUser.m */,
+				7A0CC55E1BBDDC2100786A33 /* SPWatchMessage.h */,
+				7A0CC55F1BBDDC2100786A33 /* SPWatchMessage.m */,
+				7A0CC5611BBE995300786A33 /* SPWatchNetworkHelper.h */,
+				7A0CC5621BBE995300786A33 /* SPWatchNetworkHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		7A0FFB061B3EB1CC00869C3E /* VIews */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +598,7 @@
 		7AB3D6DC1AC35A3900CA94DB = {
 			isa = PBXGroup;
 			children = (
+				7AA09F301BBDA50600FAB1FB /* Populr.entitlements */,
 				7AB3D6E71AC35A3900CA94DB /* Speedl */,
 				7AB3D7011AC35A3900CA94DB /* SpeedlTests */,
 				7ADDEE241BBC10DD00E008E7 /* PopulrWatch */,
@@ -775,6 +800,7 @@
 		7ADDEE241BBC10DD00E008E7 /* PopulrWatch */ = {
 			isa = PBXGroup;
 			children = (
+				7AA09F2F1BBDA4EE00FAB1FB /* PopulrWatch.entitlements */,
 				7ADDEE251BBC10DD00E008E7 /* Interface.storyboard */,
 				7ADDEE281BBC10DD00E008E7 /* Assets.xcassets */,
 				7ADDEE2A1BBC10DD00E008E7 /* Info.plist */,
@@ -785,6 +811,7 @@
 		7ADDEE331BBC10DD00E008E7 /* PopulrWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7A0CC55A1BBDDA2B00786A33 /* Helpers */,
 				7ADDEE341BBC10DD00E008E7 /* TableInterfaceController.h */,
 				7ADDEE351BBC10DD00E008E7 /* TableInterfaceController.m */,
 				7ADDEE481BBC13ED00E008E7 /* MessagesTableRowController.h */,
@@ -954,6 +981,9 @@
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 8Y2GFS326V;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
@@ -962,9 +992,15 @@
 					7ADDEE221BBC10DD00E008E7 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 8Y2GFS326V;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7ADDEE2E1BBC10DD00E008E7 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 8Y2GFS326V;
 					};
 				};
 			};
@@ -1143,7 +1179,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A0CC55D1BBDDA4E00786A33 /* SPWatchUser.m in Sources */,
 				7ADDEE391BBC10DD00E008E7 /* ExtensionDelegate.m in Sources */,
+				7A0CC5631BBE995300786A33 /* SPWatchNetworkHelper.m in Sources */,
+				7A0CC5601BBDDC2100786A33 /* SPWatchMessage.m in Sources */,
 				7ADDEE4D1BBC196000E008E7 /* MessageInterfaceController.m in Sources */,
 				7ADDEE361BBC10DD00E008E7 /* TableInterfaceController.m in Sources */,
 				7ADDEE4A1BBC13ED00E008E7 /* MessagesTableRowController.m in Sources */,
@@ -1273,6 +1312,7 @@
 			baseConfigurationReference = 816A64983FABAE9275CD7EB1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Populr.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1287,7 +1327,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr;
 				PRODUCT_NAME = Populr;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "f33c41cf-be90-40f3-95b4-624dd2ef8788";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1297,6 +1337,7 @@
 			baseConfigurationReference = F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Populr.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -1311,7 +1352,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr;
 				PRODUCT_NAME = Populr;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "f33c41cf-be90-40f3-95b4-624dd2ef8788";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1319,12 +1360,15 @@
 		7ADDEE411BBC10DD00E008E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "PopulrWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1335,12 +1379,15 @@
 		7ADDEE421BBC10DD00E008E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "PopulrWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1352,14 +1399,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PopulrWatch/PopulrWatch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = PopulrWatch_Extension;
 				INFOPLIST_FILE = PopulrWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f33c41cf-be90-40f3-95b4-624dd2ef8788";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1371,14 +1421,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PopulrWatch/PopulrWatch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = PopulrWatch_Extension;
 				INFOPLIST_FILE = PopulrWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f33c41cf-be90-40f3-95b4-624dd2ef8788";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1414,6 +1467,7 @@
 				7ADDEE421BBC10DD00E008E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7ADDEE441BBC10DD00E008E7 /* Build configuration list for PBXNativeTarget "PopulrWatch" */ = {
 			isa = XCConfigurationList;
@@ -1422,6 +1476,7 @@
 				7ADDEE461BBC10DD00E008E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
