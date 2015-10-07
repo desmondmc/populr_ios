@@ -190,9 +190,11 @@
 
 + (void)sendUserDataToWatch:(SPUser *)user {
     if ([WCSession isSupported]) {
-        NSDictionary *applicationDict = @{@"user_id": [user.objectId stringValue],
-                                          @"auth_key": user.goToken};// Create a dict of application data
-        [[kAppDel session] transferUserInfo:applicationDict];
+        if (user.objectId && user.goToken) {
+            NSDictionary *applicationDict = @{@"user_id": [user.objectId stringValue],
+                                              @"auth_key": user.goToken};// Create a dict of application data
+            [[kAppDel session] transferUserInfo:applicationDict];
+        }
     }
 }
 

@@ -115,6 +115,7 @@
     } else {
         _placeHolderText = kPlaceHolderText;
         self.messageTextView.text = _placeHolderText;
+        [self hideHelpLabels:NO];
     }
     [self enableButtons:NO];
     [self checkFriendsState];
@@ -363,6 +364,10 @@
                                         inViewController:self];
     }
     
+    if (allowInput) {
+        [self addSpaceIfNeeded:text];
+    }
+    
     return allowInput;
 }
 
@@ -375,6 +380,19 @@
     } else {
         // Fixes bug where view goes out of wack when the keyboard is up and the user changes screens
         [self keyboardWillHide:nil];
+    }
+}
+
+- (void)addSpaceIfNeeded:(NSString *)newText {
+    __block NSUInteger count = 0;
+    [newText enumerateSubstringsInRange:NSMakeRange(0, [newText length])
+                               options:NSStringEnumerationByComposedCharacterSequences
+                            usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                                count++;
+                            }];
+    
+    if (count == 1 && [newText isIncludingEmoji]) {
+        self.messageTextView.text = [self.messageTextView.text stringByAppendingString:@" "];
     }
 }
 

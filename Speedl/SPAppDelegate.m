@@ -29,7 +29,7 @@
     [[UITextView appearance] setTintColor:[UIColor whiteColor]];
     
     if ([SPUser currentUser]) {
-        if ([SPUser currentUser].token != nil) {
+        if ([SPUser currentUser].token != nil || [SPUser currentUser].goToken == nil) {
             [SPLoginRouter gotoLoggedOutView];
             
         } else {

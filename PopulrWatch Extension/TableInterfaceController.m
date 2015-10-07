@@ -90,7 +90,7 @@
 }
 
 - (void)loadingState {
-    [_loadingLabel setText:@"Loading..."];
+    [_loadingLabel setText:@"..."];
     [_loadingLabel setHidden:NO];
 }
 
