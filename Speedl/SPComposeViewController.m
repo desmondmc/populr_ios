@@ -11,6 +11,7 @@
 
 
 #define kPlaceHolderText @"Write something..."
+#define kCharacterLimit 800
 
 #define kPreviewImageOn [UIImage imageNamed:@"preview_button_active"]
 #define kPreviewImageOff [UIImage imageNamed:@"preview_button_off"]
@@ -357,7 +358,7 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    BOOL allowInput = textView.text.length + (text.length - range.length) <= 500;
+    BOOL allowInput = textView.text.length + (text.length - range.length) <= kCharacterLimit;
     
     if (!allowInput) {
         [SPNotification showErrorNotificationWithMessage:@"Too many characters"
@@ -392,7 +393,7 @@
                             }];
     
     if (count == 1 && [newText isIncludingEmoji]) {
-        self.messageTextView.text = [self.messageTextView.text stringByAppendingString:@" "];
+        [_messageTextView replaceRange:_messageTextView.selectedTextRange withText:@" "];
     }
 }
 
