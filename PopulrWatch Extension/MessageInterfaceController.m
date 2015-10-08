@@ -11,6 +11,7 @@
 
 #define kCountDown @[@"3",@"2",@"1", @"0"]
 #define kMessageTextSize 20
+#define kDefaultDelay 0.24
 
 @interface MessageInterfaceController ()
 
@@ -56,16 +57,33 @@
 }
 
 - (void)animateMessage {
-    for (NSString *word in _messageWords) {
-        NSInteger index = [_messageWords indexOfObject:word];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.24 * NSEC_PER_SEC * index)), dispatch_get_main_queue(), ^{
-            NSLog(@"%d - Setting message: %@", index, _messageWords[index]);
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSString *word = nil;
+        for (NSInteger index = 0; index < [_messageWords count]; index++) {
+            word = _messageWords[index];
             [_messageLabel setText:_messageWords[index] withSize:kMessageTextSize];
             if ([[_messageWords lastObject] isEqualToString:word]) {
                 [self popToRootController];
             }
-        });
+            [self sleepForWord:word];
+        }
+    });
+}
+
+- (void)sleepForWord:(NSString *)word {
+    CGFloat multiplyer = 1;
+    if ([word hasSuffix:@"."]
+        || [word hasSuffix:@"!"]
+        || [word hasSuffix:@"?"]
+        || [word hasSuffix:@";"]
+        || [word hasSuffix:@":"]) {
+        
+        multiplyer = 2.0;
+    } else if ([word hasSuffix:@","]) {
+        multiplyer = 1.5;
     }
+    
+    [NSThread sleepForTimeInterval:kDefaultDelay*multiplyer];
 }
 
 - (void)animateCountDown {
