@@ -7,12 +7,14 @@
 //
 
 #import "MessageInterfaceController.h"
+#import "WKInterfaceLabel+Populr.h"
+
 #define kCountDown @[@"3",@"2",@"1", @"0"]
+#define kMessageTextSize 20
 
 @interface MessageInterfaceController ()
 
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *messageLabel;
-@property (strong, nonatomic) IBOutlet WKInterfaceLabel *messageFromLabel;
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *usernameLabel;
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *typeLabel;
 
@@ -24,13 +26,17 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-    
+    [_messageLabel setText:@"3" withSize:kMessageTextSize];
     if ([context isKindOfClass:[NSDictionary class]]) {
-        [_usernameLabel setText:context[@"fromUsername"]];
+        [_usernameLabel setText:context[@"fromUsername"] withSize:kMessageTextSize];
         _messageWords = [self messageArrayWithMessage:context[@"message"]];
-        [_typeLabel setText:context[@"type"]];
+        [_typeLabel setText:[self getTypeTextWithType:context[@"type"]]];
         [self animateCountDown];
     }
+}
+
+- (NSString *)getTypeTextWithType:(NSString *)type {
+    return [type stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[type substringToIndex:1] uppercaseString]];
 }
 
 - (NSArray *)messageArrayWithMessage:(NSString *)message {
@@ -54,7 +60,7 @@
         NSInteger index = [_messageWords indexOfObject:word];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (0.24 * NSEC_PER_SEC * index)), dispatch_get_main_queue(), ^{
             NSLog(@"%d - Setting message: %@", index, _messageWords[index]);
-            [_messageLabel setText:_messageWords[index]];
+            [_messageLabel setText:_messageWords[index] withSize:kMessageTextSize];
             if ([[_messageWords lastObject] isEqualToString:word]) {
                 [self popToRootController];
             }
@@ -68,11 +74,11 @@
         NSInteger index = [countDown indexOfObject:word];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC * index), dispatch_get_main_queue(), ^{
             NSLog(@"%d - Setting message: %@", index, countDown[index]);
-            [_messageLabel setText:countDown[index]];
+            [_messageLabel setText:countDown[index] withSize:kMessageTextSize];
             
             if ([[countDown lastObject] isEqualToString:word]) {
-                [_messageFromLabel setHidden:YES];
                 [_usernameLabel setHidden:YES];
+                [_typeLabel setHidden:YES];
                 [self animateMessage];
             }
         });

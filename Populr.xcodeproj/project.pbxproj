@@ -32,6 +32,7 @@
 		7A49B98F1AE836350085D3C6 /* SPCustomTwoTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B98E1AE836350085D3C6 /* SPCustomTwoTabView.m */; };
 		7A625F521B053A1A0092F412 /* SPFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */; };
 		7A625F561B0545ED0092F412 /* SPAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F551B0545ED0092F412 /* SPAutoLayout.m */; };
+		7A7A62D11BC5D462008EE3B6 /* WKInterfaceLabel+Populr.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7A62D01BC5D461008EE3B6 /* WKInterfaceLabel+Populr.m */; settings = {ASSET_TAGS = (); }; };
 		7A89E4661BB1F80400184756 /* SPSorryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A89E4641BB1F80400184756 /* SPSorryViewController.m */; settings = {ASSET_TAGS = (); }; };
 		7A89E4691BB2105000184756 /* SPSorryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A89E4681BB2105000184756 /* SPSorryViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		7A89E46D1BB3213200184756 /* SPDeviceToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A89E46C1BB3213200184756 /* SPDeviceToken.m */; settings = {ASSET_TAGS = (); }; };
@@ -193,6 +194,8 @@
 		7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendsTableViewController.m; sourceTree = "<group>"; };
 		7A625F541B0545EC0092F412 /* SPAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPAutoLayout.h; sourceTree = "<group>"; };
 		7A625F551B0545ED0092F412 /* SPAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPAutoLayout.m; sourceTree = "<group>"; };
+		7A7A62CF1BC5D461008EE3B6 /* WKInterfaceLabel+Populr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKInterfaceLabel+Populr.h"; sourceTree = "<group>"; };
+		7A7A62D01BC5D461008EE3B6 /* WKInterfaceLabel+Populr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKInterfaceLabel+Populr.m"; sourceTree = "<group>"; };
 		7A89E4631BB1F80400184756 /* SPSorryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSorryViewController.h; sourceTree = "<group>"; };
 		7A89E4641BB1F80400184756 /* SPSorryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSorryViewController.m; sourceTree = "<group>"; };
 		7A89E4681BB2105000184756 /* SPSorryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPSorryViewController.xib; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				7A0CC55F1BBDDC2100786A33 /* SPWatchMessage.m */,
 				7A0CC5611BBE995300786A33 /* SPWatchNetworkHelper.h */,
 				7A0CC5621BBE995300786A33 /* SPWatchNetworkHelper.m */,
+				7A7A62CF1BC5D461008EE3B6 /* WKInterfaceLabel+Populr.h */,
+				7A7A62D01BC5D461008EE3B6 /* WKInterfaceLabel+Populr.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1183,6 +1188,7 @@
 				7ADDEE391BBC10DD00E008E7 /* ExtensionDelegate.m in Sources */,
 				7A0CC5631BBE995300786A33 /* SPWatchNetworkHelper.m in Sources */,
 				7A0CC5601BBDDC2100786A33 /* SPWatchMessage.m in Sources */,
+				7A7A62D11BC5D462008EE3B6 /* WKInterfaceLabel+Populr.m in Sources */,
 				7ADDEE4D1BBC196000E008E7 /* MessageInterfaceController.m in Sources */,
 				7ADDEE361BBC10DD00E008E7 /* TableInterfaceController.m in Sources */,
 				7ADDEE4A1BBC13ED00E008E7 /* MessagesTableRowController.m in Sources */,

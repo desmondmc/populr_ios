@@ -10,9 +10,11 @@
 #import "MessagesTableRowController.h"
 #import "SPWatchUser.h"
 #import "SPWatchMessage.h"
+#import "WKInterfaceLabel+Populr.h"
 
 #define kMessageArray @[@"1", @"2", @"3"]
 #define kExampleMessageArray @[@"Networking", @"is", @"WKInterfaceTable", @"a", @"message."]
+#define kLoadingLabelSize 20
 
 @interface TableInterfaceController()
 
@@ -90,17 +92,20 @@
 }
 
 - (void)loadingState {
-    [_loadingLabel setText:@"..."];
-    [_loadingLabel setHidden:NO];
+    if ([_messages count] == 0) {
+        [_loadingLabel setText:@"..." withSize:kLoadingLabelSize];
+        [_loadingLabel setHidden:NO];
+    }
 }
 
 - (void)notLoadingStateMessage:(NSString *)message {
-    [_loadingLabel setText:message];
+    [_loadingLabel setText:message withSize:kLoadingLabelSize];
     [_loadingLabel setHidden:NO];
 }
 #pragma mark WCSession
 
 -(void)session:(WCSession *)session didReceiveUserInfo:(NSDictionary<NSString *,id> *)userInfo {
+    NSLog(@"User info: %@", userInfo);
     [SPWatchUser setUserAuthKey:userInfo[@"auth_key"]];
     [SPWatchUser setUserId:userInfo[@"user_id"]];
     [self loadTableData];

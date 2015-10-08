@@ -147,7 +147,7 @@
 }
 
 - (void)setupForPostSearchNoResults {
-    [_suggestionsView setHidden:NO];
+    [_suggestionsView setHidden:YES];
     [_tableView setHidden:YES];
     [_noResultsLabel setHidden:NO];
 }

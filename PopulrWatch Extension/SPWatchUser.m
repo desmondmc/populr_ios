@@ -42,8 +42,8 @@
     }
     [SPWatchNetworkHelper urlRequestWithURL:@"http://populr_go_api.gzelle.co/messages"
                                      method:@"GET"
-                                     userId:@"33"
-                                    authKey:@"051aabce-8c89-45eb-6e08-95bf79cf32ef"
+                                     userId:[self userId]
+                                    authKey:[self userAuthKey]
                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                               if (error) {
                                   NSLog(@"Error with request: %@", error);
@@ -56,7 +56,7 @@
                                       NSArray *messages = [self messageArrayFromDictionary:dataDic];
                                       NSString *error = @"";
                                       if ([messages count] == 0) {
-                                          error = @"No messages";
+                                          error = @"•";
                                       }
                                       
                                       
@@ -72,8 +72,8 @@
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[message.objectId stringValue]];
     [SPWatchNetworkHelper urlRequestWithURL:url
                                      method:@"POST"
-                                     userId:@"33"
-                                    authKey:@"051aabce-8c89-45eb-6e08-95bf79cf32ef"
+                                     userId:[self userId]
+                                    authKey:[self userAuthKey]
                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                               NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
                               NSLog(@"Response: %@", httpResponse);

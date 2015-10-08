@@ -10,13 +10,14 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="TableInterfaceController">
                     <items>
-                        <table alignment="left" id="YOg-AY-rqf">
+                        <table alignment="left" verticalAlignment="center" id="YOg-AY-rqf">
                             <items>
                                 <tableRow identifier="MessagesTableRowController" id="dGo-hx-tOS" customClass="MessagesTableRowController">
                                     <group key="rootItem" width="1" height="80" alignment="left" backgroundImage="watch_circle" contentMode="center" id="aUY-zg-2gn">
                                         <items>
                                             <label alignment="center" verticalAlignment="center" id="WYt-76-3mq">
                                                 <color key="textColor" red="0.17799136509999999" green="0.66868116690000001" blue="0.79916221220000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                             </label>
                                         </items>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -27,7 +28,9 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <label alignment="center" verticalAlignment="center" text="Loading..." id="l8v-aC-s78"/>
+                        <label alignment="center" verticalAlignment="center" text="..." id="l8v-aC-s78">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
                     </items>
                     <color key="backgroundColor" red="0.17799136509999999" green="0.66868116690000001" blue="0.79916221220000005" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -42,22 +45,21 @@
             <objects>
                 <controller identifier="MessageInterfaceController" hidesWhenLoading="NO" id="PsU-8G-3pA" customClass="MessageInterfaceController">
                     <items>
-                        <label alignment="center" text="Label" id="nxJ-LB-odb">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <label alignment="center" text="message from:" id="Ubf-Er-W20">
+                        <label alignment="center" verticalAlignment="center" text="type" id="nxJ-LB-odb">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <label alignment="center" verticalAlignment="center" text="FromUsername" id="Dd1-e8-HJs">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                         </label>
                         <label alignment="center" verticalAlignment="center" text="3" id="bZ3-Wb-hS0">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                     </items>
                     <color key="backgroundColor" red="0.17799136509999999" green="0.66868116690000001" blue="0.79916221220000005" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
-                        <outlet property="messageFromLabel" destination="Ubf-Er-W20" id="6ht-QW-7J5"/>
                         <outlet property="messageLabel" destination="bZ3-Wb-hS0" id="PjC-KV-41J"/>
                         <outlet property="typeLabel" destination="nxJ-LB-odb" id="ruF-gE-smR"/>
                         <outlet property="usernameLabel" destination="Dd1-e8-HJs" id="Jgb-lZ-gaD"/>
