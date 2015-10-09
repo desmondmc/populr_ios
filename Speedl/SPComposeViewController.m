@@ -109,7 +109,7 @@
     [self.noFriendsView setBackgroundColor:[SPAppearance getMainBackgroundColour]];
     
     // Called to setup view for keyboard down state at the begining.
-    [self keyboardWillHide:nil];
+    [self adjustLayoutForNoKeyboard];
     
     if (_isFeedBackView) {
         [self setupForFeedback];
@@ -170,7 +170,7 @@
     SPMessageViewController *messageViewController = [[SPMessageViewController alloc] initWithMessage:message showCountDown:NO];
     
     [self presentViewController: messageViewController animated:NO completion:^{
-        [self keyboardWillHide:nil];
+        [self adjustLayoutForNoKeyboard];
     }];
 }
 
@@ -253,32 +253,18 @@
                      animations:^{
                          [self.view layoutIfNeeded]; // Called on parent view
                      }];
-    
-    [self hideHelpLabels:YES];
 }
 
 -(void)keyboardWillHide:(NSNotification*)notification {
-    CGFloat height = 0;
-    
-    if (notification) {
-        NSDictionary *info = [notification userInfo];
-        CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-        height = kbSize.height;
-    }
-    
-    if (![self.messageTextView isFirstResponder]) {
-        _currentKeyboardHeight = 0;
-        height = 0;
-    }
-    
+    [self adjustLayoutForNoKeyboard];
+}
+
+- (void)adjustLayoutForNoKeyboard {
     [self hideHelpLabels:NO];
-    
-    CGFloat deltaHeight = height - _currentKeyboardHeight;
-    
-    _sendButtonBottomConstraint.constant = _currentKeyboardHeight + deltaHeight + 8;
+    _sendButtonBottomConstraint.constant = 8;
     _messageTopConstraint.constant = [self messageTopConstraintForCenter];
     
-    _currentKeyboardHeight = height;
+    _currentKeyboardHeight = 0;
     
     [self.view layoutIfNeeded];
 }
@@ -319,6 +305,7 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
+    [self hideHelpLabels:YES];
     if ([textView.text isEqualToString:_placeHolderText]) {
         textView.text = @"";
     }
@@ -380,7 +367,7 @@
         [self checkFriendsState];
     } else {
         // Fixes bug where view goes out of wack when the keyboard is up and the user changes screens
-        [self keyboardWillHide:nil];
+        [self adjustLayoutForNoKeyboard];
     }
 }
 
