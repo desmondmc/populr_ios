@@ -61,8 +61,10 @@
 - (IBAction)onLogoutPress:(id)sender {
     [[SPUser currentUser] logoutUserInBackgroundWithBlock:^(BOOL success, NSString *serverMessage) {
         // Don't check for success here. Should still logout even on failure.
-        [SPLoginRouter gotoLoggedOutView];
     }];
+    
+    [SPUser clearWatchData];
+    [SPLoginRouter gotoLoggedOutView];
     
 }
 - (IBAction)onBackPress:(id)sender {

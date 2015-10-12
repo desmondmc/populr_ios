@@ -56,6 +56,8 @@
 		7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D72B1AC35C7400CA94DB /* SPMessageViewController.m */; };
 		7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D72C1AC35C7400CA94DB /* SPMessageViewController.xib */; };
 		7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */; };
+		7AB8D5F61BCC6ACA009B1B13 /* NSString+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8D5F51BCC6ACA009B1B13 /* NSString+Speedl.m */; settings = {ASSET_TAGS = (); }; };
+		7AB8D5F71BCC6ACA009B1B13 /* NSString+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8D5F51BCC6ACA009B1B13 /* NSString+Speedl.m */; settings = {ASSET_TAGS = (); }; };
 		7AC02FA11B1B9A1A00B26A6E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FA01B1B9A1A00B26A6E /* Parse.framework */; };
 		7AC02FA31B1B9BE600B26A6E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FA21B1B9BE600B26A6E /* AudioToolbox.framework */; };
 		7AC02FA51B1B9BF000B26A6E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FA41B1B9BF000B26A6E /* CFNetwork.framework */; };
@@ -241,6 +243,8 @@
 		7AB3D7301AC35C9900CA94DB /* SPMessageLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageLabel.h; sourceTree = "<group>"; };
 		7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageLabel.m; sourceTree = "<group>"; };
 		7AB3D7331AC35CC900CA94DB /* Populr-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Populr-Prefix.pch"; sourceTree = "<group>"; };
+		7AB8D5F41BCC6ACA009B1B13 /* NSString+Speedl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Speedl.h"; sourceTree = "<group>"; };
+		7AB8D5F51BCC6ACA009B1B13 /* NSString+Speedl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Speedl.m"; sourceTree = "<group>"; };
 		7AC02FA01B1B9A1A00B26A6E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		7AC02FA21B1B9BE600B26A6E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7AC02FA41B1B9BF000B26A6E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -270,6 +274,8 @@
 		7AC691711B2603240018EB9D /* UIView+Speedl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Speedl.m"; sourceTree = "<group>"; };
 		7ACAA9841BCAD7FA000EBAC8 /* SPReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPReachability.h; sourceTree = "<group>"; };
 		7ACAA9851BCAD7FA000EBAC8 /* SPReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPReachability.m; sourceTree = "<group>"; };
+		7ACAA98A1BCC25C9000EBAC8 /* SPWatch-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SPWatch-Prefix.pch"; sourceTree = "<group>"; };
+		7ACAA98B1BCC2689000EBAC8 /* SharedMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMacros.h; sourceTree = "<group>"; };
 		7ADB12181B4C668900822094 /* SPMessageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageProcessor.h; sourceTree = "<group>"; };
 		7ADB12191B4C668900822094 /* SPMessageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageProcessor.m; sourceTree = "<group>"; };
 		7ADC27101B3208AA00B90798 /* NSError+Speedl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Speedl.h"; sourceTree = "<group>"; };
@@ -651,6 +657,8 @@
 				7AB3D7331AC35CC900CA94DB /* Populr-Prefix.pch */,
 				7AB3D6E91AC35A3900CA94DB /* Info.plist */,
 				7AB3D6EA1AC35A3900CA94DB /* main.m */,
+				7ACAA98A1BCC25C9000EBAC8 /* SPWatch-Prefix.pch */,
+				7ACAA98B1BCC2689000EBAC8 /* SharedMacros.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -790,6 +798,8 @@
 			children = (
 				7ADC27101B3208AA00B90798 /* NSError+Speedl.h */,
 				7ADC27111B3208AA00B90798 /* NSError+Speedl.m */,
+				7AB8D5F41BCC6ACA009B1B13 /* NSString+Speedl.h */,
+				7AB8D5F51BCC6ACA009B1B13 /* NSString+Speedl.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1001,7 +1011,7 @@
 						DevelopmentTeam = 8Y2GFS326V;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -1013,7 +1023,7 @@
 						DevelopmentTeam = 8Y2GFS326V;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1162,6 +1172,7 @@
 				7AE4D1F21AE2870E006F6C83 /* UILabel+Custom.m in Sources */,
 				7A216C291B164DA800F67B0F /* SPSettingsViewController.m in Sources */,
 				7A1969341B4B2CCD0006D5AF /* SPMessageHolder.m in Sources */,
+				7AB8D5F61BCC6ACA009B1B13 /* NSString+Speedl.m in Sources */,
 				7AC691651B25FA0D0018EB9D /* SPCustomNotificationViewController.m in Sources */,
 				7A89E47D1BB4674F00184756 /* SPPhoneValidation.m in Sources */,
 				7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */,
@@ -1219,6 +1230,7 @@
 				7A0CC5631BBE995300786A33 /* SPWatchNetworkHelper.m in Sources */,
 				7A0CC5601BBDDC2100786A33 /* SPWatchMessage.m in Sources */,
 				7A7A62D11BC5D462008EE3B6 /* WKInterfaceLabel+Populr.m in Sources */,
+				7AB8D5F71BCC6ACA009B1B13 /* NSString+Speedl.m in Sources */,
 				7ADDEE4D1BBC196000E008E7 /* MessageInterfaceController.m in Sources */,
 				7ADDEE361BBC10DD00E008E7 /* TableInterfaceController.m in Sources */,
 				7ADDEE4A1BBC13ED00E008E7 /* MessagesTableRowController.m in Sources */,
@@ -1349,8 +1361,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Populr.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1374,8 +1386,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Populr.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1396,10 +1408,11 @@
 		7ADDEE411BBC10DD00E008E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Speedl/SPWatch-Prefix.pch";
 				INFOPLIST_FILE = "PopulrWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
@@ -1415,10 +1428,11 @@
 		7ADDEE421BBC10DD00E008E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Speedl/SPWatch-Prefix.pch";
 				INFOPLIST_FILE = "PopulrWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
@@ -1436,11 +1450,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PopulrWatch/PopulrWatch.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Speedl/SPWatch-Prefix.pch";
 				IBSC_MODULE = PopulrWatch_Extension;
 				INFOPLIST_FILE = PopulrWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;
@@ -1458,11 +1473,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PopulrWatch/PopulrWatch.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Speedl/SPWatch-Prefix.pch";
 				IBSC_MODULE = PopulrWatch_Extension;
 				INFOPLIST_FILE = PopulrWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;

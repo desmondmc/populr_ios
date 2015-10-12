@@ -1,0 +1,14 @@
+//
+//  SPShared-Prefix.pch
+//  Populr
+//
+//  Created by Desmond McNamee on 2015-10-12.
+//  Copyright © 2015 Speedl. All rights reserved.
+//
+
+#ifndef SPShared_Prefix_pch
+#define SPShared_Prefix_pch
+
+#import "SharedMacros.h"
+
+#endif /* SPShared_Prefix_pch */

@@ -201,6 +201,16 @@
     }];
 }
 
++ (void)clearWatchData {
+    if ([WCSession isSupported]) {
+        NSDictionary *applicationDict = @{@"user_id": @"",
+                                          @"auth_key": @""};
+        if (applicationDict) {
+            [[kAppDel session] transferUserInfo:applicationDict];
+        }
+    }
+}
+
 + (void)sendUserDataToWatch:(SPUser *)user {
     if ([WCSession isSupported]) {
         NSDictionary *applicationDict = [self getUserDataForWatch:user];

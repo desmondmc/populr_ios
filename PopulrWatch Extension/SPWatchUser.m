@@ -36,7 +36,7 @@
     NSString *userId = [self userId];
     NSString *authKey = [self userAuthKey];
     
-    if (userId == nil || authKey == nil) {
+    if ([userId isNilOrBlank] || [authKey isNilOrBlank]) {
         block(nil, NO, @"Please login");
         return;
     }

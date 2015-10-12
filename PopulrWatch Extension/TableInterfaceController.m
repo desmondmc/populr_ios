@@ -74,13 +74,15 @@
         WCSession* session = [WCSession defaultSession];
         session.delegate = self;
         [session activateSession];
+        [self loadTableData];
+    } else {
+        [self notSupportedState];
     }
 }
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
-    [self loadTableData];
 }
 
 - (void)didDeactivate {
@@ -99,6 +101,13 @@
         [_loadingLabel setHidden:NO];
         [_extraLabel setHidden:YES];
     }
+}
+
+- (void)notSupportedState {
+    [_loadingLabel setText:@"Requires iOS 9+" withSize:kLoadingLabelSize-5];
+    [_extraLabel setText:@"Please update" withSize:kLoadingLabelSize-5];
+    [_loadingLabel setHidden:NO];
+    [_extraLabel setHidden:NO];
 }
 
 - (void)notLoadingStateMessage:(NSString *)message {
