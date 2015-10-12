@@ -203,12 +203,20 @@
 
 + (void)sendUserDataToWatch:(SPUser *)user {
     if ([WCSession isSupported]) {
-        if (user.objectId && user.goToken) {
-            NSDictionary *applicationDict = @{@"user_id": [user.objectId stringValue],
-                                              @"auth_key": user.goToken};// Create a dict of application data
+        NSDictionary *applicationDict = [self getUserDataForWatch:user];
+        if (applicationDict) {
             [[kAppDel session] transferUserInfo:applicationDict];
         }
     }
+}
+
++ (NSDictionary *)getUserDataForWatch:(SPUser *)user {
+    if (user.objectId && user.goToken) {
+        NSDictionary *applicationDict = @{@"user_id": [user.objectId stringValue],
+                                          @"auth_key": user.goToken};// Create a dict of application data
+        return applicationDict;
+    }
+    return nil;
 }
 
 + (void)searchForUserInBackgroundWithString:(NSString *)searchString block:(SPUserSearchResultBlock)block {

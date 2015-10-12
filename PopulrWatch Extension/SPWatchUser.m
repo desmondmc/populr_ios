@@ -40,6 +40,7 @@
         block(nil, NO, @"Please login");
         return;
     }
+    
     [SPWatchNetworkHelper urlRequestWithURL:@"http://populr_go_api.gzelle.co/messages"
                                      method:@"GET"
                                      userId:[self userId]

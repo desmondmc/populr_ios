@@ -48,6 +48,7 @@ typedef void (^SPContactsResultBlock)(NSArray *contacts, NSString *serverMessage
 + (NSArray *)getFriendsArray;
 + (void)savePhoneNumber:(NSString *)phoneNumber;
 + (void)sendUserDataToWatch:(SPUser *)user;
++ (NSDictionary *)getUserDataForWatch:(SPUser *)user;
 
 - (void)getMessagesInBackground:(SPMessagesResultBlock)block;
 
