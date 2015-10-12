@@ -78,6 +78,7 @@
 		7AC6916D1B25FF7F0018EB9D /* SPCustomPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6916C1B25FF7F0018EB9D /* SPCustomPageControl.m */; };
 		7AC6916F1B25FF960018EB9D /* SPCustomPageControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC6916E1B25FF960018EB9D /* SPCustomPageControl.xib */; };
 		7AC691721B2603240018EB9D /* UIView+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC691711B2603240018EB9D /* UIView+Speedl.m */; };
+		7ACAA9861BCAD7FA000EBAC8 /* SPReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACAA9851BCAD7FA000EBAC8 /* SPReachability.m */; settings = {ASSET_TAGS = (); }; };
 		7ADB121A1B4C668900822094 /* SPMessageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB12191B4C668900822094 /* SPMessageProcessor.m */; };
 		7ADC27121B3208AA00B90798 /* NSError+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC27111B3208AA00B90798 /* NSError+Speedl.m */; };
 		7ADC3AF11B1F7ECE004A0CD2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */; };
@@ -267,6 +268,8 @@
 		7AC6916E1B25FF960018EB9D /* SPCustomPageControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPCustomPageControl.xib; sourceTree = "<group>"; };
 		7AC691701B2603240018EB9D /* UIView+Speedl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Speedl.h"; sourceTree = "<group>"; };
 		7AC691711B2603240018EB9D /* UIView+Speedl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Speedl.m"; sourceTree = "<group>"; };
+		7ACAA9841BCAD7FA000EBAC8 /* SPReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPReachability.h; sourceTree = "<group>"; };
+		7ACAA9851BCAD7FA000EBAC8 /* SPReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPReachability.m; sourceTree = "<group>"; };
 		7ADB12181B4C668900822094 /* SPMessageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMessageProcessor.h; sourceTree = "<group>"; };
 		7ADB12191B4C668900822094 /* SPMessageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageProcessor.m; sourceTree = "<group>"; };
 		7ADC27101B3208AA00B90798 /* NSError+Speedl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Speedl.h"; sourceTree = "<group>"; };
@@ -398,6 +401,7 @@
 		7A263CFD1AC89B4C00D69F60 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7ACAA9831BCAC62C000EBAC8 /* SPReachability */,
 				7A89E47A1BB4673300184756 /* PhoneValidation */,
 				7A89E46A1BB3210500184756 /* DeviceTokenManager */,
 				7ADB12171B4C664800822094 /* SPMessageProcessor */,
@@ -761,6 +765,15 @@
 				7AC6916E1B25FF960018EB9D /* SPCustomPageControl.xib */,
 			);
 			name = SPGeneral;
+			sourceTree = "<group>";
+		};
+		7ACAA9831BCAC62C000EBAC8 /* SPReachability */ = {
+			isa = PBXGroup;
+			children = (
+				7ACAA9841BCAD7FA000EBAC8 /* SPReachability.h */,
+				7ACAA9851BCAD7FA000EBAC8 /* SPReachability.m */,
+			);
+			name = SPReachability;
 			sourceTree = "<group>";
 		};
 		7ADB12171B4C664800822094 /* SPMessageProcessor */ = {
@@ -1137,6 +1150,7 @@
 				7A89E47D1BB4674F00184756 /* SPPhoneValidation.m in Sources */,
 				7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */,
 				7AB3D7151AC35BA600CA94DB /* SPNetworkHelper.m in Sources */,
+				7ACAA9861BCAD7FA000EBAC8 /* SPReachability.m in Sources */,
 				7AB3D72D1AC35C7400CA94DB /* SPMessageViewController.m in Sources */,
 				7A263D021AC89FEA00D69F60 /* SPContainerViewController.m in Sources */,
 				7A49B98A1AE417830085D3C6 /* SPFriendTableViewCell.m in Sources */,

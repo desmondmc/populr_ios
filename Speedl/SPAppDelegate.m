@@ -25,6 +25,9 @@
     // Initialize Crashlytics
     [Crashlytics startWithAPIKey:@"a842d2a25e2a337bce79b6737d757ad5fc3c0df0"];
     
+    // Init Reachability
+    [SPReachability sharedInstance];
+    
     [[UITextField appearance] setTintColor:[UIColor whiteColor]];
     [[UITextView appearance] setTintColor:[UIColor whiteColor]];
     

@@ -21,6 +21,7 @@
 #import "SPAppearance.h"
 #import "SPAutoLayout.h"
 #import "SPMessageHolder.h"
+#import "SPReachability.h"
 
 // Notifications
 #define kSPMessageCountNotification @"SPMessageCountNotification"

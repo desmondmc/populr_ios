@@ -93,8 +93,14 @@
 - (void)loadFriends {
     [[SPUser currentUser] getFriendsInBackground:^(NSArray *friends, NSString *serverMessage) {
         [self.refreshControl endRefreshing];
-        if (friends.count > 0) {
-            [self dataSource].users = friends;
+        
+        if (serverMessage) {
+            [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:nil];
+        }
+        
+        NSArray *savedFriends = [SPUser getFriendsArray];
+        if (savedFriends > 0) {
+            [self dataSource].users = [SPUser getFriendsArray];
             [self setupViewWithResults];
         } else {
             [self setupWithNoResults];

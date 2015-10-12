@@ -13,8 +13,13 @@
 
 @implementation SPNotification
 
+
 + (void)showErrorNotificationWithMessage:(NSString *)message inViewController:(UIViewController *)viewController {
     [self setupAppearance];
+    
+    if (!viewController) {
+        viewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    }
     
     [TSMessage showNotificationInViewController:viewController
                                           title:message

@@ -153,7 +153,6 @@
 }
 
 - (void)startSearch {
-    
     if ([_searchTextField.text length] > 0) {
         NSString *lowercaseSearch = [_searchTextField.text lowercaseString];
         [self setupForMidSearch];
@@ -164,6 +163,9 @@
                 [self dataSource].users = users;
                 [self.tableView reloadData];
             } else {
+                if (serverMessage) {
+                    [SPNotification showErrorNotificationWithMessage:serverMessage inViewController:nil];
+                }
                 [self setupForPostSearchNoResults];
             }
             _searchTextField.text = @"";

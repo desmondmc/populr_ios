@@ -116,6 +116,12 @@
 #pragma mark - Network calls
 
 + (void)signUpUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block {
+    if (![[SPReachability sharedInstance] isReachable]) {
+        if (block) {
+            block(nil,@"Network error");
+        }
+        return;
+    }
     
     NSString *url = kAPISignUpUrl;
     
@@ -153,6 +159,13 @@
 }
 
 + (void)loginUserInBackgroundWithUsername:(NSString *)username password:(NSString *)password block:(SPUserResultBlock)block {
+    if (![[SPReachability sharedInstance] isReachable]) {
+        if (block) {
+            block(nil,@"Network error");
+        }
+        return;
+    }
+    
     NSString *url = kAPILoginUrl;
     
     NSDictionary *userDictionary = @{@"username":username, @"password":password};
@@ -199,6 +212,13 @@
 }
 
 + (void)searchForUserInBackgroundWithString:(NSString *)searchString block:(SPUserSearchResultBlock)block {
+    if (![[SPReachability sharedInstance] isReachable]) {
+        if (block) {
+            block(nil,@"Network error");
+        }
+        return;
+    }
+    
     NSString *url = kAPIUserSearchUrl;
     
     url = [url stringByReplacingOccurrencesOfString:@"{term}" withString:searchString];
@@ -277,6 +297,12 @@
 - (void)postMessageInBackground:(NSString *)message
                           users:(NSArray *)users
                           block:(SPNetworkResultBlock)block {
+    if (![[SPReachability sharedInstance] isReachable]) {
+        if (block) {
+            block(NO,@"Network error");
+        }
+        return;
+    }
     
     NSString *url = kAPIPostMessageUrl;
     
@@ -315,6 +341,12 @@
 - (void)postPhoneNumberInBackground:(NSString *)phoneNumber
                               countryCode:(NSString *)countryCode
                               block:(SPNetworkResultBlock)block {
+    if (![[SPReachability sharedInstance] isReachable]) {
+        if (block) {
+            block(NO, @"Network error");
+        }
+        return;
+    }
     
     NSString *url = kAPIPostPhoneUrl;
     
@@ -383,6 +415,13 @@
 }
 
 - (void)postFeedbackInBackground:(NSString *)feedback block:(SPNetworkResultBlock)block {
+    if (![[SPReachability sharedInstance] isReachable]) {
+        if (block) {
+            block(NO, @"Network error");
+        }
+        return;
+    }
+    
     NSString *url = kAPIPostFeedbackUrl;
     
     NSDictionary *userDictionary = @{@"feedback": feedback};
@@ -459,6 +498,14 @@
 }
 
 - (void)getFriendsInBackground:(SPFriendsResultBlock)block {
+    if (![[SPReachability sharedInstance] isReachable]) {
+        NSLog(@"UNREACHABLE NETWORK!");
+        if (block) {
+            block(nil,@"Network error");
+        }
+        return;
+    }
+    
     NSString *url = kAPIFriendsUrl;
     
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
@@ -493,6 +540,13 @@
 
 - (void)friendUserInBackground:(SPUser *)userToFriend block:(SPNetworkResultBlock)block
 {
+    if (![[SPReachability sharedInstance] isReachable]) {
+        if (block) {
+            block(NO,@"Network error");
+        }
+        return;
+    }
+    
     NSString *url = kAPIFriendUserUrl;
     
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[userToFriend objectId].stringValue];
@@ -520,6 +574,13 @@
 }
 
 - (void)unfriendUserInBackground:(SPUser *)userToUnfriend block:(SPNetworkResultBlock)block {
+    if (![[SPReachability sharedInstance] isReachable]) {
+        if (block) {
+            block(NO,@"Network error");
+        }
+        return;
+    }
+    
     NSString *url = kAPIUnfriendUserUrl;
     
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[userToUnfriend objectId].stringValue];
