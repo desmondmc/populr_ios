@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet WKInterfaceTable *messagesTable;
 @property (strong, nonatomic) NSArray *messages;
 @property (strong, nonatomic) IBOutlet WKInterfaceLabel *loadingLabel;
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *extraLabel;
 
 @end
 
@@ -89,17 +90,26 @@
 
 - (void)haveMessagesState {
     [_loadingLabel setHidden:YES];
+    [_extraLabel setHidden:YES];
 }
 
 - (void)loadingState {
     if ([_messages count] == 0) {
         [_loadingLabel setText:@"..." withSize:kLoadingLabelSize];
         [_loadingLabel setHidden:NO];
+        [_extraLabel setHidden:YES];
     }
 }
 
 - (void)notLoadingStateMessage:(NSString *)message {
-    [_loadingLabel setText:message withSize:kLoadingLabelSize];
+    if ([message isEqualToString:@"Please login"]) {
+        [_loadingLabel setText:@"Open Populr on" withSize:kLoadingLabelSize];
+        [_extraLabel setText:@"iPhone to login" withSize:kLoadingLabelSize];
+        [_extraLabel setHidden:NO];
+    } else {
+        [_loadingLabel setText:message withSize:kLoadingLabelSize];
+        [_extraLabel setHidden:YES];
+    }
     [_loadingLabel setHidden:NO];
 }
 #pragma mark WCSession

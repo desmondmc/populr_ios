@@ -31,9 +31,11 @@
                         <label alignment="center" verticalAlignment="center" text="..." id="l8v-aC-s78">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </label>
+                        <label alignment="center" verticalAlignment="center" hidden="YES" text="phone to login" id="rCq-0t-s60"/>
                     </items>
                     <color key="backgroundColor" red="0.17799136509999999" green="0.66868116690000001" blue="0.79916221220000005" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
+                        <outlet property="extraLabel" destination="rCq-0t-s60" id="YhS-KO-kaz"/>
                         <outlet property="loadingLabel" destination="l8v-aC-s78" id="XPY-yl-MGI"/>
                         <outlet property="messagesTable" destination="YOg-AY-rqf" id="kPA-EZ-aHz"/>
                     </connections>
