@@ -9,7 +9,7 @@
 #import "MessageInterfaceController.h"
 #import "WKInterfaceLabel+Populr.h"
 
-#define kCountDown @[@"",@"0"]
+#define kCountDown @[@"2", @"1",@"0"]
 #define kMessageTextSize 20
 #define kDefaultDelay 0.24
 

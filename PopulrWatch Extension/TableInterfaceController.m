@@ -70,6 +70,12 @@
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
+}
+
+- (void)willActivate {
+    // This method is called when watch view controller is about to be visible to user
+    [super willActivate];
+    
     if ([WCSession isSupported]) {
         WCSession* session = [WCSession defaultSession];
         session.delegate = self;
@@ -78,11 +84,6 @@
     } else {
         [self notSupportedState];
     }
-}
-
-- (void)willActivate {
-    // This method is called when watch view controller is about to be visible to user
-    [super willActivate];
 }
 
 - (void)didDeactivate {
@@ -114,7 +115,6 @@
     if ([message isEqualToString:@"Please login"]) {
         [_loadingLabel setText:@"Open Populr on" withSize:kLoadingLabelSize];
         [_extraLabel setText:@"iPhone to login" withSize:kLoadingLabelSize];
-        [_extraLabel setHidden:NO];
     } else {
         [_loadingLabel setText:message withSize:kLoadingLabelSize];
         [_extraLabel setHidden:YES];
