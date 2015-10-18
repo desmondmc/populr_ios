@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPMessageListViewController">
             <connections>
+                <outlet property="expandingCircle" destination="c0i-81-Igs" id="ZMJ-4v-BYe"/>
                 <outlet property="lowerNoResultsLabel" destination="Xkv-cV-nIb" id="arO-jM-7Z9"/>
                 <outlet property="noResultsView" destination="d3h-3D-Esb" id="2vj-64-C80"/>
                 <outlet property="tableView" destination="hij-0F-dzW" id="z7l-GY-QXN"/>
@@ -73,6 +74,10 @@
                         <outlet property="delegate" destination="-1" id="8kN-5R-2nU"/>
                     </connections>
                 </tableView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launch_circle" translatesAutoresizingMaskIntoConstraints="NO" id="c0i-81-Igs" userLabel="ExpandingCircle">
+                    <rect key="frame" x="180" y="236" width="70" height="70"/>
+                    <animations/>
+                </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -87,4 +92,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="launch_circle" width="70" height="70"/>
+    </resources>
 </document>

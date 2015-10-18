@@ -10,8 +10,6 @@
 #import "SPMessageTableViewCell.h"
 #import "SPMessageViewController.h"
 
-//#define kMeanMessageArray @[@"Get more friends", @"Maybe it's your face", @"Have you tried CrossFit?", @"Do better", @"That sucks", @"Ouch", @"That's embarassing", @"Add your mom", @"You smell like dandelions", @"You must suck at dinner parties", @"You probably drive a Prius", @"Were you picked last for dodgeball?", @"I bet you enjoy egg salad", @"Your name is Karen, isn't it?", @"Damn", @"Just wait longer!", @"💩", @"Maybe try Ashley Madison", @"Join a book club", @"Not surprising..."]
-
 #define kMeanMessageArray @[@"same. waiting on that techcrunch feature", @"send one to that person you like, go on", @"start homing cats", @"go read buzzfeed. No don't",@"we quit our jobs for this", @"give (pops) and you shall receive (pops)", @"it’s not you, it’s them. Really", @"not a single person is thinking about you", @"get more friends", @"maybe it's your face", @"have you tried CrossFit?", @"do better", @"download our other app NotPopulr", @"put your Populr name up on Tinder", @"that's embarassing", @"add your mom", @"cause you smell like dandelions", @"go take the Prius for a wash", @"make a YouTube channel instead", @"enjoy an egg salad", @"your name is Karen, isn't it?", @"pfffft, back to snapchat", @"just wait longer!", @"💩", @"maybe try Ashley Madison", @"join a book club", @"Populr not Populr", @"Ouch."]
 
 @interface SPMessageListViewController ()
@@ -21,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *upperNoResultsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *lowerNoResultsLabel;
 @property (strong, nonatomic) IBOutlet UIView *noResultsView;
+@property (strong, nonatomic) IBOutlet UIView *expandingCircle;
 
 @end
 
@@ -159,14 +158,27 @@
     SPMessage *messageAtIndex = [SPUser getMessageList][indexPath.row];
     SPMessageViewController *messageViewController = [[SPMessageViewController alloc] initWithMessage:messageAtIndex showCountDown:YES];
     [self removeMessageFromArray:messageAtIndex];
-    [self presentViewController: messageViewController animated:NO completion:^{
-        [cell.activityIndicator setHidden:YES];
-        [cell.messageNumberLabel setHidden:NO];
-        [self.tableView reloadData];
-        [messageAtIndex markMessageAsReadInBackground:^(BOOL success, NSString *serverMessage) {
-            [self reloadMessagesData];
+    
+    CGRect relativeCircleViewFrame = [cell convertRect:cell.circleView.frame toView:self.view];
+    CGRectMake(cell.circleView.frame.origin.x, cell.circleView.frame.origin.y, 70.0, 70.0);
+    [self.expandingCircle setFrame:relativeCircleViewFrame];
+    [self.expandingCircle setHidden:NO];
+    [UIView animateWithDuration:0.3 animations:^{
+        double sizeMultiplier = 16.0;
+        CGRect newRect = CGRectInset(relativeCircleViewFrame, -CGRectGetWidth(relativeCircleViewFrame)*sizeMultiplier/2, -CGRectGetHeight(relativeCircleViewFrame)*sizeMultiplier/2);
+        [self.expandingCircle setFrame:newRect];
+    } completion:^(BOOL finished) {
+        [self presentViewController: messageViewController animated:NO completion:^{
+            [cell.activityIndicator setHidden:YES];
+            [cell.messageNumberLabel setHidden:NO];
+            [self.tableView reloadData];
+            [messageAtIndex markMessageAsReadInBackground:^(BOOL success, NSString *serverMessage) {
+                [self reloadMessagesData];
+            }];
+            [self.expandingCircle setHidden:YES];
         }];
     }];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
