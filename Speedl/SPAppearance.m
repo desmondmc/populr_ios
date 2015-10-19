@@ -13,17 +13,15 @@ colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-#define kColourArray @[@0x95b347,@0x47b383,@0xb35e47,@0xb3478e,@0x7cb347,@0x47b355,@0x9347b3,@0x479db3,@0xabb347,@0x67b347,@0x4783b3,@0x4eb347,@0xab47b3,@0xb34777,@0x47b36c,@0xb34747,@0xb3475e,@0x47b3b3,@0x6547b3,@0x476eb3,@0x4e47b3,@0x7c47b3,@0x47b39c,@0xb347a3,@0x4757b3]
+#define kMainColourKey @"mainColourKey"
+#define kSecondColourKey @"secondColourKey"
+
+#define kColourArray @[@{kMainColourKey : @0xb34747, kSecondColourKey:@0xc0c042},@{kMainColourKey:@0xb35e47, kSecondColourKey:@0x87c042},@{kMainColourKey:@0xb37747, kSecondColourKey:@0x48c042},@{kMainColourKey:@0xb38c47, kSecondColourKey:@0x42c07b},@{kMainColourKey:@0xb3a147, kSecondColourKey:@0x328290},@{kMainColourKey:@0xabb347, kSecondColourKey:@0x425cc0},@{kMainColourKey:@0x95b347, kSecondColourKey:@0x424bc0},@{kMainColourKey:@0x7cb347, kSecondColourKey:@0x4e42c0},@{kMainColourKey:@0x67b347, kSecondColourKey:@0x5e42c0},@{kMainColourKey:@0x4eb347, kSecondColourKey:@0x7142c0},@{kMainColourKey:@0x47b355, kSecondColourKey:@0x8142c0},@{kMainColourKey:@0x47b36c, kSecondColourKey:@0x9742c0},@{kMainColourKey:@0x47b383, kSecondColourKey:@0xb042c0},@{kMainColourKey:@0x47b39c, kSecondColourKey:@0xc042b4},@{kMainColourKey:@0x47b3b3, kSecondColourKey:@0xc0429b},@{kMainColourKey:@0x479db3, kSecondColourKey:@0xc04283},@{kMainColourKey:@0x4783b3, kSecondColourKey:@0x90323c},@{kMainColourKey:@0x476eb3, kSecondColourKey:@0xd98e96},@{kMainColourKey:@0x4757b3, kSecondColourKey:@0xcc6f68},@{kMainColourKey:@0x4e47b3, kSecondColourKey:@0xc05e42},@{kMainColourKey:@0x6547b3, kSecondColourKey:@0xc07142},@{kMainColourKey:@0x7c47b3, kSecondColourKey:@0xc08342},@{kMainColourKey:@0x9347b3, kSecondColourKey:@0xcca668},@{kMainColourKey:@0xab47b3, kSecondColourKey:@0xccad68},@{kMainColourKey:@0xb347a3, kSecondColourKey:@0xc0a042},@{kMainColourKey:@0xb3478e, kSecondColourKey:@0xc0a842},@{kMainColourKey:@0xb34777, kSecondColourKey:@0xc0af42},@{kMainColourKey:@0xb3475e, kSecondColourKey:@0xc0b842}]
 
 @implementation SPAppearance
 
 + (UIColor *) globalBackgroundColour {
     return [self getMainBackgroundColour];
-}
-
-+ (UIColor *) globalBackgroundColourWithAlpha:(CGFloat)alpha {
-    UIColor *alphaColour = [[self getFirstColourForToday] colorWithAlphaComponent:alpha];
-    return alphaColour;
 }
 
 + (UIColor *) seeThroughColour {
@@ -96,35 +94,18 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSInteger numberOfDays = [self getColorIndex];
 
     NSInteger colourIndex = numberOfDays % [kColourArray count];
-    return [self getColourAtIndex:colourIndex];
+    return [self getColourAtIndex:colourIndex key:kMainColourKey];
 }
 
-+ (UIColor *) getFirstColourForToday {
-    return [UIColor clearColor];
-//    NSInteger numberOfDays = [self getColorIndex];
-//    
-//    NSInteger colourIndex = numberOfDays % [kColourArray count];
-//    return [self getColourAtIndex:colourIndex];
++ (UIColor *)getOppositeColourForToday {
+    NSInteger numberOfDays = [self getColorIndex];
+    
+    NSInteger colourIndex = numberOfDays % [kColourArray count];
+    return [self getColourAtIndex:colourIndex key:kSecondColourKey];
 }
 
-+ (UIColor *) getSecondColourForToday {
-    return [UIColor clearColor];
-//    NSInteger numberOfDays = [self getColorIndex] + 1;
-//    
-//    NSInteger colourIndex = numberOfDays % [kColourArray count];
-//    return [self getColourAtIndex:colourIndex];
-}
-
-+ (UIColor *) getThirdColourForToday {
-    return [UIColor clearColor];
-//    NSInteger numberOfDays = [self getColorIndex] + 2;
-//    
-//    NSInteger colourIndex = numberOfDays % [kColourArray count];
-//    return [self getColourAtIndex:colourIndex];
-}
-
-+ (UIColor *)getColourAtIndex:(NSInteger)index {
-    NSInteger colorValue = [kColourArray[index] integerValue];
++ (UIColor *)getColourAtIndex:(NSInteger)index key:(NSString *)key {
+    NSInteger colorValue = [kColourArray[index][key] integerValue];
     return UIColorFromRGB(colorValue);
 }
 

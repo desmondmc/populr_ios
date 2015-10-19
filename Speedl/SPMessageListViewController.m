@@ -63,7 +63,7 @@
     [_upperNoResultsLabel styleAsFriendCount];
     _upperNoResultsLabel.text = @"No messages";
     _lowerNoResultsLabel.text = [self getMeanMessage];
-    self.view.backgroundColor = [SPAppearance getFirstColourForToday];
+    self.view.backgroundColor = [UIColor clearColor];
     _tableView.backgroundColor = [UIColor clearColor];
     
     //Add pull to refresh

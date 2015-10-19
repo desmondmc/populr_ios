@@ -41,14 +41,14 @@
                     <rect key="frame" x="212" y="140" width="174.5" height="20.5"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or @ a name to direct message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yra-ED-yNb" userLabel="HelpLabel2">
                     <rect key="frame" x="181" y="162" width="237" height="20.5"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZF-74-9Yd" userLabel="SendCircleView" customClass="SPCircleView">
@@ -62,7 +62,7 @@
                             <rect key="frame" x="15" y="25" width="39.5" height="20.5"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -91,7 +91,7 @@
                         <action selector="onSendPress:" destination="-1" eventType="touchUpInside" id="dAe-cV-Aak"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlN-IV-2cS" userLabel="Preview Button">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlN-IV-2cS" userLabel="Preview Button">
                     <rect key="frame" x="10" y="349" width="50" height="51"/>
                     <animations/>
                     <state key="normal" image="preview_button_active">
@@ -179,7 +179,7 @@
                         </imageView>
                     </subviews>
                     <animations/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="iDF-r8-I9C" firstAttribute="leading" secondItem="duy-YU-oES" secondAttribute="trailing" constant="4" id="3Lq-vt-mpg"/>
                         <constraint firstItem="duy-YU-oES" firstAttribute="centerX" secondItem="vU9-V7-Tx0" secondAttribute="centerX" id="Z6D-8V-Ske"/>

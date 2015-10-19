@@ -52,7 +52,7 @@
 }
 
 - (void) setupAppearance {
-    self.view.backgroundColor = [SPAppearance getThirdColourForToday];
+    self.view.backgroundColor = [UIColor clearColor];
     [self.segmentControl styleAsMainSpeedlSegmentControl];
 }
 

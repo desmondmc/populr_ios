@@ -77,7 +77,7 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-    [self findAllToUsersFromText:textView.text];
+    [self findAllToUsersFromTextView:textView];
 }
 
 - (void)buildSuggestionsTableWithWord:(NSString *)word textView:(UITextView *)textView{
@@ -167,12 +167,29 @@
 
 #pragma mark - Get @-ed users
 
-- (void)findAllToUsersFromText:(NSString *)text {
+- (void)findAllToUsersFromTextView:(UITextView *)textView {
+    NSString *text = textView.text;
     NSArray *potentialUsernames = [self getWordsThatStartWithAtSymbolFromString:text];
     NSArray *followersArray = [SPUser getFriendsArray];
+    NSMutableArray *wordsToHighlight = nil;
     _followerIDsInMessage = [self getVarifiedUserIDsWithUsernames:potentialUsernames
-                                                               users:followersArray];
+                                                               users:followersArray
+                                                  wordToHighlight:&wordsToHighlight];
+    [self highlightWords:wordsToHighlight inTextView:textView];
     [self setupMessageTypeAndNotifyDelegateOfChange];
+}
+
+- (void)highlightWords:(NSArray *)words inTextView:(UITextView *)textView {    
+    NSMutableAttributedString *attributedString = [textView styleAsMainSpeedlTextView];
+    
+    // Then we go through and highlight all the necisarry words.
+    for (NSString *word in words) {
+        NSRange highlightWordRange = [textView.text rangeOfString:word];
+        [attributedString addAttribute:NSForegroundColorAttributeName
+                                 value:[SPAppearance getOppositeColourForToday]
+                                 range:highlightWordRange];
+    }
+    [textView setAttributedText:attributedString];
 }
 
 // Doesn't notify delegate anymore.
@@ -184,15 +201,21 @@
     }
 }
 
-- (NSArray *)getVarifiedUserIDsWithUsernames:(NSArray *)usernames users:(NSArray *)users {
+- (NSArray *)getVarifiedUserIDsWithUsernames:(NSArray *)usernames
+                                       users:(NSArray *)users
+                             wordToHighlight:(NSMutableArray **)wordsToHighlight {
+    
+    *wordsToHighlight = [NSMutableArray new];
     NSMutableArray *varifiedUserIds = [NSMutableArray new];
     
     for (NSString *potentialUsername in usernames) {
         for (SPUser *user in users) {
             NSString *lowercasePotential = [potentialUsername lowercaseString];
+            lowercasePotential = [lowercasePotential removeNonAlphaNumericalEnding];
             NSString *lowercaseUsername = [user.username lowercaseString];
             if ([lowercasePotential isEqualToString:lowercaseUsername]) {
                 [varifiedUserIds addObject:user.objectId];
+                [*wordsToHighlight addObject:[@"@" stringByAppendingString:user.username]];
                 break;
             }
         }

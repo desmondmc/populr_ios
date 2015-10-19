@@ -93,7 +93,7 @@
 }
 
 - (void) setupAppearance {
-    self.view.backgroundColor = [SPAppearance getSecondColourForToday];
+    self.view.backgroundColor = [UIColor clearColor];
     [self notSendingState];
     [self.sendButton styleAsMainSpeedlButton];
     [self.messageTextView styleAsMainSpeedlTextView];
@@ -317,6 +317,7 @@
 {
     if ([textView.text isEqualToString:@""]) {
         textView.text = _placeHolderText;
+        [self.messageTextView styleAsMainSpeedlTextView]; //need to make sure it's set
     }
     
     [self hideHelpLabels:NO];

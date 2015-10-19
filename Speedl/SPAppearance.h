@@ -11,9 +11,9 @@
 @interface SPAppearance : NSObject
 
 + (UIColor *) globalBackgroundColour;
-+ (UIColor *) globalBackgroundColourWithAlpha:(CGFloat)alpha;
 + (UIColor *) seeThroughColour;
 + (UIColor *) megaSeeThroughColour;
++ (UIColor *) getOppositeColourForToday;
 
 + (UIFont *) sendButtonFont;
 + (UIFont *) helpLabelFont;
@@ -31,9 +31,6 @@
 + (UIColor *) friendsListColour;
 
 + (UIColor *) getMainBackgroundColour;
-+ (UIColor *) getFirstColourForToday;
-+ (UIColor *) getSecondColourForToday;
-+ (UIColor *) getThirdColourForToday;
 
 + (UIFont *) timeLabelFont;
 + (UIFont *) friendsCountLabelFont;

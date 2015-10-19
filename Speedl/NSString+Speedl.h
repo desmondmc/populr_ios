@@ -11,5 +11,6 @@
 @interface NSString (Speedl)
 
 - (BOOL)isNilOrBlank;
+- (NSString *)removeNonAlphaNumericalEnding;
 
 @end

@@ -22,15 +22,15 @@
 
 @implementation SPSettingsViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self setupAppearance];
 }
 
 - (void) setupAppearance {
-    [self.view setBackgroundColor:[SPAppearance globalBackgroundColour]];
+    [self.view setBackgroundColor:[SPAppearance getMainBackgroundColour]];
+    [self.doneLabel setTextColor:[SPAppearance getMainBackgroundColour]];
     _usernameLabel.text = [[SPUser currentUser] username];
-    [self.doneLabel setTextColor:[SPAppearance globalBackgroundColour]];
 }
 - (IBAction)onFeedbackPress:(id)sender {
     [[self navigationController] pushViewController:[self feedbackViewController] animated:YES];
