@@ -23,7 +23,7 @@
     unichar buffer[len+1];
     
     // Create a character set that are all the characters allowed in a username.
-    NSString *letters = @"abcdefghijklmnopqrstuvwxyz123456789";
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyz1234567890";
     NSCharacterSet *notLetters = [[NSCharacterSet characterSetWithCharactersInString:letters] invertedSet];
     
     // Move string into buffer
