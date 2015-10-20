@@ -10,8 +10,14 @@
 
 @implementation UITextView (Custom)
 
-- (NSMutableAttributedString *) styleAsMainSpeedlTextView {
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:self.text];
+- (void)styleAsMainSpeedlTextView {
+    self.font = [SPAppearance mainTextFieldFont];
+    self.textColor = [SPAppearance mainTextFieldColour];
+}
+
+- (NSMutableAttributedString *)getAttributedStringForTextView {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString: self.attributedText];
+    
     [attributedString addAttribute:NSForegroundColorAttributeName
                              value:[SPAppearance mainTextFieldColour]
                              range:NSMakeRange(0, [self.text length])];
@@ -23,7 +29,7 @@
     [attributedString addAttribute:NSParagraphStyleAttributeName
                              value:paragraphStyle
                              range:NSMakeRange(0, [self.text length])];
-    [self setAttributedText:attributedString];
+    
     return attributedString;
 }
 

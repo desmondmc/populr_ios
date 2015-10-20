@@ -96,7 +96,11 @@
     self.view.backgroundColor = [UIColor clearColor];
     [self notSendingState];
     [self.sendButton styleAsMainSpeedlButton];
+    
     [self.messageTextView styleAsMainSpeedlTextView];
+    NSMutableAttributedString *attributedString = [self.messageTextView getAttributedStringForTextView];
+    [self.messageTextView setAttributedText:attributedString];
+    
     self.sendLabel.textColor = [SPAppearance getMainBackgroundColour];
     [self.sendLabel styleAsSendLabel];
     [self.sendActivityIndicator setColor:[SPAppearance getMainBackgroundColour]];
@@ -317,7 +321,10 @@
 {
     if ([textView.text isEqualToString:@""]) {
         textView.text = _placeHolderText;
-        [self.messageTextView styleAsMainSpeedlTextView]; //need to make sure it's set
+        
+        //need to make sure it's set
+        NSMutableAttributedString *attributedString = [self.messageTextView getAttributedStringForTextView];
+        [textView setAttributedText:attributedString];
     }
     
     [self hideHelpLabels:NO];
