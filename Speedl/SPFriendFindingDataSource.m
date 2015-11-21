@@ -29,6 +29,7 @@
     return self;
 }
 
+// Sends users contacts to the backend to find friends who are already using populr.
 - (void)getContacts:(void (^)(NSInteger contactCount))block
           predicate:(NSString *)predicate {
     NSString *countryCode = [SPPhoneValidation getUserCountryCodeNeverNil];
