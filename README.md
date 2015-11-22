@@ -21,4 +21,4 @@ Run pod install in the project directory to intall cocoapods:
     $ pod setup
     $ pod install
 
-Make sure you open and work out of the Speedl.xcworkspace file and not Populr.xcodeproj
+Make sure you open and work out of the Populr.xcworkspace file and not Populr.xcodeproj
