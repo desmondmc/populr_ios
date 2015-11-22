@@ -1,6 +1,6 @@
-# Speedl
+# Populr
 
-Speedl is an iOS app for super sweet fast messaging.
+Populr is an iOS app for super sweet fast messaging.
 
 ## Dependencies
 - [Cocoapods](https://cocoapods.org/)
@@ -10,7 +10,7 @@ Speedl is an iOS app for super sweet fast messaging.
 ## Development Setup ##
 Clone the repo.
 
-    $ git clone git@github.com:paulreeve/speedl-app.git
+    $ git clone git@github.com:desmondmcnamee/populr_ios.git
 
 If you don't already have codoapods install it:
 
@@ -21,4 +21,4 @@ Run pod install in the project directory to intall cocoapods:
     $ pod setup
     $ pod install
 
-Make sure you open and work out of the Speedl.xcworkspace file and not Speedl.xcodeproj
+Make sure you open and work out of the Speedl.xcworkspace file and not Populr.xcodeproj
