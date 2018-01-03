@@ -192,7 +192,7 @@
     
     // With the below solution if there are emojis in the text it's possible to text attributes from the highlighted text to bleed into letters that are typed beside a highlighted world.
     
-    if ([textView.text isIncludingEmoji]) {
+    if ([textView.text containsEmojis]) {
         attributedString = textView.attributedText.mutableCopy;
     } else {
         attributedString = [textView getAttributedStringForTextView];

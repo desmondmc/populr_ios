@@ -112,7 +112,7 @@
     if ([newUsername containsString:@" "]) {
         [SPNotification showErrorNotificationWithMessage:@"No spaces, idiot." inViewController:self];
         return NO;
-    } else if ([newUsername isIncludingEmoji]) {
+    } else if ([newUsername containsEmojis]) {
         [SPNotification showErrorNotificationWithMessage:@"Sorry no Emojis. 😢" inViewController:self];
         return NO;
     }

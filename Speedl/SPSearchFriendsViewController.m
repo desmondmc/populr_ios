@@ -10,7 +10,6 @@
 #import "SPUsersTableDelegate.h"
 #import "SPUsersTableDataSource.h"
 #import "SPFriendFindingDataSource.h"
-#import "RateLimit.h"
 
 #define kSearchFieldDefaultYConstraintValue 8;
 
@@ -48,13 +47,11 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [RateLimit executeBlock:^{
-        [[self friendFindingDataSource] getContacts:^(NSInteger contactCount) {
-            if (contactCount > 0) {
-                [self setupForPostSuggestions];
-            }
-        } predicate:@"isFriend == NO"];
-    } name:@"SearchFriends" limit:30.0];
+    [[self friendFindingDataSource] getContacts:^(NSInteger contactCount) {
+        if (contactCount > 0) {
+            [self setupForPostSuggestions];
+        }
+    } predicate:@"isFriend == NO"];
     
     // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self

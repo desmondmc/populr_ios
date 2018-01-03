@@ -9,7 +9,6 @@
 #import "SPNotification.h"
 #import "CSNotificationView.h"
 #import "TSMessage.h"
-#import <TSMessages/TSMessageView.h>
 
 @implementation SPNotification
 

@@ -48,12 +48,12 @@
                  
                  NSMutableDictionary *newContact = [NSMutableDictionary new];
                  
-                 if (contact.firstName) {
-                     [newContact setObject:contact.firstName forKey:@"first_name"];
+                 if (contact.name.firstName) {
+                     [newContact setObject:contact.name.firstName forKey:@"first_name"];
                  }
                  
-                 if (contact.lastName) {
-                     [newContact setObject:contact.lastName forKey:@"last_name"];
+                 if (contact.name.lastName) {
+                     [newContact setObject:contact.name.lastName forKey:@"last_name"];
                  }
                  
                  NSMutableArray *newPhones = [NSMutableArray new];

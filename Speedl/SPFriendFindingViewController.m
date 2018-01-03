@@ -9,7 +9,6 @@
 #import "SPFriendFindingViewController.h"
 #import "SPPhoneValidation.h"
 #import "SPFriendFindingDataSource.h"
-#import "RateLimit.h"
 
 @interface SPFriendFindingViewController ()
 
@@ -85,16 +84,13 @@
 }
 
 - (void)loadContacts {
-    [RateLimit executeBlock:^{
-        [self loadingState];
-        [[self friendFindingDataSource] getContacts:^(NSInteger contactCount) {
-            if (contactCount == 0) {
-                [self noResultsState];
-            } else {
-                [self resultsState];
-            }
-        } predicate:nil];
-    } name:@"FriendFinding" limit:30.0];
+    [[self friendFindingDataSource] getContacts:^(NSInteger contactCount) {
+        if (contactCount == 0) {
+            [self noResultsState];
+        } else {
+            [self resultsState];
+        }
+    } predicate:nil];
 }
 
 @end
