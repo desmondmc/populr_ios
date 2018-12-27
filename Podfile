@@ -15,4 +15,5 @@ target 'Populr' do
   pod 'CountryPicker', '~> 1.2'
   pod 'libPhoneNumber-iOS', '~> 0.8'
   pod 'Reachability', '~> 3.2'
+  pod 'Firebase/Core'
 end

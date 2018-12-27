@@ -12,6 +12,8 @@
 #import "SPNetworkHelper.h"
 #import <WatchConnectivity/WCSession.h>
 
+@import Firebase;
+
 #define kObjectIdKey    @"objectId"
 #define kUsernameKey    @"username"
 #define kGoTokenKey     @"goToken"
@@ -128,6 +130,11 @@
     NSDictionary *userDictionary = @{@"username":username, @"password":password};
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
+    
+    [FIRAnalytics logEventWithName:@"signup"
+                        parameters:@{
+                                     @"username": username,
+                                     }];
 
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
     
@@ -165,6 +172,11 @@
         }
         return;
     }
+    
+    [FIRAnalytics logEventWithName:@"login"
+                        parameters:@{
+                                     @"username": username,
+                                     }];
     
     NSString *url = kAPILoginUrl;
     
@@ -242,6 +254,11 @@
     url = [url stringByReplacingOccurrencesOfString:@"{term}" withString:searchString];
     
     NSURLRequest *request = [SPNetworkHelper getRequestWithURL:url];
+    
+    [FIRAnalytics logEventWithName:@"search"
+                        parameters:@{
+                                     @"search_string": searchString,
+                                     }];
     
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -333,6 +350,12 @@
         userDictionary = @{@"message":message,
                            @"type": @"public"};
     }
+    
+    [FIRAnalytics logEventWithName:@"send_message"
+                        parameters:@{
+                                     @"username": self.username,
+                                     @"to_users_count": [NSNumber numberWithInteger:users.count],
+                                     }];
 
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
@@ -375,6 +398,11 @@
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:userDictionary];
     
+    [FIRAnalytics logEventWithName:@"post_phone_number"
+                        parameters:@{
+                                     @"username": self.username,
+                                     }];
+    
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -400,6 +428,11 @@
     NSString *url = kAPIPostContactDataUrl;
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url array:contactData];
+    
+    [FIRAnalytics logEventWithName:@"post_contacts"
+                        parameters:@{
+                                     @"username": self.username,
+                                     }];
     
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
@@ -496,6 +529,12 @@
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:nil];
     
+    
+    [FIRAnalytics logEventWithName:@"logout"
+                        parameters:@{
+                                     @"username": self.username,
+                                     }];
+    
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -565,6 +604,12 @@
         return;
     }
     
+    [FIRAnalytics logEventWithName:@"friend_user"
+                        parameters:@{
+                                     @"username": self.username,
+                                     @"user_to_friend": userToFriend,
+                                     }];
+    
     NSString *url = kAPIFriendUserUrl;
     
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[userToFriend objectId].stringValue];
@@ -604,6 +649,12 @@
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[userToUnfriend objectId].stringValue];
     
     NSURLRequest *request = [SPNetworkHelper deleteRequestWithURL:url];
+    
+    [FIRAnalytics logEventWithName:@"unfriend_user"
+                        parameters:@{
+                                     @"username": self.username,
+                                     @"user_to_unfriend": userToUnfriend,
+                                     }];
     
     [SPNetworkHelper sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         

@@ -10,3 +10,4 @@ DerivedData
 *.xcodeproj/project.xcworkspace/*
 *.xcodeproj/xcuserdata/*
 *.xcworkspace
+Populr.xcodeproj/xcshareddata/
