@@ -12,6 +12,7 @@
 #import "SPSorryViewController.h"
 #import "SPDeviceToken.h"
 
+@import Firebase;
 @import CoreTelephony;
 
 @interface SPAppDelegate ()
@@ -24,6 +25,9 @@
     
     // Init Reachability
     [SPReachability sharedInstance];
+    
+    // Setup Firebase
+    [FIRApp configure];
     
     [[UITextField appearance] setTintColor:[UIColor whiteColor]];
     [[UITextView appearance] setTintColor:[UIColor whiteColor]];

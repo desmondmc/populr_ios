@@ -17,5 +17,6 @@ pod 'libPhoneNumber-iOS', '~> 0.8'
 pod 'Reachability', '~> 3.2'
 pod 'MessageThrottle'
 pod 'SearchEmojiOnString', '~> 1.0'
+pod 'Firebase/Core'
 
 end
