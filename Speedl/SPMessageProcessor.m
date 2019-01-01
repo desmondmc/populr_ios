@@ -182,24 +182,7 @@
 - (void)highlightWords:(NSArray *)words inTextView:(UITextView *)textView {
     NSMutableAttributedString *attributedString = nil;
     
-    // THIS IS A HACK!
-    // Here's what's going on:
-    // In order to make sure that only username text gets highlighted, everytime we
-    // enter a character we blanket the entire text with the default text attibutes
-    // then highlight the @ed names in the text. This works until there is an emoji
-    // in the text. For some reason adding attributed text with an emoji in it causes
-    // the curser to move to the end of the inputed text, which happens everytime you type.
-    
-    // With the below solution if there are emojis in the text it's possible to text attributes from the highlighted text to bleed into letters that are typed beside a highlighted world.
-    
-    if ([textView.text containsEmojis]) {
-        attributedString = textView.attributedText.mutableCopy;
-    } else {
-        attributedString = [textView getAttributedStringForTextView];
-    }
-    
-    
-    
+    attributedString = [textView getAttributedStringForTextView];
     
     // Then we go through and highlight all the necisarry words.
     for (NSString *word in words) {

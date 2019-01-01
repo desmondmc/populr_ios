@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SPSignupViewController">
             <connections>
                 <outlet property="activityIndicator" destination="tpU-1K-3rk" id="zEg-Cg-CxG"/>
                 <outlet property="nextButton" destination="Z8L-YI-ef8" id="HS3-hH-tEI"/>
+                <outlet property="nextButtonBottomConstraint" destination="d5l-a5-9zQ" id="5GQ-G5-Pae"/>
                 <outlet property="nextButtonLabel" destination="bFG-Iu-xYq" id="bmh-8a-fdZ"/>
                 <outlet property="passwordField" destination="kr0-DL-mh1" id="B9I-fU-voo"/>
                 <outlet property="tabContainerView" destination="edW-A7-U2j" id="sIs-vZ-Hgn"/>
@@ -18,19 +22,18 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FeR-ab-qSA" userLabel="Container">
-                    <rect key="frame" x="0.0" y="115" width="600" height="165"/>
+                    <rect key="frame" x="0.0" y="115" width="320" height="113"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4q0-09-h2P" userLabel="EntryFields">
-                            <rect key="frame" x="0.0" y="22.5" width="600" height="120"/>
+                            <rect key="frame" x="0.0" y="-3.5" width="320" height="120"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fd3-BV-AVl">
-                                    <rect key="frame" x="0.0" y="8" width="600" height="17"/>
-                                    <animations/>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <rect key="frame" x="0.0" y="8" width="320" height="17"/>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                     <connections>
@@ -38,9 +41,8 @@
                                     </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kr0-DL-mh1">
-                                    <rect key="frame" x="0.0" y="95" width="600" height="17"/>
-                                    <animations/>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <rect key="frame" x="0.0" y="95" width="320" height="17"/>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                     <connections>
@@ -48,8 +50,7 @@
                                     </connections>
                                 </textField>
                             </subviews>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="fd3-BV-AVl" firstAttribute="leading" secondItem="4q0-09-h2P" secondAttribute="leading" id="Rcv-g5-ar0"/>
                                 <constraint firstItem="kr0-DL-mh1" firstAttribute="leading" secondItem="4q0-09-h2P" secondAttribute="leading" id="SlV-Og-G4w"/>
@@ -63,8 +64,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="4q0-09-h2P" secondAttribute="trailing" id="8sQ-QA-Odf"/>
                         <constraint firstAttribute="height" constant="178" id="IP3-24-pbV"/>
@@ -78,42 +78,37 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edW-A7-U2j" userLabel="TabContainer">
-                    <rect key="frame" x="0.0" y="40" width="600" height="55"/>
-                    <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="40" width="320" height="55"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="nqC-1j-wqS"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzB-qj-Y3T" userLabel="CircleView" customClass="SPCircleView">
-                    <rect key="frame" x="522" y="300" width="70" height="70"/>
+                    <rect key="frame" x="242" y="248" width="70" height="70"/>
                     <subviews>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-1K-3rk">
                             <rect key="frame" x="25" y="25" width="20" height="20"/>
-                            <animations/>
                         </activityIndicatorView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8L-YI-ef8">
                             <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <state key="normal">
-                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="onNextPress:" destination="-1" eventType="touchUpInside" id="v3N-If-2fe"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFG-Iu-xYq" userLabel="Next">
-                            <rect key="frame" x="17" y="25" width="36" height="20.5"/>
-                            <animations/>
+                            <rect key="frame" x="17" y="24.5" width="36" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Z8L-YI-ef8" firstAttribute="centerX" secondItem="IzB-qj-Y3T" secondAttribute="centerX" id="2Xc-nm-T2i"/>
                         <constraint firstItem="bFG-Iu-xYq" firstAttribute="centerX" secondItem="IzB-qj-Y3T" secondAttribute="centerX" id="7Ls-8A-bSH"/>
@@ -128,14 +123,13 @@
                     </constraints>
                 </view>
             </subviews>
-            <animations/>
-            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="FeR-ab-qSA" firstAttribute="top" secondItem="edW-A7-U2j" secondAttribute="bottom" constant="20" id="AXn-IU-gqY"/>
                 <constraint firstItem="IzB-qj-Y3T" firstAttribute="top" secondItem="FeR-ab-qSA" secondAttribute="bottom" constant="20" id="NsF-rK-Ei5"/>
                 <constraint firstAttribute="trailing" secondItem="FeR-ab-qSA" secondAttribute="trailing" id="VyC-t7-F1G"/>
                 <constraint firstItem="edW-A7-U2j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="cxZ-Td-3zX"/>
-                <constraint firstAttribute="bottom" secondItem="IzB-qj-Y3T" secondAttribute="bottom" constant="230" id="d5l-a5-9zQ"/>
+                <constraint firstAttribute="bottom" secondItem="IzB-qj-Y3T" secondAttribute="bottom" constant="250" id="d5l-a5-9zQ"/>
                 <constraint firstAttribute="trailing" secondItem="IzB-qj-Y3T" secondAttribute="trailing" constant="8" id="fhh-7j-qgq"/>
                 <constraint firstItem="FeR-ab-qSA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hpL-nu-Y52"/>
                 <constraint firstAttribute="trailing" secondItem="edW-A7-U2j" secondAttribute="trailing" id="j9Q-MO-4pF"/>
@@ -147,9 +141,8 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNX-E5-F6s" userLabel="TopLine">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Z56-US-nHF"/>
                     </constraints>
@@ -165,9 +158,8 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbX-82-1of" userLabel="CenterLine">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="159.5" y="0.0" width="1" height="568"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="dnX-Uc-FpU"/>
                     </constraints>
@@ -183,12 +175,11 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8i1-zK-vYL" userLabel="LeftButtonHolder">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="159.5" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBn-ox-tHZ" userLabel="leftButtonBottomLine">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            <animations/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="0.0" y="566" width="159.5" height="1"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="ljG-nR-ulu"/>
                             </constraints>
@@ -204,18 +195,16 @@
                             </variation>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJJ-nh-1FZ" userLabel="leftButton">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <animations/>
+                            <rect key="frame" x="0.0" y="0.0" width="159.5" height="568"/>
                             <state key="normal" title="Button">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="didPressLeftButton:" destination="8t1-lS-wD0" eventType="touchUpInside" id="aYr-fE-OEp"/>
                             </connections>
                         </button>
                     </subviews>
-                    <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="zBn-ox-tHZ" secondAttribute="bottom" constant="5" id="1Yy-ad-IcD">
                             <variation key="heightClass=regular-widthClass=compact" constant="1"/>
@@ -265,12 +254,11 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRa-21-M5l" userLabel="RightButtonHolder">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="160.5" y="0.0" width="159.5" height="568"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftJ-zk-2gP" userLabel="leftButtonBottomLine">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            <animations/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="0.0" y="567" width="159.5" height="1"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="MnN-to-AWn"/>
                             </constraints>
@@ -286,18 +274,16 @@
                             </variation>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baD-Jc-pdL" userLabel="rightButton">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <animations/>
+                            <rect key="frame" x="0.0" y="0.0" width="159.5" height="568"/>
                             <state key="normal" title="Button">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="didPressRightButton:" destination="8t1-lS-wD0" eventType="touchUpInside" id="aDz-eP-AnA"/>
                             </connections>
                         </button>
                     </subviews>
-                    <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="baD-Jc-pdL" firstAttribute="leading" secondItem="KRa-21-M5l" secondAttribute="leading" id="4pR-6m-Q37"/>
                         <constraint firstAttribute="trailing" secondItem="baD-Jc-pdL" secondAttribute="trailing" id="5y2-6o-Mnn"/>
@@ -339,8 +325,7 @@
                     </variation>
                 </view>
             </subviews>
-            <animations/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="8i1-zK-vYL" firstAttribute="top" secondItem="8t1-lS-wD0" secondAttribute="top" id="7Qg-Uh-2LN"/>
                 <constraint firstAttribute="centerX" secondItem="bbX-82-1of" secondAttribute="centerX" id="Dng-ex-c5y"/>

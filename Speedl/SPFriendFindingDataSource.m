@@ -7,14 +7,12 @@
 //
 
 #import "SPFriendFindingDataSource.h"
-#import "APAddressBook.h"
 #import "SPPhoneValidation.h"
-#import "APContact.h"
+#import <Contacts/Contacts.h>
 
 @interface SPFriendFindingDataSource ()
 
 @property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) APAddressBook *addressBook;
 @property (strong, nonatomic) NSArray *users;
 
 @end
@@ -37,68 +35,74 @@
     // Loading contacts
     NSMutableArray *contactsArray = [NSMutableArray new];
     
-    [[self addressBook] loadContacts:^(NSArray *contacts, NSError *error)
-     {
-         if (!error)
-         {
-             for (APContact *contact in contacts) {
-                 if (!contact.phones || contact.phones.count == 0) {
-                     continue;
-                 }
-                 
-                 NSMutableDictionary *newContact = [NSMutableDictionary new];
-                 
-                 if (contact.name.firstName) {
-                     [newContact setObject:contact.name.firstName forKey:@"first_name"];
-                 }
-                 
-                 if (contact.name.lastName) {
-                     [newContact setObject:contact.name.lastName forKey:@"last_name"];
-                 }
-                 
-                 NSMutableArray *newPhones = [NSMutableArray new];
-                 for (NSString *phone in contact.phones) {
-                     NSString *interNumber = [SPPhoneValidation getInternationalNumberFromPhoneNumber:phone
-                                                                                          countryCode:countryCode];
-                     [newPhones addObject:interNumber];
-                     
-                 }
-                 [newContact setObject:newPhones forKey:@"phones"];
-                 
-                 [contactsArray addObject:newContact];
-             }
-             
-             [[SPUser currentUser] postContactDataInBackground:contactsArray block:^(NSArray *contacts, NSString *serverMessage) {
-                 if (serverMessage == nil) {
-                     if (predicate) {
-                         NSPredicate *thePredicate = [NSPredicate predicateWithFormat:predicate];
-                         _users = [contacts filteredArrayUsingPredicate:thePredicate];
-                     } else {
-                         _users = contacts;
-                     }
-                     
-                     [self.tableView reloadData];
-                 }
-                 
-                 if (block) {
-                     block(_users.count);
-                 }
-             }];
-         }
-         else
-         {
-             if (block) {
-                 block(0);
-             }
-         }
-     }];
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        CNContactStore *store = [CNContactStore new];
+        
+        [store containersMatchingPredicate:[CNContainer predicateForContainersWithIdentifiers: @[store.defaultContainerIdentifier]] error:nil];
+        NSArray *keysToFetch =@[
+                                CNContactPhoneNumbersKey,
+                                CNContactFamilyNameKey,
+                                CNContactGivenNameKey,
+                                ];
+        CNContactFetchRequest * request = [[CNContactFetchRequest alloc] initWithKeysToFetch:keysToFetch];
+        
+        NSError *requestError;
+        [store enumerateContactsWithFetchRequest:request
+                                           error:&requestError
+                                      usingBlock:^(CNContact * __nonnull contact, BOOL * __nonnull stop) {
+          if (requestError) {
+              *stop = true;
+              block(_users.count);
+              return;
+          }
+          
+          if (!contact.phoneNumbers || contact.phoneNumbers.count == 0) {
+              return;
+          }
+          
+          NSMutableDictionary *newContact = [NSMutableDictionary new];
+          
+          if (contact.givenName) {
+              [newContact setObject:contact.givenName forKey:@"first_name"];
+          }
+          
+          if (contact.familyName) {
+              [newContact setObject:contact.familyName forKey:@"last_name"];
+          }
+          
+          NSMutableArray *newPhones = [NSMutableArray new];
+          for (CNLabeledValue<CNPhoneNumber*> *phone in contact.phoneNumbers) {
+              NSString *interNumber = [SPPhoneValidation getInternationalNumberFromPhoneNumber:[[phone value] stringValue]
+                                                                                   countryCode:countryCode];
+              [newPhones addObject:interNumber];
+              
+          }
+          [newContact setObject:newPhones forKey:@"phones"];
+          [contactsArray addObject:newContact];
+        }];
+        
+        [[SPUser currentUser] postContactDataInBackground:contactsArray block:^(NSArray *contacts, NSString *serverMessage) {
+            if (serverMessage == nil) {
+                if (predicate) {
+                    NSPredicate *thePredicate = [NSPredicate predicateWithFormat:predicate];
+                    _users = [contacts filteredArrayUsingPredicate:thePredicate];
+                } else {
+                    _users = contacts;
+                }
+                
+                [self.tableView reloadData];
+            }
+            
+            if (block) {
+                block(_users.count);
+            }
+        }];
+    });
 }
 
-- (APAddressBook *)addressBook {
-    if (!_addressBook) {
-        _addressBook = [[APAddressBook alloc] init];
-    }
-    return _addressBook;
+- (void) loadContactsFromStore {
+    
 }
 
 #pragma mark - UITableView

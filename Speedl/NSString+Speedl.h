@@ -11,7 +11,7 @@
 @interface NSString (Speedl)
 
 - (BOOL)isNilOrBlank;
+- (BOOL)isIncludingEmoji;
 - (NSString *)removeNonAlphaNumericalEnding;
-- (BOOL)containsEmojis;
 
 @end

@@ -9,7 +9,6 @@
 #import "SPAppDelegate.h"
 #import "SPMessageViewController.h"
 #import "SPSignupViewController.h"
-#import <Crashlytics/Crashlytics.h>
 #import "SPSorryViewController.h"
 #import "SPDeviceToken.h"
 
@@ -22,8 +21,6 @@
 @implementation SPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Initialize Crashlytics
-    [Crashlytics startWithAPIKey:@"a842d2a25e2a337bce79b6737d757ad5fc3c0df0"];
     
     // Init Reachability
     [SPReachability sharedInstance];
