@@ -387,7 +387,7 @@
                                 count++;
                             }];
     
-    if (count == 1 && [newText containsEmojis]) {
+    if (count == 1 && [newText isIncludingEmoji]) {
         [_messageTextView replaceRange:_messageTextView.selectedTextRange withText:@" "];
     }
 }

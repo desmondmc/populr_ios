@@ -10,6 +10,8 @@
 #import "SPUsersTableDelegate.h"
 #import "SPUsersTableDataSource.h"
 #import "SPFriendFindingDataSource.h"
+#import "MessageThrottle.h"
+#import <Contacts/Contacts.h>
 
 #define kSearchFieldDefaultYConstraintValue 8;
 
@@ -44,14 +46,41 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SPFriendTableViewCell" bundle:nil] forCellReuseIdentifier:kFriendCellReuse];
     
     [self setupAppearance];
+    
+    MTRule *rule = [self mt_limitSelector:@selector(getContacts) oncePerDuration:30.0];
+    rule.mode = MTPerformModeFirstly;
+    [rule apply];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)getContacts {
+    CNEntityType entityType = CNEntityTypeContacts;
+    if( [CNContactStore authorizationStatusForEntityType:entityType] == CNAuthorizationStatusNotDetermined)
+    {
+        CNContactStore * contactStore = [[CNContactStore alloc] init];
+        [contactStore requestAccessForEntityType:entityType completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if(granted){
+                [self reallyGetContacts];
+            }
+        }];
+    }
+    else if( [CNContactStore authorizationStatusForEntityType:entityType]== CNAuthorizationStatusAuthorized)
+    {
+        [self reallyGetContacts];
+    }
+}
+
+- (void)reallyGetContacts {
     [[self friendFindingDataSource] getContacts:^(NSInteger contactCount) {
         if (contactCount > 0) {
             [self setupForPostSuggestions];
         }
     } predicate:@"isFriend == NO"];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    
+    [self getContacts];
     
     // Listen for keyboard appearances and disappearances
     [[NSNotificationCenter defaultCenter] addObserver:self

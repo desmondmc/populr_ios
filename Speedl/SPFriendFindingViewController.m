@@ -9,6 +9,7 @@
 #import "SPFriendFindingViewController.h"
 #import "SPPhoneValidation.h"
 #import "SPFriendFindingDataSource.h"
+#import "MessageThrottle.h"
 
 @interface SPFriendFindingViewController ()
 
@@ -60,6 +61,11 @@
     [self.navigationController.interactivePopGestureRecognizer setDelegate:nil];
     [self setupAppearance];
     [self setupTableView];
+    
+    
+    MTRule *rule = [self mt_limitSelector:@selector(loadContacts) oncePerDuration:30.0];
+    rule.mode = MTPerformModeFirstly;
+    [rule apply];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -84,6 +90,7 @@
 }
 
 - (void)loadContacts {
+    [self loadingState];
     [[self friendFindingDataSource] getContacts:^(NSInteger contactCount) {
         if (contactCount == 0) {
             [self noResultsState];

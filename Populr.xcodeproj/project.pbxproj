@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		45F4E0B3E6F6393BB7CC0AFE /* Pods_Populr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDAA33C599B38E4058C78C87 /* Pods_Populr.framework */; };
-		7A0CC55D1BBDDA4E00786A33 /* SPWatchUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CC55C1BBDDA4E00786A33 /* SPWatchUser.m */; };
-		7A0CC5601BBDDC2100786A33 /* SPWatchMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CC55F1BBDDC2100786A33 /* SPWatchMessage.m */; };
-		7A0CC5631BBE995300786A33 /* SPWatchNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CC5621BBE995300786A33 /* SPWatchNetworkHelper.m */; };
+		48414608E442839389FD53AE /* Pods_Populr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E452F09B3094A256B6A49F3B /* Pods_Populr.framework */; };
 		7A0FFB091B3EB26200869C3E /* SPCustomTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0FFB081B3EB26200869C3E /* SPCustomTabView.m */; };
 		7A0FFB0B1B3EB28000869C3E /* SPCustomTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0FFB0A1B3EB28000869C3E /* SPCustomTabView.xib */; };
 		7A1969341B4B2CCD0006D5AF /* SPMessageHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1969331B4B2CCD0006D5AF /* SPMessageHolder.m */; };
@@ -24,6 +21,8 @@
 		7A263D191AD5BEB500D69F60 /* SPContainedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D181AD5BEB500D69F60 /* SPContainedViewController.m */; };
 		7A263D1E1AD5C10300D69F60 /* SPFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */; };
 		7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */; };
+		7A30C3A821726C07005ECAF5 /* TSMessagesDefaultDesign.json in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A30C3A721726C07005ECAF5 /* TSMessagesDefaultDesign.json */; };
+		7A30C3AC21726D43005ECAF5 /* TSMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 7A30C3A921726D21005ECAF5 /* TSMessagesDefaultDesign.json */; };
 		7A3C4F5C1BB9EFFC00274A36 /* SPFriendFindingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3C4F5B1BB9EFFC00274A36 /* SPFriendFindingDataSource.m */; };
 		7A45F8A51B011DC5009BDA95 /* SPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A45F8A41B011DC5009BDA95 /* SPNotification.m */; };
 		7A49B9841AE406CA0085D3C6 /* UITextView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B9831AE406CA0085D3C6 /* UITextView+Custom.m */; };
@@ -32,7 +31,6 @@
 		7A49B98F1AE836350085D3C6 /* SPCustomTwoTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A49B98E1AE836350085D3C6 /* SPCustomTwoTabView.m */; };
 		7A625F521B053A1A0092F412 /* SPFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F511B053A1A0092F412 /* SPFriendsTableViewController.m */; };
 		7A625F561B0545ED0092F412 /* SPAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A625F551B0545ED0092F412 /* SPAutoLayout.m */; };
-		7A7A62D11BC5D462008EE3B6 /* WKInterfaceLabel+Populr.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7A62D01BC5D461008EE3B6 /* WKInterfaceLabel+Populr.m */; };
 		7A89E4661BB1F80400184756 /* SPSorryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A89E4641BB1F80400184756 /* SPSorryViewController.m */; };
 		7A89E4691BB2105000184756 /* SPSorryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A89E4681BB2105000184756 /* SPSorryViewController.xib */; };
 		7A89E46D1BB3213200184756 /* SPDeviceToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A89E46C1BB3213200184756 /* SPDeviceToken.m */; };
@@ -57,7 +55,6 @@
 		7AB3D72E1AC35C7400CA94DB /* SPMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB3D72C1AC35C7400CA94DB /* SPMessageViewController.xib */; };
 		7AB3D7321AC35C9900CA94DB /* SPMessageLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3D7311AC35C9900CA94DB /* SPMessageLabel.m */; };
 		7AB8D5F61BCC6ACA009B1B13 /* NSString+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8D5F51BCC6ACA009B1B13 /* NSString+Speedl.m */; };
-		7AB8D5F71BCC6ACA009B1B13 /* NSString+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB8D5F51BCC6ACA009B1B13 /* NSString+Speedl.m */; };
 		7AC02FA11B1B9A1A00B26A6E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FA01B1B9A1A00B26A6E /* Parse.framework */; };
 		7AC02FA31B1B9BE600B26A6E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FA21B1B9BE600B26A6E /* AudioToolbox.framework */; };
 		7AC02FA51B1B9BF000B26A6E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC02FA41B1B9BF000B26A6E /* CFNetwork.framework */; };
@@ -83,21 +80,11 @@
 		7ACAA9861BCAD7FA000EBAC8 /* SPReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACAA9851BCAD7FA000EBAC8 /* SPReachability.m */; };
 		7ADB121A1B4C668900822094 /* SPMessageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB12191B4C668900822094 /* SPMessageProcessor.m */; };
 		7ADC27121B3208AA00B90798 /* NSError+Speedl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADC27111B3208AA00B90798 /* NSError+Speedl.m */; };
-		7ADC3AF11B1F7ECE004A0CD2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */; };
 		7ADCF43C1B0688E3009834D5 /* SPSearchFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */; };
 		7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7ADCF43B1B0688E3009834D5 /* SPSearchFriendsViewController.xib */; };
 		7ADCF4401B069BEE009834D5 /* UITableView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF43F1B069BEE009834D5 /* UITableView+Custom.m */; };
 		7ADCF4441B06A265009834D5 /* SPUsersTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF4431B06A265009834D5 /* SPUsersTableDataSource.m */; };
 		7ADCF4471B06A537009834D5 /* SPUsersTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADCF4461B06A537009834D5 /* SPUsersTableDelegate.m */; };
-		7ADDEE271BBC10DD00E008E7 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ADDEE251BBC10DD00E008E7 /* Interface.storyboard */; };
-		7ADDEE291BBC10DD00E008E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADDEE281BBC10DD00E008E7 /* Assets.xcassets */; };
-		7ADDEE301BBC10DD00E008E7 /* PopulrWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7ADDEE2F1BBC10DD00E008E7 /* PopulrWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7ADDEE361BBC10DD00E008E7 /* TableInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADDEE351BBC10DD00E008E7 /* TableInterfaceController.m */; };
-		7ADDEE391BBC10DD00E008E7 /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADDEE381BBC10DD00E008E7 /* ExtensionDelegate.m */; };
-		7ADDEE3B1BBC10DD00E008E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ADDEE3A1BBC10DD00E008E7 /* Assets.xcassets */; };
-		7ADDEE3F1BBC10DD00E008E7 /* PopulrWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7ADDEE231BBC10DD00E008E7 /* PopulrWatch.app */; };
-		7ADDEE4A1BBC13ED00E008E7 /* MessagesTableRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADDEE491BBC13ED00E008E7 /* MessagesTableRowController.m */; };
-		7ADDEE4D1BBC196000E008E7 /* MessageInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADDEE4C1BBC196000E008E7 /* MessageInterfaceController.m */; };
 		7AE4D1EB1AE256B9006F6C83 /* SPContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D1EA1AE256B9006F6C83 /* SPContainerViewController.xib */; };
 		7AE4D1EF1AE25E1F006F6C83 /* SPAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1EE1AE25E1F006F6C83 /* SPAppearance.m */; };
 		7AE4D1F21AE2870E006F6C83 /* UILabel+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D1F11AE2870E006F6C83 /* UILabel+Custom.m */; };
@@ -111,42 +98,13 @@
 		F7A082C521D546EF00FE3F8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7A082C421D546EF00FE3F8F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		7ADDEE311BBC10DD00E008E7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7AB3D6DD1AC35A3900CA94DB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7ADDEE2E1BBC10DD00E008E7;
-			remoteInfo = "PopulrWatch Extension";
-		};
-		7ADDEE3D1BBC10DD00E008E7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7AB3D6DD1AC35A3900CA94DB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7ADDEE221BBC10DD00E008E7;
-			remoteInfo = PopulrWatch;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		7ADDEE431BBC10DD00E008E7 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				7ADDEE301BBC10DD00E008E7 /* PopulrWatch Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7ADDEE471BBC10DD00E008E7 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				7ADDEE3F1BBC10DD00E008E7 /* PopulrWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,7 +112,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6FDAB2F09C22C2EA94E5AA3F /* Pods-Populr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Populr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Populr/Pods-Populr.debug.xcconfig"; sourceTree = "<group>"; };
 		7A0CC55B1BBDDA4E00786A33 /* SPWatchUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPWatchUser.h; sourceTree = "<group>"; };
 		7A0CC55C1BBDDA4E00786A33 /* SPWatchUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPWatchUser.m; sourceTree = "<group>"; };
 		7A0CC55E1BBDDC2100786A33 /* SPWatchMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPWatchMessage.h; sourceTree = "<group>"; };
@@ -183,6 +140,8 @@
 		7A263D1B1AD5C10300D69F60 /* SPFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendsViewController.h; sourceTree = "<group>"; };
 		7A263D1C1AD5C10300D69F60 /* SPFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendsViewController.m; sourceTree = "<group>"; };
 		7A263D1D1AD5C10300D69F60 /* SPFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPFriendsViewController.xib; sourceTree = "<group>"; };
+		7A30C3A721726C07005ECAF5 /* TSMessagesDefaultDesign.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = TSMessagesDefaultDesign.json; path = Pods/TSMessages/Pod/Assets/TSMessagesDefaultDesign.json; sourceTree = "<group>"; };
+		7A30C3A921726D21005ECAF5 /* TSMessagesDefaultDesign.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TSMessagesDefaultDesign.json; sourceTree = "<group>"; };
 		7A3C4F5A1BB9EFFC00274A36 /* SPFriendFindingDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPFriendFindingDataSource.h; sourceTree = "<group>"; };
 		7A3C4F5B1BB9EFFC00274A36 /* SPFriendFindingDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFriendFindingDataSource.m; sourceTree = "<group>"; };
 		7A45F8A31B011DC5009BDA95 /* SPNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPNotification.h; sourceTree = "<group>"; };
@@ -281,7 +240,6 @@
 		7ADB12191B4C668900822094 /* SPMessageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageProcessor.m; sourceTree = "<group>"; };
 		7ADC27101B3208AA00B90798 /* NSError+Speedl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Speedl.h"; sourceTree = "<group>"; };
 		7ADC27111B3208AA00B90798 /* NSError+Speedl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Speedl.m"; sourceTree = "<group>"; };
-		7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		7ADCF4391B0688E3009834D5 /* SPSearchFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSearchFriendsViewController.h; sourceTree = "<group>"; };
 		7ADCF43A1B0688E3009834D5 /* SPSearchFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSearchFriendsViewController.m; sourceTree = "<group>"; };
 		7ADCF43B1B0688E3009834D5 /* SPSearchFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPSearchFriendsViewController.xib; sourceTree = "<group>"; };
@@ -291,11 +249,9 @@
 		7ADCF4431B06A265009834D5 /* SPUsersTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUsersTableDataSource.m; sourceTree = "<group>"; };
 		7ADCF4451B06A537009834D5 /* SPUsersTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUsersTableDelegate.h; sourceTree = "<group>"; };
 		7ADCF4461B06A537009834D5 /* SPUsersTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUsersTableDelegate.m; sourceTree = "<group>"; };
-		7ADDEE231BBC10DD00E008E7 /* PopulrWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopulrWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ADDEE261BBC10DD00E008E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		7ADDEE281BBC10DD00E008E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ADDEE2A1BBC10DD00E008E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7ADDEE2F1BBC10DD00E008E7 /* PopulrWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PopulrWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ADDEE341BBC10DD00E008E7 /* TableInterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableInterfaceController.h; sourceTree = "<group>"; };
 		7ADDEE351BBC10DD00E008E7 /* TableInterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableInterfaceController.m; sourceTree = "<group>"; };
 		7ADDEE371BBC10DD00E008E7 /* ExtensionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
@@ -324,20 +280,14 @@
 		7AE4D2061AE2AC28006F6C83 /* SPMessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMessageListViewController.m; sourceTree = "<group>"; };
 		7AE4D2071AE2AC28006F6C83 /* SPMessageListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SPMessageListViewController.xib; sourceTree = "<group>"; };
 		816A64983FABAE9275CD7EB1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		91E85D950D8BDB8592BE5941 /* Pods-Populr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Populr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Populr/Pods-Populr.release.xcconfig"; sourceTree = "<group>"; };
-		BDAA33C599B38E4058C78C87 /* Pods_Populr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Populr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE99D20149C2BBBDFE85ECBC /* Pods-Populr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Populr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Populr/Pods-Populr.debug.xcconfig"; sourceTree = "<group>"; };
+		E452F09B3094A256B6A49F3B /* Pods_Populr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Populr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED520DD5DFCFFCC417895368 /* Pods-Populr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Populr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Populr/Pods-Populr.release.xcconfig"; sourceTree = "<group>"; };
 		F7A082C421D546EF00FE3F8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		00DDAFE3420CCF24578DAC37 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7AB3D6E21AC35A3900CA94DB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -352,19 +302,12 @@
 				7AC02FAB1B1B9C1600B26A6E /* MobileCoreServices.framework in Frameworks */,
 				7AC02FA91B1B9C0B00B26A6E /* CoreLocation.framework in Frameworks */,
 				7AC02FA71B1B9C0500B26A6E /* CoreGraphics.framework in Frameworks */,
-				7ADC3AF11B1F7ECE004A0CD2 /* Crashlytics.framework in Frameworks */,
 				7AC02FA51B1B9BF000B26A6E /* CFNetwork.framework in Frameworks */,
 				7AC02FA31B1B9BE600B26A6E /* AudioToolbox.framework in Frameworks */,
 				7AC02FA11B1B9A1A00B26A6E /* Parse.framework in Frameworks */,
 				7AC02FBD1B1B9D4200B26A6E /* Bolts.framework in Frameworks */,
-				45F4E0B3E6F6393BB7CC0AFE /* Pods_Populr.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7ADDEE2C1BBC10DD00E008E7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				7A30C3A821726C07005ECAF5 /* TSMessagesDefaultDesign.json in Frameworks */,
+				48414608E442839389FD53AE /* Pods_Populr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,8 +582,6 @@
 			isa = PBXGroup;
 			children = (
 				7AB3D6E51AC35A3900CA94DB /* Populr.app */,
-				7ADDEE231BBC10DD00E008E7 /* PopulrWatch.app */,
-				7ADDEE2F1BBC10DD00E008E7 /* PopulrWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -671,6 +612,7 @@
 				7AB3D6EA1AC35A3900CA94DB /* main.m */,
 				7ACAA98A1BCC25C9000EBAC8 /* SPWatch-Prefix.pch */,
 				7ACAA98B1BCC2689000EBAC8 /* SharedMacros.h */,
+				7A30C3A921726D21005ECAF5 /* TSMessagesDefaultDesign.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -922,8 +864,8 @@
 			children = (
 				816A64983FABAE9275CD7EB1 /* Pods.debug.xcconfig */,
 				F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */,
-				6FDAB2F09C22C2EA94E5AA3F /* Pods-Populr.debug.xcconfig */,
-				91E85D950D8BDB8592BE5941 /* Pods-Populr.release.xcconfig */,
+				AE99D20149C2BBBDFE85ECBC /* Pods-Populr.debug.xcconfig */,
+				ED520DD5DFCFFCC417895368 /* Pods-Populr.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -931,7 +873,6 @@
 		B9562DC0C125E173ACDB9B68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7ADC3AF01B1F7ECE004A0CD2 /* Crashlytics.framework */,
 				7AC02FBC1B1B9D4200B26A6E /* Bolts.framework */,
 				7AC02FBA1B1B9C7300B26A6E /* Social.framework */,
 				7AC02FB81B1B9C6C00B26A6E /* Accounts.framework */,
@@ -946,7 +887,8 @@
 				7AC02FA41B1B9BF000B26A6E /* CFNetwork.framework */,
 				7AC02FA21B1B9BE600B26A6E /* AudioToolbox.framework */,
 				7AC02FA01B1B9A1A00B26A6E /* Parse.framework */,
-				BDAA33C599B38E4058C78C87 /* Pods_Populr.framework */,
+				E452F09B3094A256B6A49F3B /* Pods_Populr.framework */,
+				7A30C3A721726C07005ECAF5 /* TSMessagesDefaultDesign.json */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -962,54 +904,17 @@
 				7AB3D6E11AC35A3900CA94DB /* Sources */,
 				7AB3D6E21AC35A3900CA94DB /* Frameworks */,
 				7AB3D6E31AC35A3900CA94DB /* Resources */,
-				7ADC3AEE1B1F7CC9004A0CD2 /* Crashlytics */,
 				7ADDEE471BBC10DD00E008E7 /* Embed Watch Content */,
 				5F3637791C62A6BE290D88AD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7ADDEE3E1BBC10DD00E008E7 /* PBXTargetDependency */,
 			);
 			name = Populr;
 			productName = Speedl;
 			productReference = 7AB3D6E51AC35A3900CA94DB /* Populr.app */;
 			productType = "com.apple.product-type.application";
-		};
-		7ADDEE221BBC10DD00E008E7 /* PopulrWatch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7ADDEE441BBC10DD00E008E7 /* Build configuration list for PBXNativeTarget "PopulrWatch" */;
-			buildPhases = (
-				7ADDEE211BBC10DD00E008E7 /* Resources */,
-				7ADDEE431BBC10DD00E008E7 /* Embed App Extensions */,
-				00DDAFE3420CCF24578DAC37 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7ADDEE321BBC10DD00E008E7 /* PBXTargetDependency */,
-			);
-			name = PopulrWatch;
-			productName = PopulrWatch;
-			productReference = 7ADDEE231BBC10DD00E008E7 /* PopulrWatch.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		7ADDEE2E1BBC10DD00E008E7 /* PopulrWatch Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7ADDEE401BBC10DD00E008E7 /* Build configuration list for PBXNativeTarget "PopulrWatch Extension" */;
-			buildPhases = (
-				7ADDEE2B1BBC10DD00E008E7 /* Sources */,
-				7ADDEE2C1BBC10DD00E008E7 /* Frameworks */,
-				7ADDEE2D1BBC10DD00E008E7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "PopulrWatch Extension";
-			productName = "PopulrWatch Extension";
-			productReference = 7ADDEE2F1BBC10DD00E008E7 /* PopulrWatch Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -1033,19 +938,6 @@
 							};
 						};
 					};
-					7ADDEE221BBC10DD00E008E7 = {
-						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 8Y2GFS326V;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
-							};
-						};
-					};
-					7ADDEE2E1BBC10DD00E008E7 = {
-						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 8Y2GFS326V;
-					};
 				};
 			};
 			buildConfigurationList = 7AB3D6E01AC35A3900CA94DB /* Build configuration list for PBXProject "Populr" */;
@@ -1062,8 +954,6 @@
 			projectRoot = "";
 			targets = (
 				7AB3D6E41AC35A3900CA94DB /* Populr */,
-				7ADDEE221BBC10DD00E008E7 /* PopulrWatch */,
-				7ADDEE2E1BBC10DD00E008E7 /* PopulrWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1074,6 +964,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A216C221B1267E200F67B0F /* SPFriendsTableViewController.xib in Resources */,
+				7A30C3AC21726D43005ECAF5 /* TSMessagesDefaultDesign.json in Resources */,
 				7A89E4691BB2105000184756 /* SPSorryViewController.xib in Resources */,
 				7AE4D1EB1AE256B9006F6C83 /* SPContainerViewController.xib in Resources */,
 				7ADCF43D1B0688E3009834D5 /* SPSearchFriendsViewController.xib in Resources */,
@@ -1097,23 +988,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ADDEE211BBC10DD00E008E7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7ADDEE291BBC10DD00E008E7 /* Assets.xcassets in Resources */,
-				7ADDEE271BBC10DD00E008E7 /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7ADDEE2D1BBC10DD00E008E7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7ADDEE3B1BBC10DD00E008E7 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1124,15 +998,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Populr/Pods-Populr-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/APAddressBook/APAddressBook.framework",
 				"${BUILT_PRODUCTS_DIR}/CSNotificationView/CSNotificationView.framework",
 				"${BUILT_PRODUCTS_DIR}/CountryPicker/CountryPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FLKAutoLayout/FLKAutoLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageThrottle/MessageThrottle.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SVPullToRefresh/SVPullToRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SearchEmojiOnString/SearchEmojiOnString.framework",
 				"${BUILT_PRODUCTS_DIR}/TSMessages/TSMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionKit/TransitionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/libPhoneNumber-iOS/libPhoneNumber_iOS.framework",
@@ -1140,15 +1015,16 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APAddressBook.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CSNotificationView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountryPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLKAutoLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageThrottle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVPullToRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchEmojiOnString.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libPhoneNumber_iOS.framework",
@@ -1158,20 +1034,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Populr/Pods-Populr-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		7ADC3AEE1B1F7CC9004A0CD2 /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Crashlytics;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run a842d2a25e2a337bce79b6737d757ad5fc3c0df0 2915a7d24c2ffaf53cf7017e5264f49891d4221afda40c7a037a11be1edd507e";
 		};
 		F366ADAE9EFBDC6FDC0DC809 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1252,36 +1114,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ADDEE2B1BBC10DD00E008E7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A0CC55D1BBDDA4E00786A33 /* SPWatchUser.m in Sources */,
-				7ADDEE391BBC10DD00E008E7 /* ExtensionDelegate.m in Sources */,
-				7A0CC5631BBE995300786A33 /* SPWatchNetworkHelper.m in Sources */,
-				7A0CC5601BBDDC2100786A33 /* SPWatchMessage.m in Sources */,
-				7A7A62D11BC5D462008EE3B6 /* WKInterfaceLabel+Populr.m in Sources */,
-				7AB8D5F71BCC6ACA009B1B13 /* NSString+Speedl.m in Sources */,
-				7ADDEE4D1BBC196000E008E7 /* MessageInterfaceController.m in Sources */,
-				7ADDEE361BBC10DD00E008E7 /* TableInterfaceController.m in Sources */,
-				7ADDEE4A1BBC13ED00E008E7 /* MessagesTableRowController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7ADDEE321BBC10DD00E008E7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7ADDEE2E1BBC10DD00E008E7 /* PopulrWatch Extension */;
-			targetProxy = 7ADDEE311BBC10DD00E008E7 /* PBXContainerItemProxy */;
-		};
-		7ADDEE3E1BBC10DD00E008E7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7ADDEE221BBC10DD00E008E7 /* PopulrWatch */;
-			targetProxy = 7ADDEE3D1BBC10DD00E008E7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7AB3D6F71AC35A3900CA94DB /* LaunchScreen.xib */ = {
@@ -1339,7 +1172,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "4ea2923c-ac26-40d3-a8ba-21e5a3e5752c";
@@ -1377,7 +1210,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "4ea2923c-ac26-40d3-a8ba-21e5a3e5752c";
 				SDKROOT = iphoneos;
@@ -1388,12 +1221,12 @@
 		};
 		7AB3D7091AC35A3900CA94DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FDAB2F09C22C2EA94E5AA3F /* Pods-Populr.debug.xcconfig */;
+			baseConfigurationReference = AE99D20149C2BBBDFE85ECBC /* Pods-Populr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Populr.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7M3U5X3CNR;
 				ENABLE_BITCODE = NO;
@@ -1404,11 +1237,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "Speedl/Populr-Prefix.pch";
 				INFOPLIST_FILE = Speedl/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr;
 				PRODUCT_NAME = Populr;
-				PROVISIONING_PROFILE = "d5078258-5909-4798-af64-c66b09fee354";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1416,12 +1249,12 @@
 		};
 		7AB3D70A1AC35A3900CA94DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91E85D950D8BDB8592BE5941 /* Pods-Populr.release.xcconfig */;
+			baseConfigurationReference = ED520DD5DFCFFCC417895368 /* Pods-Populr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Populr.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7M3U5X3CNR;
 				ENABLE_BITCODE = NO;
@@ -1432,99 +1265,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "Speedl/Populr-Prefix.pch";
 				INFOPLIST_FILE = Speedl/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr;
 				PRODUCT_NAME = Populr;
-				PROVISIONING_PROFILE = "d5078258-5909-4798-af64-c66b09fee354";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		7ADDEE411BBC10DD00E008E7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Speedl/SPWatch-Prefix.pch";
-				INFOPLIST_FILE = "PopulrWatch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "d8b08ff2-0aaa-4662-b7f0-8dfe14f4f80c";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		7ADDEE421BBC10DD00E008E7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Speedl/SPWatch-Prefix.pch";
-				INFOPLIST_FILE = "PopulrWatch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "d8b08ff2-0aaa-4662-b7f0-8dfe14f4f80c";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Release;
-		};
-		7ADDEE451BBC10DD00E008E7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PopulrWatch/PopulrWatch.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Speedl/SPWatch-Prefix.pch";
-				IBSC_MODULE = PopulrWatch_Extension;
-				INFOPLIST_FILE = PopulrWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3403a2c3-27b7-4cc5-9db1-dc0eb02b8ee6";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		7ADDEE461BBC10DD00E008E7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PopulrWatch/PopulrWatch.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Desmond McNamee (6HH32QDXUU)";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Speedl/SPWatch-Prefix.pch";
-				IBSC_MODULE = PopulrWatch_Extension;
-				INFOPLIST_FILE = PopulrWatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = co.getpopulr.populr.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3403a2c3-27b7-4cc5-9db1-dc0eb02b8ee6";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -1545,24 +1292,6 @@
 			buildConfigurations = (
 				7AB3D7091AC35A3900CA94DB /* Debug */,
 				7AB3D70A1AC35A3900CA94DB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7ADDEE401BBC10DD00E008E7 /* Build configuration list for PBXNativeTarget "PopulrWatch Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7ADDEE411BBC10DD00E008E7 /* Debug */,
-				7ADDEE421BBC10DD00E008E7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7ADDEE441BBC10DD00E008E7 /* Build configuration list for PBXNativeTarget "PopulrWatch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7ADDEE451BBC10DD00E008E7 /* Debug */,
-				7ADDEE461BBC10DD00E008E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

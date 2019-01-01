@@ -17,6 +17,7 @@
 @property (strong, nonatomic) SPCustomTabView *customTabView;
 @property (strong, nonatomic) IBOutlet UILabel *nextButtonLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *nextButtonBottomConstraint;
 
 @end
 
@@ -47,6 +48,11 @@
     [self notLoadingState];
     [_tabContainerView addSubview:[self customTabView]];
     [SPAutoLayout constrainSubviewToFillSuperview:[self customTabView]];
+    
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if (screenHeight > 700) {
+        _nextButtonBottomConstraint.constant = 320;
+    }
 }
 
 - (SPCustomTabView *)customTabView {
@@ -112,7 +118,7 @@
     if ([newUsername containsString:@" "]) {
         [SPNotification showErrorNotificationWithMessage:@"No spaces, idiot." inViewController:self];
         return NO;
-    } else if ([newUsername containsEmojis]) {
+    } else if ([newUsername isIncludingEmoji]) {
         [SPNotification showErrorNotificationWithMessage:@"Sorry no Emojis. 😢" inViewController:self];
         return NO;
     }
