@@ -95,6 +95,7 @@
 		7AE4D2011AE2A749006F6C83 /* SPMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D1FF1AE2A749006F6C83 /* SPMessageTableViewCell.xib */; };
 		7AE4D2081AE2AC28006F6C83 /* SPMessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4D2061AE2AC28006F6C83 /* SPMessageListViewController.m */; };
 		7AE4D2091AE2AC28006F6C83 /* SPMessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE4D2071AE2AC28006F6C83 /* SPMessageListViewController.xib */; };
+		F7A082C521D546EF00FE3F8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7A082C421D546EF00FE3F8F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -282,6 +283,7 @@
 		AE99D20149C2BBBDFE85ECBC /* Pods-Populr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Populr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Populr/Pods-Populr.debug.xcconfig"; sourceTree = "<group>"; };
 		E452F09B3094A256B6A49F3B /* Pods_Populr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Populr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED520DD5DFCFFCC417895368 /* Pods-Populr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Populr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Populr/Pods-Populr.release.xcconfig"; sourceTree = "<group>"; };
+		F7A082C421D546EF00FE3F8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F9555CB790B98F993F9EC59E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -606,6 +608,7 @@
 			children = (
 				7AB3D7331AC35CC900CA94DB /* Populr-Prefix.pch */,
 				7AB3D6E91AC35A3900CA94DB /* Info.plist */,
+				F7A082C421D546EF00FE3F8F /* GoogleService-Info.plist */,
 				7AB3D6EA1AC35A3900CA94DB /* main.m */,
 				7ACAA98A1BCC25C9000EBAC8 /* SPWatch-Prefix.pch */,
 				7ACAA98B1BCC2689000EBAC8 /* SharedMacros.h */,
@@ -981,6 +984,7 @@
 				7A89E4731BB333F400184756 /* SPFriendFindingViewController.xib in Resources */,
 				7AE4D2011AE2A749006F6C83 /* SPMessageTableViewCell.xib in Resources */,
 				7A263D1F1AD5C10300D69F60 /* SPFriendsViewController.xib in Resources */,
+				F7A082C521D546EF00FE3F8F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -998,6 +1002,7 @@
 				"${BUILT_PRODUCTS_DIR}/CountryPicker/CountryPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/FLKAutoLayout/FLKAutoLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageThrottle/MessageThrottle.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
@@ -1006,6 +1011,7 @@
 				"${BUILT_PRODUCTS_DIR}/TSMessages/TSMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionKit/TransitionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/libPhoneNumber-iOS/libPhoneNumber_iOS.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1013,6 +1019,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountryPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLKAutoLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageThrottle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
@@ -1021,6 +1028,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TSMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libPhoneNumber_iOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

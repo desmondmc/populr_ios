@@ -9,6 +9,8 @@
 #import "SPMessage.h"
 #import "SPNetworkHelper.h"
 
+@import Firebase;
+
 @implementation SPMessage
 
 // date is a derived from timestamp
@@ -35,6 +37,12 @@
     url = [url stringByReplacingOccurrencesOfString:@"{id}" withString:[self.objectId stringValue]];
     
     NSURLRequest *request = [SPNetworkHelper postRequestWithURL:url andDictionary:nil];
+    
+    [FIRAnalytics logEventWithName:@"read_message"
+                        parameters:@{
+                                     @"message": self.message,
+                                     @"from_username": self.fromUsername,
+                                     }];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
