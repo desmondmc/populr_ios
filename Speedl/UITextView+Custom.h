@@ -11,6 +11,6 @@
 @interface UITextView (Custom)
 
 - (void)styleAsMainSpeedlTextView;
-- (NSMutableAttributedString *)getAttributedStringForTextView;
+- (NSMutableAttributedString *)mutableAttributedString;
 
 @end

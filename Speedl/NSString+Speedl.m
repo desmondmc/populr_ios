@@ -53,4 +53,15 @@
     return [self emo_containsEmoji];
 }
 
+// [NSString length] returns the number of 16 bit chars there are in the string. Since some characters are bigger than this like emojis 🤗, this isn't accurate. The function will return the actual number of unicode characters in the string. Meaning even emojis will be counted as one.
+- (int)unicodeLength {
+    __block int count = 0;
+    [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
+                                options:NSStringEnumerationByComposedCharacterSequences
+                             usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                                 count++;
+                             }];
+    return count;
+}
+
 @end

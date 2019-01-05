@@ -15,22 +15,8 @@
     self.textColor = [SPAppearance mainTextFieldColour];
 }
 
-- (NSMutableAttributedString *)getAttributedStringForTextView {
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString: self.attributedText];
-    
-    [attributedString addAttribute:NSForegroundColorAttributeName
-                             value:[SPAppearance mainTextFieldColour]
-                             range:NSMakeRange(0, [self.text length])];
-    [attributedString addAttribute:NSFontAttributeName
-                             value:[SPAppearance mainTextFieldFont]
-                             range:NSMakeRange(0, [self.text length])];
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init] ;
-    [paragraphStyle setAlignment:NSTextAlignmentCenter];
-    [attributedString addAttribute:NSParagraphStyleAttributeName
-                             value:paragraphStyle
-                             range:NSMakeRange(0, [self.text length])];
-    
-    return attributedString;
+- (NSMutableAttributedString *)mutableAttributedString {
+    return [[NSMutableAttributedString alloc] initWithAttributedString: self.attributedText];
 }
 
 

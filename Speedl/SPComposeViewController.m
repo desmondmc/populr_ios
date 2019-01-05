@@ -98,8 +98,6 @@
     [self.sendButton styleAsMainSpeedlButton];
     
     [self.messageTextView styleAsMainSpeedlTextView];
-    NSMutableAttributedString *attributedString = [self.messageTextView getAttributedStringForTextView];
-    [self.messageTextView setAttributedText:attributedString];
     
     self.sendLabel.textColor = [SPAppearance getMainBackgroundColour];
     [self.sendLabel styleAsSendLabel];
@@ -321,10 +319,6 @@
 {
     if ([textView.text isEqualToString:@""]) {
         textView.text = _placeHolderText;
-        
-        //need to make sure it's set
-        NSMutableAttributedString *attributedString = [self.messageTextView getAttributedStringForTextView];
-        [textView setAttributedText:attributedString];
     }
     
     [self hideHelpLabels:NO];
@@ -380,14 +374,7 @@
 }
 
 - (void)addSpaceIfNeeded:(NSString *)newText {
-    __block NSUInteger count = 0;
-    [newText enumerateSubstringsInRange:NSMakeRange(0, [newText length])
-                               options:NSStringEnumerationByComposedCharacterSequences
-                            usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-                                count++;
-                            }];
-    
-    if (count == 1 && [newText isIncludingEmoji]) {
+    if ([newText unicodeLength] == 1 && [newText isIncludingEmoji]) {
         [_messageTextView replaceRange:_messageTextView.selectedTextRange withText:@" "];
     }
 }

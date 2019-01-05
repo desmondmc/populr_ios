@@ -175,15 +175,14 @@
     _followerIDsInMessage = [self getVarifiedUserIDsWithUsernames:potentialUsernames
                                                                users:followersArray
                                                   wordToHighlight:&wordsToHighlight];
+
     [self highlightWords:wordsToHighlight inTextView:textView];
     [self setupMessageTypeAndNotifyDelegateOfChange];
 }
 
 - (void)highlightWords:(NSArray *)words inTextView:(UITextView *)textView {
-    NSMutableAttributedString *attributedString = nil;
-    
-    attributedString = [textView getAttributedStringForTextView];
-    
+    NSMutableAttributedString *attributedString = [textView mutableAttributedString];
+
     // Then we go through and highlight all the necisarry words.
     for (NSString *word in words) {
         NSRange highlightWordRange = [textView.text rangeOfString:word];

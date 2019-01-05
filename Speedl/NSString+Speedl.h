@@ -13,5 +13,5 @@
 - (BOOL)isNilOrBlank;
 - (BOOL)isIncludingEmoji;
 - (NSString *)removeNonAlphaNumericalEnding;
-
+- (int)unicodeLength;
 @end
