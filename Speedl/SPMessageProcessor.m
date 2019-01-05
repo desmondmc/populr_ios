@@ -182,6 +182,11 @@
 
 - (void)highlightWords:(NSArray *)words inTextView:(UITextView *)textView {
     NSMutableAttributedString *attributedString = [textView mutableAttributedString];
+    
+    // Set all text to mainTextFieldColour before highlighting
+    [attributedString addAttribute:NSForegroundColorAttributeName
+                             value:[SPAppearance mainTextFieldColour]
+                             range:NSMakeRange(0, [textView.text length])];
 
     // Then we go through and highlight all the necisarry words.
     for (NSString *word in words) {
